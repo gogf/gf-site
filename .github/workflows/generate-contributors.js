@@ -1,5 +1,5 @@
 const fs = require("fs")
-const sharp = require('sharp');
+const sharp = require('sharp')
 
 // github api url
 const githubUrl = `https://api.github.com/repos/gogf/gf/contributors`
@@ -16,7 +16,6 @@ const xSpace = 4, ySpace = 4
 // 每一行的头像数量
 const row = 20
 
-// 使用示例
 getContributors().then(contributors => {
     genSvg(contributors).then(r => {
         console.log(`${svgPath} 生成成功, 一共 ${contributors.length} 个贡献者`)
@@ -25,7 +24,7 @@ getContributors().then(contributors => {
     console.error(error)
 })
 
-
+// getContributors 获取所有的贡献者
 async function getContributors() {
     const contributors = []
     let page = 1
@@ -52,6 +51,7 @@ async function getContributors() {
     return contributors
 }
 
+// genSvg 生成 svg 文件
 async function genSvg(data) {
     let contributorsArr = chunkArray(data, row)
 
