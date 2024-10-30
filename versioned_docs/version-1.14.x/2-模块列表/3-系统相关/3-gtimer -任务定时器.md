@@ -91,7 +91,7 @@ import "github.com/gogf/gf/os/gtimer"
 
 ### 性能基准测试
 
-```undefined
+```bash
 goos: linux
 goarch: amd64
 pkg: github.com/gogf/gf/os/gtimer
@@ -126,7 +126,7 @@ func main() {
 
 执行后，输出结果为:
 
-```undefined
+```bash
 2019-01-17 18:17:37.022442 +0800 CST m=+1.354132542 1.353568s
 2019-01-17 18:17:38.422467 +0800 CST m=+2.754148119 1.399624s
 2019-01-17 18:17:39.82318 +0800 CST m=+4.154851847 1.40066s
@@ -160,7 +160,7 @@ func main() {
 
 执行后，输出结果为:
 
-```undefined
+```bash
 2019-01-23 17:04:18.892 doing
 2019-01-23 17:04:24.890 doing
 2019-01-23 17:04:29.892 doing

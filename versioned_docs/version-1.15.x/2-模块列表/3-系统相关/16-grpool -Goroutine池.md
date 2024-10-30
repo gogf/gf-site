@@ -121,7 +121,7 @@ func main() {
 
 我们这段代码的目的是要顺序地打印出0-9，然而运行后却输出：
 
-```undefined
+```bash
 10
 10
 10
@@ -167,7 +167,7 @@ func main() {
 
 执行后，输出结果为：
 
-```undefined
+```bash
 9
 0
 1
@@ -213,7 +213,7 @@ func main() {
 
 执行后，输出结果为：
 
-```undefined
+```bash
 9
 0
 1

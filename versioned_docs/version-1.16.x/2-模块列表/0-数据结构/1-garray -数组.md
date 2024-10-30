@@ -466,7 +466,7 @@ func main() {
 
 1. `Marshal`
 
-```undefined
+```bash
 package mainimport (
     "encoding/json"
     "fmt"
@@ -523,7 +523,7 @@ func main() {
 
 执行后，输出结果：
 
-```undefined
+```bash
 {1 john [100,99,98]}
 
 ```

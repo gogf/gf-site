@@ -52,7 +52,7 @@ func main() {
 
 执行后，输出结果：
 
-```undefined
+```bash
 [-1,0,"a",1,2]
 -1
 2
@@ -132,7 +132,7 @@ func main() {
 
 执行后，输出结果为：
 
-```undefined
+```bash
 12345678910
 10987654321
 12345678910
@@ -196,7 +196,7 @@ func main() {
 
 `glist` 容器实现了标准库 `json` 数据格式的序列化/反序列化接口。 1\. `Marshal` “\`go package main
 
-````undefined
+```go
 import (
     "encoding/json"
     "fmt"
@@ -219,17 +219,14 @@ func main() {
     fmt.Println(string(b))
 }
 ```
+
 执行后，输出结果：
-```
+
+```bash
 {"Id":1,"Name":"john","Scores":[100,99,98]}
 ```
 
-````
-
 1. `Unmarshal`
-
-
-
 
    ```go
    package main
@@ -256,23 +253,18 @@ func main() {
 
    ```
 
-
    执行后，输出结果：
 
-
-
-
-   ```undefined
+   ```bash
    {1 john [100,99,98]}
 
    ```
 
-
 ### 性能测试
 
-[https://github.com/gogf/gf/blob/master/container/glist/glist\_z\_bench\_test.go](https://github.com/gogf/gf/blob/master/container/glist/glist_z_bench_test.go)
+[https://github.com/gogf/gf/blob/master/container/glist/glist_z_bench_test.go](https://github.com/gogf/gf/blob/master/container/glist/glist_z_bench_test.go)
 
-```undefined
+```bash
 goos: linux
 goarch: amd64
 pkg: github.com/gogf/gf/container/glist

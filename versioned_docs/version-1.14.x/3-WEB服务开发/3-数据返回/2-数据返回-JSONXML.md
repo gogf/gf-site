@@ -41,7 +41,7 @@ func main() {
 
 执行后，我们通过 `curl` 工具测试下：
 
-```undefined
+```bash
 $ curl -i http://127.0.0.1:8199/json
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -83,7 +83,7 @@ func main() {
 
 执行后，我们通过 `curl` 工具测试下：
 
-```undefined
+```bash
 $ curl -i "http://127.0.0.1:8199/jsonp?callback=MyCallback"
 HTTP/1.1 200 OK
 Server: GF HTTP Server
@@ -124,7 +124,7 @@ func main() {
 
 执行后，我们通过 `curl` 工具测试下：
 
-```undefined
+```bash
 $ curl -i http://127.0.0.1:8199/xml
 HTTP/1.1 200 OK
 Content-Type: application/xml

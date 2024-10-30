@@ -46,7 +46,7 @@ Seconds Minutes Hours Day Month Week
 
 每个字段的含义如下：
 
-```undefined
+```bash
 Field name    | Allowed values  | Allowed special characters
 ----------    | --------------  | --------------------------
 Seconds       | 0-59            | * / , -
@@ -86,7 +86,7 @@ Week          | 0-6 or SUN-SAT  | * / , - ?
 
 您可以使用几个预定义的时间来代替cron表达式。
 
-```undefined
+```bash
 Entry                  | Description                                | Equivalent To
 -----                  | -----------                                | -------------
 @yearly (or @annually) | Run once a year, midnight, Jan. 1st        | 0 0 0 1 1 *
@@ -101,7 +101,7 @@ Entry                  | Description                                | Equivalent
 
 您还可以定义任务以固定的时间间隔执行，从添加时开始运行。这可以通过格式化 `cron` 规范来支持，如下所示：
 
-```undefined
+```bash
 @every <duration>
 
 ```

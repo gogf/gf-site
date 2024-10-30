@@ -36,7 +36,7 @@ func Symbols(n int) string
 
 ### 字符列表
 
-```undefined
+```bash
 字符类型  字符列表
 数字字符  0123456789
 英文字符  abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ

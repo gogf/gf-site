@@ -6,11 +6,11 @@ hide_title: true
 
 支持并发安全开关选项的 `map` 容器，最常用的数据结构。该模块包含多个数据结构的 `map` 容器： `HashMap`、 `TreeMap` 和 `ListMap`。
 
-| 类型 | 数据结构 | 平均复杂度 | 支持排序 | 有序遍历 | 说明 |
-| --- | --- | --- | --- | --- | --- |
-| `HashMap` | 哈希表 | O(1) | 否 | 否 | 高性能读写操作，内存占用较高，随机遍历 |
-| `ListMap` | 哈希表+双向链表 | O(2) | 否 | 是 | 支持按照写入顺序遍历，内存占用较高 |
-| `TreeMap` | 红黑树 | O(log N) | 是 | 是 | 内存占用紧凑，支持键名排序及有序遍历 |
+| 类型      | 数据结构        | 平均复杂度 | 支持排序 | 有序遍历 | 说明                                   |
+| --------- | --------------- | ---------- | -------- | -------- | -------------------------------------- |
+| `HashMap` | 哈希表          | O(1)       | 否       | 否       | 高性能读写操作，内存占用较高，随机遍历 |
+| `ListMap` | 哈希表+双向链表 | O(2)       | 否       | 是       | 支持按照写入顺序遍历，内存占用较高     |
+| `TreeMap` | 红黑树          | O(log N)   | 是       | 是       | 内存占用紧凑，支持键名排序及有序遍历   |
 
 > 此外， `gmap` 模块支持多种以哈希表为基础数据结构的常见类型 `map` 定义： `IntIntMap`、 `IntStrMap`、 `IntAnyMap`、 `StrIntMap`、 `StrStrMap`、 `StrAnyMap`。
 
@@ -123,7 +123,7 @@ func main() {
 
 执行后，输出结果为：
 
-```html
+```bash
 10
 12
 true
@@ -179,14 +179,13 @@ func main() {
 
 执行后，输出结果为：
 
-```html
+```bash
 HashMap   Keys: [4 6 8 7 9 2 3 1 5]
 HashMap Values: [6 8 4 3 1 5 7 9 2]
 ListMap   Keys: [2 3 1 5 4 6 8 7 9]
 ListMap Values: [2 3 1 5 4 6 8 7 9]
 TreeMap   Keys: [1 2 3 4 5 6 7 8 9]
 TreeMap Values: [1 2 3 4 5 6 7 8 9]
-
 ```
 
 ### `FilterEmpty/FilterNil` 空值过滤
@@ -366,7 +365,7 @@ func main() {
 
 `gmap` 模块下的所有容器类型均实现了标准库 `json` 数据格式的序列化/反序列化接口。 1\. `Marshal` “\`go package main
 
-````undefined
+```go
 import (
     "encoding/json"
     "fmt"
@@ -385,17 +384,14 @@ func main() {
     fmt.Println(string(b))
 }
 ```
-执行后，输出结果：
-```
-{"name":"john","score":100}
-```
 
-````
+执行后，输出结果：
+
+```bash
+{ "name": "john", "score": 100 }
+```
 
 1. `Unmarshal`
-
-
-
 
    ```go
    package main
@@ -417,23 +413,17 @@ func main() {
 
    ```
 
-
    执行后，输出结果：
 
-
-
-
-   ```undefined
+   ```bash
    map[name:john score:100]
-
    ```
-
 
 ## 性能测试
 
 ### 并发安全
 
-[https://github.com/gogf/gf/blob/master/container/gmap/gmap\_z\_bench\_safe\_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_safe_test.go)
+[https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_safe_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_safe_test.go)
 
 ```shell
 goos: linux
@@ -457,7 +447,7 @@ Benchmark_StrStrMap_Get-4               20000000              91.9 ns/op        
 
 ### 非并发安全
 
-[https://github.com/gogf/gf/blob/master/container/gmap/gmap\_z\_bench\_unsafe\_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_unsafe_test.go)
+[https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_unsafe_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_unsafe_test.go)
 
 ```shell
 goos: linux
@@ -479,9 +469,9 @@ Benchmark_Unsafe_StrStrMap_Get-4         5000000               229 ns/op        
 
 ```
 
-### 不同类型map性能
+### 不同类型 map 性能
 
-[https://github.com/gogf/gf/blob/master/container/gmap/gmap\_z\_bench\_maps\_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_maps_test.go)
+[https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_maps_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_maps_test.go)
 
 ```shell
 goos: linux
@@ -497,9 +487,9 @@ Benchmark_TreeMap_Get-4                 20000000               189 ns/op        
 
 ### `gmap` 与 `sync.Map` 性能比较
 
-go语言从 `1.9` 版本开始引入了并发安全的 `sync.Map`，但 `gmap` 比较于标准库的 `sync.Map` 性能更加优异，并且功能更加丰富。
+go 语言从 `1.9` 版本开始引入了并发安全的 `sync.Map`，但 `gmap` 比较于标准库的 `sync.Map` 性能更加优异，并且功能更加丰富。
 
-我们来看看基准测试对比结果： [https://github.com/gogf/gf/blob/master/container/gmap/gmap\_z\_bench\_syncmap\_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_syncmap_test.go)
+我们来看看基准测试对比结果： [https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_syncmap_test.go](https://github.com/gogf/gf/blob/master/container/gmap/gmap_z_bench_syncmap_test.go)
 
 ```shell
 goos: linux

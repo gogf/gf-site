@@ -40,7 +40,7 @@ func (v *Int) Val() int
 
 ```
 
-#### 示例1，基本使用
+#### 示例 1，基本使用
 
 ```go
 package main
@@ -68,18 +68,18 @@ func main() {
 
 执行后，输出结果为：
 
-```html
+```bash
 0
 10
 9
 
 ```
 
-#### 示例2，JSON序列化/反序列
+#### 示例 2，JSON 序列化/反序列
 
 `gtype` 模块下的所有容器类型均实现了标准库 `json` 数据格式的序列化/反序列化接口。 1\. `Marshal` “\`go package main
 
-````undefined
+```go
 import (
     "encoding/json"
     "fmt"
@@ -101,17 +101,14 @@ func main() {
     fmt.Println(string(b))
 }
 ```
-执行后，输出结果：
-```
-{"Id":1,"Name":"john","Scores":[100,99,98]}
-```
 
-````
+执行后，输出结果：
+
+```bash
+{ "Id": 1, "Name": "john", "Scores": [100, 99, 98] }
+```
 
 1. `Unmarshal`
-
-
-
 
    ```go
    package main
@@ -138,17 +135,11 @@ func main() {
 
    ```
 
-
    执行后，输出结果：
 
-
-
-
-   ```undefined
+   ```bash
    {1 john [100,99,98]}
-
    ```
-
 
 ### 性能测试
 

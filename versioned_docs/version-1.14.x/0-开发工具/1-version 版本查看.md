@@ -11,7 +11,7 @@ hide_title: true
 
 用以查看当前 `gf` 命令行工具编译时的版本信息。例如：
 
-```undefined
+```bash
 $ gf -v
 GoFrame CLI Tool v0.7.5, https://goframe.org
 Built Detail:

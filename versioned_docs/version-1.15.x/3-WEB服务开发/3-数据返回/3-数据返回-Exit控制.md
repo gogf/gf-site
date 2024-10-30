@@ -41,7 +41,7 @@ func main() {
 
 执行后，我们访问 [http://127.0.0.1:8199/?type=1](http://127.0.0.1:8199/?type=1) ，可以看到页面输出了：
 
-```undefined
+```bash
 john
 smith
 
@@ -74,7 +74,7 @@ func main() {
 
 执行后，我们再次访问 [http://127.0.0.1:8199/?type=1](http://127.0.0.1:8199/?type=1) ，可以看到页面输出了：
 
-```undefined
+```bash
 john
 
 ```

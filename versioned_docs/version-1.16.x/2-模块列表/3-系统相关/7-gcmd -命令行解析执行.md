@@ -71,7 +71,7 @@ gf -n app build -o linux -a amd64 main.go
 
 此外，使用 `Parse` 方法创建自定义解析的情况下，命令行的选项与数据之间可以通过空格，也可以通过 `=` 符号进行连接，如：
 
-```undefined
+```bash
 gf build main.go -a=amd64 -o=linux -n=app
 
 ```
@@ -82,7 +82,7 @@ gf build main.go -a=amd64 -o=linux -n=app
 
 **1、示例1，命令行中带有 `=` 符号的场景下**
 
-```undefined
+```bash
 gf build main.go -a=amd64 -o=linux -n=app -f
 
 ```
@@ -94,7 +94,7 @@ gf build main.go -a=amd64 -o=linux -n=app -f
 
 **2、示例2，假如默认规则下，不使用 `=` 符号来连接选项参数**
 
-```undefined
+```bash
 gf build main.go -a amd64 -o linux -n app -f
 
 ```

@@ -124,7 +124,7 @@ func main() {
 
 如果想要进行详细的性能分析，基本上离不开 `go tool pprof` 命令行工具的支持，在开启性能分析支持后，我们可以使用以下命令执行性能采集分析：
 
-```undefined
+```bash
 go tool pprof "http://127.0.0.1:8199/debug/pprof/profile"
 ```
 

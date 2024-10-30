@@ -102,7 +102,7 @@ gf -n app build -o linux -a amd64 main.go
 
 此外，使用 `Parse` 方法创建自定义解析的情况下，命令行的选项与数据之间可以通过空格，也可以通过 `=` 符号进行连接，如：
 
-```undefined
+```bash
 gf build main.go -a=amd64 -o=linux -n=app
 
 ```
@@ -111,7 +111,7 @@ gf build main.go -a=amd64 -o=linux -n=app
 
 由于 `gcmd` 模块提供了一些包方法用以获取默认的命令行解析规则。在默认规则下，选项名称与数据之间应当使用 `=` 连接（不支持空格），没有 `=` 符号的选项表示无数据选项。例如，
 
-```undefined
+```bash
 gf build main.go -a=amd64 -o=linux -n=app -f
 
 ```
@@ -120,7 +120,7 @@ gf build main.go -a=amd64 -o=linux -n=app -f
 
 假如默认规则下，不使用 `=` 符号来连接选项参数，例如：
 
-```undefined
+```bash
 gf build main.go -a amd64 -o linux -n app -f
 
 ```

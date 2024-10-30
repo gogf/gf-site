@@ -171,7 +171,7 @@ func main() {
 
 执行后，终端输出的路由表信息如下：
 
-```undefined
+```bash
   SERVER  | ADDRESS | DOMAIN  | METHOD | P | ROUTE |        HANDLER        |    MIDDLEWARE
 |---------|---------|---------|--------|---|-------|-----------------------|-------------------|
   default |  :8199  | default | ALL    | 1 | /     | main.main.func1       |
@@ -185,7 +185,7 @@ func main() {
 
 手动访问 [http://127.0.0.1:8199/](http://127.0.0.1:8199/) 后，页面输出内容为：
 
-```undefined
+```bash
 set name
 set site
 GoFrame

@@ -55,6 +55,6 @@ func main() {
 
 在 `Linux` 下可以使用以下命令向服务端发送 `UDP` 数据进行测试，随后查看服务端端是否有输出：
 
-```undefined
+```bash
 echo "hello" > /dev/udp/127.0.0.1/8999
 ```

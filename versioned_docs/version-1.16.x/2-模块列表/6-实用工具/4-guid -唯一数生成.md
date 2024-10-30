@@ -56,7 +56,7 @@ func S(data ...[]byte) string
 
 ### 基准测试
 
-```undefined
+```bash
 goos: linux
 goarch: amd64
 pkg: github.com/gogf/gf/util/guid
@@ -88,7 +88,7 @@ func main() {
 
 执行后，输出结果为：
 
-```undefined
+```bash
 TraceId: oa9sdw03dk0c35q9bdwcnz42p00trwfr
 
 ```

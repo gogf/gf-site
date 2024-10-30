@@ -61,7 +61,7 @@ func main() {
 
 执行后，访问 [http://127.0.0.1:8199/](http://127.0.0.1:8199/) ，页面输出内容为：
 
-```undefined
+```bash
 HBm876TFCde435Tgf
 
 ```
@@ -106,6 +106,6 @@ func main() {
 
 执行后，访问 [http://127.0.0.1:8199/](http://127.0.0.1:8199/) ，页面输出内容为：
 
-```undefined
+```bash
 HBm876TFCde435Tgf
 ```

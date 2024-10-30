@@ -53,7 +53,7 @@ hide_title: true
 
 
 
-   ```undefined
+   ```bash
    姓名: &lt;script&gt;alert(&#39;john&#39;);&lt;/script&gt;
 
    ```

@@ -83,7 +83,7 @@ func main() {
 
 执行后，输出结果为：
 
-```html
+```bash
 3
 true
 [1 2 3]
@@ -92,7 +92,6 @@ Iterator: 2
 [1 2]
 map[1:{} 2:{} 4:{}]
 0
-
 ```
 
 #### 交差并补集
@@ -107,10 +106,10 @@ func (set *Set) Complement(full *Set) (newSet *Set)
 
 ```
 
-1. `Intersect`: 交集，属于set且属于others的元素为元素的集合。
-2. `Diff`: 差集，属于set且不属于others的元素为元素的集合。
-3. `Union`: 并集，属于set或属于others的元素为元素的集合。
-4. `Complement`: 补集，(前提: set应当为full的子集)属于全集full不属于集合set的元素组成的集合。如果给定的full集合不是set的全集时，返回full与set的差集.
+1. `Intersect`: 交集，属于 set 且属于 others 的元素为元素的集合。
+2. `Diff`: 差集，属于 set 且不属于 others 的元素为元素的集合。
+3. `Union`: 并集，属于 set 或属于 others 的元素为元素的集合。
+4. `Complement`: 补集，(前提: set 应当为 full 的子集)属于全集 full 不属于集合 set 的元素组成的集合。如果给定的 full 集合不是 set 的全集时，返回 full 与 set 的差集.
 
 通过集合方法我们可以发现，交差并集方法支持多个集合参数进行计算。以下为简化示例，只使用一个参数集合。
 
@@ -142,12 +141,11 @@ func main() {
 
 执行后，输出结果为：
 
-```html
+```bash
 [1 2 3]
 [4 5 6 7]
 [1 2 3 4 5 6]
 [7 4 5 6]
-
 ```
 
 #### `Contains/ContainsI` 包含判断
@@ -312,7 +310,7 @@ func main() {
 
 `gset` 模块下的所有容器类型均实现了标准库 `json` 数据格式的序列化/反序列化接口。 1\. `Marshal` “\`go package main
 
-````undefined
+```go
 import (
     "encoding/json"
     "fmt"
@@ -334,17 +332,14 @@ func main() {
     fmt.Println(string(b))
 }
 ```
-执行后，输出结果：
-```
-{"Id":1,"Name":"john","Scores":[100,99,98]}
-```
 
-````
+执行后，输出结果：
+
+```bash
+{ "Id": 1, "Name": "john", "Scores": [100, 99, 98] }
+```
 
 1. `Unmarshal`
-
-
-
 
    ```go
    package main
@@ -371,23 +366,17 @@ func main() {
 
    ```
 
-
    执行后，输出结果：
 
-
-
-
-   ```undefined
+   ```bash
    {1 john [100,99,98]}
-
    ```
-
 
 ### 性能测试
 
-[https://github.com/gogf/gf/blob/master/container/gset/gset\_z\_bench\_test.go](https://github.com/gogf/gf/blob/master/container/gset/gset_z_bench_test.go)
+[https://github.com/gogf/gf/blob/master/container/gset/gset_z_bench_test.go](https://github.com/gogf/gf/blob/master/container/gset/gset_z_bench_test.go)
 
-```html
+```bash
 goos: linux
 goarch: amd64
 Benchmark_IntSet_Add-4                  10000000               277 ns/op               8 B/op          0 allocs/op

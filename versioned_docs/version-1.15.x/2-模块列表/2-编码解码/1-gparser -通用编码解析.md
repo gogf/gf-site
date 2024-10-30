@@ -126,7 +126,7 @@ if p, e := gparser.LoadContent([]byte(data), true); e != nil {
 
 执行后，输出结果为：
 
-```undefined
+```bash
 100
 2
 
@@ -251,7 +251,7 @@ fmt.Println(string(c))
 
 执行后，输出结果为：
 
-```undefined
+```bash
 Order 1 Price: 666
 {"orders":{"list":{"0":{"id":1,"price":100},"1":{"id":2,"price":666},"2":{"id":3,"price":999.99}}}}
 

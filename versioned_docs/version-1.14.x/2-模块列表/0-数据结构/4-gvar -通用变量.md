@@ -112,7 +112,7 @@ func main() {
 
 
 
-```undefined
+```bash
     {"Id":1,"Name":"john","Scores":[100,99,98]}
 ```
 
@@ -149,6 +149,6 @@ func main() {
 
 
 
-```undefined
+```bash
     {1 john [100,99,98]}
 ```

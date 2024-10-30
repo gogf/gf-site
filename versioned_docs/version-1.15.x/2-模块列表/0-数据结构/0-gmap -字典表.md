@@ -422,7 +422,7 @@ func main() {
 
 执行后，输出结果：
 
-```undefined
+```bash
 map[name:john score:100]
 
 ```
