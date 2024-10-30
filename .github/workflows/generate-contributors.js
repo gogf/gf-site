@@ -6,8 +6,10 @@ const githubUrl = `https://api.github.com/repos/gogf/gf/contributors`
 
 // 生成 svg 的位置
 const svgPath = "../../static/img/contributors.svg"
+// 单个头像压缩放大比例, 尽量是整数, 配合 quality 可以有效压缩图片并保证清晰度
+const scaleFactor = 2
 // 单个头像的质量, 1 - 100
-const quality = 50
+const quality = 30
 
 // 单个头像的宽高
 const width = 54, height = 54
@@ -121,11 +123,13 @@ async function generateAvatar(contributor, x, y) {
 async function convertImageToBase64(url) {
     const response = await fetch(url)
     const buffer = await response.arrayBuffer()
+    const w = Math.round(width * scaleFactor);
+    const h = Math.round(height * scaleFactor);
 
     // 宽高比*1.5, 这样配合压缩质量 quality 可以得到更好的效果
     const compressedBuffer = await sharp(Buffer.from(buffer))
         .toFormat("jpeg", { quality })
-        .resize(width*1.5, height*1.5)
+        .resize(w, h)
         .toBuffer()
     const base64Image = compressedBuffer.toString("base64")
 
