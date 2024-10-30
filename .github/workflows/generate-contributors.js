@@ -123,8 +123,11 @@ async function generateAvatar(contributor, x, y) {
 async function convertImageToBase64(url) {
     const response = await fetch(url)
     const buffer = await response.arrayBuffer()
+    const w = width * scaleFactor
+    const h = height * scaleFactor
 
     const compressedBuffer = await sharp(Buffer.from(buffer))
+        .resize(w, h)
         .toFormat("jpeg", { quality })
         .toBuffer()
     const base64Image = compressedBuffer.toString("base64")
