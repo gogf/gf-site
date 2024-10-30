@@ -7,10 +7,10 @@ const githubUrl = `https://api.github.com/repos/gogf/gf/contributors`
 // 生成 svg 的位置
 const svgPath = "../../static/img/contributors.svg"
 // 单个头像的质量, 1 - 100
-const quality = 5
+const quality = 50
 
 // 单个头像的宽高
-const width = 62, height = 62
+const width = 54, height = 54
 // 头像之间的间距
 const xSpace = 4, ySpace = 4
 // 每一行的头像数量
@@ -122,8 +122,10 @@ async function convertImageToBase64(url) {
     const response = await fetch(url)
     const buffer = await response.arrayBuffer()
 
+    // 宽高比*1.5, 这样配合压缩质量 quality 可以得到更好的效果
     const compressedBuffer = await sharp(Buffer.from(buffer))
         .toFormat("jpeg", { quality })
+        .resize(width*1.5, height*1.5)
         .toBuffer()
     const base64Image = compressedBuffer.toString("base64")
 
