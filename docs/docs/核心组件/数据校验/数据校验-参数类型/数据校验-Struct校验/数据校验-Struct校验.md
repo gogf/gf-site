@@ -1,7 +1,6 @@
 ---
-slug: '/docs/components/error'
-title: '错误管理'
-sidebar_position: 8
+slug: '/docs/core/gvalid-parameter-type-struct'
+title: '数据校验-Struct校验'
 hide_title: true
 ---
 

@@ -110,6 +110,10 @@ body .button--secondary {
   margin-top: 20px;
 }
 
+.markdown > section:first-child {
+  margin-top: 20px;
+}
+
 code {
   padding: 0.2em 0.4em;
   background-color: rgba(27,31,35,0.03);

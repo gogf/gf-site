@@ -40,6 +40,7 @@ import (
 :::warning
 `gredis.Redis` 客户端对象提供了一个 `Close` 方法，该方法用于关闭 `Redis` 客户端（同时关闭客户端的连接池），而不是连接对象，开发者基本不会用到，非高级玩家请不要使用。
 :::
+
 ## 组件特性
 
 `gredis` 具有以下显著特性：
@@ -53,4 +54,7 @@ import (
 - 支持单例对象、也支持动态创建对象
 - 接口化设计，很高的灵活性和扩展性
 
-    
+## 相关文档
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

@@ -1,5 +1,5 @@
 ---
-slug: '/docs/core/gvalid-parameter-type-map'
+slug: '/docs/core/gvalid-parameter-type-map-example'
 title: 'Map校验-基本使用'
 sidebar_position: 0
 hide_title: true
@@ -38,7 +38,7 @@ func main() {
 
 执行后，终端输出：
 
-```
+```javascript
 {
     "passport": {
         "required": "The passport field is required",
@@ -91,7 +91,7 @@ func main() {
 
 该示例同时也展示了 `messsages` 自定义错误信息传递的两种数据类型， `string` 或者 `map[string]string`。其中 `map[string]string` 类型参数需要指定对应字段、对应规则的错误提示信息，是一个二维的“关联数组”。该示例执行后，终端输出：
 
-```
+```javascript
 {
     "passport": {
             "length": "账号长度应当在6到16之间",

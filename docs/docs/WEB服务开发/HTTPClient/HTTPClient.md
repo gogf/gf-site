@@ -77,4 +77,8 @@ func (r *Response) Close() error
 1. `ghttp` 客户端默认关闭了 `KeepAlive` 功能以及对服务端 `TLS` 证书的校验功能，如果需要启用可自定义客户端的 `Transport` 属性。
 2. **连接池参数设定**、 **连接代理设置** 等这些高级功能也可以通过自定义客户端的 `Transport` 属性实现，该数据继承于标准库的 `http.Transport` 对象。
 
-    
+## 相关文档
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

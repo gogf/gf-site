@@ -34,4 +34,8 @@ DESCRIPTION
     Please use "gf gen dao -h" for specified type help.
 ```
 
-    
+## 相关文档
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

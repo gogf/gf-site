@@ -39,3 +39,8 @@ type Driver interface {
 ```
 
 其中的 `New` 方法用于根据 `Core` 数据库基础对象以及 `ConfigNode` 配置对象创建驱动对应的数据库操作对象，需要注意的是，返回的数据库对象需要实现 `DB` 接口。而数据库基础对象 `Core` 已经实现了 `DB` 接口，因此开发者只需要”继承” `Core` 对象，然后根据需要覆盖对应的接口实现方法即可。
+
+## 相关文档
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

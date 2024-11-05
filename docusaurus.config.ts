@@ -90,10 +90,10 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
           sidebarId: 'quickSidebar',
           position: 'left',
           label: '快速开始',
+          to: '/quick/install',
         },
         {
           position: 'left',

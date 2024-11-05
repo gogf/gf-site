@@ -5,6 +5,8 @@ sidebar_position: 0
 hide_title: true
 ---
 
+
+## 基本介绍
 `gtcp` 模块实现简便易用、轻量级的 `TCPServer` 服务端。
 
 **使用方式**：
@@ -63,7 +65,7 @@ func main() {
 
 执行之后我们使用 `telnet` 工具来进行测试：
 
-```
+```bash
 john@home:~$ telnet 127.0.0.1 8999
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
@@ -75,3 +77,9 @@ hi there
 ```
 
 每一个客户端发起的TCP链接，TCPServer都会创建一个 `goroutine` 进行处理，直至TCP链接断开。由于goroutine比较轻量级，因此可以支撑很高的并发量。
+
+## 相关文档
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

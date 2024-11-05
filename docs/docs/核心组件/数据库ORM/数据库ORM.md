@@ -87,4 +87,7 @@ db, err := gdb.Instance()
 db, err := gdb.Instance("user")
 ```
 
-    
+## 相关文档
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

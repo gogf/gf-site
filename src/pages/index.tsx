@@ -69,7 +69,7 @@ function HomepageHeader() {
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2 mt-6">
                     <div className="flex justify-center md:justify-end">
                         <Link className="button button--primary button--md"
-                            to="/quick" style={{ width: '200px' }}>
+                            to="/quick/install" style={{ width: '200px' }}>
                             快速开始 →
                         </Link>
                     </div>

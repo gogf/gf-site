@@ -2,7 +2,7 @@
 slug: /quick-next
 title: "What's Next"
 hide_title: true
-sidebar_position: 3
+sidebar_position: 10
 
 ---
 

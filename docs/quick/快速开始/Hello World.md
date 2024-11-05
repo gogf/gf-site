@@ -2,7 +2,7 @@
 slug: '/quick/hello-world'
 title: 'Hello World'
 hide_title: true
-sidebar_position: 1
+sidebar_position: 2
 
 ---
 
