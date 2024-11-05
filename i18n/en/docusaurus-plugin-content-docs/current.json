@@ -303,14 +303,6 @@
     "message": "Service Configuration",
     "description": "The label for category 服务配置 in sidebar mainSidebar"
   },
-  "sidebar.mainSidebar.category.Session": {
-    "message": "Session",
-    "description": "The label for category Session in sidebar mainSidebar"
-  },
-  "sidebar.mainSidebar.category.HTTPClient": {
-    "message": "HTTPClient",
-    "description": "The label for category HTTPClient in sidebar mainSidebar"
-  },
   "sidebar.mainSidebar.category.分页管理": {
     "message": "Pagination",
     "description": "The label for category 分页管理 in sidebar mainSidebar"
