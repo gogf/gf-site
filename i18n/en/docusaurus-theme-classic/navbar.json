@@ -4,51 +4,51 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.快速开始": {
-    "message": "快速开始",
+    "message": "Quick Start",
     "description": "Navbar item with label 快速开始"
   },
   "item.label.开发手册": {
-    "message": "开发手册",
+    "message": "Document",
     "description": "Navbar item with label 开发手册"
   },
   "item.label.发布记录": {
-    "message": "发布记录",
+    "message": "Release",
     "description": "Navbar item with label 发布记录"
   },
   "item.label.技术交流": {
-    "message": "技术交流",
+    "message": "Community",
     "description": "Navbar item with label 技术交流"
   },
   "item.label.支持我们": {
-    "message": "支持我们",
+    "message": "Support Us",
     "description": "Navbar item with label 支持我们"
   },
   "item.label.问题反馈": {
-    "message": "问题反馈",
+    "message": "Feedback",
     "description": "Navbar item with label 问题反馈"
   },
   "item.label.框架设计": {
-    "message": "框架设计",
+    "message": "Framework Design",
     "description": "Navbar item with label 框架设计"
   },
   "item.label.开发工具": {
-    "message": "开发工具",
+    "message": "Development Tools",
     "description": "Navbar item with label 开发工具"
   },
   "item.label.组件手册": {
-    "message": "组件手册",
+    "message": "Component Doc",
     "description": "Navbar item with label 组件手册"
   },
   "item.label.微服务开发": {
-    "message": "微服务开发",
+    "message": "Microservice",
     "description": "Navbar item with label 微服务开发"
   },
   "item.label.WEB服务开发": {
-    "message": "WEB服务开发",
+    "message": "WEB Service",
     "description": "Navbar item with label WEB服务开发"
   },
   "item.label.服务可观测性": {
-    "message": "服务可观测性",
+    "message": "Observability",
     "description": "Navbar item with label 服务可观测性"
   }
 }

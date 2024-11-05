@@ -4,291 +4,303 @@
     "description": "The label for version 2.6.x"
   },
   "sidebar.tutorialSidebar.category.项目开发": {
-    "message": "项目开发",
-    "description": "The label for category 项目开发 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.准备工作": {
-    "message": "准备工作",
-    "description": "The label for category 准备工作 in sidebar tutorialSidebar"
+    "message": "Project Development",
+    "description": "The label for category 框架设计 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.代码质量": {
-    "message": "代码质量",
-    "description": "The label for category 代码质量 in sidebar tutorialSidebar"
+    "message": "Code Quality",
+    "description": "The label for category 框架设计 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.项目部署": {
-    "message": "项目部署",
-    "description": "The label for category 项目部署 in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.框架设计": {
+    "message": "Framework Design",
+    "description": "The label for category 框架设计 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.工程开发设计(🔥重点🔥)": {
+    "message": "Project Development Design🔥",
+    "description": "The label for category 工程开发设计(🔥重点🔥) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DAO封装设计": {
+    "message": "DAO Design",
+    "description": "The label for category DAO封装设计 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.微服务相关设计": {
+    "message": "Microservice Design",
+    "description": "The label for category 微服务相关设计 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Context相关设计": {
+    "message": "Context Design",
+    "description": "The label for category Context相关设计 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.开发工具": {
-    "message": "开发工具",
+    "message": "Development Tools",
     "description": "The label for category 开发工具 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.代码生成-gen(🔥重点🔥)": {
-    "message": "代码生成-gen(🔥重点🔥)",
+    "message": "Codegen-gen🔥",
     "description": "The label for category 代码生成-gen(🔥重点🔥) in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.核心组件(🔥重点🔥)": {
-    "message": "核心组件(🔥重点🔥)",
+    "message": "Core Component🔥",
     "description": "The label for category 核心组件(🔥重点🔥) in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.命令管理": {
-    "message": "命令管理",
+    "message": "Command Management",
     "description": "The label for category 命令管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.配置管理": {
-    "message": "配置管理",
+    "message": "Configuration Management",
     "description": "The label for category 配置管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.配置管理-接口化设计": {
-    "message": "配置管理-接口化设计",
+    "message": "Configuration Management-Interface Design",
     "description": "The label for category 配置管理-接口化设计 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.日志组件": {
-    "message": "日志组件",
+    "message": "Log Component",
     "description": "The label for category 日志组件 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.错误处理": {
-    "message": "错误处理",
+    "message": "Error Handling",
     "description": "The label for category 错误处理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.错误处理-错误码特性": {
-    "message": "错误处理-错误码特性",
+    "message": "Error Handling-Error Code",
     "description": "The label for category 错误处理-错误码特性 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据校验": {
-    "message": "数据校验",
+    "message": "Data Validation",
     "description": "The label for category 数据校验 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据校验-参数类型": {
-    "message": "数据校验-参数类型",
+    "message": "Data Validation-Parameter Type",
     "description": "The label for category 数据校验-参数类型 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据校验-Struct校验": {
-    "message": "数据校验-Struct校验",
+    "message": "Data Validation-Struct Validation",
     "description": "The label for category 数据校验-Struct校验 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据校验-Map校验": {
-    "message": "数据校验-Map校验",
+    "message": "Data Validation-Map Validation",
     "description": "The label for category 数据校验-Map校验 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据校验-自定义规则": {
-    "message": "数据校验-自定义规则",
+    "message": "Data Validation-Custom Rules",
     "description": "The label for category 数据校验-自定义规则 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.类型转换": {
-    "message": "类型转换",
+    "message": "Type Conversion",
     "description": "The label for category 类型转换 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.缓存管理": {
-    "message": "缓存管理",
+    "message": "Cache Management",
     "description": "The label for category 缓存管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.模板引擎": {
-    "message": "模板引擎",
+    "message": "Template Engine",
     "description": "The label for category 模板引擎 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.模板引擎-模板函数": {
-    "message": "模板引擎-模板函数",
+    "message": "Template Engine-Template Function",
     "description": "The label for category 模板引擎-模板函数 in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.数据库ORM": {
-    "message": "数据库ORM",
-    "description": "The label for category 数据库ORM in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.数据库ORM🔥": {
+    "message": "Database ORM🔥",
+    "description": "The label for category 数据库ORM🔥 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM链式操作(🔥重点🔥)": {
-    "message": "ORM链式操作(🔥重点🔥)",
+    "message": "ORM Chain🔥",
     "description": "The label for category ORM链式操作(🔥重点🔥) in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM链式操作-数据查询": {
-    "message": "ORM链式操作-数据查询",
+    "message": "ORM Chain-Data Query",
     "description": "The label for category ORM链式操作-数据查询 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM链式操作-模型关联": {
-    "message": "ORM链式操作-模型关联",
+    "message": "ORM Chain-Model Relation",
     "description": "The label for category ORM链式操作-模型关联 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM事务处理": {
-    "message": "ORM事务处理",
+    "message": "ORM Transaction",
     "description": "The label for category ORM事务处理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM结果处理": {
-    "message": "ORM结果处理",
+    "message": "ORM Result",
     "description": "The label for category ORM结果处理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM高级特性": {
-    "message": "ORM高级特性",
+    "message": "ORM Advanced",
     "description": "The label for category ORM高级特性 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM接口开发": {
-    "message": "ORM接口开发",
+    "message": "ORM Interface",
     "description": "The label for category ORM接口开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.ORM最佳实践": {
-    "message": "ORM最佳实践",
+    "message": "ORM Best Practices",
     "description": "The label for category ORM最佳实践 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.I18N国际化": {
+    "message": "I18N",
+    "description": "The label for category I18N国际化 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.资源管理": {
+    "message": "Resource Management",
+    "description": "The label for category 资源管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.组件列表": {
+    "message": "Component List",
+    "description": "The label for category 组件列表 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.数据结构": {
+    "message": "Data Structure",
+    "description": "The label for category 数据结构 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.字典类型-gmap": {
+    "message": "Dictionary Type-gmap",
+    "description": "The label for category 字典类型-gmap in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.数组类型-garray": {
+    "message": "Array Type-garray",
+    "description": "The label for category 数组类型-garray in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.集合类型-gset": {
+    "message": "Set Type-gset",
+    "description": "The label for category 集合类型-gset in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.链表类型-glist": {
+    "message": "List Type-glist",
+    "description": "The label for category 链表类型-glist in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.泛型类型-gvar": {
+    "message": "Generic Type-gvar",
+    "description": "The label for category 泛型类型-gvar in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.安全类型-gtype": {
+    "message": "Safe Type-gtype",
+    "description": "The label for category 安全类型-gtype in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.队列类型-gqueue": {
+    "message": "Queue Type-gqueue",
+    "description": "The label for category 队列类型-gqueue in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.树形类型-gtree": {
+    "message": "Tree Type-gtree",
+    "description": "The label for category 树形类型-gtree in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.对象复用-gpool": {
+    "message": "Object Pool-gpool",
+    "description": "The label for category 对象复用-gpool in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.并发安全环-gring": {
+    "message": "Concurrent Safe-gring",
+    "description": "The label for category 并发安全环-gring in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.系统相关": {
+    "message": "System Related",
+    "description": "The label for category 系统相关 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.定时器-gtimer": {
+    "message": "Timer-gtimer",
+    "description": "The label for category 定时器-gtimer in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.时间管理-gtime": {
+    "message": "Time-gtime",
+    "description": "The label for category 时间管理-gtime in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.定时任务-gcron": {
+    "message": "Cron-gcron",
+    "description": "The label for category 定时任务-gcron in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.进程管理-gproc": {
+    "message": "Process-gproc",
+    "description": "The label for category 进程管理-gproc in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.文本处理": {
+    "message": "Text Processing",
+    "description": "The label for category 文本处理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.正则表达式-gregex": {
+    "message": "Regular Expression-gregex",
+    "description": "The label for category 正则表达式-gregex in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.编码解码": {
+    "message": "Encoding Decoding",
+    "description": "The label for category 编码解码 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.通用编解码-gjson": {
+    "message": "Encoding Decoding-gjson",
+    "description": "The label for category 通用编解码-gjson in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.数据管理": {
+    "message": "Data Management",
+    "description": "The label for category 数据管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.加密解密": {
+    "message": "Encryption Decryption",
+    "description": "The label for category 加密解密 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.实用工具": {
+    "message": "Utility",
+    "description": "The label for category 实用工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.单元测试": {
+    "message": "Unit Test",
+    "description": "The label for category 单元测试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.错误管理": {
+    "message": "Error Management",
+    "description": "The label for category 错误管理 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.功能调试": {
+    "message": "Function Debug",
+    "description": "The label for category 功能调试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.I18N组件": {
+    "message": "I18N Component",
+    "description": "The label for category I18N组件 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.NoSQL Redis": {
     "message": "NoSQL Redis",
     "description": "The label for category NoSQL Redis in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.I18N国际化": {
-    "message": "I18N国际化",
-    "description": "The label for category I18N国际化 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.资源管理": {
-    "message": "资源管理",
-    "description": "The label for category 资源管理 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.组件列表": {
-    "message": "组件列表",
-    "description": "The label for category 组件列表 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.数据结构": {
-    "message": "数据结构",
-    "description": "The label for category 数据结构 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.字典类型-gmap": {
-    "message": "字典类型-gmap",
-    "description": "The label for category 字典类型-gmap in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.数组类型-garray": {
-    "message": "数组类型-garray",
-    "description": "The label for category 数组类型-garray in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.集合类型-gset": {
-    "message": "集合类型-gset",
-    "description": "The label for category 集合类型-gset in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.链表类型-glist": {
-    "message": "链表类型-glist",
-    "description": "The label for category 链表类型-glist in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.泛型类型-gvar": {
-    "message": "泛型类型-gvar",
-    "description": "The label for category 泛型类型-gvar in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.安全类型-gtype": {
-    "message": "安全类型-gtype",
-    "description": "The label for category 安全类型-gtype in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.队列类型-gqueue": {
-    "message": "队列类型-gqueue",
-    "description": "The label for category 队列类型-gqueue in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.树形类型-gtree": {
-    "message": "树形类型-gtree",
-    "description": "The label for category 树形类型-gtree in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.对象复用-gpool": {
-    "message": "对象复用-gpool",
-    "description": "The label for category 对象复用-gpool in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.并发安全环-gring": {
-    "message": "并发安全环-gring",
-    "description": "The label for category 并发安全环-gring in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.系统相关": {
-    "message": "系统相关",
-    "description": "The label for category 系统相关 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.定时器-gtimer": {
-    "message": "定时器-gtimer",
-    "description": "The label for category 定时器-gtimer in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.时间管理-gtime": {
-    "message": "时间管理-gtime",
-    "description": "The label for category 时间管理-gtime in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.定时任务-gcron": {
-    "message": "定时任务-gcron",
-    "description": "The label for category 定时任务-gcron in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.进程管理-gproc": {
-    "message": "进程管理-gproc",
-    "description": "The label for category 进程管理-gproc in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.文本处理": {
-    "message": "文本处理",
-    "description": "The label for category 文本处理 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.正则表达式-gregex": {
-    "message": "正则表达式-gregex",
-    "description": "The label for category 正则表达式-gregex in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.编码解码": {
-    "message": "编码解码",
-    "description": "The label for category 编码解码 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.通用编解码-gjson": {
-    "message": "通用编解码-gjson",
-    "description": "The label for category 通用编解码-gjson in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.数据管理": {
-    "message": "数据管理",
-    "description": "The label for category 数据管理 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.加密解密": {
-    "message": "加密解密",
-    "description": "The label for category 加密解密 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.实用工具": {
-    "message": "实用工具",
-    "description": "The label for category 实用工具 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.单元测试": {
-    "message": "单元测试",
-    "description": "The label for category 单元测试 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.错误管理": {
-    "message": "错误管理",
-    "description": "The label for category 错误管理 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.功能调试": {
-    "message": "功能调试",
-    "description": "The label for category 功能调试 in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.I18N组件": {
-    "message": "I18N组件",
-    "description": "The label for category I18N组件 in sidebar tutorialSidebar"
-  },
   "sidebar.tutorialSidebar.category.微服务开发": {
-    "message": "微服务开发",
+    "message": "Microservice Development",
     "description": "The label for category 微服务开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.WEB服务开发": {
-    "message": "WEB服务开发",
+    "message": "WEB Service Development",
     "description": "The label for category WEB服务开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.路由管理🔥": {
-    "message": "路由管理🔥",
+    "message": "Router Management🔥",
     "description": "The label for category 路由管理🔥 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.路由管理-路由注册": {
-    "message": "路由管理-路由注册",
+    "message": "Router Management-Registration",
     "description": "The label for category 路由管理-路由注册 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.路由注册-规范路由": {
-    "message": "路由注册-规范路由",
+    "message": "Router Management-Standard Routes",
     "description": "The label for category 路由注册-规范路由 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.路由管理-中间件拦截器": {
-    "message": "路由管理-中间件拦截器",
+    "message": "Router Management-Middleware Interceptor",
     "description": "The label for category 路由管理-中间件拦截器 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.接口文档": {
-    "message": "接口文档",
+    "message": "Interface Documentation",
     "description": "The label for category 接口文档 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.请求输入🔥": {
-    "message": "请求输入🔥",
+    "message": "Request Input🔥",
     "description": "The label for category 请求输入🔥 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据返回": {
-    "message": "数据返回",
+    "message": "Data Return",
     "description": "The label for category 数据返回 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.服务配置": {
-    "message": "服务配置",
+    "message": "Service Configuration",
     "description": "The label for category 服务配置 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Session": {
@@ -300,43 +312,59 @@
     "description": "The label for category HTTPClient in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.分页管理": {
-    "message": "分页管理",
+    "message": "Pagination",
     "description": "The label for category 分页管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.高级特性": {
-    "message": "高级特性",
+    "message": "Advanced",
     "description": "The label for category 高级特性 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.网络服务开发": {
-    "message": "网络服务开发",
+    "message": "Network Service Development",
     "description": "The label for category 网络服务开发 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.TCP组件": {
-    "message": "TCP组件",
+    "message": "TCP Component",
     "description": "The label for category TCP组件 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.TCP组件-连接对象": {
-    "message": "TCP组件-连接对象",
+    "message": "TCP Component-Connection Object",
     "description": "The label for category TCP组件-连接对象 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.UDP组件": {
-    "message": "UDP组件",
+    "message": "UDP Component",
     "description": "The label for category UDP组件 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.服务可观测性": {
-    "message": "服务可观测性",
+    "message": "Service Observability",
     "description": "The label for category 服务可观测性 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.服务链路跟踪": {
-    "message": "服务链路跟踪",
+    "message": "Service Tracing",
     "description": "The label for category 服务链路跟踪 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.链路跟踪-HTTP示例": {
-    "message": "链路跟踪-HTTP示例",
+    "message": "Tracing-HTTP Example",
     "description": "The label for category 链路跟踪-HTTP示例 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.链路跟踪-最佳实践": {
-    "message": "链路跟踪-最佳实践",
+    "message": "Tracing-Best Practices",
     "description": "The label for category 链路跟踪-最佳实践 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.服务监控告警": {
+    "message": "Service Monitoring and Alerting",
+    "description": "The label for category 服务监控告警 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.项目部署": {
+    "message": "Project Deployment",
+    "description": "The label for category 项目部署 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.其他资料": {
+    "message": "Other Documents",
+    "description": "The label for category 其他资料 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.准备工作": {
+    "message": "Prepare Work",
+    "description": "The label for category 准备工作 in sidebar tutorialSidebar"
   }
 }

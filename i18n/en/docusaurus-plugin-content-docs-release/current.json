@@ -4,19 +4,19 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.历史版本记录 v1.x": {
-    "message": "历史版本记录 v1.x",
+    "message": "Release Record v1.x",
     "description": "The label for category 历史版本记录 v1.x in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.历史版本记录 v0.x": {
-    "message": "历史版本记录 v0.x",
+    "message": "Release Record v0.x",
     "description": "The label for category 历史版本记录 v0.x in sidebar tutorialSidebar"
   },
   "sidebar.hiddenSidebar.category.历史版本记录 v1.x": {
-    "message": "历史版本记录 v1.x",
+    "message": "Release Record v1.x",
     "description": "The label for category 历史版本记录 v1.x in sidebar hiddenSidebar"
   },
   "sidebar.hiddenSidebar.category.历史版本记录 v0.x": {
-    "message": "历史版本记录 v0.x",
+    "message": "Release Record v0.x",
     "description": "The label for category 历史版本记录 v0.x in sidebar hiddenSidebar"
   }
 }
