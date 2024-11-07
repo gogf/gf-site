@@ -50,3 +50,4 @@ output
 go.work
 go.work.sum
 .vscode
+.scripts/gen-seo/config.yaml
