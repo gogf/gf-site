@@ -1,71 +1,71 @@
 ---
 slug: '/docs/design/project-dao-improvement'
-title: 'DAO-工程痛点及改进'
+title: 'DAO-Project Pain Points and Improvements'
 sidebar_position: 1
 hide_title: true
 ---
 
-## 一、基本介绍
+## 1. Basic Introduction
 
-我们都知道，开发业务项目离不开数据库操作组件的使用，数据库是绝大部分业务项目的核心，这也是"CRUD工程师"戏称的由来。业务项目在进行数据库操作时，比较 `low` 的方式是直接 `Open/New` 然后各种 `SQL` 字符串操作一把梭。稍微正常一点的项目可能会考虑物色或者自己封装一层ORM抽象，提高CRUD效率，降低数据操作风险。再严谨一点的项目可能会在项目工程管理上考虑下，再进一步增加 `DAO/DTO/VO` 之类的设计模式和概念。
+We all know that developing business projects is inseparable from the use of database operation components. The database is the core of the vast majority of business projects, which is also the origin of the joking term "CRUD Engineer." When performing database operations in business projects, a more rudimentary approach is to directly use `Open/New` followed by various `SQL` string operations. A slightly more normalized project might consider looking for or encapsulating an ORM abstraction to improve CRUD efficiency and reduce data operation risks. A more rigorous project might consider further increasing `DAO/DTO/VO` and other design patterns and concepts in project engineering management.
 
-信息时代，数据是十分重要的，数据操作是十分敏感的，因此 `GoFrame` 框架对于数据操作管理的工程化思路是严谨的。我们提供了必要的ORM抽象、必要的DAO封装、必要的工程化规范约束。同时，我们并不会采用八股文设计，而是依旧保持简便、灵活、易扩展的工程设计思路。
+In the information age, data is very important, and data operations are very sensitive. Therefore, the `GoFrame` framework has a rigorous engineering approach to data operation management. We provide the necessary ORM abstraction, necessary DAO encapsulation, and necessary engineering specification constraints. At the same time, we do not adopt rigid design but still maintain a simple, flexible, and easily expandable engineering design philosophy.
 
-## 二、工程化痛点
+## 2. Engineering Pain Points
 
-在一些严谨的业务项目中，已经有了 `ORM&DAO` 抽象、并且项目已有初步工程化设计的前提，依旧存在以下常见的痛点。
+In some rigorous business projects, there are already `ORM&DAO` abstractions, and the project has a preliminary engineering design. However, the following common pain points still exist.
 
-### 1、数据集合与代码结构不同步
+### 1. Data Collection and Code Structure Out of Sync
 
-当在代码中手动维护数据集合对应的数据结构时，这个坑就算挖好了，就看后面谁掉进去了。
+When manually maintaining data structures corresponding to data collections in the code, this pit is dug, and it depends on who falls into it later.
 
-### 2、数据模型与业务模型模糊不清
+### 2. Data Model and Business Model Vagueness
 
-混淆了数据模型与业务的职责，并将数据模型与业务逻辑、接口定义形成了耦合，耦合越大，相关方法、接口维护的成本越高，对数据模型改动产生的风险也越大。常见痛点：
+Confusing the responsibilities of data models and business, and coupling data models with business logic and interface definitions, the greater the coupling, the higher the maintenance cost of related methods and interfaces, and the greater the risk of changes to the data model. Common pain points include:
 
-- 在 `model` 中既有业务相关的数据结构（业务模型），又有数据集合对应的数据结构（数据模型），如何高效隔离和管理呢？
-- 在业务流程中，将数据模型当做业务流程的 **输入参数** 使用。甚至，将数据模型直接嵌入到API接口输入数据结构定义中（总是想法设法将数据模型用到业务模型中）。
+- In the `model`, there are both business-related data structures (business models) and data structures corresponding to data collections (data models). How to efficiently isolate and manage them?
+- In the business process, using the data model as the **input parameter** of the business process. Even embedding the data model directly into the API interface input data structure definition (always trying to use the data model in the business model).
 
-### 3、DAO层沉淀太多的业务逻辑封装
+### 3. Too Much Business Logic Encapsulation in the DAO Layer
 
-您是否有一种感觉，只要是数据操作，都有理由往 `DAO` 里面丢？
+Do you have a feeling that any data operation has a reason to be thrown into the `DAO`?
 
-### 4、将数据模型作为ORM/DAO操作的参数
+### 4. Using Data Models as ORM/DAO Operation Parameters
 
-您有可能认为这么做是对的，但是不明确的数据结构都意味着成本和风险。任何的操作，都应当能够明确输入/输出，否则都是不严谨的，对待数据的操作尤其应当严谨。
+You might think this is correct, but unclear data structures mean cost and risk. Any operation should be able to clearly define inputs/outputs; otherwise, it is not rigorous. Data operations should be particularly rigorous.
 
-### 5、数据操作权限开放，项目任何地方都可以随意调用
+### 5. Data Operation Permissions Open, and Any Project Location Can Be Called at Will
 
-数据的操作权限应当尽可能收口，如果过于开放那么当业务及人员复杂之后，项目的维护成本和风险都会曲线增加。
+Data operation permissions should be as restricted as possible. If they are too open, then as the business and personnel become more complex, the project's maintenance costs and risks will increase sharply.
 
-### 6、从顶层业务到底层数据集合操作，通篇使用同一个数据结构
+### 6. Using the Same Data Structure from Top-Level Business to Bottom-Level Data Collection Operations
 
-常见的问题，是设计一个大的结构体，例如数据模型（更有甚者，将属性全部设计为指针或者 `interface{}`），从顶层业务到底层数据操作层层透传，方法逻辑根据是否输入特定的属性来判断传参。会造成什么问题呢：
+The common problem is designing a large structure, such as a data model (even worse, designing all attributes as pointers or `interface{}`), passing through from top-level business to bottom-level data operations, and judging method logic based on whether specific attributes are input. What problems does this cause?
 
-- 方法参数定义不明确，不明确的定义意味着会增加额外的协作成本，额外的不明确风险
-- 同一数据结构与多数方法形成耦合，数据结构的任一变动将会影响所有相关方法
-- 相关方法无法充分复用（特别是 `service` 层的方法）
+- Method parameter definitions are unclear, and unclear definitions mean additional collaboration costs and additional unclear risks.
+- The same data structure is coupled with many methods, and any change in the data structure will affect all related methods.
+- Related methods cannot be fully reused (especially methods in the `service` layer).
 
-## 三、工程化改进
+## 3. Engineering Improvements
 
-### 1、自动化的数据模型管理
+### 1. Automated Data Model Management
 
-通过工具自动化实现数据集合到数据模型的代码生成，避免人工维护造成的不同步。
+Automate the code generation from data collections to data models through tools to avoid desynchronization caused by manual maintenance.
 
-### 2、数据与业务模型的隔离
+### 2. Isolation of Data and Business Models
 
-将数据模型通过 `entity` 包维护，业务模型通过 `model` 包维护，通过不同的包职责来做区分。数据模型由工具化维护，业务模型根据业务场景由开发者定义和维护。
+Maintain data models through the `entity` package and business models through the `model` package, distinguishing them through different package responsibilities. Data models are maintained by tools, and business models are defined and maintained by developers according to business scenarios.
 
-### 3、自动化的DAO代码管理
+### 3. Automated DAO Code Management
 
-通过工具自动化实现数据集合的 `DAO` 代码生成，提高生产效率。 `DAO` 中只有自动化生成的基础数据操作，不封装特定业务逻辑。
+Automate the generation of `DAO` code for data collections through tools to improve production efficiency. `DAO` only contains automatically generated basic data operations and does not encapsulate specific business logic.
 
-### 4、DO数据转换模型的引入
+### 4. Introduction of DO Data Conversion Models
 
-避免数据模型直接被当做 `DAO` 参数使用，避免踩坑。 `GoFrame` 框架引入了 `DO` 包，在 `DAO` 操作时自动化转换为数据集合对应的数据结构，提高 `DAO` 操作的效率，降低操作风险。
+Avoid using data models directly as `DAO` parameters to avoid pitfalls. The `GoFrame` framework introduces the `DO` package, automatically converting to the corresponding data structure of the data collection during `DAO` operations, improving `DAO` operation efficiency and reducing operation risks.
 
-### 5、对数据操作权限进行收口
+### 5. Restrict Data Operation Permissions
 
-由于数据操作已经由 `DAO` 包进行了统一维护，可以将 `DAO` 包迁移到了对应 `logic` 层业务模块的 `internal` 目录下，实现项目工程下仅仅只有 `logic` 层的对应业务逻辑代码可以通过 `DAO` 执行数据操作。
+Since data operations have been uniformly maintained by the `DAO` package, the `DAO` package can be moved to the `internal` directory of the corresponding `logic` layer business module, realizing that only the corresponding business logic code of the `logic` layer in the project engineering can perform data operations through `DAO`.
 
-这是一个较严格的使用限制，由开发者根据需要选择性使用，框架默认的项目模板以及工具没有对数据操作权限收口。可通过框架开发工具配置来实现生成 `dao` 代码到不同的 `logic` 业务模块位置下。
+This is a stricter usage restriction, which developers can choose to use as needed. The framework's default project templates and tools do not restrict data operation permissions. Data operation permission restriction can be achieved by configuring the framework's development tools to generate `dao` code to different `logic` business module locations.

@@ -1,134 +1,135 @@
 ---
 slug: '/docs/design/project-dao-pain'
-title: 'DAO-组件痛点及改进'
+title: 'DAO Component Pain Points and Improvements'
 sidebar_position: 0
 hide_title: true
 ---
 
-关于 `DAO` 数据访问对象设计其实是关于 `GoFrame` 框架工程化实践中比较重要一块设计。
+Regarding the design of `DAO` (Data Access Object), it is actually a crucial part of the engineering practice with the `GoFrame` framework.
 
-`DAO` 设计结合 `GoFrame` 的 `ORM` 组件性能和易用性都很强，可以极大提高开发和维护效率。看完本章节内容之后，小伙伴们应该能够理解并体会到使用 `DAO` 数据库访问对象设计的优点。
+The `DAO` design, combined with `GoFrame`'s `ORM` component, is both performant and easy to use, which can greatly improve development and maintenance efficiency. After reading this chapter, you should be able to understand and appreciate the advantages of using `DAO` for database access object design.
 
 :::info
-我每年都会来回重新审视这篇文章，看看是否可以删除一些地方。可是每次都倍感失望，因为这篇文章对当今现状仍旧适用。并且今年，我还新增了内容。
+Every year, I revisit this article to see if there are parts that can be removed. However, I am always disappointed because this article is still applicable to the current situation. And this year, I have added new content.
 :::
 
-## 一、现有 `ORM` 使用示例
+## 1. Existing `ORM` Usage Example
 
-### 1、需要定义模型
+### 1. Model Definition Required
 
-![](/markdown/77daf5d299eabade856d950ab3161f94.png)用户基础表（仅作演示，真实的表有数十个字段）
+![](/markdown/77daf5d299eabade856d950ab3161f94.png) User base table (for demonstration only, the actual table has dozens of fields)
 
-![](/markdown/f4e8c70ee25ec329f2b64bb3a53ff503.png)医生信息表（仅作演示，真实的表有上百个字段）
+![](/markdown/f4e8c70ee25ec329f2b64bb3a53ff503.png) Doctor information table (for demonstration only, the actual table has hundreds of fields)
 
-### 2、 `GRPC` 接口实现示例
+### 2. `GRPC` Interface Implementation Example
 
-一个简单的 `GRPC` 查询信息接口。
+A simple `GRPC` query information interface.
 
-![](/markdown/b45b3af0a0bdc9ad30f739e31d0039ae.png)一个简单的 `GRPC` 数据查询接口
+![](/markdown/b45b3af0a0bdc9ad30f739e31d0039ae.png) A simple `GRPC` data query interface
 
-## 二、现有痛点描述
+## 2. Existing Pain Points Description
 
-### 1、必须要定义 `tag` 关联表结构与 `struct` 属性，无法做到自动映射
+### 1. Must Define `tag` to Associate Table Structure with `struct` Properties, No Automatic Mapping
 
-表字段与实体对象属性名称之间原本就有一定的关联规则，没有必要定义和维护大量的 `tag` 定义。
+There is originally a certain correlation between table fields and entity object property names, and there is no need to define and maintain a large number of `tag` definitions.
 
 ![](/markdown/f1bb2d203d4fe4f2c44bbc7e14b7832a.png)
 
-大量非必要的 `tag` 定义，用于指定数据表字段到实体对象属性映射
+A large number of unnecessary `tag` definitions are used to specify the mapping from data table fields to entity object properties.
 
-### 2、不支持通过返回对象指定需要查询的字段
+### 2. Does Not Support Specifying Query Fields through Return Objects
 
-无法通过返回的对象数据结构指定查询字段，要么只能 `SELECT *` ，要么只能通过额外的方法手动录入查询字段，效率很低下。
+It is not possible to specify query fields through the return object's data structure; you can either only `SELECT *` or manually enter query fields through additional methods, which is very inefficient.
 
 ![](/markdown/70e01c869632543b846b04a1696e9737.png)
 
-常见的 `SELECT *` 操作，无法根据接口对象指定查询字段
+Common `SELECT *` operation, unable to specify query fields based on interface objects.
 
-### 3、无法对输入对象属性名称进行自动字段过滤
+### 3. Unable to Automatically Filter Input Object Property Names
 
-定义了输入与输出数据结构，输出的数据结构已经包含我们需要查询的字段名称。开发者输入定义的返回对象，期望在查询的时候仅查询我需要的字段名称，多余的属性则不会执行查询，自动过滤掉。
+Input and output data structures have been defined, and the output data structure already includes the field names we need to query. Developers define the return object, expecting to query only the field names needed during the query, and automatically filter out excess properties without executing the query.
 
-### 4、需要创建中间查询结果对象执行赋值转换
+### 4. Need to Create Intermediate Query Result Objects for Assignment Conversion
 
-查询结果不支持 `struct` 智能转换，需要额外定义一个中间 `model` 模型，再通过其他工具进行复制，效率低。
+Query results do not support `struct` intelligent conversion, requiring the definition of an additional intermediate `model`, and then copying through other tools, which is inefficient.
 
 ![](/markdown/05bf7722da09a27e7ca82bf6e0f89271.png)
 
-存在中间临时的模型对象，用于承接查询结果及返回结构对象赋值转换
+There exists an intermediate temporary model object for承接 query results and return structure object assignment conversion.
 
-### 5、需要提前初始化返回对象，不管有无查询到数据
+### 5. Need to Initialize Return Objects in Advance, Regardless of Whether Data is Queried
 
-这种方式不仅不优雅，对性能也有影响，还对 `GC` 不太友好。期望查询到数据时再自动创建返回对象，没有查询到数据时什么都不要做。
+This approach is not only inelegant but also affects performance and is not friendly to `GC`. It is expected that the return object is automatically created when data is queried, and nothing is done when no data is queried.
 
 ![](/markdown/239f4b75b4b77e85bca523371a7dd1b4.png)
 
-需要预先初始化返回对象，不管有无查询到数据
+Need to pre-initialize return objects, regardless of whether data is queried.
 
-### 6、项目通篇使用底层裸 `DB` 对象操作，没有对象封装操作
+### 6. The Project Uses Underlying Bare `DB` Object Operations Throughout, Without Object Encapsulation Operations
 
-大部分的 `Golang` 初学者似乎都倾向于使用一个全局的 `DB` 对象，在查询的时候通过 `DB` 对象生成特定表的 `Model` 对象再执行 `CURD` 操作，这是一种面向过程的使用方式。这种方式并没有代码分层的设计可言， **使得数据操作和业务逻辑高度耦合**。
+Most `Golang` beginners seem to prefer using a global `DB` object, generating a `Model` object for a specific table through the `DB` object during queries, and then performing `CURD` operations. This is a procedural usage method. This approach does not have a layered design for code, **resulting in high coupling between data operations and business logic**.
 
 ![](/markdown/d73fdaa5b76b831db0a2c1069742c218.png)
 
-原始数据库对象操作方式，没有 `DAO` 封装
+Raw database object operation method, without `DAO` encapsulation.
 
-### 7、随处可见的字符串硬编码，如表名和字段的硬编码
+### 7. Ubiquitous String Hardcoding, Such as Hardcoding of Table Names and Fields
 
-举个例子， `userId` 这个字段假如一不小心写成了 `UserId` 或者 `userid`，测试的时候如果没有完全覆盖到，在一定的条件下才触发查询操作，是不是会造成新的一场事故呢？
+For example, if the field `userId` is accidentally written as `UserId` or `userid`, and it is not fully covered during testing, and the query operation is triggered under certain conditions, wouldn't it cause a new accident?
 
 ![](/markdown/46d8aae38995327c6ce26832d21f628b.png)
 
-大量的字符串硬编码
+A large number of string hardcodes.
 
-### 8、底层ORM引起太多的指针属性定义
+### 8. Too Many Pointer Property Definitions Caused by Underlying ORM
 
-指针属性对象为业务逻辑处理埋下隐患，开发者在代码逻辑中需要在指针与属性之间来回切换，特别是一些基础类型往往需要通过重新取值的方式传递参数。如果输入参数是 `interface{}` 类型，那么更容易引起 `BUG`。
+Pointer property objects pose hidden dangers for business logic processing. Developers need to switch between pointers and properties in the code logic, especially for some basic types that often need to pass parameters by re-acquiring values. If the input parameter is of type `interface{}`, it is more likely to cause `BUG`s.
 
 ![](/markdown/620c8a9a4a47de0243748d588aa0bb51.png)
 
-`BUG` 示例，指针属性使用不当，引起地址比较逻辑错误。
+`BUG` example, improper use of pointer properties causing address comparison logic errors.
 
 ![](/markdown/daa08ad1e9102f4ac964a8176a80e061.png)
 
-同时也影响了业务模型结构体定义设计，对开发者造成了错误习惯引导（上层业务模型的指针属性往往是为了迎合底层数据表实体对象，方便数据传递）。
+It also affects the design of business model structure definitions, leading developers astray with wrong habits (pointer properties in upper business models are often to cater to underlying data table entity objects for easy data transfer).
 
 ![](/markdown/bba716ea66e03727826ae6401ce01b2d.png)
 
-值得注意一个常见错误，就是将底层数据实体模型当做顶层业务模型使用。特别是在底层数据实体对象使用指针属性的场景下，该问题十分明显。
+A common mistake worth noting is using the underlying data entity model as the top-level business model. Especially in scenarios where pointer properties are used for underlying data entity objects, this issue is very obvious.
 
-### 9、可观测性的支持：Tracing、Metrics、Logging
+### 9. Observability Support: Tracing, Metrics, Logging
 
-数据库ORM作为业务项目最关键核心的组件，可观测性的支持至关重要。
+As the most critical core component of business projects, database ORM observability support is essential.
 
-### 10、数据集合与代码数据实体结构不一致
+### 10. Inconsistency Between Data Collections and Code Data Entity Structures
 
-当通过人工维护数据实体结构时，数据集合与代码数据实体结构往往会出现不一致的风险，开发和维护成本高。
+When maintaining data entity structures manually, there is often a risk of inconsistency between data collections and code data entity structures, which is costly in terms of development and maintenance.
 
-## 三、改进方案设计
+## 3. Improvement Plan Design
 
-1、查询结果对象无需特殊标签定义，全自动关联映射
+1. No special tag definition is required for query result objects; full automatic association mapping is supported.
 
-2、支持根据指定对象自动识别查询字段，而不是全部 `SELECT *`
+2. Support for automatically recognizing query fields based on specified objects, rather than all `SELECT *`.
 
-3、支持根据指定对象自动过滤不存在的字段内容
+3. Support for automatically filtering non-existent field content based on specified objects.
 
-4、使用 `DAO` 对象封装代码设计，通过对象方式操作数据表
+4. Use `DAO` object encapsulation for code design, operating on data tables through object methods.
 
-5、 `DAO` 对象将关联的表名及字段名进行封装，避免字符串硬编码
+5. `DAO` objects encapsulate associated table names and field names, avoiding string hardcoding.
 
-6、无需提前定义实体对象接受返回结果，无需创建中间实体对象用于接口返回对象的赋值转换
+6. No need to define entity objects in advance to accept return results; no need to create intermediate entity objects for interface return object assignment conversion.
 
-7、查询结果对象无需提前初始化，查询到数据时才会自动创建
+7. Query result objects do not need to be initialized in advance; they will be automatically created when data is queried.
 
-8、内置支持 `OpenTelemetry` 标准，实现可观测性，极大提高维护效率、降低成本
+8. Built-in support for `OpenTelemetry` standard for observability, greatly improving maintenance efficiency and reducing costs.
 
-9、支持 `SQL` 日志输出能力，支持开关功能
+9. Support for `SQL` log output capability with on/off functionality.
 
-10、数据模型、数据操作、业务逻辑解耦，支持 `Dao` 及 `Model` 代码工具化自动生成，保证数据集合与代码数据结构一致，提高开发效率，便于规范落地
+10. Decoupling of data models, data operations, and business logic; support for automated generation of `Dao` and `Model` code tools, ensuring consistency between data collections and code data structures, improving development efficiency, and facilitating standard implementation.
 
-11、等等。
+11. And so on.
 
 ![](/markdown/90537635dc3b5623060fa9edfc49948a.png)
 
-采用 `DAO` 设计改进后的代码示例
+Code example after adopting `DAO` design improvements
+

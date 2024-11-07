@@ -1,65 +1,67 @@
 ---
 slug: '/docs/design/context-variable'
-title: 'Context: 业务流程共享变量'
+title: 'Context: Sharing Variables in Business Processes'
 sidebar_position: 0
 hide_title: true
 ---
 
-`Context` 指的是标准库的 `context.Context`，是一个接口对象，常用于 **异步 `IO` 控制** 以及 **上下文流程变量的传递**。本文将要介绍的，是如何使用 `Context` 传递流程间共享变量。
+## Introduction
 
-在 `Go` 的执行流程中，特别是 `HTTP/RPC` 执行流程中，不存在”全局变量”获取请求参数的方式，只有将上下文 `Context` 变量传递到后续流程的方法中，而 `Context` 上下文变量即包含了所有需要传递的共享变量。并且该 `Context` 中的共享变量应当是事先约定的，并且往往存储为对象指针形式。
+`Context` refers to the `context.Context` interface object from the standard library, commonly used for **asynchronous IO control** and **passing variables through the context flow**. This article will introduce how to use `Context` to pass shared variables between processes.
 
-通过 `Context` 上下文共享变量非常简单，以下我们通过一个项目中的示例来展示如何在实战化项目中传递和使用通用的共享变量。
+In the execution flow of `Go`, especially in `HTTP/RPC` execution flows, there is no way to obtain request parameters through "global variables". Instead, the context `Context` variable must be passed to subsequent processes, and the `Context` context variable includes all the shared variables that need to be passed. These shared variables in the `Context` should be pre-agreed upon and often stored as object pointers.
 
-## 一、结构定义
+Sharing variables through the `Context` context is very simple. Below, we will demonstrate how to pass and use common shared variables in a practical project through an example.
 
-上下文对象中往往存储一些需要共享的变量，这些变量通常使用结构化的对象来存储，以方便维护。例如，我们在 `model` 定义一个上下文中的共享变量：
+## I. Structure Definition
+
+Context objects often store variables that need to be shared. These variables are typically stored using structured objects for easy maintenance. For example, we define shared variables in the context in `model`:
 
 ```go
 const (
-    // 上下文变量存储键名，前后端系统共享
+    // Key name for storing context variables, shared by front-end and back-end systems
     ContextKey = "ContextKey"
 )
 
-// 请求上下文结构
+// Request context structure
 type Context struct {
-    Session *ghttp.Session // 当前Session管理对象
-    User    *ContextUser   // 上下文用户信息
-    Data    g.Map          // 自定KV变量，业务模块根据需要设置，不固定
+    Session *ghttp.Session // Current Session management object
+    User    *ContextUser   // Context user information
+    Data    g.Map          // Custom KV variables, set by business modules as needed, not fixed
 }
 
-// 请求上下文中的用户信息
+// User information in the request context
 type ContextUser struct {
-    Id       uint   // 用户ID
-    Passport string // 用户账号
-    Nickname string // 用户名称
-    Avatar   string // 用户头像
+    Id       uint   // User ID
+    Passport string // User account
+    Nickname string // User name
+    Avatar   string // User avatar
 }
 ```
 
-其中：
+Details:
 
-1. `model.ContextKey` 常量表示存储在 `context.Context` 上下文变量中的键名，该键名用于从传递的 `context.Context` 变量中存储/获取业务自定义的共享变量。
-2. `model.Context` 结构体中的 `Session` 表示当前请求的 `Session` 对象，在 `GoFrame` 框架中每个 `HTTP` 请求对象中都会有一个空的 `Session` 对象，该对象采用了懒初始化设计，只有在真正执行读写操作时才会初始化。
-3. `model.Context` 结构体中的 `User` 表示当前登录的用户基本信息，只有在用户登录后才有数据，否则是 `nil`。
-4. `model.Context` 结构体中的 `Data` 属性用于存储自定义的 `KV` 变量，因此一般来说开发者无需再往 `context.Context` 上下文变量中增加自定义的键值对，而是直接使用 `model.` `Context` 对象的这个 `Data` 属性即可。详见后续介绍。
+1. `model.ContextKey` constant represents the key name stored in the `context.Context` context variable, which is used to store/retrieve business custom shared variables from the passed `context.Context` variable.
+2. `Session` in `model.Context` structure represents the current request's `Session` object. In the `GoFrame` framework, each `HTTP` request object will have an empty `Session` object, which is designed with lazy initialization and is only initialized when actual read/write operations are performed.
+3. `User` in `model.Context` structure represents the basic information of the currently logged-in user, which is only available after the user logs in, otherwise it is `nil`.
+4. `Data` property in `model.Context` structure is used to store custom `KV` variables. Therefore, developers generally do not need to add custom key-value pairs to the `context.Context` context variable, but can directly use the `Data` property of the `model.Context` object. See further introduction for details.
 
-## 二、逻辑封装
+## II. Logic Encapsulation
 
-由于该上下文对象也是和业务逻辑相关的，因此我们需要通过 `service` 对象将上下文变量封装起来以方便其他模块使用。
+Since the context object is also related to business logic, we need to encapsulate the context variables through the `service` object for easy use by other modules.
 
 ```go
-// 上下文管理服务
+// Context management service
 var Context = new(contextService)
 
 type contextService struct{}
 
-// 初始化上下文对象指针到上下文对象中，以便后续的请求流程中可以修改。
+// Initialize the context object pointer into the context object for modification in subsequent request processes.
 func (s *contextService) Init(r *ghttp.Request, customCtx *model.Context) {
     r.SetCtxVar(model.ContextKey, customCtx)
 }
 
-// 获得上下文变量，如果没有设置，那么返回nil
+// Get context variable, if not set, then return nil
 func (s *contextService) Get(ctx context.Context) *model.Context {
     value := ctx.Value(model.ContextKey)
     if value == nil {
@@ -71,20 +73,20 @@ func (s *contextService) Get(ctx context.Context) *model.Context {
     return nil
 }
 
-// 将上下文信息设置到上下文请求中，注意是完整覆盖
+// Set context information into the context request, note that it is a complete override
 func (s *contextService) SetUser(ctx context.Context, ctxUser *model.ContextUser) {
     s.Get(ctx).User = ctxUser
 }
 ```
 
-## 三、上下文变量注入
+## III. Context Variable Injection
 
-上下文的变量必须在请求一开始便注入到请求流程中，以便于其他方法调用。在 `HTTP` 请求中我们可以使用 `GoFrame` 的中间件来实现。在 `GRPC` 请求中我们也可以使用拦截器来实现。在 `service` 层的 `middleware` 管理对象中，我们可以这样来定义：
+Context variables must be injected into the request process at the beginning of the request to facilitate calls by other methods. In `HTTP` requests, we can use `GoFrame` middleware to achieve this. In `GRPC` requests, we can also use interceptors to achieve this. In the `service` layer's `middleware` management object, we can define it as follows:
 
 ```go
-// 自定义上下文对象
+// Custom context object
 func (s *middlewareService) Ctx(r *ghttp.Request) {
-    // 初始化，务必最开始执行
+    // Initialization, must be executed first
     customCtx := &model.Context{
         Session: r.Session,
         Data:    make(g.Map),
@@ -98,68 +100,67 @@ func (s *middlewareService) Ctx(r *ghttp.Request) {
             Avatar:   userEntity.Avatar,
         }
     }
-    // 将自定义的上下文对象传递到模板变量中使用
+    // Pass the custom context object to the template variables for use
     r.Assigns(g.Map{
         "Context": customCtx,
     })
-    // 执行下一步请求逻辑
+    // Execute the next request logic
     r.Middleware.Next()
 }
 ```
 
-该中间件初始化了用户执行流程共享的对象，并且存储到 `context.Context` 变量中的对象是指针类型 `*model.Context`。这样任何一个地方获取到这个指针，既可以获取到里面的数据，也能够直接修改里面的数据。
+This middleware initializes the shared object of the user execution process and stores the object in the `context.Context` variable as a pointer type `*model.Context`. This way, any place that obtains this pointer can both retrieve the data inside and directly modify the data inside.
 
-其中，如果 `Session` 中存在用户登录后的存储信息，那么也会将需要共享的用户基本信息写入到 `*model.Context` 中。
+If there is user login storage information in the `Session`, the necessary shared user basic information will also be written into the `*model.Context`.
 
-## 四、上下文变量使用
+## IV. Context Variable Usage
 
-### 方法定义
+### Method Definition
 
-约定俗成的，方法定义的第一个输入参数往往预留给 `context.Context` 类型参数使用，以便接受上下文变量，特别是 `service` 层的方法。例如：
+By convention, the first input parameter of method definitions is often reserved for `context.Context` type parameters to accept context variables, especially in `service` layer methods. For example:
 
 ```go
-// 执行用户登录
+// Perform user login
 func (s *userService) Login(ctx context.Context, loginReq *define.UserServiceLoginReq) error {
     ...
 }
 
-// 查询内容列表
+// Query content list
 func (s *contentService) GetList(ctx context.Context, r *define.ContentServiceGetListReq) (*define.ContentServiceGetListRes, error) {
     ...
 }
 
-// 创建回复内容
+// Create reply content
 func (s *replyService) Create(ctx context.Context, r *define.ReplyServiceCreateReq) error {
     ...
 }
-
 ```
 
-此外，约定俗成的，方法的最后一个返回参数往往是 `error` 类型。如果您确定此方法内部永不会产生 `error`，那么可以忽略。
+Additionally, by convention, the last return parameter of a method is often of the `error` type. If you are sure that this method will never produce an `error` internally, it can be ignored.
 
-### `Context` 对象获取
+### `Context` Object Retrieval
 
-通过 `service` 中封装的以下方法，将 `context.Context` 上下文变量传递进去即可。 `context.Context` 上下文变量在 `GoFrame` 框架的 `HTTP` 请求中可以通过 `r.Context()` 方法获取，在 `GRPC` 请求中，编译生成的 `pb` 文件中执行方法的第一个参数即固定是 `context.Context`。
+Pass the `context.Context` context variable into the following encapsulated methods in `service`. The `context.Context` context variable can be obtained through the `r.Context()` method in `GoFrame` framework's `HTTP` requests, and in `GRPC` requests, the first parameter of the compiled `pb` file's execution method is fixed as `context.Context`.
 
 ```go
 service.Context.Get(ctx)
 ```
 
-### 自定义 `Key-Value`
+### Custom `Key-Value`
 
-通过以下方式设置/获取自定义的 `key-value` 键值对。
+Set/retrieve custom `key-value` pairs in the following manner.
 
 ```go
-// 设置自定义键值对
+// Set custom key-value pairs
 service.Context.Get(ctx).Data[key] = value
 
 ...
 
-// 获取自定义键值对
+// Retrieve custom key-value pairs
 service.Context.Get(ctx).Data[key]
 ```
 
-## 五、注意事项
+## V. Precautions
 
-1. 上下文变量只传递必须的链路参数数据，不要什么参数都往里面塞。特别是一些方法参数传参的数据，别往里面塞，而应当显示传递方法参数。
-2. 上下文变量仅用作运行时临时使用，不可持久化存储长期使用。例如将 `ctx` 序列化后存储到数据库，并再下一次请求中读取出来反序列化使用是错误做法。
+1. Context variables should only pass necessary link parameter data and should not be stuffed with any parameter. Especially for data passed as method parameters, do not stuff them into the context, but should be explicitly passed as method parameters.
+2. Context variables are only for temporary use at runtime and should not be stored for long-term use. For example, serializing `ctx` and storing it in the database, and then deserializing it for use in the next request is the wrong approach.

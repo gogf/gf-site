@@ -1,15 +1,15 @@
 ---
 slug: '/docs/design/enums'
-title: 'Golang枚举值管理'
+title: 'Golang Enum Value Management'
 sidebar_position: 9
 hide_title: true
 ---
 
-## Go实现枚举值
+## Enum Implementation in Go
 
-`Go` 语言并没有提供 `enum` 的定义，我们可以使用 `const` 来模拟枚举类型，这也是 `Go` 语言中约定俗成的方式。
+The `Go` language does not provide a definition for `enum`, but we can simulate enum types using `const`, which is a conventional approach in `Go`.
 
-例如，在 `Kubernetes` 项目中，有大量的以常量形式定义的"枚举值"：
+For example, in the `Kubernetes` project, there are numerous "enum values" defined as constants:
 
 ```go
 // PodPhase is a label for the condition of a pod at the current time.
@@ -36,8 +36,9 @@ const (
 )
 ```
 
-## 如何跨服务高效维护枚举值
+## Efficient Maintenance of Enum Values Across Services
 
-如果只是项目内部使用枚举值比较简单，定义完了内部使用即可，但涉及到跨服务之间调用，或者前后端协作时，效率就比较低了。当服务需要给外部调用者展示接口能力时，往往需要生成 `API` 接口文档（或者接口定义文件，例如 `proto`），往往也需要根据接口文档（文件）生成调用的客户端 `SDK`。
+If enum values are used only within a project, it is relatively simple; define and use them internally. However, when it comes to cross-service calls or collaboration between front-end and back-end, the efficiency drops. When a service needs to present its interface capabilities to external callers, it often requires generating `API` documentation (or interface definition files, such as `proto`), and it may also need to generate client `SDKs` based on the interface documentation (files).
 
-如果是接口定义文件，例如 `proto`，往往可以直接查看源码来解决这个问题，问题不大。我们这里主要讨论的是接口文档维护枚举值的问题，特别是前后端协作时通过 `OpenAPI` 标准协议来维护枚举值的问题。这里我们提供了专门的工具来维护这些枚举值，具体请参考章节： [枚举维护-gen enums](../开发工具/代码生成-gen/枚举维护-gen%20enums.md)
+If it's an interface definition file, such as `proto`, you can often solve this problem by directly viewing the source code, which is not a significant issue. Our main discussion here is about maintaining enum values in interface documentation, especially when maintaining enum values through the `OpenAPI` standard protocol during front-end and back-end collaboration. We provide a dedicated tool for maintaining these enum values, for details, please refer to the section: [Enum Maintenance-gen enums](/docs/cli/gen-enums)
+
