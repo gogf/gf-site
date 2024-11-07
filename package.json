@@ -16,7 +16,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@cmfcmf/docusaurus-search-local": "^1.1.0",
     "@docusaurus/core": "^3.6.0",
     "@docusaurus/plugin-content-docs": "^3.6.0",
     "@docusaurus/preset-classic": "^3.6.0",
@@ -28,11 +27,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sharp": "^0.33.5"
-  },
-  "overrides": {
-    "@cmfcmf/docusaurus-search-local": {
-      "@docusaurus/core": "^3.1.0"
-    }
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.6.0",

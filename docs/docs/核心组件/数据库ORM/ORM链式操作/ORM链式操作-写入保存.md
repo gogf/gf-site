@@ -32,7 +32,7 @@ db.Model(table).Data(g.Map{
 ```
 
 
-> 在部分数据库类型中，并不支持 `Replace/Save` 方法，具体请参考 [链式操作](https://wiki.goframe.org/pages/viewpage.action?pageId=1114699) 介绍章节。
+> 在部分数据库类型中，并不支持 `Replace/Save` 方法，具体请参考 [链式操作](../ORM链式操作/ORM链式操作.md) 介绍章节。
 
 这几个方法需要结合 `Data` 方法使用，该方法用于传递数据参数，用于数据写入/更新等写操作。
 

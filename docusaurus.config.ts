@@ -66,15 +66,6 @@ const config: Config = {
     ],
   ],
   plugins: [
-    // 搜索
-    [
-      require.resolve('@cmfcmf/docusaurus-search-local'),
-      {
-        // Options here
-        // language of your documentation, see next section
-        language: 'zh',
-      },
-    ],
   ],
   themeConfig: {
     colorMode: {
@@ -161,6 +152,11 @@ const config: Config = {
           label: '问题反馈',
         },
         {
+          href: 'https://wiki.goframe.org/',
+          position: 'right',
+          label: '返回旧版',
+        },
+        {
           href: 'https://github.com/gogf/gf',
           position: 'right',
           className: 'header-github-link',
@@ -180,8 +176,33 @@ const config: Config = {
       theme: prismThemes.okaidia,
       darkTheme: prismThemes.dracula,
       defaultLanguage: 'go',
-      additionalLanguages: ['bash', 'javascript', 'yaml', 'ini', 'json'], // 添加语言
+      additionalLanguages: ['bash', 'javascript', 'toml', 'ini'], // 添加语言
       // 默认支持的语言 https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23
+      // 默认支持的语言 "markup","jsx","tsx","swift","kotlin","objectivec","js-extras","reason","rust","graphql","yaml","go","cpp","markdown","python","json"
+    },
+    // 搜索配置
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'ZQUL8VI47R',
+
+      // Public API key: it is safe to commit it
+      apiKey: '35fbd44a6d7dfae18587c435bc6a0d01',
+
+      indexName: 'goframe',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+
+      // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+      insights: false,
+
+      //... other Algolia params
     },
   } satisfies Preset.ThemeConfig,
   scripts: [
