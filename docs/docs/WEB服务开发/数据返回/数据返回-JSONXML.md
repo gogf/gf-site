@@ -4,7 +4,6 @@ title: '数据返回-JSON/XML'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,JSON,XML,数据返回,JSONP,Response,WriteJson,WriteXml,HTTP服务器]
-description: '此文档介绍了GoFrame框架下如何使用Response方法输出JSON和XML数据格式，包括WriteJson、WriteJsonP和WriteXml方法的实现，并提供使用curl工具测试的示例代码。了解如何设置HTTP服务器返回JSON、XML和JSONP格式的数据，以提升文档网站的SEO效果。'
 ---
 
 相关方法：

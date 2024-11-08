@@ -3,7 +3,6 @@ slug: '/docs/faq'
 title: '常见问题(FAQ)'
 sidebar_position: 10
 hide_title: true
-keywords: [GoFrame,GoFrame框架,Golang,SEO优化,常见问题,程序异常,goroutine,json输出,配置管理,HTTP Server]
 description: '本文档涵盖了使用GoFrame框架和Golang开发过程中有关常见问题的详细解答，包括程序异常处理、新goroutine创建、json输出字段屏蔽、兼容性问题、环境配置、glog错误修复及多环境配置文件加载等内容。通过这些说明，可以帮助开发者更好地优化和调试其应用程序。'
 ---
 

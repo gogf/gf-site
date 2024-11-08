@@ -1,5 +1,6 @@
 package main
 
+import "C"
 import (
     "context"
     "fmt"
@@ -18,26 +19,15 @@ import (
 const (
     path      = `/Users/john/Workspace/github/gogf/gf-site/docs`
     initAIMsg = `
-我在使用docusaurus构建我的文档网站，目前需要对网页做seo优化。我接下来会给你发markdown文件内容，你分析该文件内容并生成对应的keywords和description，我需要将它们用到markdown文件的front matter中。
+我在使用docusaurus构建我的文档网站，目前需要对网页做seo优化。
+我给你发markdown文件内容，你分析该文件内容并生成对应的keywords和description，我需要将它们用到markdown文件的front matter中。
 所有涉及到GF或者GF框架关键字的地方，统一使用GoFrame或者GoFrame框架。
 你只需要返回用于front matter的keywords和description，其他内容不需要返回。
 使用json格式返回，不需要返回markdown代码块。
 keywords生成10个，description生成160个汉字。
+生成的keywords和description需要符合SEO规范，生成的内容中不能出现seo优化相关的词。
 `
 )
-
-var (
-    initAIMessages = make([]openai.ChatCompletionMessage, 0)
-)
-
-func init() {
-    for _, line := range gstr.SplitAndTrim(initAIMsg, "\n") {
-        initAIMessages = append(initAIMessages, openai.ChatCompletionMessage{
-            Role:    openai.ChatMessageRoleUser,
-            Content: line,
-        })
-    }
-}
 
 func main() {
     var ctx = context.Background()
@@ -64,7 +54,7 @@ func main() {
                     array := strings.SplitN(line, ":", 2)
                     m.Set(gstr.Trim(array[0]), gstr.Trim(array[1]))
                 }
-                if m.Contains("keywords") {
+                if m.Contains("keywords") && m.Contains("description") {
                     return match[0]
                 }
                 // ai生成keywords和description
@@ -91,8 +81,11 @@ func genKeywordsAndDescription(
     m *gmap.ListMap,
     fileContent string,
 ) error {
-    messages := make([]openai.ChatCompletionMessage, len(initAIMessages))
-    copy(messages, initAIMessages)
+    messages := make([]openai.ChatCompletionMessage, 0)
+    messages = append(messages, openai.ChatCompletionMessage{
+        Role:    openai.ChatMessageRoleUser,
+        Content: initAIMsg,
+    })
     messages = append(messages, openai.ChatCompletionMessage{
         Role:    openai.ChatMessageRoleUser,
         Content: fileContent,
