@@ -3,6 +3,8 @@ slug: '/docs/components/os-gfile'
 title: '文件管理-gfile'
 sidebar_position: 9
 hide_title: true
+keywords: [GoFrame,gfile,文件管理,缓存机制,文件操作,目录扫描,文件复制,权限设置,路径操作,内容替换]
+description: 'gfile组件为GoFrame框架提供丰富的文件和目录操作功能，包括文件内容读取、缓存机制、文件复制与移动、目录扫描及文件权限设置等。支持灵活的路径操作与内容替换，优化文件管理与处理效率，是开发者进行文件操作的优选库。'
 ---
 
 ## 基本介绍

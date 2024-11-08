@@ -3,6 +3,8 @@ slug: '/docs/components/text-gstr'
 title: '字符串处理-gstr'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,字符串处理,文本处理组件,字符串判断,大小写转换,字符串比较,切分组合,命名转换,GoFrame框架,字符串转换]
+description: '`gstr` 提供了强大便捷的文本处理组件，包含字符串判断、大小写转换、字符串比较、切分组合、命名转换等多种功能，相较于 `Golang` 标准库更加全面丰富。'
 ---
 
 `gstr` 提供了强大便捷的文本处理组件，组件内置了大量常用的字符串处理方法，比较于 `Golang` 标准库更加全面丰富，可应对绝大部分业务场景。
