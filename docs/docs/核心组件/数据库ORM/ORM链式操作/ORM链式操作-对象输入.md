@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-object-parameter'
 title: 'ORM链式操作-对象输入'
 sidebar_position: 5
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM链式操作,对象输入,gdb,struct映射,数据库ORM,映射关系,Go语言,类型转换]
+description: '该文档介绍了如何在GoFrame框架中使用链式操作的对象输入功能，支持不同类型的数据参数，使得gdb具有极高的灵活性。详细说明了使用struct对象进行参数输入时的映射关系以及标签的优先级，以实现数据库ORM的有效转换。'
 ---
 
 `Data/Where/WherePri/And/Or` 方法支持任意的 `string/map/slice/struct/*struct` 数据类型参数，该特性为 `gdb` 提供了很高的灵活性。当使用 `struct`/ `*struct` 对象作为输入参数时，将会被自动解析为 `map` 类型，只有 `struct` 的 **公开属性** 能够被转换，并且支持 `orm`/ `gconv`/ `json` 标签，用于定义转换后的键名，即与表字段的映射关系。

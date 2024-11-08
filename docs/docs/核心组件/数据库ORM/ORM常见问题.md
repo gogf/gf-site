@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-faq'
 title: 'ORM常见问题'
 sidebar_position: 11
 hide_title: true
+keywords: [ORM常见问题,GoFrame,GoFrame框架,数据库连接池,MaxLifeTime,SQL查询,数据库驱动,调试日志,空数组条件,字符集设置]
+description: '本文档介绍了在使用GoFrame框架进行ORM操作时可能遇到的几种常见问题及其解决方案，包括数据库连接池过期导致的连接错误、update和insert操作不生效、无法找到数据库驱动、查询条件带有WHERE 0=1的问题以及MySQL表情存储乱码问题等。同时给出了一些配置建议以优化使用体验。'
 ---
 
 ## `driver: bad connection`

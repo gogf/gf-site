@@ -3,6 +3,8 @@ slug: '/docs/cli/gen'
 title: '代码生成-gen(🔥重点🔥)'
 sidebar_position: 5
 hide_title: true
+keywords: [代码生成,GoFrame,CLI工具,项目开发,企业级项目,代码规范,团队协作,开发效率,ORM模型,protobuf文件]
+description: '从v2版本开始，CLI工具结合GoFrame框架最新版本，为开发者提供代码生成功能，以规范化项目代码编写和简化开发复杂度。特别在企业级和团队项目中，CLI工具能明显提升开发效率，使得开发者专注于业务逻辑。'
 ---
 :::info
 从 `v2` 版本开始，最新的 `CLI` 工具版本功能会随着 `GoFrame` 框架的最新版本编译，引入如果本地的 `CLI` 工具自动化生成的代码与项目的 `GoFrame` 框架版本出现兼容性问题时，建议升级项目框架版本，或者自定义安装旧版本的 `CLI` 工具。旧版本CLI工具安装方式参考仓库首页介绍： [https://github.com/gogf/gf-cli](https://github.com/gogf/gf-cli)

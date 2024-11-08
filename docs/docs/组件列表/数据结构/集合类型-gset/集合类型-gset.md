@@ -3,6 +3,8 @@ slug: '/docs/components/container-gset'
 title: '集合类型-gset'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gset,集合类型,并发安全,元素集合,Go语言,集合操作,GF框架,集合接口]
+description: '本文档介绍了GoFrame框架中的集合类型gset，其特点是不重复元素集合，支持任意类型的元素。gset提供了并发安全的选项，是一种高效的集合操作工具，适合在Go语言中应用。提供了详细的使用方式及接口文档链接，便于开发者查阅。'
 ---
 
 ## 基本介绍

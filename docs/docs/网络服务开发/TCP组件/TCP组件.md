@@ -3,6 +3,8 @@ slug: '/docs/network/gtcp'
 title: 'TCP组件'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gtcp,TCPServer,服务器,编程,网络连接,轻量级,并发,例子]
+description: '本文档介绍了GoFrame框架中的gtcp模块，该模块实现了简便易用、轻量级的TCPServer服务端。通过使用gtcp，用户可以轻松创建和管理TCP服务，并支持高并发连接。文档中提供了简单的代码示例，以演示如何使用gtcp模块创建一个基本的echo服务器。'
 ---
 
 

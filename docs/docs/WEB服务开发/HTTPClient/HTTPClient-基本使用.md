@@ -3,6 +3,8 @@ slug: '/docs/web/http-client-example'
 title: 'HTTPClient-基本使用'
 sidebar_position: 0
 hide_title: true
+keywords: [HTTP,GoFrame,GoFrame框架,HTTP客户端,GET请求,POST请求,JSON数据,DELETE请求,ghttp客户端,网络请求]
+description: '本文介绍了如何使用GoFrame框架通过基本的HTTP客户端操作来发送GET、POST、DELETE请求，并处理返回值。本文还讨论了如何使用POST方法发送JSON数据、使用多参数、map类型参数进行请求。同时，提供了*Bytes、*Content和*Var方法的简要介绍，以帮助开发者更便捷地处理HTTP请求和响应内容。'
 ---
 
 ## 基本使用

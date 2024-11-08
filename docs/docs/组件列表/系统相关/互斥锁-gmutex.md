@@ -3,6 +3,8 @@ slug: '/docs/components/os-gmutex'
 title: '互斥锁-gmutex'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame框架,gmutex互斥锁,互斥锁教程,并发读写控制,锁机制优化,TryLock方法,Func方法示例,基准测试,并发安全,Go编程]
+description: '本文介绍了GoFrame框架中的gmutex互斥锁，该锁支持并发读写控制，与标准库sync.RWMutex类似。其特点是包含Try*方法和*Func方法，用于非阻塞锁机制和特定作用域锁控制。通过示例代码展示了其便捷的使用方式，以及与标准库锁的基准测试对比，展示了其性能优势。适用于需要高效锁机制的并发编程场景。'
 ---
 
 `gmutex.Mutex` 互斥锁对象支持读写控制，互斥锁功能逻辑与标准库 `sync.RWMutex` 类似，可并发读但不可并发写。

@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-timezone'
 title: 'ORM时区处理'
 sidebar_position: 5
 hide_title: true
+keywords: [GoFrame框架,ORM时区处理,MySQL时区,time.Time,数据库驱动,时区转换,loc参数,时区设置,配置文件,time.Parse]
+description: '本文介绍了如何在GoFrame框架中处理ORM操作中的时区问题，特别是使用MySQL数据库时的时区转换。我们讲解了如何通过设置loc参数来控制time.Time对象在提交到数据库时的时区处理，并提供了相关代码示例和配置建议，帮助开发者在处理数据库操作时更好地管理时区。'
 ---
 
 ## 基本介绍

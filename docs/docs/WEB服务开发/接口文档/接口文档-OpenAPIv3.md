@@ -3,6 +3,8 @@ slug: '/docs/web/api-document-openapiv3'
 title: '接口文档-OpenAPIv3'
 sidebar_position: 0
 hide_title: true
+keywords: [OpenAPIv3,GoFrame,接口文档,规范路由,g.Meta,swagger,API,框架,元数据,协议]
+description: '本文档介绍了如何在GoFrame框架中使用OpenAPIv3协议来规范接口文档的生成。通过嵌入g.Meta元数据结构体，可以自动生成包含协议标签的接口信息。此外，文中还展示了如何自定义扩展标签和手动完善接口文档。'
 ---
 :::tip
 `OpenAPIv3` 协议主要使用在规范路由中，阅读接口文档协议介绍之前，请先了解一下规范路由： [路由注册-规范路由](../路由管理/路由管理-路由注册/路由注册-规范路由/路由注册-规范路由.md)

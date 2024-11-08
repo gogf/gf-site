@@ -3,6 +3,8 @@ slug: '/docs/web/response-redirect'
 title: '数据返回-Redirect'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,数据返回,页面跳转,RedirectTo,RedirectBack,Location Header,网页重定向,HTTP地址,Referer Header]
+description: '本页面介绍如何在GoFrame框架中使用RedirectTo和RedirectBack方法实现页面跳转功能。通过Location Header实现页面之间的跳转，包括跳转到指定地址和返回到上一页面。本示例演示了如何在本地服务中设置页面重定向，帮助开发者理解HTTP地址处理及Referer Header的应用。'
 ---
 
 我们可以通过 `RedirectTo/RedirectBack` 来实现页面之间的跳转，该功能通过 `Location Header` 实现。相关方法：

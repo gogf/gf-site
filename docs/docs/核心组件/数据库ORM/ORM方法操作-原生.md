@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-funcs'
 title: 'ORM方法操作(原生)'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,SQL操作,数据库查询,数据插入,数据更新,数据删除,批量操作,链式操作]
+description: '本文档介绍了如何使用GoFrame框架进行原生SQL的ORM方法操作。详细讲解了通过方法操作来执行复杂SQL的方法，包括数据库查询、数据插入、更新、删除和批量操作的具体用法，同时提供了具体的代码示例。'
 ---
 
 ## 方法操作

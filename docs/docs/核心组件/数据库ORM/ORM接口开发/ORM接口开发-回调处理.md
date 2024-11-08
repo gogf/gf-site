@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-interface-callback'
 title: 'ORM接口开发-回调处理'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,ORM接口,SQL语句,自定义回调,日志记录,鉴权操作,数据库驱动,MySQL驱动,gdb接口,框架覆盖]
+description: '本文介绍了如何在使用GoFrame框架进行ORM接口开发时，通过自定义回调处理来对SQL语句进行日志记录或鉴权。通过实现并覆盖DoQuery、DoExec等接口方法，开发者可以注入自定义逻辑到默认实现中。示例中展示了如何自定义MySQL驱动以记录执行的SQL语句，并配置gdb以使用该驱动。'
 ---
 
 ## 基本介绍

@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-config-faq'
 title: 'ORM使用配置-常见问题'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,数据库加密,自定义Driver,mysql,密码解密,配置文件加密,ORM接口开发,数据库账号保护,数据库连接]
+description: '本页介绍如何在GoFrame框架中实现数据库账号密码在配置文件中的加密，避免敏感信息泄露。用户可以通过自定义Driver的方式，在连接数据库时对加密的字段进行解密处理。以mysql为例，代码示例展示了如何包裹mysql driver并覆盖其Open方法，确保数据库连接的安全性与灵活性。'
 ---
 
 ## 如何实现数据库账号密码在配置文件中加密

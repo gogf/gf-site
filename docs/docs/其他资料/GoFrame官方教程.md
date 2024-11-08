@@ -3,6 +3,8 @@ slug: '/docs/other/official-resource'
 title: 'GoFrame官方教程'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,官方教程,学习资源,Golang书籍,官方文档,模块化设计,源代码,QQ群,微信群]
+description: '本页介绍了GoFrame官方推荐的学习方式，包括阅读Golang相关书籍、深入研究GoFrame框架官方文档和源代码，以及加入QQ和微信群与其他开发者探讨。同时，建议关注GoFrame主库及官网动态以把握项目最新发展。'
 ---
 
 官方推荐以下四种形式的学习方式：

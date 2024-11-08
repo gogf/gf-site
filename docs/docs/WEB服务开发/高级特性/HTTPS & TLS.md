@@ -3,6 +3,8 @@ slug: '/docs/web/senior-https'
 title: 'HTTPS & TLS'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,HTTPS,TLS,WebServer,Certbot,Let’s Encrypt,SSL证书,ghttp,自动续期,证书生成]
+description: '本文档介绍了如何使用GoFrame框架构建HTTPS服务，包括准备工作、示例代码以及通过Let’s Encrypt获取免费SSL证书的方法。同时，还探讨了如何在同一WebServer下同时支持HTTP和HTTPS访问协议的方法，确保您的应用更安全。'
 ---
 
 ## HTTPS服务

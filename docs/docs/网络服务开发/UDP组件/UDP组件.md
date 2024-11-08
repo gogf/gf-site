@@ -3,6 +3,8 @@ slug: '/docs/network/gudp'
 title: 'UDP组件'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,UDP组件,UDP协议,无连接协议,gudp.Server,gudp.Conn,接口文档,gudp用法,NewServer,SetAddress]
+description: '本文档介绍了GoFrame框架中的UDP组件，使用gudp.Server和gudp.Conn实现UDP协议的简单不可靠信息传送服务。通过示例代码展示如何创建和运行UDP服务器，并提供了相关接口文档链接供参考。'
 ---
 
 ## 基本介绍

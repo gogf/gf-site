@@ -3,6 +3,8 @@ slug: '/docs/other/golang-resource'
 title: 'Golang学习资源'
 sidebar_position: 4
 hide_title: true
+keywords: [Golang学习资源,Tony Bai博客,Go语言编程,分布式系统,高性能编程,GoFrame框架,Golang论坛,Dave Cheney分析,Uber技术博客,Go行业资讯]
+description: '本页收集了各类Golang学习资源，包括国内外知名博客如Tony Bai、鸟窝、Draveness和Dave Cheney的技术文章，涉及Go语言编程、高性能编程、GoFrame框架等主题。同时提供国内外社区和论坛，如Segmentfault、掘金和reddit Go等，为Golang开发者提供丰富的学习资料。'
 ---
 
 ## 一、大佬博客

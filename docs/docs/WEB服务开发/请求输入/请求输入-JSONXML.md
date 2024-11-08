@@ -3,6 +3,8 @@ slug: '/docs/web/request-json-xml-parameter'
 title: '请求输入-JSON/XML'
 sidebar_position: 3
 hide_title: true
+keywords: [GoFrame,GoFrame框架,请求输入,JSON,XML,数据格式,GoFrame文档,数据验证,接口开发,web框架]
+description: '本页面介绍了GoFrame框架对JSON和XML数据格式的原生支持，详细描述了如何通过GoFrame框架的Request对象来处理客户端提交的数据格式，提高开发效率。文档中包括示例代码演示如何解析和验证提交的数据，以及如何进行数据格式转换，为开发者提供了便捷的数据获取和处理能力。'
 ---
 
 从 `GoFrame v1.11` 版本开始， `Request` 对象提供了对客户端提交的 `JSON/XML` 数据格式的原生支持，为开发者提供了更便捷的数据获取特性，以进一步提高开发效率。

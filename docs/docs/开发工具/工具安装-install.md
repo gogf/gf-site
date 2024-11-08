@@ -3,6 +3,8 @@ slug: '/docs/cli/install'
 title: '工具安装-install'
 sidebar_position: 0
 hide_title: true
+keywords: [工具安装,GoFrame,GoFrame框架,gf工具,命令行工具,预编译二进制,系统环境变量,MacOS,Windows安装,go install]
+description: '本页面介绍了如何在不同操作系统上安装GoFrame工具，包括MacOS和Windows系统的安装方法。提供了预编译二进制文件的下载地址以及通过go install命令进行安装的方法，确保gf工具能够正确安装并在系统环境变量中使用。'
 ---
 
 该命令仅针对于预编译二进制下载安装。如果通过 `go install` 命名安装的工具的话，不需要手动再使用 `install` 命令安装 `gf` 工具。

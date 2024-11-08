@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-model'
 title: 'ORM链式操作-模型创建'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,链式操作,模型创建,Model对象,g.Model,Raw方法,链式安全,Clone方法,Safe方法]
+description: '本文介绍如何使用GoFrame框架中的ORM工具进行链式操作，重点讲解了模型创建、Model对象的使用以及实现链式安全的几种方式。通过使用Model、Raw方法，在默认和切换的数据库配置上创建模型对象，并探讨链式安全的实现，包括默认非链式安全、Clone方法克隆、Safe方法设置链式安全等操作技巧。'
 ---
 
 ## 模型创建

@@ -3,6 +3,8 @@ slug: '/docs/components/encoding-gbinary'
 title: '二进制编解码-gbinary'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gbinary,二进制编解码,数据转换,网络通信,数据编码,解码,整型处理,位操作]
+description: 'GoFrame框架中的gbinary包提供了用于二进制数据与各种数据类型之间转换的编解码功能，广泛应用于网络通信和数据文件操作。支持对整型数据进行按位精准处理，并提供了一系列编码和解码接口，以确保数据在不同类型和平台间的高效转换。'
 ---
 
 ## 基本介绍

@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-practice'
 title: 'ORM最佳实践'
 sidebar_position: 10
 hide_title: true
+keywords: [GoFrame,GoFrame框架,数据库操作,ORM最佳实践,数据库组件,GoFrame数据库,业务项目,灵活操作,最佳实践案例,参考学习]
+description: '本页面介绍了如何使用GoFrame框架进行数据库操作的最佳实践。GoFrame提供了强大而灵活的数据库组件，支持各种复杂业务项目中的数据库操作。本文档中包含多个最佳实践案例，供开发者参考和学习，帮助您更高效地实现数据库操作。'
 ---
 
 

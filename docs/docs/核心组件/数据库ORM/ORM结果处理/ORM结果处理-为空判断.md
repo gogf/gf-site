@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-result-empty-check'
 title: 'ORM结果处理-为空判断'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,结果处理,为空判断,数据集合,数据记录,数据字段值,Struct对象,Struct数组]
+description: '本文档介绍如何使用GoFrame框架进行ORM结果处理中的为空判断。包括处理数据集合、多条数据记录、数据字段值，以及Struct对象和Struct数组的结果处理方法。通过使用IsEmpty和IsNil等方法，可以轻松地判断查询结果是否为空。'
 ---
 
 使用 `GoFrame ORM` 对返回结果为空判断非常简便，大部分场景下直接判断返回的数据是否为 `nil` 或者长度为 `0`，或者使用 `IsEmpty/IsNil` 方法。

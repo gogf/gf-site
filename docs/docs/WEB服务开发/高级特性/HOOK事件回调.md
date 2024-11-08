@@ -3,6 +3,8 @@ slug: '/docs/web/senior-hook'
 title: 'HOOK事件回调'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,HOOK事件,事件回调,ghttp.Server,中间件,路由优先级,权限控制,跨域请求,接口鉴权]
+description: '本文介绍GoFrame框架中ghttp.Server提供的HOOK事件回调功能，该功能类似于中间件，通过自定义监听处理特定事件，绑定事件回调注册顺序明确回调调用优先级。详细讲解了HOOK事件的使用方法、接口鉴权控制、跨域请求处理等实际应用场景，并结合示例代码展示事件回调的具体执行方式及优先级机制。'
 ---
 
 ![](/markdown/25a101c86afb67b0c4f69162657c7853.png)

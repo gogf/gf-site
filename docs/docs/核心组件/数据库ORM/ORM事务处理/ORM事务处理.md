@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-transaction'
 title: 'ORM事务处理'
 sidebar_position: 3
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM事务,事务处理,闭包操作,事务安全,嵌套事务,数据库,事务接口,Go开发]
+description: '使用GoFrame框架的ORM组件进行事务操作非常简便且安全，有两种方式：常规操作和闭包操作。常规操作通过Begin开启事务，返回一个事务接口gdb.TX，而闭包操作通过Transaction方法封装事务逻辑，并自动管理事务的关闭，支持嵌套事务，推荐使用闭包操作以确保事务安全。'
 ---
 
 

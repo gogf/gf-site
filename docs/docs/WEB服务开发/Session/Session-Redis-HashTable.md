@@ -3,6 +3,8 @@ slug: '/docs/web/session-redis-hash-table'
 title: 'Session-Redis-HashTable'
 sidebar_position: 3
 hide_title: true
+keywords: [GoFrame,GoFrame框架,RedisHashTableStorage,Session,Redis存储,Session管理,Go开发,Web开发,Session过期,Session示例]
+description: '本文档介绍了如何在GoFrame框架中使用RedisHashTableStorage进行Session管理，区别于RedisKeyValueStorage，该方法直接通过Redis服务进行操作，无需全量拉取。通过示例代码，展示了基本的Session设置、获取和删除操作，以及如何在GoFrame中集成这个功能。'
 ---
 
 ## RedisHashTableStorage

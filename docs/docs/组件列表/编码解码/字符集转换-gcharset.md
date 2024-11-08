@@ -3,6 +3,8 @@ slug: '/docs/components/encoding-gcharset'
 title: '字符集转换-gcharset'
 sidebar_position: 10
 hide_title: true
+keywords: [GoFrame,GoFrame框架,字符编码转换,gcharset,GBK,UTF-8,字符集转换,编码转换模块,中文字符集,程序示例]
+description: '本页面介绍了GoFrame框架中的字符编码转换模块gcharset，支持如GBK、UTF-8等常见字符集的转换，为开发者提供了灵活的字符集兼容性。通过导入相关包，开发者可以实现不同字符集之间的转换，从而满足多语言、多地区用户的需求，提升应用程序的国际化与本地化能力。'
 ---
 
 `GoFrame` 框架提供了强大的字符编码转换模块 `gchatset`，支持常见字符集的相互转换。

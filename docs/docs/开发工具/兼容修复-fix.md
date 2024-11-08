@@ -3,6 +3,8 @@ slug: '/docs/cli/fix'
 title: '兼容修复-fix'
 sidebar_position: 9
 hide_title: true
+keywords: [GoFrame,GoFrame框架,兼容修复,CLI使用,代码更新,版本升级,向下兼容,gf fix,命令行工具,自动修正]
+description: 'GoFrame框架提供的兼容修复命令gf fix，帮助在框架升级过程中解决向下兼容性问题。该命令自v2.3版本起提供，通过自动更新本地代码，处理较小兼容性问题，并可重复执行以确保无副作用。'
 ---
 :::tip
 该命令从框架 `v2.3` 版本开始提供。

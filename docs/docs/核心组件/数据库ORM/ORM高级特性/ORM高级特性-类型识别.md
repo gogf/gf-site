@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-senior-type-recognization'
 title: 'ORM高级特性-类型识别'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,类型识别,Go语言,数据库映射,自动识别,MySQL,数据类型,查询]
+description: '本文介绍了在使用GoFrame框架进行ORM查询时的高级特性——类型识别。通过GoFrame框架，查询结果中的字段值会自动识别并映射为对应的Go语言变量类型，例如int类型或string类型。这一功能对于将查询结果编码并通过JSON等方式直接返回给客户端非常实用，并有助于提升开发效率。'
 ---
 
 使用 `GoFrame ORM` 查询数据时，由于字段值是一个泛型对象，返回的数据类型将会被自动识别映射到 `Go` 变量类型，作为泛型的具体值。

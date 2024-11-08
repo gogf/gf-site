@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-context'
 title: 'ORM上下文变量'
 sidebar_position: 9
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM上下文变量,异步IO控制,链路跟踪,上下文变量,请求超时,嵌套事务,模型上下文操作,ORM事务处理]
+description: '本文介绍了在GoFrame框架中如何通过ORM支持自定义的上下文变量，以实现异步IO控制、链路跟踪、嵌套事务等功能。通过使用Ctx方法，开发者可以轻松传递自定义上下文变量，实现更复杂的请求控制和跟踪。文章提供了请求超时控制和模型上下文操作的具体示例和建议。'
 ---
 
 `ORM` 支持传递自定义的 `context` 上下文变量，用于异步 `IO` 控制、上下文信息传递（特别是链路跟踪信息的传递）、以及嵌套事务支持。

@@ -3,6 +3,8 @@ slug: '/docs/design/project-dao-pain'
 title: 'DAO-组件痛点及改进'
 sidebar_position: 0
 hide_title: true
+keywords: [DAO,GoFrame,数据访问对象,ORM,GRPC,数据库优化,代码封装,自动映射,SQL日志,代码生成]
+description: '本文介绍了在GoFrame框架中使用DAO设计的优点，以及现有ORM组件使用中的痛点和解决方案。通过DAO设计，极大地提高了开发和维护效率，降低了代码的耦合度，还增加了可观测性支持。文章详细描述了如何克服使用ORM时的常见问题，如字段映射、硬编码和数据结构不一致等。此外，改进方案设计还包括对DAO对象的封装和SQL日志功能的支持。'
 ---
 
 关于 `DAO` 数据访问对象设计其实是关于 `GoFrame` 框架工程化实践中比较重要一块设计。

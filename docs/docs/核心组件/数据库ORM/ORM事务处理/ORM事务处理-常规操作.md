@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-transaction-basic'
 title: 'ORM事务处理-常规操作'
 sidebar_position: 0
 hide_title: true
+keywords: [事务操作,Begin,Commit,Rollback,GoFrame,数据库操作,Transaction,闭包方法,gdb.Tx,链式操作]
+description: '本文档介绍了在GoFrame框架中进行ORM事务处理的基础操作，包括如何使用Begin、Commit和Rollback方法来开启、提交和回滚事务。同时特别提示事务操作后需要及时关闭事务以避免资源泄露，建议使用Transaction闭包方法实现安全事务操作。'
 ---
 
 常规的事务操作方法为 `Begin/Commit/Rollback`，每一个方法指定特定的事务操作。开启事务操作可以通过执行 `db.Begin` 方法，该方法返回事务的操作接口，类型为 `gdb.Tx`，通过该对象执行后续的数据库操作，并可通过 `tx.Commit` 提交修改，或者通过 `tx.Rollback` 回滚修改。

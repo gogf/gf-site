@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-soft-time'
 title: 'ORM链式操作-时间维护'
 sidebar_position: 11
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,链式操作,时间维护,gdb,自动填充,软删除,表现层,数据操作]
+description: '本文介绍了使用GoFrame框架中的gdb模块进行ORM链式操作时的时间维护特性。通过自动填充创建、更新和删除时间，有效提高了开发效率。文章详细讲解了如何启用这些特性以及在执行数据库操作如插入、更新和删除时的实现方式。此外，还提供了针对软删除和忽略时间维护等场景的解决方案。'
 ---
 
 需要注意，该特性仅对链式操作有效。

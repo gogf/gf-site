@@ -3,6 +3,8 @@ slug: '/docs/components/os-genv'
 title: '环境变量-genv'
 sidebar_position: 12
 hide_title: true
+keywords: [GoFrame,环境变量管理,genv,SetMap,GetWithCmd,GoFrame框架,环境变量设置,命令行选项,删除环境变量,批量设置环境变量]
+description: '本文档介绍了GoFrame框架中的genv环境变量管理组件，包括如何批量设置环境变量，以及如何通过命令行选项获取环境变量。当某个环境变量不存在时，支持从命令行选项读取。此外，还涵盖了环境变量的添加、删除、及其命名转换规则等内容。'
 ---
 
 环境变量管理组件。

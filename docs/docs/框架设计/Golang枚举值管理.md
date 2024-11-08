@@ -3,6 +3,8 @@ slug: '/docs/design/enums'
 title: 'Golang枚举值管理'
 sidebar_position: 9
 hide_title: true
+keywords: [GoFrame框架,Go语言,枚举实现,Kubernetes枚举,Go常量,跨服务枚举,OpenAPI枚举,enumeration in Go,API开发,SDK生成]
+description: '本文介绍了如何在Go语言中实现枚举值，虽然Go语言本身不支持enum定义，但是可以通过const来模拟枚举类型。这种方法在Kubernetes项目中广泛使用。此外，本文还探讨了如何在跨服务调用和前后端协作中高效维护枚举值的问题，并提供了使用OpenAPI标准协议与相关工具来实现的方法。'
 ---
 
 ## Go实现枚举值

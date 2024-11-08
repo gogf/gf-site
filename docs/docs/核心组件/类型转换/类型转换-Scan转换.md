@@ -3,6 +3,8 @@ slug: '/docs/core/gconv-scan'
 title: '类型转换-Scan转换'
 sidebar_position: 4
 hide_title: true
+keywords: [GoFrame,GoFrame框架,类型转换,Scan方法,struct转换,map转换,Go语言,自动识别,参数转换,编程示例]
+description: '了解如何使用GoFrame框架中强大的Scan方法实现任意参数到struct、struct数组、map、map数组的自动识别转换。本文介绍Scan方法的定义及其在Go语言中的应用，同时提供多个编程示例帮助快速理解和掌握此功能，为开发者提供高效便捷的类型转换解决方案。'
 ---
 
 前面关于复杂类型的转换功能如果大家觉得还不够的话，那么您可以了解下 `Scan` 转换方法，该方法可以实现对任意参数到 `struct/struct数组/map/map数组` 的转换，并且根据开发者输入的转换目标参数自动识别执行转换。

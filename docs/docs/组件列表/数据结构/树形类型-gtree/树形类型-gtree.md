@@ -3,6 +3,8 @@ slug: '/docs/components/container-gtree'
 title: '树形类型-gtree'
 sidebar_position: 7
 hide_title: true
+keywords: [GoFrame,树形容器,gtree,并发安全,红黑树,AVL树,BTree,排序,大数据处理,数据结构]
+description: '该文档介绍了GoFrame框架提供的树形容器组件，包括RedBlackTree、AVLTree和BTree等数据结构。树形容器支持并发安全和有序遍历，适合处理大数据量的存储需求。通过GoFrame框架，开发者可以高效地实现关联数组、排序键值对和大数据量内存CURD等场景。'
 ---
 
 ## 基本介绍

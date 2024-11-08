@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-query-scan'
 title: 'ORM查询-Scan'
 sidebar_position: 3
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM查询,Scan方法,结构体转换,struct数组,gdb,查询结果,结构体对象,Go框架]
+description: '本文档详细介绍了在GoFrame框架中使用Scan方法进行ORM查询的技巧，主要包括如何将查询结果转换为struct对象和struct数组。通过示例代码说明了Scan方法的用法，如单条记录转换为struct对象、多条记录转换为struct数组等，帮助用户有效地处理数据库查询结果。'
 ---
 
 `Scan` 方法支持将查询结果转换为结构体或者结构体数组， `Scan` 方法将会根据给定的参数类型自动识别执行的转换类型。

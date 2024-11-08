@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-senior-debugging'
 title: 'ORM高级特性-调试模式'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,调试模式,SQL,日志,数据库,配置示例,SetDebug,Debug配置]
+description: '本文档介绍如何在GoFrame框架中使用ORM高级特性的调试模式。在开发阶段，通过Debug配置文件配置项或SetDebug配置方式，可以开启调试模式，使数据库SQL操作语句以DEBUG级别输出到终端或日志文件中，便于开发者进行问题排查和性能优化。'
 ---
 
 为便于开发阶段调试， `GoFrame ORM` 支持调试模式，可以通过 `Debug` 配置文件配置项或者 `SetDebug` 配置方式开启调试模式， 随后任何的数据库 `SQL` 操作语句都将会由内置的日志对象，以 `DEBUG` 级别输出到终端或者日志文件中。以下是一个开启了调试模式的配置示例：

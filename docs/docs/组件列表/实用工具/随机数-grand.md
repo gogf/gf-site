@@ -3,6 +3,8 @@ slug: '/docs/components/util-grand'
 title: '随机数-grand'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,随机数,grand模块,随机生成,性能优化,接口文档,字符列表,概率计算,随机字符串]
+description: '本页面介绍了GoFrame框架中的grand模块，提供了对随机数操作的优化封装，具备高性能和多样性的随机生成方法，包含整数、字符串及概率性计算。通过实用的方法如Intn、Str等，您可以轻松生成各种类型的随机数据，满足不同的开发需求。'
 ---
 
 `grand` 模块实现了对随机数操作的封装和改进，实现了极高的随机数生成性能，提供了丰富的随机数相关操作方法。

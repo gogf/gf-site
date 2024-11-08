@@ -3,6 +3,8 @@ slug: '/docs/web/request-context'
 title: '请求输入-Context'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,请求上下文,Context对象,上下文变量,中间件,路由服务,模块方法,context.Context接口,Golang]
+description: '本文档介绍了如何在GoFrame框架中使用Context对象处理请求流程中的上下文变量共享。通过提供必要的方法，开发者可以在请求开始时设置自定义变量，并在后续的处理中访问它们。此外，本文包含了如何集成第三方组件以增强功能的示例代码和详细步骤。'
 ---
 
 ## 基本介绍

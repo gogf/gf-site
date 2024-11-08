@@ -3,6 +3,8 @@ slug: '/docs/web/session'
 title: 'Session'
 sidebar_position: 7
 hide_title: true
+keywords: [GoFrame,GoFrame框架,Session管理,gsession,HTTP服务,SessionId,并发安全,ghttp.Request,gsession模块,Session存储]
+description: '本文档介绍了GoFrame框架中Session管理的相关功能，包括Session的基本概念、gsession模块的实现方式及其在不同场景中的应用。详细讨论了SessionId的传递方式和Session的初始化、销毁等操作，提供了四种常见的Session存储实现方式及其特点，为开发者在HTTP等多种服务环境下的Session管理提供了丰富的工具支持。'
 ---
 
 `GoFrame` 框架提供了完善的 `Session` 管理能力，由 `gsession` 组件实现。由于 `Session` 机制在 `HTTP` 服务中最常用，因此后续章节中将着重以 `HTTP` 服务为示例介绍 `Session` 的使用。

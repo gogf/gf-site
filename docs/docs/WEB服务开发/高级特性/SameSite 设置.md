@@ -3,6 +3,8 @@ slug: '/docs/web/senior-same-site'
 title: 'SameSite设置'
 sidebar_position: 10
 hide_title: true
+keywords: [SameSite设置,GoFrame,cookie,chrome89,协议,跨站请求,http,secure,GoFrame框架,服务器配置]
+description: '本文档介绍了如何在使用GoFrame框架构建的服务器中设置SameSite属性。通过详细的代码例子，您可以学习如何配置SameSite以确保cookie安全性，尤其是在chrome89及以上版本中处理不同协议的跨站请求。'
 ---
 
 ## SameSite 介绍

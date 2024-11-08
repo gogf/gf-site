@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-query-all-and-count'
 title: 'ORM查询-AllAndCount'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM查询,AllAndCount,分页查询,数据查询,总数量查询,v2.5.0,记录列表,查询逻辑简化]
+description: '该文档介绍了GoFrame框架中从v2.5.0版本开始提供的AllAndCount方法，该方法用于在分页查询场景中同时检索数据记录列表及总数量，简化查询逻辑。通过在查询时忽略Limit/Page操作，AllAndCount方法能够提供一种便捷的方式对数据进行检索和计数。'
 ---
 
 该方法从 `v2.5.0` 版本开始提供，用于同时查询数据记录列表及总数量，一般用于分页查询场景中，简化分页查询逻辑。

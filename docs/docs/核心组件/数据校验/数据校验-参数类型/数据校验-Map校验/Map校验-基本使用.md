@@ -3,6 +3,8 @@ slug: '/docs/core/gvalid-parameter-type-map-example'
 title: 'Map校验-基本使用'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,参数校验,Map校验,自定义错误提示,默认错误提示,框架使用,验证规则,代码示例,数据验证]
+description: '本教程介绍如何在GoFrame框架中进行Map校验，演示了如何使用默认及自定义错误提示。通过示例代码展示了如何对参数进行验证，以及在验证失败时输出相应的错误信息，帮助开发者更好地实现数据验证和错误处理机制。'
 ---
 
 ## 默认错误提示

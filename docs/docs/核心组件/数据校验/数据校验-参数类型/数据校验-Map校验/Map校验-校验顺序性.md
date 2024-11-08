@@ -3,6 +3,8 @@ slug: '/docs/core/gvalid-parameter-type-map-sequence'
 title: 'Map校验-校验顺序性'
 sidebar_position: 1
 hide_title: true
+keywords: [Map校验,校验顺序性,GoFrame,参数校验,golang,map类型,规则排序,校验错误信息,gogf,数据校验]
+description: '本文介绍了如何在GoFrame框架中实现Map校验的顺序性。通过修改规则参数类型为[]string，可以确保返回的错误信息顺序与设定规则一致，解决了golang中map类型无序性导致的校验结果不固定的问题。本教程提供了详细的示例代码和执行结果，帮助用户理解如何使用GoFrame进行顺序校验。'
 ---
 
 ## 基本介绍

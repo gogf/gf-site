@@ -3,6 +3,8 @@ slug: '/docs/cli/docker'
 title: '镜像编译-docker'
 sidebar_position: 8
 hide_title: true
+keywords: [GoFrame框架,Docker镜像编译,gf docker,Makefile构建,二进制构建,gf build,gf gen enums,命令组合,自动推送,配置文件管理]
+description: '本文档介绍如何使用GoFrame框架的gf docker命令编译和生成Docker镜像。在v2.5版本之后，建议通过Makefile脚本组合使用gf build, gf gen enums, gf docker等命令。这种方式更为灵活易于维护，文中提供了详细的使用示例和配置文件管理建议。'
 ---
 :::tip
 从 `v2.5` 版本开始，考虑到各个工具命令的解耦性， `gf docker` 工具命令默认不再执行二进制构建编译，而是推荐大家通过 `Makefile` 构建脚本自行组织使用 `gf build, gf gen enums, gf docker` 等命令结合的方式来 **组合使用** 命令（工程项目中提供了对应的 `make build, make enums, make docker` 命令），组合使用更加灵活且易维护。

@@ -3,6 +3,8 @@ slug: '/docs/components/os-gtime'
 title: '时间管理-gtime'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,时间管理,gtime,日期格式化,PHP date,通用时间模块,时间扩展,时间日期方法,自定义格式]
+description: 'gtime模块是GoFrame框架的通用时间管理模块，拓展了Golang标准库time的功能，提供了自定义的日期格式化语法，对PHP的date函数格式有良好兼容性，使PHP开发者在Go中实现时间管理时更加便利。'
 ---
 
 ## 基本介绍

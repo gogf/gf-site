@@ -3,6 +3,8 @@ slug: '/docs/components/os-gproc'
 title: '进程管理-gproc'
 sidebar_position: 14
 hide_title: true
+keywords: [进程管理,进程间通信,本地socket,gproc模块,GoFrame,Shell指令,异步执行,子进程管理,gogf,进程资源]
+description: '本文档介绍了通过GoFrame框架的gproc模块实现进程管理和进程间通信的方法。gproc使用本地socket机制进行通信，提供了多种接口如Shell、ShellExec、ShellRun以不同方式执行Shell命令，可以借助goroutine实现异步执行。在本文档中，您将了解到如何使用Manager对象进行多子进程管理，以及如何获取和控制特定的进程资源。'
 ---
 
 

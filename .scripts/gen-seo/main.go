@@ -55,6 +55,7 @@ func main() {
             `---\n([\s\S]*?title: [\s\S]+?)\n---`,
             content,
             func(match []string) string {
+                g.Log().Infof(ctx, `handle %s`, file)
                 var (
                     m     = gmap.NewListMap()
                     lines = gstr.SplitAndTrim(match[1], "\n")
@@ -68,7 +69,7 @@ func main() {
                 }
                 // ai生成keywords和description
                 if err = genKeywordsAndDescription(ctx, aiClient, m, content); err != nil {
-                    g.Log().Warning(ctx, `genKeywordsAndDescription failed for "%s": %s`, file, err)
+                    g.Log().Warningf(ctx, `genKeywordsAndDescription failed for "%s": %s`, file, err)
                     return match[0]
                 }
                 // 生成新的front matter
@@ -90,7 +91,6 @@ func genKeywordsAndDescription(
     m *gmap.ListMap,
     fileContent string,
 ) error {
-    return nil
     messages := make([]openai.ChatCompletionMessage, len(initAIMessages))
     copy(messages, initAIMessages)
     messages = append(messages, openai.ChatCompletionMessage{
@@ -121,5 +121,7 @@ func genKeywordsAndDescription(
     )
     m.Set("keywords", fmt.Sprintf(`[%s]`, gstr.Join(keywords, ",")))
     m.Set("description", fmt.Sprintf(`'%s'`, description))
+    g.Log().Infof(ctx, `generated keywords: %s`, m.Get("keywords"))
+    g.Log().Infof(ctx, `generated description: %s`, m.Get("description"))
     return nil
 }

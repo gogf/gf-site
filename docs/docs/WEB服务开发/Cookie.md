@@ -3,6 +3,8 @@ slug: '/docs/web/cookie'
 title: 'Cookie'
 sidebar_position: 6
 hide_title: true
+keywords: [Cookie,GoFrame,GoFrame框架,ghttp,SessionId,接口文档,SetCookie,HTTP Server,Session,web开发]
+description: '本文档详细介绍了如何在GoFrame框架中使用Cookie进行会话管理。通过ghttp.Request对象，开发者可以轻松获取、设置和删除Cookie。还讨论了SessionId的获取和设置，Cookie的过期时间处理，以及在控制器中继承和使用会话对象的简易方法。这些功能为Web开发者提供了强大的工具来管理用户会话，确保Web应用的灵活性和应变能力。'
 ---
 
 ## 基本介绍

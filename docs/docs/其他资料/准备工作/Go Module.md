@@ -3,6 +3,8 @@ slug: '/docs/install-go/go-module'
 title: 'Go Module'
 sidebar_position: 1
 hide_title: true
+keywords: [Go Module,GoFrame,包管理工具,依赖管理,go.mod,Goland IDE,vgo,package,GOPROXY,go get]
+description: '本节详细介绍了Go Module这一包管理工具的使用方法，涵盖了如何通过Goland IDE和命令行进行依赖管理，并提供了设置go.mod文件及使用代理下载GoFrame框架的实用指导。通过开启Go Module特性和选择适当的Proxy地址，能够高效管理项目包依赖，从而提升开发效率。'
 ---
 
 `Go Module` 是从Go版本 `1.11.1` 开始官方提供的包管理工具，用于解决Go项目的包管理及依赖，类似于PHP的 `composer`、Nodejs的 `npm`。本章节会对 `Go Module` 的一些常用的实用的命令/设置进行介绍，更详细的介绍请查看官方文档： [https://github.com/golang/go/wiki/Modules](https://github.com/golang/go/wiki/Modules)

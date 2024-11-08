@@ -3,6 +3,8 @@ slug: '/docs/components/contrib-nosql-redis-example'
 title: 'Redis-使用示例'
 sidebar_position: 1
 hide_title: true
+keywords: [Redis示例,GoFrame框架,NoSQL数据库,Set操作,Get操作,SetEx操作,HSet操作,HMSet操作,HGetAll操作,HMGet操作]
+description: '本文档提供了使用GoFrame框架在Redis中执行基本操作的示例，包括Set/Get、SetEx、HSet/HGetAll和HMSet/HMGet操作。这些代码示例展示了如何通过GoFrame框架的Redis模块进行数据存储和检索，适用于初学者学习如何在GoFrame框架环境中实现Redis功能。本示例同时提醒用户在Redis版本4.0.0及以上中HMSET已弃用，应使用HSET。'
 ---
 
 ## `Set/Get` 操作

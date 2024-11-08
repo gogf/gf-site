@@ -3,6 +3,8 @@ slug: '/share/2021-04-17'
 title: '2021-04-17 GoCN Gopher Meetup'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,Golang,技术分享,框架设计,微服务开发,活动报名,GoCN,Tap4Fun,成都]
+description: '2021年4月17日在成都由GoCN和Tap4Fun举办的Golang领域的技术分享活动，主要围绕GoFrame框架设计及微服务开发展开介绍。作为讲师之一，我参与了这次成功的活动，活动内容详实，礼品丰富。更多关于GoFrame设计的介绍可参见相关文档章节。'
 ---
 
 大家好啊，新的一轮 `GoFrame` 框架技术分享来啦！

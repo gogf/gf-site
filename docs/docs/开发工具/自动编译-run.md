@@ -3,6 +3,8 @@ slug: '/docs/cli/run'
 title: '自动编译-run'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,自动编译,热编译特性,go文件自动监控,命令行参数,编译运行,二进制文件,文件路径监听,GoFrame框架,gf run 命令]
+description: '本文档介绍了在使用GoFrame框架构建项目时，如何通过gf run命令实现自动编译功能。虽然Go语言本身不支持热编译特性，但gf run命令可实现当项目中的go文件发生变更时，自动编译并运行新版本程序的功能，旨在提高开发效率。'
 ---
 
 ## 注意事项

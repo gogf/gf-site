@@ -3,6 +3,8 @@ slug: '/docs/design/project-dao-improvement'
 title: 'DAO-工程痛点及改进'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,DAO改进,数据库操作,数据模型,业务模型,ORM抽象,工程化设计,数据权限,自动化代码生成]
+description: '本文介绍了在使用GoFrame框架进行项目开发中的DAO工程痛点及其相应的改进策略。通过自动化数据模型管理、数据与业务模型隔离、自动化DAO代码管理以及引入DO数据转换模型，提升数据操作管理效率。强调数据操作权限收口的重要性，以降低项目维护成本和数据操作风险。'
 ---
 
 ## 一、基本介绍

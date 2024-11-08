@@ -3,6 +3,8 @@ slug: '/docs/network/gtcp-conn'
 title: 'TCP组件-连接对象'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gtcp,TCP通信,连接对象,超时处理,数据写入,数据读取,网络编程,错误重试]
+description: '此页面介绍了GoFrame框架中的gtcp模块及其提供的TCP连接对象的使用方法。包括如何使用gtcp.Conn进行可靠的TCP通信，处理数据的发送和接收。文中还描述了超时处理机制以及通过简单示例演示如何使用这些功能，展示如何在GoFrame环境下灵活进行网络编程。'
 ---
 
 `gtcp` 模块提供了简便易用的 `gtcp.Conn` 链接操作对象。

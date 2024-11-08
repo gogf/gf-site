@@ -3,6 +3,8 @@ slug: '/docs/web/senior-websocket'
 title: 'WebSocket服务'
 sidebar_position: 7
 hide_title: true
+keywords: [WebSocket,GoFrame,WebSocket服务,GoFrame框架,WebSocket开发,WebSocket客户端,HTTPS支持,WebSocket安全,WebSocket连接,GoFrame示例]
+description: '本文介绍了如何使用GoFrame框架开发WebSocket服务，包括HTML5客户端、WebSocket服务端、HTTPS支持和安全校验等内容。通过示例代码，展示了WebSocket的连接与信息传递机制，并详细说明了服务端与客户端之间的通信流程和数据处理方法，让读者能够快速上手并实现功能齐全的WebSocket服务。'
 ---
 
 使用 `goframe` 框架进行 `websocket` 开发相当简单。我们以下通过实现一个简单的 `echo服务器` 来演示 `goframe` 框架的 `websocket` 的使用（客户端使用HTML5实现）。

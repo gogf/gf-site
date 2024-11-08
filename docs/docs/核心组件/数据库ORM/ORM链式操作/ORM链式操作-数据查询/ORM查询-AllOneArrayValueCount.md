@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-query-all-one-array-value-count'
 title: 'ORM查询-All/One/Array/Value/Count'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,数据查询,All方法,One方法,Array方法,Value方法,Count方法,CountColumn方法]
+description: '本文介绍如何使用GoFrame框架中的五个常用数据查询方法：All、One、Array、Value和Count。这些方法允许您轻松地从数据库中获取多条或单条记录，并支持条件参数的直接输入。通过示例代码，您将学习如何在GoFrame中有效地进行数据库操作。'
 ---
 
 ## 这5个方法是数据查询比较常用的方法，方法列表：

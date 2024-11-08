@@ -3,6 +3,8 @@ slug: '/docs/cli/pack'
 title: '资源打包-pack'
 sidebar_position: 7
 hide_title: true
+keywords: [GoFrame,GoFrame框架,资源打包,CLI工具,gf pack,资源文件,go代码文件,文件打包,命令行工具,源码管理]
+description: '该文档介绍了如何使用GoFrame框架中的gf pack命令将任意文件打包为资源文件或Go代码文件。通过该工具，用户可以实现资源打包和随可执行文件一同发布。此外，gf pack命令还能与build命令结合，实现打包和编译的一步操作。文档中详细列出命令的使用方法和选项说明，帮助用户更好地理解和使用该功能。'
 ---
 
 ## 使用方式

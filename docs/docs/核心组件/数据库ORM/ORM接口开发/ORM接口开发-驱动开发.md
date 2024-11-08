@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-interface-driver'
 title: 'ORM接口开发-驱动开发'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,数据库驱动,自定义驱动,接口开发,驱动开发,数据库组件,gdb模块,Driver接口,ORM]
+description: '本文档介绍了如何在GoFrame框架中进行ORM接口开发，特别是数据库驱动的开发和注册。通过实现gdb模块的接口，可以新增GoFrame默认不支持的第三方数据库驱动或对已有支持的驱动进行定制化修改，实现上层业务操作的一致性。本文档提供了详细的步骤和示例代码，帮助开发者快速上手。'
 ---
 
 框架数据库组件的驱动意义在于，数据库上层业务使用的各种方法操作不用变化，只需要修改配置中的数据库类型即可切换支持到新的数据库。

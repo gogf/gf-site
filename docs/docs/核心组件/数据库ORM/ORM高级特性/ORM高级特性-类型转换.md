@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-senior-type-converting'
 title: 'ORM高级特性-类型转换'
 sidebar_position: 7
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,类型转换,gdb,gvar.Var,数据库操作,数据结构,商品表,数据类型转换]
+description: '本文档介绍了使用GoFrame框架中的gdb模块进行ORM高级特性实现，重点是在数据库记录结果的数据类型转换功能。gdb模块灵活支持多种数据类型的转换，并通过示例展示了如何在Go代码中实现对数据库表中商品信息的获取和处理。'
 ---
 
 `gdb` 的数据记录结果（ `Value`）支持非常灵活的类型转换，并内置支持常用的数十种数据类型的转换。

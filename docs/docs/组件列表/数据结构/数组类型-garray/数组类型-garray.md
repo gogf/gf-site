@@ -3,6 +3,8 @@ slug: '/docs/components/container-garray'
 title: '数组类型-garray'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,garray,数组容器,并发安全,排序数组,接口文档,数据类型,工具包,数据项唯一性]
+description: '本文档介绍了GoFrame框架中的数组类型garray及其基本功能。通过garray模块，用户能够使用并发安全的数组容器，支持普通数组与排序数组，提供对数据项唯一性矫正、int/string/interface{}数据类型的支持及详细的接口文档等功能。'
 ---
 
 ## 基本介绍

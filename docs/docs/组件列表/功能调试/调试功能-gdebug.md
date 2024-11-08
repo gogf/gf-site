@@ -3,6 +3,8 @@ slug: '/docs/components/debug-gdebug'
 title: '调试功能-gdebug'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,GoFrame框架,调试功能,gdebug,GoFrame调试,gdebug组件,堆栈分析,调用链信息,性能优化,接口文档]
+description: 'GoFrame框架通过gdebug组件提供了丰富的调试功能，适用于开发环境中堆栈和调用链的分析。虽然调试方法与性能效率相关性不强，但可以帮助开发者更好地了解代码执行路径和调用信息。'
 ---
 
 `goframe` 框架提供了丰富的调试功能，由 `gdebug` 组件实现。

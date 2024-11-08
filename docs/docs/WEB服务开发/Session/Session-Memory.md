@@ -3,6 +3,8 @@ slug: '/docs/web/session-memory'
 title: 'Session-Memory'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,Session存储,内存存储,Session数据,StorageMemory,gsession,GoFrame框架,Session示例,Session设置,Session持久化]
+description: '本文档介绍了如何在GoFrame框架中使用内存存储实现Session功能。内存存储方式简单高效，但不支持持久化，因此在应用程序重启后Session数据会丢失。通过示例代码，详细说明了如何设置Session的过期时间以及如何存储和获取Session数据。'
 ---
 
 ## 内存存储

@@ -3,6 +3,8 @@ slug: '/docs/components/util-gutil'
 title: '工具方法-gutil'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gutil,工具方法,Go语言,开发组件,数据格式化,接口文档,Dump函数,DumpWithType]
+description: 'gutil组件是GoFrame框架中用于封装常用开发工具方法的模块，提供了一系列便利的函数，支持数据结构的友好输出，如Dump和DumpWithType。开发者可以通过github库引入gutil组件，以提高Go语言项目开发效率。'
 ---
 
 ## 基本介绍

@@ -3,6 +3,8 @@ slug: '/docs/core/gcmd-parser'
 title: '命令管理-Parser解析'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame,GoFrame框架,命令行解析,gcmd,Parser解析,Go开发,代码示例,选项管理,命令行选项,开发文档]
+description: '本文档介绍了GoFrame框架的命令行解析功能，重点讲解了gcmd组件的Parser解析方法。通过自定义选项名称和数值解析，能够高效管理和解析命令行选项。包括代码示例和详细的接口文档，帮助开发者理解和应用于实际项目中。'
 ---
 
 ## 基本介绍

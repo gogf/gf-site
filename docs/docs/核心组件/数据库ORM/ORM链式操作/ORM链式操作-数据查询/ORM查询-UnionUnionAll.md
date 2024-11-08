@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-query-union'
 title: 'ORM查询-Union/UnionAll'
 sidebar_position: 7
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM,Union,UnionAll,链式操作,方法操作,查询优化,MySQL,SQL]
+description: '本文档介绍了如何使用GoFrame框架中的ORM组件进行Union和UnionAll查询操作。使用Union操作符可以删除重复数据，而UnionAll操作符则保留所有数据。通过链式操作或者方法操作可以轻松实现这两种查询方式。文章还介绍了如何在MySQL中进行组合查询，并提供了详细的代码示例。'
 ---
 
 `GoFrame ORM` 组件支持 `Union/UnionAll` 操作， `Union/UnionAll` 操作符用于连接两个以上的 `SELECT` 语句的结果组合到一个结果集合中，关于 `Union/UnionAll` 组合查询的相关介绍可以参考MySQL的官方文档介绍 [https://dev.mysql.com/doc/refman/8.0/en/union.html](https://dev.mysql.com/doc/refman/8.0/en/union.html) 。我们可以通过链式操作或者方法操作来实现 `Union/UnionAll` 操作。

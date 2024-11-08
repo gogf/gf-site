@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-hook'
 title: 'ORM链式操作-Hook特性'
 sidebar_position: 13
 hide_title: true
+keywords: [GoFrame框架,ORM链式操作,Hook特性,CURD钩子,模型,数据库查询,gdb,Go语言,编程示例,代码优化]
+description: '本文介绍了如何在GoFrame框架中使用Hook特性，为Model对象绑定CURD钩子，从而实现对数据库操作的增强和优化。文中详细介绍了相关定义、Hook注册方法以及使用示例，通过挂钩函数对查询操作进行了演示。'
 ---
 
 `Hook` 特性允许我们对特性的 `Model` 绑定 `CURD` 钩子处理。

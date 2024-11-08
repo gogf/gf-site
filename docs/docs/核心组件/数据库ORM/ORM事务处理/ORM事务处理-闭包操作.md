@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-transaction-closure'
 title: 'ORM事务处理-闭包操作'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,GoFrame框架,ORM事务处理,闭包操作,事务管理,代码简化,嵌套事务,自动提交,自动回滚,上下文参数]
+description: '本文介绍了在GoFrame框架中使用闭包操作进行ORM事务处理的优点，包括减少冗余代码、降低操作风险和简化嵌套事务，实现自动提交和回滚功能，并介绍了上下文参数在嵌套事务管理中的作用，确保事务处理的安全性和简便性。'
 ---
 
 ## 一、痛点描述

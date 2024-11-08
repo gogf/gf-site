@@ -3,6 +3,8 @@ slug: '/docs/web/http-client-metrics'
 title: 'HTTPClient-监控指标'
 sidebar_position: 10
 hide_title: true
+keywords: [HTTP客户端,监控指标,性能优化,请求时间,GoFrame,连接时间,请求总数,请求大小,GoFrame框架,返回大小]
+description: '本文档介绍了HTTP客户端的监控指标功能，默认情况下是关闭状态，以免影响性能。它提供了多种指标供用户参考，如请求执行的时间开销、连接创建时间以及请求的字节总大小等，只有在metric特性全局开启时才会启用这些指标，帮助用户更好地进行性能分析。'
 ---
 
 `HTTP` 客户端支持监控指标能力，默认是关闭的不影响性能，只有在 `metric` 特性全局开启时该组件才会默认开启监控指标计算和生成功能。

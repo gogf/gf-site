@@ -3,6 +3,8 @@ slug: '/docs/web/paging-ajax'
 title: '分页管理-Ajax分页'
 sidebar_position: 2
 hide_title: true
+keywords: [Ajax分页,分页管理,Javascript分页,GoFrame,GoFrame框架,Golang,页面渲染,前端开发,动态分页,Web开发]
+description: '本文档介绍了使用Ajax方法实现分页管理的技术细节。区别于传统分页方式，Ajax分页通过Javascript方法动态获取并渲染分页内容，以实现更流畅的用户体验。示例代码展示了如何在GoFrame框架中集成Ajax分页功能，提供一个实用的后端分页解决方案。'
 ---
 
 `Ajax` 分页与其他分页方式的区别在于，分页链接会使用 `Javascript` 方法来实现，该 `Javascript` 方法是分页方法，参数固定为该分页对应的分页 `URL` 地址。该 `Javascript` 方法通过 `Ajax` 获取到 `URL` 连接对应的分页内容后渲染到页面。

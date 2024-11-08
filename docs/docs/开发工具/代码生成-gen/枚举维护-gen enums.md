@@ -3,6 +3,8 @@ slug: '/docs/cli/gen-enums'
 title: '枚举维护-gen enums'
 sidebar_position: 3
 hide_title: true
+keywords: [GoFrame,GoFrame框架,枚举维护,OpenAPIv3,API文档,枚举值,源码分析,命令行工具,开发效率,数据校验]
+description: '这篇文档介绍如何使用GoFrame命令行工具来维护和生成枚举值信息，特别是针对OpenAPIv3文档中的枚举值参数。通过解析源代码自动生成和加载枚举值，降低手工维护的成本，提高开发效率，并增强后端与前端的协作。'
 ---
 :::tip
 该功能特性为 **实验性特性**，从 `v2.4` 版本开始提供。

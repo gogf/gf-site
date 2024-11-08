@@ -3,6 +3,8 @@ slug: '/docs/other/community-resource'
 title: 'GoFrame社区教程'
 sidebar_position: 2
 hide_title: true
+keywords: [GoFrame框架,Golang学习,web开发,框架教程,编程工具链,正则表达式,教程视频,开发工具,错误处理,数据结构]
+description: '本文档提供了GoFrame框架的详细教程，包括框架基本介绍、安装部署和WEB项目的快速入门指南。其次，还涉及Golang的基础语法、数据结构、协程以及通道等内容。此外，提供了详尽的GoFrame教程视频地址和代码库链接，帮助开发者高效学习。'
 ---
 
 ## 一、Golang学习

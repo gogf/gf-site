@@ -3,6 +3,8 @@ slug: '/docs/web/senior-server-metrics'
 title: 'HTTPServer-监控指标'
 sidebar_position: 11
 hide_title: true
+keywords: [GoFrame,GoFrame框架,HTTP Server,监控指标,性能优化,请求执行时间,请求总数,正在执行请求,字节大小,服务端口]
+description: '该文档介绍了如何在GoFrame框架中启用HTTP Server的监控指标功能，提供了详细的指标和属性列表，帮助用户实现HTTP服务器性能的监控与优化。通过启用metric特性，可以跟踪请求执行时间、请求总数以及传输字节大小等关键性能指标。'
 ---
 
 `HTTP Server` 支持监控指标能力，默认是关闭的不影响性能，只有在 `metric` 特性全局开启时该组件才会默认开启监控指标计算和生成功能。

@@ -3,6 +3,8 @@ slug: '/docs/components/os-gmlock'
 title: '内存锁-gmlock'
 sidebar_position: 1
 hide_title: true
+keywords: [内存锁,动态互斥锁,GoFrame,gmlock,并发安全,TryLock,Remove方法,动态创建互斥锁,GoFrame框架,锁管理]
+description: '内存锁模块提供了基于GoFrame框架的动态互斥锁功能，支持给定键名动态生成锁，实现并发安全和TryLock特性。通过GoFrame提供的方法，可以方便地在需要动态创建大量互斥锁的场景中应用，如在多goroutine并发处理中有效管理锁，确保资源安全访问。'
 ---
 
 内存锁模块，也称之为 `动态互斥锁` 模块，支持按照 `给定键名动态生成互斥锁`，并发安全并支持 `Try*Lock` 特性。
