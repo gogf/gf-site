@@ -3,7 +3,7 @@ slug: '/docs/core/gdb-chaining-query-example'
 title: 'ORM查询-常用操作示例'
 sidebar_position: 9
 hide_title: true
-keywords: [GoFrame,ORM查询,数据库操作,链式查询,常用条件,统计方法,字段唯一性,查询示例,GF框架,参数过滤]
+keywords: [GoFrame,ORM查询,数据库操作,链式查询,常用条件,统计方法,字段唯一性,查询示例,GoFrame框架,参数过滤]
 description: '本文提供了使用GoFrame框架进行ORM查询的常用操作示例，包括IN、LIKE、MIN/MAX/AVG/SUM等操作，同时介绍了WhereIn、WhereNotIn、WhereBetween等链式查询方法的使用，通过案例帮助理解不同的查询策略和参数过滤方式。'
 ---
 

@@ -60,7 +60,7 @@ func Middleware(r *ghttp.Request) {
 
 ### `OPTIONS` 请求
 
-有的客户端，部分浏览器在发送 `AJAX` 请求之前会首先发送 `OPTIONS` 预请求检测后续请求是否允许发送。 `GF` 框架的 `Server` 完全遵守 `W3C` 关于 `OPTIONS` 请求方法的规范约定，因此只要服务端设置好 `CORS` 中间件， `OPTIONS` 请求也将会自动支持。
+有的客户端，部分浏览器在发送 `AJAX` 请求之前会首先发送 `OPTIONS` 预请求检测后续请求是否允许发送。 `GoFrame` 框架的 `Server` 完全遵守 `W3C` 关于 `OPTIONS` 请求方法的规范约定，因此只要服务端设置好 `CORS` 中间件， `OPTIONS` 请求也将会自动支持。
 
 ### 示例1，基本使用
 

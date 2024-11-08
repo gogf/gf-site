@@ -56,7 +56,7 @@ func main() {
 $ curl -i http://127.0.0.1:8199/json
 HTTP/1.1 200 OK
 Content-Type: application/json
-Server: GF HTTP Server
+Server: GoFrame HTTP Server
 Date: Sun, 05 Jan 2020 02:49:31 GMT
 Content-Length: 22
 
@@ -95,7 +95,7 @@ func main() {
 ```bash
 $ curl -i "http://127.0.0.1:8199/jsonp?callback=MyCallback"
 HTTP/1.1 200 OK
-Server: GF HTTP Server
+Server: GoFrame HTTP Server
 Date: Sun, 05 Jan 2020 02:50:42 GMT
 Content-Length: 34
 Content-Type: text/plain; charset=utf-8
@@ -135,7 +135,7 @@ func main() {
 $ curl -i http://127.0.0.1:8199/xml
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Server: GF HTTP Server
+Server: GoFrame HTTP Server
 Date: Sun, 05 Jan 2020 03:00:55 GMT
 Content-Length: 76
 

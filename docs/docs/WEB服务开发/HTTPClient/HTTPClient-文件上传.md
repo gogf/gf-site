@@ -38,7 +38,7 @@ func UploadShow(r *ghttp.Request) {
     r.Response.Write(`
     <html>
     <head>
-        <title>GF Upload File Demo</title>
+        <title>GoFrame Upload File Demo</title>
     </head>
         <body>
             <form enctype="multipart/form-data" action="/upload" method="post">
@@ -55,7 +55,7 @@ func UploadShowBatch(r *ghttp.Request) {
     r.Response.Write(`
     <html>
     <head>
-        <title>GF Upload Files Demo</title>
+        <title>GoFrame Upload Files Demo</title>
     </head>
         <body>
             <form enctype="multipart/form-data" action="/upload" method="post">

@@ -3,7 +3,7 @@ slug: '/docs/components/os-gstructs'
 title: '对象信息-gstructs'
 sidebar_position: 18
 hide_title: true
-keywords: [GoFrame,GoFrame框架,gstructs,结构体信息,字段检索,TagMapName,Fields方法,GF框架,中间件编写,底层组件]
+keywords: [GoFrame,GoFrame框架,gstructs,结构体信息,字段检索,TagMapName,Fields方法,GoFrame框架,中间件编写,底层组件]
 description: 'gstructs组件是GoFrame框架中用于获取结构体信息的底层工具。主要用于框架、基础库和中间件编写，支持Fields方法获取结构体字段信息以及TagMapName方法通过标签检索字段。适合开发者在构建Go应用时利用此组件进行字段操作和检索。'
 ---
 

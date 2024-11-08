@@ -53,7 +53,7 @@ GoFrame基本介绍，安装和部署， `WEB` 项目，路由注册、 `HTTP` �
 
 #### 开发工具链
 
-`GF` 工具链介绍：主要讲解安装，更新，项目初始化，热编译，交叉编译， `model` 生成，打二进制包， `docker` 等。
+`GoFrame` 工具链介绍：主要讲解安装，更新，项目初始化，热编译，交叉编译， `model` 生成，打二进制包， `docker` 等。
 
 - 教程介绍： [https://studygolang.com/articles/28319](https://studygolang.com/articles/28319)
 - `bilibili` 教程地址： [https://www.bilibili.com/video/BV1YK4y1b7W8/](https://www.bilibili.com/video/BV1YK4y1b7W8/)
