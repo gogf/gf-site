@@ -3,6 +3,8 @@ slug: '/docs/obs/tracing-http-example-with-database'
 title: '链路跟踪-HTTP示例-数据操作'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,链路跟踪,HTTP示例,数据库操作,缓存管理,ORM,Redis,OTLP,Trace,Jaeger]
+description: '该文档详细介绍了如何在GoFrame框架中实现链路跟踪，通过HTTP和数据库操作示例，展示了如何使用OTLP进行端到端的追踪。在示例中集成了缓存管理、数据库操作和Redis使用，通过Jaeger查看详细的链路信息，并分析了跨越客户端和服务端的追踪数据，帮助开发者优化和调试全流程。'
 ---
 
 ## `HTTP+DB+Redis+Logging`

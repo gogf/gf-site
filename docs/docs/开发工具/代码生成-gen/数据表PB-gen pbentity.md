@@ -3,6 +3,8 @@ slug: '/docs/cli/gen-pbentity'
 title: '数据表PB-gen pbentity'
 sidebar_position: 5
 hide_title: true
+keywords: [GoFrame,Golang实体对象,proto数据结构,GRPC服务,数据库配置,GF命令行工具,数据表生成,entity文件生成,pbentity,命名格式]
+description: '本文档详细介绍了如何使用GoFrame框架的命令行工具gf来根据数据库表生成proto数据结构文件pbentity。包括命令使用方法、选项配置及其说明，以及与gen dao模块中生成的entity文件的区别。适用于HTTP和GRPC服务的数据实体结构生成，支持多种数据库的生成规则配置。'
 ---
 :::tip
 该功能特性从 `v2.4` 版本开始提供。

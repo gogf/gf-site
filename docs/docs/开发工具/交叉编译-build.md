@@ -3,6 +3,8 @@ slug: '/docs/cli/build'
 title: '交叉编译-build'
 sidebar_position: 4
 hide_title: true
+keywords: [交叉编译,GoFrame,编译变量,编译配置,内置变量,构建信息,gf build,编译选项,内置编译,项目生态]
+description: '本文档介绍了如何使用GoFrame框架进行交叉编译。通过gf build命令，可以快速生成带有当前Go版本、GoFrame版本、Git Commit等信息的可执行文件。支持同时从命令行和配置文件指定参数，满足不同操作系统和平台的编译需求，为开发者提供便捷的构建解决方案。'
 ---
 
 ## 使用方式

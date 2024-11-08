@@ -3,6 +3,8 @@ slug: '/docs/core/gcfg-toml'
 title: '配置管理-TOML格式'
 sidebar_position: 5
 hide_title: true
+keywords: [GoFrame,TOML配置,配置管理,TOML语法,键值对,表格数组,数据序列化,YAML比较,JSON解析,开源框架]
+description: '本文介绍TOML格式在GoFrame框架中的使用，包括其与其他文件格式的比较、基础语法、数值与BOOL值处理、日期时间、数组、表格、表格数组等内容，帮助用户更好地理解和应用TOML配置管理。'
 ---
 
 ## 基本介绍

@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-senior-catch-sql'
 title: 'ORM高级特性-SQL捕获'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,CatchSQL,ToSQL,SQL捕获,SQL转换,ORM特性,Go语言,数据库操作,SQL调试,上下文对象]
+description: '本文介绍了GoFrame框架中ORM的高级特性，主要关注SQL捕获和转换功能。通过CatchSQL和ToSQL方法，能够在执行SQL语句前捕获或预估SQL操作，并配合上下文对象实现操作记录与调试。这些功能有助于开发者高效调试和测试数据库操作。'
 ---
 :::warning
 需要注意，框架SQL捕获的原理是，任何SQL操作生成的 **SQL语句模板** 加上 **SQL执行参数**，在被提交给底层数据库引擎前会被框架拦截，并通过框架组件自动格式化生成可供人工阅读的字符串， **仅供参考和调试**，并不是完整提交给底层数据库引擎的SQL语句。捕获的SQL语句和ORM组件开启调试模式后输出的SQL语句是相同的，它们都由相同组件生成。

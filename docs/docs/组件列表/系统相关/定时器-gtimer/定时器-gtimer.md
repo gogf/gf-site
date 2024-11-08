@@ -3,6 +3,8 @@ slug: '/docs/components/os-gtimer'
 title: '定时器-gtimer'
 sidebar_position: 0
 hide_title: true
+keywords: [定时器,并发安全,高性能,GoFrame,任务调度,延迟任务,超时控制,频率控制,任务管理,单例模式]
+description: 'gtimer是一个并发安全的高性能定时器，适用于大批量定时任务和延迟任务场景，支持超时控制和频率控制。gtimer提供多种任务管理方法，包括添加单例和运行一次的任务，并可自定义定时器参数。'
 ---
 
 ## 基本介绍

@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-query-where'
 title: 'ORM查询-Where/WhereOr/WhereNot'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,ORM,查询,Where条件,条件查询,数据库,条件方法,Go语言,数据处理,GoFrame框架]
+description: '本文介绍了GoFrame框架中ORM组件提供的多种条件查询方法，详细阐述了Where、WhereOr、Wheref等方法的使用方式，及它们如何进行条件组合作用。通过示例展示了如何利用这些方法进行复杂数据库查询，并探讨了使用主键查询的优势。'
 ---
 
 `ORM` 组件提供了一些常用的条件查询方法，并且条件方法支持多种数据类型输入。

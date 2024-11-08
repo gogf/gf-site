@@ -3,7 +3,8 @@ slug: '/docs/faq'
 title: '常见问题(FAQ)'
 sidebar_position: 10
 hide_title: true
-description: '本文档涵盖了使用GoFrame框架和Golang开发过程中有关常见问题的详细解答，包括程序异常处理、新goroutine创建、json输出字段屏蔽、兼容性问题、环境配置、glog错误修复及多环境配置文件加载等内容。通过这些说明，可以帮助开发者更好地优化和调试其应用程序。'
+description: '本文提供在使用GoFrame框架和Golang进行开发时的常见问题解答，包括如何处理程序异常、新goroutine的创建方案、屏蔽json输出字段、解决兼容性问题、配置环境及glog错误修复，通过这些信息帮助开发者优化调试应用程序。'
+keywords: [GoFrame,GoFrame框架,Golang,程序异常处理,goroutine,json输出,兼容性问题,环境配置,glog错误,多环境配置]
 ---
 
 寄语：

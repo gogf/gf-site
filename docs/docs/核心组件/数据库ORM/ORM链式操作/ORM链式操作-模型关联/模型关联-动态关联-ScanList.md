@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-relation-scan-list'
 title: '模型关联-动态关联-ScanList'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,动态关联,ScanList,数据写入,数据查询,数据模型,事务处理,绑定数据,关联关系,数据结构]
+description: '本文介绍了GoFrame框架中如何处理模型关联的设计，通过简化标签内容和关联属性，降低心智负担。详细讲解了如何使用ScanList方法进行数据结构的动态关联，展示了用户、用户详情和用户学分之间的1:1和1:N关系，并提供了Go语言的示例代码进行数据查询和写入操作，包括事务处理和数据绑定的实现方式。'
 ---
 
 `gf` 的 `ORM` 没有采用其他 `ORM` 常见的 `BelongsTo`, `HasOne`, `HasMany`, `ManyToMany` 这样的模型关联设计，这样的关联关系维护较繁琐，例如外键约束、额外的标签备注等，对开发者有一定的心智负担。因此 `gf` 框架不倾向于通过向模型结构体中注入过多复杂的标签内容、关联属性或方法，并一如既往地尝试着简化设计，目标是使得模型关联查询尽可能得易于理解、使用便捷。

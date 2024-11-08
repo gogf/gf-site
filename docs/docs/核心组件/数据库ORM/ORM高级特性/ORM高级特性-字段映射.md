@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-senior-fields-mapping'
 title: 'ORM高级特性-字段映射'
 sidebar_position: 4
 hide_title: true
+keywords: [ORM高级特性,字段映射,数据表自动识别,GoFrame框架,接口设计,字段缓存管理,Protobuf接口,用户信息查询,字段匹配规则,SQL查询优化]
+description: '通过GoFrame框架的ORM高级特性，可实现自动化字段映射和识别。使用Map或Struct类型参数时，可自动匹配数据表字段名称，大幅减少开发者在数据字段与业务属性间人工匹配的工作量。此外，通过设计接口并在内存中缓存字段信息，提升数据操作效率。本文还展示了如何通过实际示例实现用户和医生信息的高效查询。'
 ---
 
 ## 基本介绍

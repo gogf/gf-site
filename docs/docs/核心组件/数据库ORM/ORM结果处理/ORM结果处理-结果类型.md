@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-result-types'
 title: 'ORM结果处理-结果类型'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,数据结构,ORM,结果类型,Record,Result,gdb,数据库,Go语言,数据处理]
+description: '本文档介绍了GoFrame框架中ORM结果处理的几种结果类型，包括Value、Record和Result的数据结构定义。通过示例详细讲解了如何将数据表记录转换为struct对象，以及Result/Record类型在特定字段检索场景下的应用。'
 ---
 
 ## 一、数据结构

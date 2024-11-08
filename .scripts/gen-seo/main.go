@@ -25,7 +25,7 @@ const (
 你只需要返回用于front matter的keywords和description，其他内容不需要返回。
 使用json格式返回，不需要返回markdown代码块。
 keywords生成10个，description生成160个汉字。
-生成的keywords和description内容中不能出现SEO优化相关的词。
+生成的keywords和description内容中不能出现SEO优化、文档网站、网站优化等SEO相关的词。
 `
 )
 

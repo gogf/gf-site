@@ -3,6 +3,8 @@ slug: '/docs/cli/gen-ctrl'
 title: '接口规范-gen ctrl'
 sidebar_position: 0
 hide_title: true
+keywords: [GoFrame,API接口,HTTP开发,GRPC,控制器生成,SDK自动化,代码规范,多人协作,代码生成,项目管理]
+description: '本文档介绍了如何使用GoFrame生成API接口的控制器和SDK代码，从而帮助开发者减少重复性的代码工作，规范API与控制器的代码结构，提高多人协作开发的效率。此外，还提供了生成HTTP SDK代码的功能，方便内部和外部服务的调用。使用命令行模式和自动生成模式两种方式进行代码生成，并提供了详细的命令参数说明和使用示例。'
 ---
 :::tip
 该功能特性从 `v2.5` 版本开始提供。该命令目前仅支持 `HTTP` 接口开发， `GRPC` 部分请参考 `gen pb` 命令。未来会考虑 `HTTP` 及 `GRPC` 统一使用该命令生成控制器及 `SDK` 源代码。

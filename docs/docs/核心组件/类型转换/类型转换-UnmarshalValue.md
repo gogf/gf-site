@@ -3,6 +3,8 @@ slug: '/docs/core/gconv-unmarshal-value'
 title: '类型转换-UnmarshalValue'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,GoFrame框架,gconv,UnmarshalValue,类型转换,自定义转换,结构体转换,接口定义,性能优化,反射]
+description: '本文档介绍了如何使用GoFrame框架中的gconv模块实现类型转换，尤其是通过UnmarshalValue接口实现自定义转换。详细探讨了反射特性在复杂类型转换中的应用及其性能影响，并提供了多个代码示例，包括自定义结构体转换和TCP数据解包，帮助开发者优化转换效率。'
 ---
 
 当然，想必您已经猜到了，在对一些复杂类型（如 `struct`）的转换时， `gconv` 模块内部其实使用了反射的特性来实现的。这虽然为开发者提供了极大的便捷，但是这确实是以性能损耗为代价的。其实在对于 `struct` 转换时，如果开发者已经 **明确转换规则**，并且对于其中的性能损耗比较在意，那么可以对特定的 `struct` 实现 `UnmarshalValue` 接口来实现 **自定义转换**。当使用 `gconv` 模块对该 `struct` 进行转换时，无论该 `struct` 是直接作为转换对象或者作为转换对象的属性， `gconv` 都将会自动识别其实现的 `UnmarshalValue` 接口并直接调用该接口实现类型转换，而不会使用反射特性来实现转换。

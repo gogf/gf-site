@@ -3,6 +3,8 @@ slug: '/docs/core/gdb-chaining-relation-with'
 title: '模型关联-静态关联-With特性'
 sidebar_position: 1
 hide_title: true
+keywords: [GoFrame,With特性,ORM,模型关联,数据查询,事务操作,数据结构,Go语言,数据库,SQL]
+description: '本文详细介绍了GoFrame框架中的With特性，通过示例展示了如何使用With特性实现模型关联、数据查询，介绍了数据结构定义、事务操作、数据写入与查询等方面的内容，帮助开发者更好地理解和使用GoFrame框架进行高效开发。'
 ---
 
 ## 一、设计背景

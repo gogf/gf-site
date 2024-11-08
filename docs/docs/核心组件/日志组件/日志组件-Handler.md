@@ -3,6 +3,8 @@ slug: '/docs/core/glog-handler'
 title: '日志组件-Handler'
 sidebar_position: 6
 hide_title: true
+keywords: [GoFrame,日志组件,Handler特性,日志处理,自定义输出,Json格式,Graylog服务,日志收集,glog,中间件设计]
+description: '文章介绍了从v2.0版本开始，GoFrame框架的glog组件新增的可自定义日志处理的Handler特性。开发者可以通过Handler实现日志输出的自定义内容，例如将日志转为Json格式输出或者输出至第三方服务如Graylog。详细示例展示了如何在GoFrame框架中使用Handler进行日志处理。'
 ---
 
 从 `v2.0` 版本开始， `glog` 组件提供了超级强大的、可自定义日志处理的 `Handler` 特性。 `Handler` 采用了中间件设计方式，开发者可以为日志对象注册多个处理 `Handler`，也可以在 `Handler` 中覆盖默认的日志组件处理逻辑。

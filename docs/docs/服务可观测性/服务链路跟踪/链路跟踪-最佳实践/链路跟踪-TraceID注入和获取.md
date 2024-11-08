@@ -3,6 +3,8 @@ slug: '/docs/obs/tracing-practice-inject-traceid'
 title: '链路跟踪-TraceID注入和获取'
 sidebar_position: 0
 hide_title: true
+keywords: [链路跟踪,TraceID,GoFrame,OpenTelemetry,Context,客户端,服务端,日志,请求,Response Header]
+description: '本文介绍了在链路跟踪中如何使用GoFrame框架进行TraceID的注入和获取。TraceID是服务间请求关联的重要标识，通过Context参数传递，可在客户端和服务端中自动生成、承接或自定义TraceID。使用glog日志组件可以自动记录TraceID，GoFrame的Client和Server拥有便捷的TraceID管理方法。并提供了一些实践示例，包括自定义TraceID和处理第三方RequestID的集成方式。'
 ---
 
 ## 一、基本介绍
