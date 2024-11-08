@@ -3,7 +3,6 @@ slug: '/quick/hello-world'
 title: 'Hello World'
 hide_title: true
 sidebar_position: 2
-
 ---
 
 `GoFrame` 是一款基础设施建设比较完善的模块化框架， 

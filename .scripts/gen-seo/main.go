@@ -3,6 +3,7 @@ package main
 import (
     "context"
     "fmt"
+    "strings"
 
     "github.com/gogf/gf/v2/container/gmap"
     "github.com/gogf/gf/v2/encoding/gjson"
@@ -17,7 +18,8 @@ import (
 const (
     path      = `/Users/john/Workspace/github/gogf/gf-site/docs`
     initAIMsg = `
-我在使用docusaurus构建我的文档网站，目前需要对网页做seo优化。我接下来会给你发markdown文件内容，你帮我自动生成对应的keywords和description，我需要将它们用到markdown文件的front matter中。
+我在使用docusaurus构建我的文档网站，目前需要对网页做seo优化。我接下来会给你发markdown文件内容，你分析该文件内容并生成对应的keywords和description，我需要将它们用到markdown文件的front matter中。
+所有涉及到GF或者GF框架关键字的地方，统一使用GoFrame或者GoFrame框架。
 你只需要返回用于front matter的keywords和description，其他内容不需要返回。
 使用json格式返回，不需要返回markdown代码块。
 keywords生成10个，description生成160个汉字。
@@ -58,14 +60,14 @@ func main() {
                     lines = gstr.SplitAndTrim(match[1], "\n")
                 )
                 for _, line := range lines {
-                    array := gstr.SplitAndTrim(line, ":")
-                    m.Set(array[0], array[1])
+                    array := strings.SplitN(line, ":", 2)
+                    m.Set(gstr.Trim(array[0]), gstr.Trim(array[1]))
                 }
                 if m.Contains("keywords") {
                     return match[0]
                 }
                 // ai生成keywords和description
-                if err = genKeywordsAndDescription(aiClient, m, content); err != nil {
+                if err = genKeywordsAndDescription(ctx, aiClient, m, content); err != nil {
                     g.Log().Warning(ctx, `genKeywordsAndDescription failed for "%s": %s`, file, err)
                     return match[0]
                 }
@@ -75,7 +77,7 @@ func main() {
                     newFontMatterContent += fmt.Sprintf("%s: %s\n", key, value)
                     return true
                 })
-                return newFontMatterContent
+                return "---\n" + gstr.Trim(newFontMatterContent) + "\n---"
             },
         )
         _ = gfile.PutContents(file, newContent)
@@ -83,10 +85,12 @@ func main() {
 }
 
 func genKeywordsAndDescription(
+    ctx context.Context,
     aiClient *openai.Client,
     m *gmap.ListMap,
     fileContent string,
 ) error {
+    return nil
     messages := make([]openai.ChatCompletionMessage, len(initAIMessages))
     copy(messages, initAIMessages)
     messages = append(messages, openai.ChatCompletionMessage{
@@ -94,7 +98,7 @@ func genKeywordsAndDescription(
         Content: fileContent,
     })
     resp, err := aiClient.CreateChatCompletion(
-        context.Background(),
+        ctx,
         openai.ChatCompletionRequest{
             Model:    openai.GPT4o,
             Messages: messages,
@@ -111,8 +115,11 @@ func genKeywordsAndDescription(
     if err != nil {
         return err
     }
-    for k, v := range j.MapStrAny() {
-        m.Set(k, v)
-    }
+    var (
+        keywords    = j.Get(`keywords`).Strings()
+        description = j.Get(`description`).String()
+    )
+    m.Set("keywords", fmt.Sprintf(`[%s]`, gstr.Join(keywords, ",")))
+    m.Set("description", fmt.Sprintf(`'%s'`, description))
     return nil
 }
