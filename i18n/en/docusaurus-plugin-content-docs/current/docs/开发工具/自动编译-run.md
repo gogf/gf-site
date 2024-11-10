@@ -1,17 +1,19 @@
 ---
 slug: '/docs/cli/run'
-title: '自动编译-run'
+title: 'Automatic Compilation - Run'
 sidebar_position: 6
 hide_title: true
 ---
 
-## 注意事项
 
-由于 `Go` 是不支持热编译特性的，每一次代码变更后都要重新手动停止、编译、运行代码文件。 `run` 命令也不是实现热编译功能，而是提供了自动编译功能，当开发者修改了项目中的 `go` 文件时，该命令将会自动编译当前程序，并停止原有程序，运行新版的程序。
+## Notes
+
+Since `Go` does not support hot compilation features, you have to manually stop, compile, and run the code files after every change. The `run` command does not implement hot compilation but provides an automatic compilation feature. When developers modify `go` files in the project, this command will automatically compile the current program, stop the existing program, and run the new version of the program.
 :::tip
-`run` 命令会递归监控 **当前运行目录** 的所有 `go` 文件变化来实现自动编译。
+The `run` command recursively monitors all `go` file changes in the **current running directory** to achieve automatic compilation.
 :::
-## 使用帮助
+
+## Usage Help
 
 ```bash
 $ gf run -h
@@ -37,12 +39,11 @@ EXAMPLE
 DESCRIPTION
     The "run" command is used for running go codes with hot-compiled-like feature,
     which compiles and runs the go codes asynchronously when codes change.
-
 ```
 
-配置文件格式示例：
+Configuration file format example:
 
-```
+```yaml
 gfcli:
   run:
     path:  "./bin"
@@ -53,18 +54,18 @@ gfcli:
     - internal/controller/*.go
 ```
 
-参数介绍：
+Parameter introduction:
 
-| 名称 | 默认值 | 含义 | 示例 |
+| Name | Default Value | Meaning | Example |
 | --- | --- | --- | --- |
-| `path` | `./` | 指定编译后生成的二进制文件存放目录。 |  |
-| `extra` |  | 指定用于底层 `go build` 的命令参数 |  |
-| `args` |  | 指定启动运行二进制文件的命令行参数 |  |
-| `watchPath` |  | 指定本地项目文件监听的文件路径格式，支持多个路径使用 `,` 覆盖分隔。该参数的格式同标准库的 `filepath.Match` 方法参数 | `internal/*.go` |
+| `path` | `./` | Specifies the directory where the compiled binary file is stored. |  |
+| `extra` |  | Specifies the command parameters for the underlying `go build` |  |
+| `args` |  | Specifies the command-line arguments for running the binary file |  |
+| `watchPath` |  | Specifies the file path format for local project file listening, supports multiple paths separated by `,`. The format of this parameter is the same as the argument for the standard library's `filepath.Match` method | `internal/*.go` |
 
-## 使用示例
+## Usage Example
 
-一般 `gf run main.go` 即可
+Generally, `gf run main.go` is sufficient.
 
 ```bash
 $ gf run main.go --swagger
@@ -88,6 +89,6 @@ $ gf run main.go --swagger
 ...
 ```
 
-## 常见问题
+## Common Issues
 
 [too many open files on macOS](https://github.com/fsnotify/fsnotify/issues/129)

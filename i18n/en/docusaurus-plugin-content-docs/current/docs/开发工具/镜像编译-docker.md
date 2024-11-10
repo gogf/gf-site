@@ -1,13 +1,18 @@
 ---
 slug: '/docs/cli/docker'
-title: '镜像编译-docker'
+title: 'Docker Image Compilation - Docker'
 sidebar_position: 8
 hide_title: true
 ---
 :::tip
-从 `v2.5` 版本开始，考虑到各个工具命令的解耦性， `gf docker` 工具命令默认不再执行二进制构建编译，而是推荐大家通过 `Makefile` 构建脚本自行组织使用 `gf build, gf gen enums, gf docker` 等命令结合的方式来 **组合使用** 命令（工程项目中提供了对应的 `make build, make enums, make docker` 命令），组合使用更加灵活且易维护。
+Starting from version `v2.5`, considering the decoupling of various tool commands, the `gf docker` tool command no longer performs binary build compilation by default. Instead, it is recommended to use a `Makefile` build script to organize and use commands such as `gf build`, `gf gen enums`, and `gf docker` in a combined manner. This approach offers more flexibility and is easier to maintain. (The project provides corresponding `make build`, `make enums`, `make docker` commands for ease of use.)
 :::
-## 使用方式
+
+## Tip
+
+Starting from version `v2.5`, considering the decoupling of various tool commands, the `gf docker` tool command no longer performs binary build compilation by default. Instead, it is recommended to use a `Makefile` build script to organize and use commands like `gf build`, `gf gen enums`, and `gf docker` in a combined manner. This approach is more flexible and easier to maintain. (The project provides corresponding `make build`, `make enums`, `make docker` commands.)
+
+## Usage
 
 ```bash
 $ gf docker -h
@@ -22,8 +27,7 @@ OPTION
     -s, --shell          path of the shell file which is executed before docker build
     -b, --build          binary build options before docker image build, it's "-a amd64 -s linux" in default
     -tn, --tagName       tag name for this docker, pattern like "image:tag". this option is required with TagPrefixes
-    -tp, --tagPrefixes   tag prefixes for this docker, which are used for docker push. this option is required with
-                         TagName
+    -tp, --tagPrefixes   tag prefixes for this docker, which are used for docker push. this option is required with TagName
     -p, --push           auto push the docker image to docker registry if "-t" option passed
     -e, --extra          extra build options passed to "docker image"
     -h, --help           more information about this command
@@ -34,19 +38,18 @@ EXAMPLE
     gf docker -p -t hub.docker.com/john/image:tag
     gf docker main.go
     gf docker main.go -t hub.docker.com/john/image:tag
-    gf docker main.go -t hub.docker.com/john/image:tag
     gf docker main.go -p -t hub.docker.com/john/image:tag
 
 DESCRIPTION
-    The "docker" command builds the GF project to a docker images.
-    It runs "gf build" firstly to compile the project to binary file.
-    It then runs "docker build" command automatically to generate the docker image.
+    The "docker" command builds the GF project into a docker image.
+    It first runs "gf build" to compile the project into a binary file.
+    It then automatically runs the "docker build" command to generate the docker image.
     You should have docker installed, and there must be a Dockerfile in the root of the project.
 ```
 
-自动编译并生成 `docker` 镜像。非必需 `MAIN` 参数为编译文件路径，默认为 `main.go`。非必需参数 `OPTIONS` 为 `docker build` 命令相同参数及选项。
+Automatically compile and generate a `docker` image. The non-mandatory `MAIN` parameter is the path to the compilation file, defaulting to `main.go`. The non-mandatory `OPTIONS` are the same parameters and options as the `docker build` command.
 
-## 使用示例
+## Usage Example
 
 ```bash
 $ gf docker main.go -p -tn loads/gf-demos:test
@@ -97,9 +100,9 @@ d9ff549177a9: Waiting
 ...
 ```
 
-## 配置文件示例
+## Configuration File Example
 
-大部分场景下，我们推荐使用配置文件来管理工具的配置，在 `hack/config.yaml` 文件中维护，例如 `docker` 命令的配置示例：
+For most scenarios, we recommend using a configuration file to manage tool configurations, maintained in the `hack/config.yaml` file, for example, the configuration for the `docker` command:
 
 ```yaml
 gfcli:

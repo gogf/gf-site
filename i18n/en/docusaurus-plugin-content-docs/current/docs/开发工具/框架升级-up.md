@@ -1,13 +1,15 @@
 ---
 slug: '/docs/cli/up'
-title: '框架升级-up'
+title: 'Framework Upgrade - Up'
 sidebar_position: 2
 hide_title: true
 ---
+
 :::tip
-该命令从框架 `v2.3` 版本开始提供。
+This command has been available since framework version `v2.3`.
 :::
-## 使用方式
+
+## Usage
 
 ```bash
 $ gf up -h
@@ -17,7 +19,7 @@ USAGE
 OPTION
     -a, --all    upgrade both version and cli, auto fix codes
     -c, --cli    also upgrade CLI tool
-    -f, --fix    auto fix codes(it only make sense if cli is to be upgraded)
+    -f, --fix    auto fix codes (it only makes sense if cli is to be upgraded)
     -h, --help   more information about this command
 
 EXAMPLE
@@ -27,17 +29,17 @@ EXAMPLE
     gf up -cf
 ```
 
-用以实现版本更新，同时更新主框架版本、社区组件版本到最新版本。
+This command is used to update the framework version and community component versions to the latest.
 
-选项说明：
+Option Explanation:
 
-| 名称 | 含义 |
+| Name | Meaning |
 | --- | --- |
-| `all` | 同时更新 `cli` 工具版本，并且自动修复本地代码在升级中的不兼容变更 |
-| `fix` | 升级时自动修复本地代码在升级中的不兼容变更 |
-| `cli` | 升级时同时更新 `cli` 工具版本 |
+| `all` | Upgrade both `cli` tool version and automatically fix local code incompatibilities during the upgrade |
+| `fix` | Automatically fix local code incompatibilities during the upgrade |
+| `cli` | Upgrade and update the `cli` tool version at the same time |
 
-## 使用示例
+## Usage Example
 
 ```bash
 $ gf up -a
@@ -68,6 +70,6 @@ auto fixing path "/Users/john/Workspace/Go/GOPATH/src/github.com/Khaos/eros"...
 done!
 ```
 
-## 注意事项
+## Notes
 
-命令执行前请 `git` 提交本地修改内容或执行目录备份。
+Before executing the command, please commit local modifications with `git` or perform directory backup.

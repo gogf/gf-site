@@ -1,17 +1,21 @@
 ---
 slug: '/docs/cli/fix'
-title: '兼容修复-fix'
+title: 'Compatibility Fix - Fix'
 sidebar_position: 9
 hide_title: true
 ---
 :::tip
-该命令从框架 `v2.3` 版本开始提供。
+This command has been provided since the framework's `v2.3` version.
 :::
-## 使用场景
+## Tip
 
-当官方框架版本在升级过程中，会尽最大可能保证向下兼容性。但确实遇到十分困难的场景，难以保证完全向下兼容性的时候，并且是较小的兼容性问题，考虑到新增大版本号的成本较高，那么官方会通过该命令提供自动修正兼容问题。并且官方会保证该指令可重复执行，无副作用。
+This command has been available since framework version `v2.3`.
 
-## 使用方式
+## Usage Scenarios
+
+When the official framework version is upgraded, every effort is made to ensure backward compatibility. However, in scenarios where it is very difficult to guarantee complete backward compatibility, and the compatibility issues are minor, considering the high cost of introducing a new major version, the official command will provide automatic fixes for compatibility issues. The official command ensures that this instruction can be executed repeatedly without side effects.
+
+## Usage
 
 ```bash
 $ gf fix -h
@@ -19,12 +23,12 @@ USAGE
     gf fix
 
 OPTION
-    -/--path     directory path, it uses current working directory in default
+    -/--path     directory path, it uses the current working directory by default
     -h, --help   more information about this command
 ```
 
-用以低版本（当前 `go.mod` 中的 `GoFrame` 版本）升级高版本（当前 `CLI` 使用的 `GoFrame` 版本）自动更新本地代码不兼容变更。
+Used to automatically update local code incompatible changes when upgrading from a lower version (the `GoFrame` version in the current `go.mod`) to a higher version (the `GoFrame` version used by the current `CLI`).
 
-## 注意事项
+## Notes
 
-命令执行前请 `git` 提交本地修改内容或执行目录备份。
+Before executing the command, please commit local modifications with `git` or perform directory backup.

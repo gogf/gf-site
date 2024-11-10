@@ -1,22 +1,22 @@
 ---
 slug: '/docs/cli/version'
-title: '版本查看-version'
+title: 'Version Check - Version'
 sidebar_position: 1
 hide_title: true
 ---
 
-## 使用方式
+## Usage
 
 - `gf -v`
 - `gf version`
 
-用以查看当前 `gf` 命令行工具编译时的版本信息。
+These commands are used to view the version information of the current `gf` command-line tool at compile time.
 
-## 使用示例
+## Usage Examples
 
 ### `>= v2.5.7`
 
-```html
+```bash
 $ gf version
 v2.7.2
 Welcome to GoFrame!
@@ -32,15 +32,15 @@ CLI Detail:
   Git Commit: 2024-06-26 10:08:04 b11caba5b03ed54fbb1415151f7d62b6d913179d
   Built Time: 2024-06-26 10:09:50
 Others Detail:
-  Docs: https://goframe.org
+  Docs: [https://goframe.org](https://goframe.org)
   Now : 2024-07-17T15:48:57+08:00
 ```
 
 ### `< v2.5.6`
 
-```html
+```bash
 $ gf version
-GoFrame CLI Tool v2.0.0, https://goframe.org
+GoFrame CLI Tool v2.0.0, [https://goframe.org](https://goframe.org) 
 GoFrame Version: v2.0.0-beta.0.20211214160159-19c9f0a48845 in current go.mod
 CLI Installed At: /Users/john/Workspace/Go/GOPATH/src/github.com/gogf/gf-cli/main
 CLI Built Detail:
@@ -50,11 +50,12 @@ CLI Built Detail:
   Build Time:  2021-12-15 23:00:43
 ```
 
-## 注意事项
+## Notes
 
-在打印的版本信息中会自动检测当前项目使用的 `GoFrame` 版本（自动解析 `go.mod`），并以 `GoFrame Version` 的信息打印出来。
+The printed version information will automatically detect the version of `GoFrame` used in the current project (automatically parsing `go.mod`) and print it out as `GoFrame Version` information.
 
-在 `CLI Built Detail` 信息中展示的是当前二进制编译时使用的各种 `Golang` 版本以及 `GoFrame` 版本信息，编译时的 `Git` 提交版本、当前二进制文件的编译时间。
+In the `CLI Built Detail` information, it displays the various `Golang` versions and `GoFrame` versions used at the time of binary compilation, the `Git` commit version at compilation, and the compilation time of the current binary file.
+
 :::warning
-大家请勿将 `GoFrame Version` 和 `CLI Built Detail` 中的 `GF Version` 混淆。
+Please do not confuse `GoFrame Version` with `GF Version` in `CLI Built Detail`.
 :::

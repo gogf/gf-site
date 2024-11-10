@@ -1,30 +1,32 @@
 ---
 slug: '/docs/cli/build'
-title: '交叉编译-build'
+title: 'Cross Compilation - Build'
 sidebar_position: 4
 hide_title: true
 ---
 
-## 使用方式
+# Cross Compilation - Build
 
-具体参数，使用 `gf build -h` 查看帮助
+## Usage
 
-仅限于交叉编译使用到 `GoFrame` 框架的项目，支持绝大部分常见系统的直接交叉编译。
+For specific parameters, use `gf build -h` to view help.
 
-## 内置编译变量
+This command is limited to cross-compiling projects that use the `GoFrame` framework and supports direct cross-compilation for most common systems.
 
-`build` 命令自动嵌入编译变量，这些变量用户可自定义，并且在运行时通过 `gbuild` 组件获取。使用 `gf build` 的项目将会默认嵌入以下变量（参考 `gf -v`）：
+## Built-in Compilation Variables
 
-- 当前 `Go` 版本
-- 当前 `GoFrame` 版本
-- 当前 `Git Commit`（如果存在）
-- 当前编译时间
+The `build` command automatically embeds compilation variables, which can be customized by users and retrieved at runtime through the `gbuild` component. Projects using `gf build` will have the following variables embedded by default (refer to `gf -v`):
 
-## 编译配置文件
+- Current `Go` version
+- Current `GoFrame` version
+- Current `Git Commit` (if it exists)
+- Current compilation time
 
-`build` 支持同时从命令行以及配置文件指定编译参数、选项。 `GoFrame` 框架的所有组件及所有生态项目都是使用的同一个配置管理组件，默认的配置文件以及配置使用请参考章节 [配置管理](../核心组件/配置管理/配置管理.md)。以下是一个简单的配置示例供参考：
+## Compilation Configuration File
 
-```
+`build` supports specifying compilation parameters and options from both the command line and configuration files. All components and all ecosystem projects of the `GoFrame` framework use the same configuration management component. The default configuration file and usage are detailed in the section [Configuration Management](/docs/core/gcfg). Below is a simple configuration example for reference:
+
+```yaml
 gfcli:
   build:
     name:     "gf"
@@ -37,28 +39,30 @@ gfcli:
     extra:    ""
 ```
 
-配置选项的释义同命令行同名选项。
+The meanings of the configuration options are the same as their command-line counterparts.
 
-| 名称 | 默认值 | 含义 | 示例 |
+| Name | Default Value | Meaning | Example |
 | --- | --- | --- | --- |
-| `name` | 与程序入口 `go` 文件同名 | 生成的可执行文件名称。如果是 `windows` 平台，那么默认会加上 `.exe` 后缀 | `gf` |
-| `arch` | 当前系统架构 | 编译架构，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持架构 | `386,amd64,arm` |
-| `system` | `当前系统平台` | 编译平台，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持平台 | `linux,darwin,windows` |
-| `path` | `./bin` | 编译可执行文件存储的 **目录地址** | `./bin` |
-| `mod` |  | 同 `go build -mod` 编译选项，不常用 | `none` |
-| `cgo` | `false` | 是否开启 `CGO`，默认是关闭的。如果开启，那么交叉编译可能会有问题。 |  |
-| `packSrc` |  | 需要打包的目录，多个以 `,` 号分隔，生成到 `internal/packed/build_pack_data.go` | `public,template,manifest` |
-| `packDst` | `internal/packed/build_pack_data.go` | 打包后生成的 `Go` 文件路径，一般使用相对路径指定到本项目目录中 |  |
-| `version` |  | 程序版本，如果指定版本信息，那么程序生成的路径中会多一层以版本名称的目录 | `v1.0.0` |
-| `output` |  | 输出的可执行文件路径，当该参数指定时， `name` 和 `path` 参数失效，常用于编译单个可执行文件。 | `./bin/gf.exe` |
-| `extra` |  | 额外自定义的编译参数，会直接传递给 `go build` 命令 |  |
-| `varMap` |  | 自定义的内置变量键值对，构建的二进制中可以通过 `gbuild` 包获取编译信息。 | ```<br />gfcli:<br />  build:<br />    name:     "gf"<br />    arch:     "all"<br />    system:   "all"<br />    mod:      "none"<br />    cgo:      0<br />    varMap:<br />      k1: v1<br />      k2: v2<br />``` |
-| `exitWhenError` | `false` | 当编译发生错误时，立即停止后续执行，并退出编译流程（使用 `os.Exit(1)`） |  |
-| `dumpEnv` | `false` | 每次编译之前在终端打印当前编译环境的环境变量信息 |  |
+| `name` | Same as the program entry `go` file | The name of the generated executable file. If it's the `windows` platform, it will default to adding the `.exe` suffix | `gf` |
+| `arch` | Current system architecture | Compilation architecture, multiple separated by `,`, if `all` indicates compilation for all supported architectures | `386,amd64,arm` |
+| `system` | `Current system platform` | Compilation platform, multiple separated by `,`, if `all` indicates compilation for all supported platforms | `linux,darwin,windows` |
+| `path` | `./bin` | Directory address where the compiled executable file is stored | `./bin` |
+| `mod` |  | Same as `go build -mod` compilation option, not commonly used | `none` |
+| `cgo` | `false` | Whether to enable `CGO`, it is closed by default. If enabled, cross-compilation may have issues |  |
+| `packSrc` |  | Directories to be packaged, multiple separated by `,`, generated into `internal/packed/build_pack_data.go` | `public,template,manifest` |
+| `packDst` | `internal/packed/build_pack_data.go` | The path of the generated `Go` file after packaging, usually specified with a relative path to the project directory |  |
+| `version` |  | Program version, if a version is specified, an additional directory named after the version will be created in the program's path | `v1.0.0` |
+| `output` |  | The path of the output executable file, when this parameter is specified, the `name` and `path` parameters become invalid, commonly used for compiling a single executable file. | `./bin/gf.exe` |
+| `extra` |  | Additional custom compilation parameters, directly passed to the `go build` command |  |
+| `varMap` |  | Custom built-in variable key-value pairs, the binary can retrieve compilation information through the `gbuild` package. | ```<br />gfcli:<br />  build:<br />    name:     "gf"<br />    arch:     "all"<br />    system:   "all"<br />    mod:      "none"<br />    cgo:      0<br />    varMap:<br />      k1: v1<br />      k2: v2<br />``` |
+| `exitWhenError` | `false` | When a compilation error occurs, immediately stop subsequent execution and exit the compilation process (using `os.Exit(1)`) |  |
+| `dumpEnv` | `false` | Print the current compilation environment's environment variable information in the terminal before each compilation |  |
+
 :::tip
-编译时的内置变量可以在运行时通过 `gbuild` 包 [构建信息-gbuild](../组件列表/系统相关/构建信息-gbuild.md) 获取。
+Built-in variables during compilation can be retrieved at runtime through the `gbuild` package [Build Information - gbuild](/docs/components/os-gbuild).
 :::
-## 使用示例
+
+## Usage Example
 
 ```bash
 $ gf build
