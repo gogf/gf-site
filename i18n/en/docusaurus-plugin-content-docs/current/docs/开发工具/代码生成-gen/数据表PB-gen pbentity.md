@@ -71,9 +71,9 @@ CONFIGURATION SUPPORT
               option php_namespace = "protobuf/demos";
 ```
 
-### Tip
-
+:::tip
 If you are using the project engineering scaffold recommended by the framework and have the `make` tool installed on your system, you can also use the `make pbentity` shortcut command.
+:::
 
 Parameter Description:
 
