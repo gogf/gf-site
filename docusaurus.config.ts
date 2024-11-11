@@ -68,6 +68,10 @@ const config: Config = {
   plugins: [
   ],
   themeConfig: {
+    metadata: [
+      {name: 'keywords', content: 'GoFrame, Go 开发框架, Golang 企业框架, 高性能 Go 框架, 微服务开发, 开箱即用组件, 数据校验, 跨平台支持, 开发文档, 社区支持'},
+      {name: 'description', content: 'GoFrame 是一款高性能、模块化的 Go 语言企业级开发框架，提供丰富的组件支持，可快速构建稳定的 Web 应用和微服务。具备出色的跨平台兼容性和详尽的中文文档，支持团队高效开发与交付。'},
+    ],
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,

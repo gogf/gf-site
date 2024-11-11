@@ -50,4 +50,5 @@ output
 go.work
 go.work.sum
 .vscode
+.scripts/ai-trans/config.yaml
 .scripts/gen-seo/config.yaml
