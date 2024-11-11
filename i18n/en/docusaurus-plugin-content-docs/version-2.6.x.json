@@ -139,6 +139,10 @@
     "message": "ORM Best Practices",
     "description": "The label for category ORM最佳实践 in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.NoSQL Redis": {
+    "message": "NoSQL Redis",
+    "description": "The label for category NoSQL Redis in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.I18N国际化": {
     "message": "I18N",
     "description": "The label for category I18N国际化 in sidebar tutorialSidebar"
@@ -150,6 +154,30 @@
   "sidebar.tutorialSidebar.category.组件列表": {
     "message": "Component List",
     "description": "The label for category 组件列表 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.单元测试": {
+    "message": "单元测试",
+    "description": "The label for category 单元测试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.功能调试": {
+    "message": "功能调试",
+    "description": "The label for category 功能调试 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.I18N组件": {
+    "message": "I18N组件",
+    "description": "The label for category I18N组件 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.加密解密": {
+    "message": "加密解密",
+    "description": "The label for category 加密解密 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.实用工具": {
+    "message": "实用工具",
+    "description": "The label for category 实用工具 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.数据管理": {
+    "message": "数据管理",
+    "description": "The label for category 数据管理 in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.数据结构": {
     "message": "Data Structure",
@@ -366,5 +394,6 @@
   "sidebar.tutorialSidebar.category.准备工作": {
     "message": "Prepare Work",
     "description": "The label for category 准备工作 in sidebar tutorialSidebar"
+
   }
 }
