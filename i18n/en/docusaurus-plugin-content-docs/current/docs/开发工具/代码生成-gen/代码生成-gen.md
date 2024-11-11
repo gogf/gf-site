@@ -1,19 +1,21 @@
 ---
 slug: '/docs/cli/gen'
-title: '代码生成-gen(🔥重点🔥)'
+title: 'Code Generation - Gen 🔥'
 sidebar_position: 5
 hide_title: true
 ---
 :::info
-从 `v2` 版本开始，最新的 `CLI` 工具版本功能会随着 `GoFrame` 框架的最新版本编译，引入如果本地的 `CLI` 工具自动化生成的代码与项目的 `GoFrame` 框架版本出现兼容性问题时，建议升级项目框架版本，或者自定义安装旧版本的 `CLI` 工具。旧版本CLI工具安装方式参考仓库首页介绍： [https://github.com/gogf/gf-cli](https://github.com/gogf/gf-cli)
+Starting from version `v2`, the latest features of the `CLI` tool are compiled with the latest version of the `GoFrame` framework. If there is a compatibility issue between the locally automated `CLI` tool-generated code and the project's `GoFrame` framework version, it is recommended to upgrade the project framework version or install an older version of the `CLI` tool. For instructions on installing older versions of the `CLI` tool, please refer to the repository's homepage: [https://github.com/gogf/gf-cli](https://github.com/gogf/gf-cli).
 :::
-## 重要说明🔥
 
-- `CLI` 工具提供的代码生成功能，目的是 **规范化项目代码编写**、 **简化项目开发复杂度**， **让开发者能够把精力聚焦于业务逻辑本身**。
-- `CLI` 工具本身会需要有一定前置的学习和理解成本（尽量理解为什么），但在熟练之后，大家的开发工作将会事半功倍。
-- `CLI` 工具的代码生成功能针对于企业级项目、多成员的团队性项目中收益会非常高。但针对于单人小型项目，开发者可根据个人意愿评估是否选择使用。 `GoFrame` 框架本身只是提供了基础组件，采用了组件化的灵活设计，不会对项目代码做严格的要求；但 `CLI` 工具会有一定的条框限制，目的是使得团队中每个成员的步调和风格一致，不会使得开发者的代码编写过于随意。
 
-## 使用方式
+## Important Information 🔥
+
+- The code generation feature provided by the `CLI` tool aims to **standardize project code writing**, **simplify project development complexity**, and allow developers to **focus on business logic**.
+- There will be a learning curve associated with the `CLI` tool (understanding why it's necessary), but once proficient, it will greatly increase development efficiency.
+- The code generation feature of the `CLI` tool is particularly beneficial for enterprise-level projects and multi-member team projects. However, for individual small projects, developers can choose whether to use it based on personal preference. The `GoFrame` framework itself provides basic components with a flexible design and does not impose strict requirements on project code; but the `CLI` tool has certain restrictions to ensure consistency in pace and style among team members, preventing overly casual code writing.
+
+## Usage
 
 ```bash
 $ gf gen -h
@@ -23,15 +25,15 @@ USAGE
 COMMAND
     ctrl        parse api definitions to generate controller/sdk go files
     dao         automatically generate go files for dao/do/entity
-    enums       parse go files in current project and generate enums go file
+    enums       parse go files in the current project and generate enums go file
     pb          parse proto files and generate protobuf go files
     pbentity    generate entity message files in protobuf3 format
     service     parse struct and associated functions from packages to generate service go file
 
 DESCRIPTION
     The "gen" command is designed for multiple generating purposes.
-    It's currently supporting generating go files for ORM models, protobuf and protobuf entity files.
-    Please use "gf gen dao -h" for specified type help.
+    It currently supports generating go files for ORM models, protobuf, and protobuf entity files.
+    Please use "gf gen dao -h" for help with a specific type.
 ```
 
     

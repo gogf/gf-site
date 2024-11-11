@@ -1,58 +1,62 @@
 ---
 slug: '/docs/cli/gen-service'
-title: '模块规范-gen service'
+title: 'Module Specification - Gen Service'
 sidebar_position: 2
 hide_title: true
 ---
 :::warning
-该功能特性为 **实验性特性**。建议开发者以 `logic` 下的模块划分为主，梳理模块间关联关系，避免循环依赖，充分利用 `Golang` 编译器的循环依赖检测特性编写更高质量的项目代码。
+This feature is an **experimental feature**. It is recommended that developers primarily organize module associations under the `logic` directory to avoid circular dependencies and make full use of the Go compiler's circular dependency detection feature to write higher quality project code.
 :::
 :::tip
-该功能特性从 `v2.1` 版本开始提供。
+This feature has been available since version `v2.1`.
 :::
 
 
-## 基本介绍
+## Basic Introduction
 
-### 设计背景
+### Design Background
 
-在业务项目实践中，业务逻辑封装往往是最复杂的部分，同时，业务模块之间的依赖十分复杂、边界模糊，较难采用 `Golang` 包管理的形式。如何有效管理项目中的业务逻辑封装部分，对于每个采用 `Golang` 开发的项目都是必定会遇到的难题。
+In business project practice, business logic encapsulation is often the most complex part, and the dependencies between business modules are very complex and blurry, making it difficult to manage using Go's package management form. How to effectively manage the business logic encapsulation part in the project is a problem that every Go开发的 project will inevitably encounter.
 
-在标准的软件设计流程中，模块与模块之间的依赖会先明确接口定义，在软件开发的实施过程中再通过代码来具体实现。但在大部分高节奏的互联网工程下，并没有严谨的软件设计流程，甚至开发人员的质量水平也参差不齐，大部分开发人员首先关心的是如何去实现需求场景对应的功能逻辑，尽可能地提高开发效率。
+In the standard software design process, the dependencies between modules are first clearly defined in the interface, and then implemented in the code during the software development process. However, in most high-paced internet projects, there is no rigorous software design process, and even the quality levels of developers are uneven. Most developers first care about how to implement the functional logic corresponding to the demand scenario and try to improve development efficiency as much as possible.
 
-### 设计目标
+### Design Objectives
 
-1. 提供一种代码管理方式，可以通过具体模块实现直接生成模块接口定义、模块注册代码。
-2. 简化业务逻辑实现与接口分离的实现，降低模块方法与接口定义的重复操作，提高模块与模块之间的透明度与调用便捷性。
+1. Provide a code management method that can directly generate module interface definitions and module registration code through specific module implementations.
+2. Simplify the implementation of business logic and interface separation, reduce the repetitive operations of module methods and interface definitions, and improve the transparency and convenience between modules.
 
-### 设计实现
+### Design Implementation
 
-1. 增加 `logic` 分类目录，将所有业务逻辑代码迁移到 `logic` 分类目录下，采用包管理形式来管理业务模块。
-2. 业务模块之间的依赖通过接口化解耦，将原有的 `service` 分类调整为接口目录。这样每个业务模块将会各自维护、更加灵活。
-3. 可以按照一定的编码规范，从 `logic` 业务逻辑代码生成 `service` 接口定义代码。同时，也允许人工维护这部分 `service` 接口。
+1. Add a `logic` classification directory, move all business logic code to the `logic` classification directory, and manage business modules using package management.
+2. The dependencies between business modules are decoupled through interfaces, and the original `service` classification is adjusted to an interface directory. In this way, each business module will maintain itself and be more flexible.
+3. According to certain coding specifications, `service` interface definition code can be generated from `logic` business logic code. At the same time, manual maintenance of this `service` interface is also allowed.
 
-## 注意事项
-:::warning
-再次提醒，通过 `logic` 实现去生成 `service` 接口 **并不是一个代码管理的标准化做法**，只是提供另一个 **可供选择的**、便捷的代码管理方式。这种管理方式有优点也有缺点，优点是针对微服务场景的业务模块的接口自动生成比较方便；缺点是无法识别语法继承关系、无法生成父级嵌套类型的方法、抛弃了 `Golang` 编译时检测循环依赖的特性。
-:::
-**框架的工程管理当然也支持标准的接口代码管理方式**，即支持先定义 `service` 接口，再编码 `logic` 具体实现。需要注意的是，这个 `service` 的源代码中不能出现顶部工具的注释信息（工具依靠这个注释来判断该文件是否可覆盖😈），很多同学复制粘贴的时候把文件顶部注释保留了，就会引起手动维护接口文件失效。具体见截图注释：
+## Notes
 
-![](/markdown/f4b70fc856dfcb17c4680839e32bb78b.png)
+### Warning
 
-## 命令使用
+Please note again, generating `service` interfaces through `logic` implementations **is not a standardized practice** in code management; it only provides another **optional** and convenient way to manage code. This management method has its advantages and disadvantages. The advantage is that it is convenient for automatically generating interfaces for business modules in microservices scenarios; the disadvantage is that it cannot recognize syntax inheritance relationships, cannot generate methods for parent-level nested types, and abandons the Go compiler's feature of detecting circular dependencies at compile time.
 
-该命令通过分析给定的 `logic` 业务逻辑模块目录下的代码，自动生成 `service` 目录接口代码。
-:::info
-需要注意：
+**The framework's project management also supports standard interface code management methods**, that is, it supports defining `service` interfaces first and then coding `logic` specific implementations. It should be noted that the source code of this `service` should not contain top tool annotation information (the tool relies on this annotation to determine whether the file can be overwritten 😈). Many students copy and paste and retain the file header comments, which can cause manual maintenance of interface files to fail. For details, see the screenshot comments:
 
-1. 由于该命令是根据业务模块生成 `service` 接口，因此只会解析二级目录下的 `go` 代码文件，并不会无限递归分析代码文件。以 `logic` 目录为例，该命令只会解析 `logic/xxx/*.go` 文件。因此，需要 `logic` 层代码结构满足一定规范。
-2. 不同业务模块中定义的结构体名称在生成的 `service` 接口名称时可能会重复覆盖，因此需要在设计业务模块时保证名称不能冲突。
-:::
-该命令的示例项目请参考： [https://github.com/gogf/gf-demo-user](https://github.com/gogf/gf-demo-user)
+![Screenshot Comments](/markdown/f4b70fc856dfcb17c4680839e32bb78b.png)
 
-### 手动模式
+## Command Usage
 
-如果是手动执行命令行，直接在项目根目录下执行 `gf gen service` 即可。
+This command analyzes the code in the given `logic` business logic module directory and automatically generates `service` directory interface code.
+
+### Info
+
+Please note:
+
+1. Since this command generates `service` interfaces based on business modules, it only parses `go` code files in the second-level directory and does not recursively analyze code files indefinitely. Taking the `logic` directory as an example, the command only parses `logic/xxx/*.go` files. Therefore, the `logic` layer code structure must meet certain specifications.
+2. The structure names defined in different business modules may overlap when generating `service` interface names, so it is necessary to ensure that the names do not conflict when designing business modules.
+
+For a sample project of this command, please refer to: [https://github.com/gogf/gf-demo-user](https://github.com/gogf/gf-demo-user)
+
+### Manual Mode
+
+If you are executing the command manually, simply run `gf gen service` in the project root directory.
 
 ```bash
 $ gf gen service -h
@@ -85,104 +89,107 @@ EXAMPLE
     gf gen service
     gf gen service -f Snake
 ```
-:::tip
-如果使用框架推荐的项目工程脚手架，并且系统安装了 `make` 工具，也可以使用 `make service` 快捷指令。
-:::
-参数说明：
 
-| 名称 | 必须 | 默认值 | 含义 |
+### Tip
+
+If you are using the project engineering scaffold recommended by the framework and have the `make` tool installed on your system, you can also use the `make service` shortcut command.
+
+Parameter Description:
+
+| Name | Required | Default Value | Meaning |
 | --- | --- | --- | --- |
-| `srcFolder` | 是 | `internal/logic` | 指向logic代码目录地址 |
-| `dstFolder` | 是 | `internal/service` | 指向生成的接口文件存放目录 |
-| `dstFileNameCase` | 否 | `Snake` | 生成的文件名名称格式 |
-| `stPattern` | 否 | `s([A-A]\w+)` | 使用正则指定业务模块结构体定义格式，便于解析业务接口定义名称。在默认的正则下，所有小写 `s` 开头，大写字母随后的结构体都将被当做业务模块接口名称。例如：
-
-| logic结构体名称 | service接口名称 |
+| `srcFolder` | Yes | `internal/logic` | Points to the logic code directory address |
+| `dstFolder` | Yes | `internal/service` | Points to the directory where the generated interface files are stored |
+| `dstFileNameCase` | No | `Snake` | The format of the generated file name |
+| `stPattern` | No | `s([A-Z]\w+)` | Uses regular expressions to specify the business module structure definition format, which is convenient for parsing business interface definition names. Under the default regular expression, all structures that start with a lowercase `s` and are followed by uppercase letters will be considered as business module interface names. For example: |
+| Logic Structure Name | Service Interface Name |
 | --- | --- |
 | `sUser` | `User` |
-| `sMetaData` | `MetaData` | |
-| `watchFile` |  |  | 用在代码文件监听中，代表当前改变的代码文件路径 |
-| `packages` |  |  | 仅生成指定包名的接口文件，给定字符串数组，通过命令行传参则给定 `JSON` 字符串，命令行组件自动转换数据类型 |
-| `importPrefix` |  |  | 指定生成业务引用文件中的引用包名前缀 |
-| `overwrite` |  | `true` | 生成代码文件时是否覆盖已有文件 |
-| `clear` |  | `false` | 自动删除 `logic` 中不存在的接口文件（仅删除自动维护的文件） |
+| `sMetaData` | `MetaData` |
+| `watchFile` |  |  | Used in code file listening, representing the current changed code file path |
+| `packages` |  |  | Only generate interface files for specified package names, given as a string array, passed through the command line as a `JSON` string, the command line component automatically converts data types |
+| `importPrefix` |  |  | Specifies the prefix of the reference package name in the generated business reference file |
+| `overwrite` |  | `true` | Whether to overwrite existing files when generating code files |
+| `clear` |  | `false` | Automatically delete interface files that do not exist in `logic` (only delete automatically maintained files) |
 
-### 自动模式
+### Automatic Mode
 
 #### `Goland/Idea`
 
-如果您是使用的 `GolandIDE`，那么可以使用我们提供的配置文件： [watchers.xml](https://wiki.goframe.org/download/attachments/49770772/watchers.xml?version=1&modificationDate=1655298456643&api=v2)  自动监听代码文件修改时自动生成接口文件。使用方式，如下图：
+If you are using `GolandIDE`, you can use our provided configuration file: [watchers.xml](https://wiki.goframe.org/download/attachments/49770772/watchers.xml?version=1&modificationDate=1655298456643&api=v2) to automatically generate interface files when code files are modified. The usage method is as follows:
 
-![](/markdown/447830160c7c3f14c1ce09b34906047f.png)
+![GolandIDE Configuration](/markdown/447830160c7c3f14c1ce09b34906047f.png)
 
 #### `Visual Studio Code`
 
-如果您是使用的 `Visual Studio Code`，那么可以安装插件 [RunOnSave](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) 随后配置插件：
+If you are using `Visual Studio Code`, you can install the plugin [RunOnSave](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) and then configure the plugin:
 
+```json
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".*logic.*go",
+                "isAsync": true,
+                "cmd": "gf gen service"
+            }
+        ]
+    }
+}
 ```
-        "emeraldwalk.runonsave": {
-            "commands": [
-                {
-                    "match": ".*logic.*go",
-                    "isAsync": true,
-                    "cmd": "gf gen service"
-                }
-            ]
-        }
-```
 
-## 具体使用手摸手
+## Step-by-Step Guide
 
-### Step1：引入我们提供的配置
+### Step1: Import Our Provided Configuration
 
-我们建议您在使用 `Goland IDE` 时，使用我们提供的配置文件： [watchers.xml](https://wiki.goframe.org/download/attachments/49770772/watchers.xml?version=1&modificationDate=1655298456643&api=v2)
+We recommend using our provided configuration file when using `Goland IDE`: [watchers.xml](https://wiki.goframe.org/download/attachments/49770772/watchers.xml?version=1&modificationDate=1655298456643&api=v2)
 
-### Step2：编写您的业务逻辑代码
+### Step2: Write Your Business Logic Code
 
-![](/markdown/84a59977f8a236410b20573a9377ed9b.png)
+![Business Logic Code](/markdown/84a59977f8a236410b20573a9377ed9b.png)
 
-### Step3：生成接口及服务注册文件
+### Step3: Generate Interfaces and Service Registration Files
 
-如果您已经按照 `Step1` 做好了配置，那么这一步可以忽略。因为在您编写代码的时候， `service` 便同时生成了接口定义文件。
+If you have already made the configuration as per `Step1`, you can skip this step. Because when you write the code, the `service` will generate the interface definition file at the same time.
 
-否则，每一次在您开发/更新完成 `logic` 业务模块后，您需要手动执行一下 `gf gen service` 命令。
+Otherwise, after each development/update of the `logic` business module, you need to manually execute the `gf gen service` command.
 
-![](/markdown/8f5ee2dc2c553ee9dd169930ff50003d.png)
+![Generate Interfaces](/markdown/8f5ee2dc2c553ee9dd169930ff50003d.png)
 
-### Step4：注意服务的实现注入部分（仅一次）
+### Step4: Note the Service Implementation Injection Part (Only Once)
 
-只有在生成完成接口文件后，您才能在每个业务模块中加上接口的具体实现注入。该方法每个业务模块加一次即可。
+Only after the interface files are generated can you add the specific implementation injection of the interface in each business module. This method needs to be added only once per business module.
 
-![](/markdown/aebae0b3b3055119b3818da0515e0c28.png)
+![Service Implementation Injection](/markdown/aebae0b3b3055119b3818da0515e0c28.png)
 
-### Step5：在启动文件中引用接口实现注册（仅一次）
+### Step5: Reference Interface Implementation Registration in the Startup File (Only Once)
 
-可以发现，该命令除了生成接口文件之外，还生成了一个接口实现注册文件。该文件用于在程序启动时，将接口的具体实现在启动时执行注册。
+It can be found that in addition to generating interface files, the command also generates an interface implementation registration file. This file is used to register the specific implementation of the interface at startup.
 
-![](/markdown/ceddac49d9a4585f334902157d542e0d.png)
+![Interface Implementation Registration](/markdown/ceddac49d9a4585f334902157d542e0d.png)
 
-该文件的引入需要在 `main` 包的最顶部引入，需要注意 `import` 的顺序，放到最顶部，后面加一个空行。如果同时存在 `packed` 包的引入，那么放到 `packed` 包后面。像这样：
+The introduction of this file needs to be at the top of the `main` package, pay attention to the order of `import`, put it at the top, and add a blank line later. If there is also an introduction to the `packed` package, then put it after the `packed` package. Like this:
 
-![](/markdown/864c4ad138cca78ac03d7e2d3fbf7a02.png)
+![Import Order](/markdown/864c4ad138cca78ac03d7e2d3fbf7a02.png)
 
-### Step6：Start&Enjoy
+### Step6: Start & Enjoy
 
-启动 `main.go` 即可。
+Start `main.go` to begin.
 
-## 常见问题FAQ
+## Frequently Asked Questions (FAQ)
 
-### 当 `logic` 中的结构体存在嵌套时，无法自动生成嵌套类型的方法
+### When there are nested structures in `logic`, methods for nested types cannot be automatically generated
 
-这种场景建议手动维护 `service` 接口定义，不使用工具的自动生成。手动维护的接口定义文件不会被工具覆盖，手动和自动可以同时使用。
+In this scenario, it is recommended to manually maintain the `service` interface definition and not use the tool's automatic generation. Manually maintained interface definition files will not be overwritten by the tool, and manual and automatic maintenance can be used simultaneously.
 
-### 快速定位接口的具体实现
+### Quickly locate the specific implementation of the interface
 
-**项目业务模块采用接口化解耦后体验非常棒！但是我在开发和调试过程中，想要快速找到指定接口的具体实现有点困难，能给点指导思路吗？**
+**The project business module uses interface decoupling, and the experience is great! But during development and debugging, I want to quickly find the specific implementation of a specified interface, and it's a bit difficult. Can you give some guidance?**
 
-\> 这里我推荐使用 `Goland IDE`，有个很棒的接口实现定位功能，具体如图。找到接口定义后，点击左边的小图标可快速定位具体的实现。如果Goland不显示小图标，可以尝试升级使用最新版本的 `Goland` 哈。
+> Here I recommend using `Goland IDE`, which has a great interface implementation location feature, as shown in the figure. After finding the interface definition, click on the small icon on the left to quickly locate the specific implementation. If Goland does not display the small icon, try upgrading to the latest version of `Goland`.
 
-![](/markdown/bbcc72eb46954b60c49be42a8ecebe35.png)
+![Interface Implementation Location](/markdown/bbcc72eb46954b60c49be42a8ecebe35.png)
 
-或者在左侧没有小图标的时候，可以右键选择 `Go To → Implementation(s)`
+Or when there is no small icon on the left, you can right-click and select `Go To → Implementation(s)`
 
-![](/markdown/4168ae8d0afee067e885e603eda37ccf.png)
+![Go To Implementation](/markdown/4168ae8d0afee067e885e603eda37ccf.png)

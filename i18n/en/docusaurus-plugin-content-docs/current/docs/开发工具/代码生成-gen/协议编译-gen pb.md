@@ -1,17 +1,17 @@
 ---
 slug: '/docs/cli/gen-pb'
-title: '协议编译-gen pb'
+title: 'Protocol Compilation - Gen Pb'
 sidebar_position: 4
 hide_title: true
 ---
 :::tip
-该功能特性从 `v2.4` 版本开始提供。
+This feature is available starting from version `v2.4`.
 :::
-## 基本介绍
+## Basic Introduction
 
-该命令用于编译 `proto` 文件，生成对应的 `protobuf go` 文件以及对应的控制器文件。
+This command is used to compile `proto` files and generate corresponding `protobuf go` files as well as controller files.
 
-## 命令使用
+## Command Usage
 
 ```bash
 $ gf gen pb -h
@@ -26,20 +26,22 @@ OPTION
 
 EXAMPLE
     gf gen pb
-    gf gen pb -p . -a . -p .
+    gf gen pb -p . -a . -c .
 ```
-:::tip
-如果使用框架推荐的项目工程脚手架，并且系统安装了 `make` 工具，也可以使用 `make pb` 快捷指令。
-:::
-参数说明：
 
-| 名称 | 必须 | 默认值 | 含义 |
+### Tip
+
+If you are using the project engineering scaffold recommended by the framework and have the `make` tool installed on your system, you can also use the `make pb` shortcut command.
+
+Parameter Description:
+
+| Name | Required | Default Value | Meaning |
 | --- | --- | --- | --- |
-| `path` | 否 | `manifest/protobuf` | 指向 `proto` 协议定义文件 |
-| `api` | 否 | `api` | 指向生成的接口文件存放目录 |
-| `ctrl` | 否 | `internal/controller` | 指向生成的控制器文件存放目录 |
+| `path` | No | `manifest/protobuf` | Points to the `proto` protocol definition file |
+| `api` | No | `api` | Points to the directory where the generated interface files are stored |
+| `ctrl` | No | `internal/controller` | Points to the directory where the generated controller files are stored |
 
-## 注意事项
+## Notes
 
-- 在生成控制器文件时，会自动识别是否已经存在对应的接口实现方法，如果已经存在则不再重复生成对应的接口方法，防止覆盖。
-- 如果在 `proto` 目录执行该命令，并且指定的 `path` 目录不存在时，那么将会自动编译本地 `proto` 文件，且编译后的文件生成到当前目录，并自动关闭控制器文件的生成功能。
+- When generating controller files, it will automatically recognize whether there are corresponding interface implementation methods already existing. If they exist, it will not regenerate the corresponding interface methods to prevent overwrites.
+- If you execute this command in the `proto` directory and the specified `path` directory does not exist, then it will automatically compile the local `proto` files, generate the compiled files into the current directory, and automatically disable the generation of controller files.

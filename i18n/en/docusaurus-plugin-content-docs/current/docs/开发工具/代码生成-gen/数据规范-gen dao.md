@@ -1,17 +1,19 @@
 ---
 slug: '/docs/cli/gen-dao'
-title: '数据规范-gen dao'
+title: 'Data Specification - Gen Dao'
 sidebar_position: 1
 hide_title: true
 ---
 
-`gen dao` 命令是 `CLI` 中最频繁使用、也是框架设计的工程规范能否准确落地的关键命令。该命令用于生成 `dao` 数据访问对象、 `do` 数据转化模型及 `entity` 实例数据模型 `Go` 代码文件。由于该命令的参数、选项较多，我们推荐使用配置文件来管理生成规则。
-:::tip
-关于框架项目工程规范介绍请查看 [代码分层设计](../../框架设计/工程开发设计/代码分层设计.md) 章节。
-:::
-## 使用方式
+The `gen dao` command is one of the most frequently used commands in `CLI` and is also a key command for the accurate implementation of the framework's engineering specifications. This command is used to generate `dao` data access objects, `do` data transformation models, and `entity` instance data model `Go` code files. Due to the numerous parameters and options of this command, we recommend using a configuration file to manage generation rules.
 
-大部分场景下，进入项目根目录执行 `gf gen dao` 即可。以下为命令行帮助信息。
+:::tip
+For an introduction to the framework project engineering specifications, please refer to the [Code Layer Design](docs/design/project-layer) section.
+:::
+
+## Usage
+
+In most scenarios, simply execute `gf gen dao` in the project root directory. Below is the command line help information.
 
 ```bash
 $ gf gen dao -h
@@ -86,13 +88,14 @@ CONFIGURATION SUPPORT
               type: string
 ```
 :::tip
-如果使用框架推荐的项目工程脚手架，并且系统安装了 `make` 工具，也可以使用 `make dao` 快捷指令。
+If you are using the project engineering scaffold recommended by the framework and have the `make` tool installed on your system, you can also use the `make dao` shortcut command.
 :::
-## 配置示例
+
+## Configuration Example
 
 `/hack/config.yaml`
 
-```
+```yaml
 gfcli:
   gen:
     dao:
@@ -105,82 +108,82 @@ gfcli:
       prefix: "primary_"
       tables: "user, userDetail"
 
-    # sqlite需要自行编译带sqlite驱动的gf，下载库代码后修改路径文件（gf\cmd\gf\internal\cmd\cmd_gen_dao.go）的import包，取消注释即可。sqlite驱动依赖了gcc
+    # sqlite requires self-compilation with sqlite driver. Download the library code and modify the import package in the file path (gf\cmd\gf\internal\cmd\cmd_gen_dao.go), uncomment to use. sqlite driver depends on gcc.
     - link: "sqlite:./file.db"
 ```
 
-## 参数说明
+## Parameter Description
 
-| 名称 | 默认值 | 含义 | 示例 |
+| Name | Default Value | Meaning | Example |
 | --- | --- | --- | --- |
-| `gfcli.gen.dao` |  | `dao` 代码生成配置项，可以有多个配置项构成数组，支持多个数据库生成。不同的数据库可以设置不同的生成规则，例如可以生成到不同的位置或者文件。 | - |
-| `link`<br />**必须参数** |  | 分为两部分，第一部分表示你连接的数据库类型 `mysql`, `postgresql` 等, 第二部分就是连接数据库的 `dsn` 信息。具体请参考 [ORM使用配置](../../核心组件/数据库ORM/ORM使用配置/ORM使用配置.md) 章节。 | - |
-| `path` | `internal` | 生成 `dao` 和 `model` 文件的存储 **目录** 地址。 | `./app` |
-| `group` | `default` | 在数据库配置中的数据库分组名称。只能配置一个名称。数据库在配置文件中的分组名称往往确定之后便不再修改。 | `default`<br />`order`<br />`user` |
-| `prefix` |  | 生成数据库对象及文件的前缀，以便区分不同数据库或者不同数据库中的相同表名，防止数据表同名覆盖。 | `order_`<br />`user_` |
-| `removePrefix` |  | 删除数据表的指定前缀名称。多个前缀以 `,` 号分隔。 | `gf_` |
-| `removeFieldPrefix` |  | 删除字段名称的指定前缀名称。多个前缀以 `,` 号分隔。 | `f_` |
-| `tables` |  | 指定当前数据库中需要执行代码生成的数据表。如果为空，表示数据库的所有表都会生成。 | `user, user_detail` |
-| `tablesEx` |  | `Tables Excluding`，指定当前数据库中需要排除代码生成的数据表。 | `product, order` |
-| `jsonCase` | `CamelLower` | 指定 `model` 中生成的数据实体对象中 `json` 标签名称规则，参数不区分大小写。参数可选为： `Camel`、 `CamelLower`、 `Snake`、 `SnakeScreaming`、 `SnakeFirstUpper`、 `Kebab`、 `KebabScreaming`。具体介绍请参考命名行帮助示例。 | `Snake` |
-| `stdTime` | `false` | 当数据表字段类型为时间类型时，代码生成的属性类型使用标准库的 `time.Time` 而不是框架的 `*gtime.Time` 类型。 | `true` |
-| `withTime` | `false` | 为每个自动生成的代码文件增加生成时间注释 |  |
-| `gJsonSupport` | `false` | 当数据表字段类型为 `JSON` 类型时，代码生成的属性类型使用 `*gjson.Json` 类型。 | `true` |
-| `overwriteDao` | `false` | 每次生成 `dao` 代码时是否重新生成覆盖 `dao/internal` 目录外层的文件。注意 `dao/internal` 目录外层的文件可能由开发者自定义扩展了功能，覆盖可能会产生风险。 | `true` |
-| `importPrefix` | 通过 `go.mod` 自动检测 | 用于指定生成 `Go` 文件的 `import` 路径前缀。特别是针对于不是在项目根目录下使用 `gen dao` 命令，或者想要将代码文件生成到自定义的其他目录，这个时候配置该参数十分必要。 | `github.com/gogf/gf` |
-| `descriptionTag` | `false` | 用于指定是否为数据模型结构体属性增加 `desription` 的标签，内容为对应的数据表字段注释。 | `true` |
-| `noJsonTag` | `false` | 生成的数据模型中，字段不带有json标签 |  |
-| `noModelComment` | `false` | 用于指定是否关闭数据模型结构体属性的注释自动生成，内容为数据表对应字段的注释。 | `true` |
-| `clear` | `false` | 自动删除数据库中不存在对应数据表的本地 `dao/do/entity` 代码文件。请谨慎使用该参数！ |  |
-| `typeMapping` | `decimal:`<br />`  type: float64`<br />`money:`<br />`  type: float64`<br />`numeric:`<br />`  type: float64`<br />`smallmoney:`<br />`  type: float64` | **从版本v2.5开始支持。**<br />用于自定义数据表字段类型到生成的Go文件中对应属性类型映射。该配置支持通过 `import` 配置引入第三方包，例如：<br />`decimal:`<br />`  type:   decimal.Decimal`<br />`  import: github.com/shopspring/decimal` |  |
-| `daoPath` | `dao` | 代码生成的 `DAO` 文件存放目录 |  |
-| `doPath` | `model/do` | 代码生成 `DO` 文件存放目录 |  |
-| `entityPath` | `model/entity` | 代码生成的 `Entity` 文件存放目录 |  |
-| `tplDaoIndexPath` |  | 自定义 `DAO Index` 代码生成模板文件路径，使用该参数请参考源码 |  |
-| `tplDaoInternalPath` |  | 自定义 `DAO Internal` 代码生成模板文件路径，使用该参数请参考源码 |  |
-| `tplDaoDoPath` |  | 自定义 `DO` 代码生成模板文件路径，使用该参数请参考源码 |  |
-| `tplDaoEntityPath` |  | 自定义 `Entity` 代码生成模板文件路径，使用该参数请参考源码 |  |
+| `gfcli.gen.dao` |  | `dao` code generation configuration item, can have multiple configuration items to form an array, supports multiple database generations. Different databases can set different generation rules, such as generating to different locations or files. | - |
+| `link`<br />**Required Parameter** |  | Divided into two parts, the first part indicates the type of database you are connecting to, such as `mysql`, `postgresql`, etc., and the second part is the `dsn` information for connecting to the database. For details, please refer to the [ORM Usage Configuration](/docs/core/gdb-config) section. | - |
+| `path` | `internal` | The **directory** address for storing generated `dao` and `model` files. | `./app` |
+| `group` | `default` | The database group name in the database configuration. Only one name can be configured. The group name of the database in the configuration file is often determined and not changed afterwards. | `default`<br />`order`<br />`user` |
+| `prefix` |  | The prefix for generating database objects and files to distinguish between different databases or the same table names in different databases, preventing data table name coverage. | `order_`<br />`user_` |
+| `removePrefix` |  | Remove the specified prefix name of the data table. Multiple prefixes are separated by `,`. | `gf_` |
+| `removeFieldPrefix` |  | Remove the specified prefix name of the field. Multiple prefixes are separated by `,`. | `f_` |
+| `tables` |  | Specify the data tables in the current database that need to perform code generation. If empty, it means all tables in the database will be generated. | `user, user_detail` |
+| `tablesEx` |  | `Tables Excluding`, specify the data tables in the current database that need to be excluded from code generation. | `product, order` |
+| `jsonCase` | `CamelLower` | Specify the `json` tag name rule in the data entity object generated in the `model`, the parameter is not case-sensitive. Parameters can be: `Camel`, `CamelLower`, `Snake`, `SnakeScreaming`, `SnakeFirstUpper`, `Kebab`, `KebabScreaming`. For details, please refer to the naming line help example. | `Snake` |
+| `stdTime` | `false` | When the data table field type is a time type, the property type of the generated code uses the standard library's `time.Time` instead of the framework's `*gtime.Time` type. | `true` |
+| `withTime` | `false` | Add a creation time comment for each automatically generated code file |  |
+| `gJsonSupport` | `false` | When the data table field type is `JSON`, the property type of the generated code uses `*gjson.Json` type. | `true` |
+| `overwriteDao` | `false` | Whether to regenerate and overwrite `dao` files both inside and outside the `internal` folder every time `dao` code is generated. Note that files outside the `dao/internal` folder may be custom-extended by developers, and overwriting may pose risks. | `true` |
+| `importPrefix` | Automatically detected through `go.mod` | Used to specify the `import` path prefix for generated `Go` files. Especially when using the `gen dao` command not under the project root directory, or wanting to generate code files into custom directories, this parameter is very necessary. | `github.com/gogf/gf` |
+| `descriptionTag` | `false` | Used to specify whether to add a `description` tag for the data model structure attributes, with the content being the corresponding data table field comments. | `true` |
+| `noJsonTag` | `false` | The generated data model does not have a json tag for each field |  |
+| `noModelComment` | `false` | Used to specify whether to disable the automatic generation of comments for data model structure attributes, with the content being the comments of the corresponding data table fields. | `true` |
+| `clear` | `false` | Automatically delete local `dao/do/entity` code files that do not have corresponding data tables in the database. Please use this parameter with caution! |  |
+| `typeMapping` | `decimal:`<br />`  type: float64`<br />`money:`<br />`  type: float64`<br />`numeric:`<br />`  type: float64`<br />`smallmoney:`<br />`  type: float64` | **Supported from version v2.5.**<br />Used to customize the mapping of data table field types to the corresponding attribute types in the generated Go files. This configuration supports the introduction of third-party packages through `import` configuration, for example:<br />`decimal:`<br />`  type:   decimal.Decimal`<br />`  import: github.com/shopspring/decimal` |  |
+| `daoPath` | `dao` | Directory for storing generated `DAO` files |  |
+| `doPath` | `model/do` | Directory for storing generated `DO` files |  |
+| `entityPath` | `model/entity` | Directory for storing generated `Entity` files |  |
+| `tplDaoIndexPath` |  | Custom `DAO Index` code generation template file path, please refer to the source code when using this parameter |  |
+| `tplDaoInternalPath` |  | Custom `DAO Internal` code generation template file path, please refer to the source code when using this parameter |  |
+| `tplDaoDoPath` |  | Custom `DO` code generation template file path, please refer to the source code when using this parameter |  |
+| `tplDaoEntityPath` |  | Custom `Entity` code generation template file path, please refer to the source code when using this parameter |  |
 
-## 使用示例
+## Usage Example
 
-仓库地址： [https://github.com/gogf/focus-single](https://github.com/gogf/focus-single)
+Repository address: [https://github.com/gogf/focus-single](https://github.com/gogf/focus-single)
 
-![](/markdown/a02af38b70bb31224361565570e40789.png)
+![Usage Example](/markdown/a02af38b70bb31224361565570e40789.png)
 
-1、以下 `3` 个目录的文件由 `dao` 命令生成：
+1. The following `3` directories' files are generated by the `dao` command:
 
-| 路径 | 说明 | 详细介绍 |
+| Path | Description | Details |
 | --- | --- | --- |
-| `/internal/dao` | 数据操作对象 | 通过对象方式访问底层数据源，底层基于 `ORM` 组件实现。往往需要结合 `entity` 和 `do` 通用使用。该目录下的文件开发者可扩展修改，但是往往没这种必要。 |
-| `/internal/model/do` | 数据转换模型 | 数据转换模型用于业务模型到数据模型的转换，由工具维护，用户不能修改。工具每次生成代码文件将会覆盖该目录。关于 `do` 文件的介绍请参考：<br />- [数据模型与业务模型](../../框架设计/工程开发设计/数据模型与业务模型.md)<br />- [DAO-工程痛点及改进](../../框架设计/工程开发设计/DAO封装设计/DAO-工程痛点及改进.md)<br />- [利用指针属性和do对象实现灵活的修改接口](../../核心组件/数据库ORM/ORM最佳实践/利用指针属性和do对象实现灵活的修改接口.md) |
-| `/internal/model/entity` | 数据模型 | 数据模型由工具维护，用户不能修改。工具每次生成代码文件将会覆盖该目录。 |
+| `/internal/dao` | Data Operation Object | Access the underlying data source through object-oriented methods, based on the `ORM` component. Often used in conjunction with `entity` and `do`. Developers can extend and modify the files in this directory, but it is usually unnecessary. |
+| `/internal/model/do` | Data Transformation Model | Used for the transformation of business models to data models, maintained by the tool and should not be modified by users. The tool will overwrite the code files in this directory every time it generates code. For more information on `do` files, please refer to:<br />- [Data Model and Business Model](../../Framework Design/Engineering Development Design/Data Model and Business Model.md)<br />- [DAO-Engineering Pain Points and Improvements](../../Framework Design/Engineering Development Design/DAO封装 Design/DAO-Engineering Pain Points and Improvements.md)<br />- [Using Pointer Attributes and Do Objects to Implement Flexible Modification Interfaces](../../Core Components/Database ORM/ORM Best Practices/Using Pointer Attributes and Do Objects to Implement Flexible Modification Interfaces.md) |
+| `/internal/model/entity` | Data Model | Maintained by the tool and should not be modified by users. The tool will overwrite the code files in this directory every time it generates code. |
 
-2、 `model` 中的模型分为两类： **数据模型** 和 **业务模型**。
+2. The models in `model` are divided into two categories: **Data Models** and **Business Models**.
 
-**数据模型：** 通过 `CLI` 工具自动生成 `model/entity` 目录文件，数据库的数据表都会生成到该目录下，这个目录下的文件对应的模型为数据模型。数据模型即与数据表一一对应的数据结构，开发者往往不需要去修改并且也不应该去修改，数据模型只有在数据表结构变更时通过 `CLI` 工具自动更新。数据模型由 `CLI` 工具生成及统一维护。
+**Data Models:** Automatically generated by the `CLI` tool in the `model/entity` directory files, all database data tables will be generated under this directory, and the models corresponding to the files in this directory are data models. Data models are data structures that correspond one-to-one with data tables. Developers often do not need to modify and should not modify them. Data models are only automatically updated when the data table structure changes through the `CLI` tool. Data models are generated and maintained by the `CLI` tool.
 
-**业务模型：** 业务模型即是与业务相关的数据结构，按需定义，例如 `service` 的输入输出数据结构定义、内部的一些数据结构定义等。业务模型由开发者根据业务需要自行定义维护，定义到 `model` 目录下。
+**Business Models:** Business models are data structures related to business, defined as needed, such as input and output data structure definitions of `service`, internal data structure definitions, etc. Business models are defined and maintained by developers according to business needs and are defined in the `model` directory.
 
-3、 `dao` 中的文件按照数据表名称进行命名，一个数据表一个文件及其一个对应的 `DAO` 对象。操作数据表即是通过 `DAO` 对象以及相关操作方法实现。 `dao` 操作采用规范化设计，必须传递 `ctx` 参数，并在生成的代码中必须通过 `Ctx` 或者 `Transaction` 方法创建对象来链式操作数据表。
+3. The files in `dao` are named according to the data table name, one file per data table and one corresponding `DAO` object. Operating on data tables is achieved through `DAO` objects and related operational methods. `dao` operations are designed in a standardized manner, requiring the transmission of a `ctx` parameter, and objects must be created through `Ctx` or `Transaction` methods in the generated code for chain operations on data tables.
 
-![](/markdown/f0da330685c6cfd82ba1c0254dfdbe39.png)
+![DAO Operations](/markdown/f0da330685c6cfd82ba1c0254dfdbe39.png)
 
-## 注意事项
+## Notes
 
-### 需要手动编译的数据库类型
+### Database Types That Require Manual Compilation
 
-`gen dao` 命令涉及到数据访问相关代码生成时，默认支持常用的若干类型数据库。如果需要 `Oracle` 数据库类型支持，需要开发者自己修改源码文件后自行本地手动编译生成 `CLI` 工具随后安装，因为这两个数据库的驱动需要 `CGO` 支持，无法预编译生成给大家直接使用。
+The `gen dao` command, when involving code generation related to data access, supports several common types of databases by default. If you need support for the `Oracle` database type, developers need to modify the source code file themselves and then compile and generate the `CLI` tool locally for installation, as the drivers for these databases require `CGO` support and cannot be pre-compiled for direct use.
 
-![](/markdown/7f849959c13d224393b93d6b371e8ae0.png)
+![Manual Compilation](/markdown/7f849959c13d224393b93d6b371e8ae0.png)
 
-### 关于 `bool` 类型对应的数据表字段
+### Regarding `bool` Type Corresponding to Data Table Fields
 
-由于大部分数据库类型都没有 `bool` 类型的数据表字段类型，我们推荐使用 `bit(1)` 来代替 `bool` 类型。 `gen dao` 命令会自动识别 `bit(1)` 数据表字段并生成 `bool` 类型的属性。此外，我们不推荐使用 `tinyint(1)` 作为 `bool` 类型。
+Since most database types do not have a `bool` type for data table fields, we recommend using `bit(1)` as a substitute for the `bool` type. The `gen dao` command will automatically recognize `bit(1)` data table fields and generate properties of type `bool`. In addition, we do not recommend using `tinyint(1)` as a `bool` type.
 
-例如，表字段：
+For example, table fields:
 
-![](/markdown/50992d00a792555d2946d294975e9ec4.png)
+![Table Fields](/markdown/50992d00a792555d2946d294975e9ec4.png)
 
-生成的属性：
+Generated properties:
 
-![](/markdown/4bb766d64e607a33c1a6fbf20c742924.png)
+![Generated Properties](/markdown/4bb766d64e607a33c1a6fbf20c742924.png)
