@@ -4,7 +4,7 @@ title: 'UDP组件-连接对象'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gudp.Conn,UDP组件,UDP连接,gudp模块,网络编程,Go语言,数据通信,编程示例]
-description: '本文档介绍了如何使用GoFrame框架进行UDP组件开发，特别是gudp.Conn连接对象的使用。文中提供了详细的函数接口说明以及一个完整的客户端与服务端通信的示例代码，帮助开发者快速掌握UDP连接对象的具体操作和应用场景。'
+description: '使用GoFrame框架进行UDP组件开发，特别是gudp.Conn连接对象的使用。文中提供了详细的函数接口说明以及一个完整的客户端与服务端通信的示例代码，帮助开发者快速掌握UDP连接对象的具体操作和应用场景。'
 ---
 
 `gudp` 模块提供了非常简便易用的 `gudp.Conn` 链接操作对象。

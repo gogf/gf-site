@@ -4,7 +4,7 @@ title: 'ORM查询-子查询特性'
 sidebar_position: 8
 hide_title: true
 keywords: [ORM,子查询,Where 子查询,Having 子查询,From 子查询,GoFrame,GoFrame框架,数据库查询,数据模型,子查询语句]
-description: '本文档介绍了GoFrame框架中ORM组件支持的三种子查询特性：Where子查询、Having子查询及From子查询。通过示例讲解如何在Where、Having条件以及使用Model方法创建模型时利用子查询提升数据库查询效率。'
+description: 'GoFrame框架中ORM组件支持的三种子查询特性：Where子查询、Having子查询及From子查询。通过示例讲解如何在Where、Having条件以及使用Model方法创建模型时利用子查询提升数据库查询效率。'
 ---
 
 `ORM` 组件目前支持常见的三种语法的子查询： `Where` 子查询、 `Having` 子查询及 `From` 子查询。

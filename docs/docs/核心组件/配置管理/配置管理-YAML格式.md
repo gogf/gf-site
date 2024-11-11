@@ -4,7 +4,7 @@ title: '配置管理-YAML格式'
 sidebar_position: 4
 hide_title: true
 keywords: [配置管理,YAML格式,GoFrame,数据串行化,映射,数组,纯量,对象,复合结构,JavaScript转换]
-description: '本文详细介绍了如何在GoFrame框架中使用YAML格式进行配置管理。YAML是一种便于人类读写的数据串行化格式，支持对象、数组和纯量等数据结构。文章还提供了YAML与JavaScript之间的转换示例，帮助读者更好地理解YAML格式的应用和实现。'
+description: '如何在GoFrame框架中使用YAML格式进行配置管理。YAML是一种便于人类读写的数据串行化格式，支持对象、数组和纯量等数据结构。文章还提供了YAML与JavaScript之间的转换示例，帮助读者更好地理解YAML格式的应用和实现。'
 ---
 
 ### 一、简介

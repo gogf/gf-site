@@ -4,7 +4,7 @@ title: "What's Next"
 hide_title: true
 sidebar_position: 3
 keywords: [GoFrame框架,Web项目,微服务开发,核心组件,业务项目,API项目,服务组件,配置组件,数据库组件,框架学习]
-description: '本文档总结了使用GoFrame框架进行业务项目搭建、项目启动、配置组件使用、数据库组件使用的基础知识，并提供了Web项目和微服务开发的学习路径。建议通过丰富的示例项目，提高对GoFrame框架的掌握，特别是其核心组件的使用。'
+description: '总结了使用GoFrame框架进行业务项目搭建、项目启动、配置组件使用、数据库组件使用的基础知识，并提供了Web项目和微服务开发的学习路径。建议通过丰富的示例项目，提高对GoFrame框架的掌握，特别是其核心组件的使用。'
 ---
 
 ## 简单总结

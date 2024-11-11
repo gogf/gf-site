@@ -4,7 +4,7 @@ title: 'Session-Storage接口开发'
 sidebar_position: 4
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gsession,Session-Storage,自定义存储,接口开发,Storage接口,TTL,gmap,session管理]
-description: '本文介绍如何在GoFrame框架中使用gsession组件进行Session-Storage接口开发。通过组件内置的Storage实现，可以满足大部分业务场景的需求。开发者还可以根据特定情况，自定义Session存储。文中详细描述了Storage接口的定义及调用时机，为提高Session性能，建议使用gmap容器类型。本指南将帮助开发者更好地实现和优化存储接口。'
+description: '在GoFrame框架中使用gsession组件进行Session-Storage接口开发。通过组件内置的Storage实现，可以满足大部分业务场景的需求。开发者还可以根据特定情况，自定义Session存储。文中详细描述了Storage接口的定义及调用时机，为提高Session性能，建议使用gmap容器类型。本指南将帮助开发者更好地实现和优化存储接口。'
 ---
 
 大部分场景下，通过 `gsession` 组件内置提供的常见 `Storage` 实现已经能够满足需求。如果有特殊的场景需要制定不易开发 `Storage` 当然也是支持的，因为 `gsession` 的功能都采用了接口化设计。

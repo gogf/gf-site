@@ -4,7 +4,7 @@ title: 'HTTPClient'
 sidebar_position: 9
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTP客户端,gclient,HTTP请求,链式操作,HTTP方法,自定义请求,连接池,返回对象]
-description: '本文档介绍了GoFrame框架提供的强大HTTP客户端gclient组件，支持HTTP请求的便捷链式操作。客户端支持自定义请求设置及返回对象操作，并详细介绍了超时、Cookie、Header等参数的设置方法。'
+description: 'GoFrame框架提供的强大HTTP客户端gclient组件，支持HTTP请求的便捷链式操作。客户端支持自定义请求设置及返回对象操作，并详细介绍了超时、Cookie、Header等参数的设置方法。'
 ---
 
 ## 基本介绍

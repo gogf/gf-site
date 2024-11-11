@@ -4,7 +4,7 @@ title: '字典类型-gmap'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gmap,map容器,HashMap,TreeMap,ListMap,并发安全,数据结构,关联数组]
-description: '本文档介绍了在GoFrame框架中使用gmap字典类型的基本方法和注意事项。gmap模块提供了多种并发安全的map数据结构选项，包括HashMap、TreeMap和ListMap。适用于在Go应用程序中任何涉及并发访问和哈希表操作的场景，并详细描述了每种类型的性能和特性。'
+description: '在GoFrame框架中使用gmap字典类型的基本方法和注意事项。gmap模块提供了多种并发安全的map数据结构选项，包括HashMap、TreeMap和ListMap。适用于在Go应用程序中任何涉及并发访问和哈希表操作的场景，并详细描述了每种类型的性能和特性。'
 ---
 
 ## 基本介绍

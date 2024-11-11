@@ -4,7 +4,7 @@ title: 'Redis-Conn对象'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Redis,Conn对象,订阅发布,连接池,长链接,连接超时,订阅模式,发布模式]
-description: '本文档介绍了如何在GoFrame框架中使用Redis的Conn对象进行长链接操作，如订阅发布等功能。通过使用连接池获取连接对象进行操作，同时注意连接对象超时问题以及使用后的关闭操作。示例代码展示了通过Conn实现订阅发布模式，程序将在终端打印从Redis Server获取的数据。'
+description: '在GoFrame框架中使用Redis的Conn对象进行长链接操作，如订阅发布等功能。通过使用连接池获取连接对象进行操作，同时注意连接对象超时问题以及使用后的关闭操作。示例代码展示了通过Conn实现订阅发布模式，程序将在终端打印从Redis Server获取的数据。'
 ---
 
 ## `Conn` 对象

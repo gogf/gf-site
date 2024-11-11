@@ -4,7 +4,7 @@ title: 'Redis-命令交互'
 sidebar_position: 2
 hide_title: true
 keywords: [Redis命令交互,Do方法,自动序列化与反序列化,GoFrame框架,结构体存取,map存取,gredis库,json序列化,Redis API,Go语言]
-description: '本文档介绍了如何在使用GoFrame框架构建的应用中，通过Redis命令交互以及自动化的方式来序列化和反序列化数据。首先，我们讲解了Do方法的强大扩展性，它允许任何Redis命令的执行。随后我们展示了如何使用map和struct来存取数据，并利用json序列化简化编程。通过GoFrame框架与Redis的结合，开发者可以更加高效地进行数据管理。'
+description: '在使用GoFrame框架构建的应用中，通过Redis命令交互以及自动化的方式来序列化和反序列化数据。首先，我们讲解了Do方法的强大扩展性，它允许任何Redis命令的执行。随后我们展示了如何使用map和struct来存取数据，并利用json序列化简化编程。通过GoFrame框架与Redis的结合，开发者可以更加高效地进行数据管理。'
 ---
 
 ## `Do` 方法

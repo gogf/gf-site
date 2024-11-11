@@ -4,7 +4,7 @@ title: '协程管理-grpool'
 sidebar_position: 16
 hide_title: true
 keywords: [GoFrame,GoFrame框架,goroutine,协程池,高并发,grpool,任务队列,资源管理,异步执行,内存优化]
-description: '本文介绍了Go语言中轻量级的协程管理工具grpool，讨论其在高并发下的性能优势和资源复用。通过池化技术，对大量goroutine进行管理，以降低内存占用和优化全局调度，适用于异步任务和内存使用率要求高的场景。'
+description: 'Go语言中轻量级的协程管理工具grpool，讨论其在高并发下的性能优势和资源复用。通过池化技术，对大量goroutine进行管理，以降低内存占用和优化全局调度，适用于异步任务和内存使用率要求高的场景。'
 ---
 
 ## 基本介绍

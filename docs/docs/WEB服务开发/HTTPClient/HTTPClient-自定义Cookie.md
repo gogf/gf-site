@@ -4,7 +4,7 @@ title: 'HTTPClient-自定义Cookie'
 sidebar_position: 2
 hide_title: true
 keywords: [HTTPClient,自定义Cookie,GoFrame,GoFrame框架,SetCookie,SetCookieMap,HTTP客户端,ghttp,Cookie,服务端]
-description: '本文档介绍如何在使用GoFrame框架的HTTP客户端中自定义发送给服务端的Cookie内容，主要通过SetCookie和SetCookieMap方法实现。通过简单的服务端和客户端示例展示了如何设置与接收自定义的Cookie参数，实现HTTP客户端的个性化请求。'
+description: '在使用GoFrame框架的HTTP客户端中自定义发送给服务端的Cookie内容，主要通过SetCookie和SetCookieMap方法实现。通过简单的服务端和客户端示例展示了如何设置与接收自定义的Cookie参数，实现HTTP客户端的个性化请求。'
 ---
 
 HTTP客户端发起请求时可以自定义发送给服务端的 `Cookie` 内容，该特性使用 `SetCookie*` 相关方法实现。

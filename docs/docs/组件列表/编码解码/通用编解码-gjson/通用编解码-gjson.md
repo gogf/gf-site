@@ -4,7 +4,7 @@ title: '通用编解码-gjson'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gjson,数据编码,数据解析,数据格式转换,JSON,XML,动态创建,数据层级检索]
-description: '本文档详细介绍了GoFrame框架中的gjson模块，它提供了强大的数据编码和解析功能，支持多种数据格式的相互转换，包括JSON、XML、INI、YAML、TOML等。gjson模块特别适合需要进行数据层级检索和动态创建或修改数据对象的场景，同时它还支持运行时的数据修改功能，是构建文档网站时的理想选择。'
+description: 'GoFrame框架中的gjson模块，它提供了强大的数据编码和解析功能，支持多种数据格式的相互转换，包括JSON、XML、INI、YAML、TOML等。gjson模块特别适合需要进行数据层级检索和动态创建或修改数据对象的场景，同时它还支持运行时的数据修改功能，是构建网站时的理想选择。'
 ---
 
 `gjson` 模块实现了强大的数据编码/解析功能，支持数据层级检索、动态创建修改 `Json` 对象，并支持常见数据格式的解析和转换等特点。

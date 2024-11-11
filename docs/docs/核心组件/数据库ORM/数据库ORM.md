@@ -4,7 +4,7 @@ title: '数据库ORM🔥'
 sidebar_position: 10
 hide_title: true
 keywords: [GoFrame,GoFrame框架,数据库ORM,gdb模块,数据库驱动,链接池,预处理,自动化,可观测性,DAO设计]
-description: '本文档介绍了如何在GoFrame框架中使用gdb模块实现数据库的ORM功能，强调了连接池设计、预处理SQL参数以及自动识别Map/Struct的特点。GoFrame ORM组件支持事务嵌套、接口化设计，并兼容主流数据库驱动，具备强大的配置管理和调试特性。'
+description: '在GoFrame框架中使用gdb模块实现数据库的ORM功能，强调了连接池设计、预处理SQL参数以及自动识别Map/Struct的特点。GoFrame ORM组件支持事务嵌套、接口化设计，并兼容主流数据库驱动，具备强大的配置管理和调试特性。'
 ---
 
 ## 驱动引入🔥

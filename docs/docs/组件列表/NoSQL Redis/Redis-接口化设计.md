@@ -4,7 +4,7 @@ title: 'Redis-接口化设计'
 sidebar_position: 4
 hide_title: true
 keywords: [Redis,接口化设计,GoFrame,GoFrame框架,gredis,自定义Redis Adapter,扩展Redis方法,Redis社区组件,SetAdapter方法,GetAdapter方法]
-description: '本文介绍了如何使用GoFrame框架中的gredis实现一个接口化设计的Redis组件，具备强大灵活性和扩展性。通过实现自定义Redis Adapter，可以轻松覆盖默认实现的方法。文中提供了详细示例，展示了如何在自定义Do方法中实现日志打印，并在业务中使用。'
+description: '如何使用GoFrame框架中的gredis实现一个接口化设计的Redis组件，具备强大灵活性和扩展性。通过实现自定义Redis Adapter，可以轻松覆盖默认实现的方法。文中提供了详细示例，展示了如何在自定义Do方法中实现日志打印，并在业务中使用。'
 ---
 
 `gredis` 采用接口化设计，具有强大的灵活性和扩展性。

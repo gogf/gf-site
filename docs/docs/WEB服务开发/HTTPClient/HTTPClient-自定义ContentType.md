@@ -4,7 +4,7 @@ title: 'HTTPClient-自定义ContentType'
 sidebar_position: 4
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTPClient,ContentType,Json请求,Xml请求,自定义ContentType,PostContent,url encode,web请求]
-description: '本文档介绍了如何在GoFrame框架中使用HTTPClient自定义请求的ContentType。通过不同的操作方法如ContentJson和ContentXml，可以设置请求的Content-Type分别为application/json和application/xml。同时也提供了自定义ContentType的方法例子，帮助开发者灵活设置请求参数和编码方式，以满足不同的API请求需求。'
+description: '在GoFrame框架中使用HTTPClient自定义请求的ContentType。通过不同的操作方法如ContentJson和ContentXml，可以设置请求的Content-Type分别为application/json和application/xml。同时也提供了自定义ContentType的方法例子，帮助开发者灵活设置请求参数和编码方式，以满足不同的API请求需求。'
 ---
 
 ## 示例1，提交 `Json` 请求

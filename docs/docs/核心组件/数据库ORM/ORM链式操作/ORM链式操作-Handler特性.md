@@ -4,7 +4,7 @@ title: 'ORM链式操作-Handler特性'
 sidebar_position: 14
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM链式操作,Handler特性,查询示例,分页示例,代码复用,数据库操作,Go语言,gdb库]
-description: '本文档介绍了如何在GoFrame框架中使用ORM链式操作实现Handler特性，通过示例展示了如何复用常见的查询逻辑和分页操作，从而简化代码，提高开发效率。Handler特性允许开发者定义通用逻辑并应用于数据库模型，实现更为简洁和可维护的代码结构。'
+description: '在GoFrame框架中使用ORM链式操作实现Handler特性，通过示例展示了如何复用常见的查询逻辑和分页操作，从而简化代码，提高开发效率。Handler特性允许开发者定义通用逻辑并应用于数据库模型，实现更为简洁和可维护的代码结构。'
 ---
 
 `Handler` 特性允许您轻松地复用常见的逻辑。

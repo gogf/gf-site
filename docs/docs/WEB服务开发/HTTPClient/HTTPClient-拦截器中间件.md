@@ -4,7 +4,7 @@ title: 'HTTPClient-拦截器/中间件'
 sidebar_position: 8
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTPClient,拦截器,中间件,客户端请求,参数校验,签名生成,接口安全,请求拦截]
-description: '本文档介绍了GoFrame框架中的HTTPClient拦截器/中间件特性，可用于全局请求拦截和参数校验。通过中间件，开发者可以在请求的前置和后置阶段插入自定义逻辑，修改提交参数或返回参数，实现签名参数注入等功能，确保接口参数的安全性。'
+description: 'GoFrame框架中的HTTPClient拦截器/中间件特性，可用于全局请求拦截和参数校验。通过中间件，开发者可以在请求的前置和后置阶段插入自定义逻辑，修改提交参数或返回参数，实现签名参数注入等功能，确保接口参数的安全性。'
 ---
 
 ## 基本介绍

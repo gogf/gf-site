@@ -4,7 +4,7 @@ title: 'CORS跨域处理'
 sidebar_position: 4
 hide_title: true
 keywords: [CORS,跨域请求,GoFrame,中间件,AJAX,Origin,CORSOptions,跨域访问,GoFrame框架,WebSocket]
-description: '本文介绍了如何使用GoFrame框架处理CORS跨域请求，结合路由管理中间件设置跨域规则，允许WebSocket跨域访问。提供CORS对象及其配置参数，包含默认和限制Origin来源的设置。同时，通过示例展示了基本使用方法、授权跨域Origin和自定义检测的方法，以实现更灵活的跨域请求管理。'
+description: '如何使用GoFrame框架处理CORS跨域请求，结合路由管理中间件设置跨域规则，允许WebSocket跨域访问。提供CORS对象及其配置参数，包含默认和限制Origin来源的设置。同时，通过示例展示了基本使用方法、授权跨域Origin和自定义检测的方法，以实现更灵活的跨域请求管理。'
 ---
 
 允许接口跨域往往是需要结合 [路由管理-中间件/拦截器](../%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86/%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86-%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%8B%A6%E6%88%AA%E5%99%A8/%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%8B%A6%E6%88%AA%E5%99%A8-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D.md) 一起使用，来统一设置某些路由规则下的接口可以跨域访问。同时，针对允许 `WebSocket` 的跨域请求访问，也是通过该方式来实现。

@@ -4,7 +4,7 @@ title: 'Session-File'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Session,文件存储,ghttp.Server,StorageFile,gcache,序列化,反序列化,会话管理]
-description: '本文档介绍了如何使用GoFrame框架的ghttp.Server实现Session的文件存储。默认情况下，Session存储采用内存和文件结合的方式，通过StorageFile实现持久化管理。得益于gcache模块，Session数据操作高效，特别适合读多写少的场景。同时，演示示例展示了如何在GoFrame项目中设置与获取Session。'
+description: '使用GoFrame框架的ghttp.Server实现Session的文件存储。默认情况下，Session存储采用内存和文件结合的方式，通过StorageFile实现持久化管理。得益于gcache模块，Session数据操作高效，特别适合读多写少的场景。同时，演示示例展示了如何在GoFrame项目中设置与获取Session。'
 ---
 
 ## 文件存储

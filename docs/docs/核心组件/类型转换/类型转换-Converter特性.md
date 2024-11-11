@@ -4,7 +4,7 @@ title: '类型转换-Converter特性'
 sidebar_position: 5
 hide_title: true
 keywords: [类型转换,Converter特性,GoFrame,自定义转换,结构体转换,属性转换,别名类型,gconv.Scan,gconv.ConvertWithRefer,数据结构]
-description: '本文介绍了从GoFrame框架v2.6.2版本开始的转换组件新增的Converter特性，允许开发者自定义类型转换逻辑。通过示例代码展示了如何使用Converter特性进行自定义数据结构和别名类型的转换方法注册和应用，以及如何借助gconv.Scan和gconv.ConvertWithRefer方法处理这些类型的转换。'
+description: '从GoFrame框架v2.6.2版本开始的转换组件新增的Converter特性，允许开发者自定义类型转换逻辑。通过示例代码展示了如何使用Converter特性进行自定义数据结构和别名类型的转换方法注册和应用，以及如何借助gconv.Scan和gconv.ConvertWithRefer方法处理这些类型的转换。'
 ---
 
 从框架 v2.6.2 版本开始，转换组件提供了 `Converter` 特性，允许开发者可以自定义 `Converter`转换方法指定特定类型之间的转换逻辑。

@@ -4,7 +4,7 @@ title: '链路跟踪-GRPC示例'
 sidebar_position: 4
 hide_title: true
 keywords: [GoFrame,GRPC,链路跟踪,微服务,客户端,服务端,缓存适配器,数据库,Jaeger,protobuf]
-description: '本章节介绍如何使用GoFrame框架开发一个简单的GRPC服务端和客户端，并为GRPC微服务增加链路跟踪特性。示例代码说明了如何初始化Jaeger，用Redis适配器实现缓存，以及在客户端与服务端间进行链路信息传递。'
+description: '使用GoFrame框架开发一个简单的GRPC服务端和客户端，并为GRPC微服务增加链路跟踪特性。示例代码说明了如何初始化Jaeger，用Redis适配器实现缓存，以及在客户端与服务端间进行链路信息传递。'
 ---
 
 在本章节中，我们将之前介绍 `HTTP Client&Server` 的示例修改为 `GRPC` 微服务，并演示如何使用 `GoFrame` 框架开发一个简单的 `GRPC` 服务端和客户端，并且为 `GRPC` 微服务增加链路跟踪特性。

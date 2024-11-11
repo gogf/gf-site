@@ -4,7 +4,7 @@ title: '分页管理-URL模板'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gpage,分页管理,URL模板,自定义URL,内置变量,页面渲染,代码示例,模板替换]
-description: '本文介绍了如何使用GoFrame框架的gpage进行分页管理，并通过自定义URL模板功能，使用内置变量替换页码内容来实现页面的动态渲染。文章提供了详细的代码示例，展示了通过设置UrlTemplate属性实现分页URL的个性化配置，为开发者提供了灵活高效的解决方案。'
+description: '如何使用GoFrame框架的gpage进行分页管理，并通过自定义URL模板功能，使用内置变量替换页码内容来实现页面的动态渲染。文章提供了详细的代码示例，展示了通过设置UrlTemplate属性实现分页URL的个性化配置，为开发者提供了灵活高效的解决方案。'
 ---
 
 `gpage` 支持自定义 `URL` 模板，在模板中可以使用 `{.page}` 内置变量替换页码的内容，我们来看一个简单的示例：

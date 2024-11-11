@@ -4,7 +4,7 @@ title: 'ORM链式操作-事务处理'
 sidebar_position: 8
 hide_title: true
 keywords: [GoFrame,事务处理,ORM链式操作,GoFrame框架,Transaction,TX接口,数据库对象,事务对象,链式操作,Commit/Rollback]
-description: '本章节介绍了如何在GoFrame框架中使用事务处理对于ORM链式操作的方法。通过Transaction和TX接口，可以实现对数据库的事务性操作，确保数据的一致性和可靠性。详细讲解了使用TX接口创建Model对象的方法及其事务处理中Commit和Rollback的机制。'
+description: '在GoFrame框架中使用事务处理对于ORM链式操作的方法。通过Transaction和TX接口，可以实现对数据库的事务性操作，确保数据的一致性和可靠性。详细讲解了使用TX接口创建Model对象的方法及其事务处理中Commit和Rollback的机制。'
 ---
 
 `Model` 对象也可以通过 `TX` 事务接口创建，通过事务对象创建的 `Model` 对象与通过 `DB` 数据库对象创建的 `Model` 对象功能是一样的，只不过前者的所有操作都是基于事务，而当事务提交或者回滚后，对应的 `Model` 对象不能被继续使用，否则会返回错误。因为该 `TX` 接口不能被继续使用，一个事务对象仅对应于一个事务流程， `Commit`/ `Rollback` 后即结束。

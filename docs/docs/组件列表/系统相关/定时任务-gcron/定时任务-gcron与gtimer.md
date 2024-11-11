@@ -4,7 +4,7 @@ title: '定时任务-gcron与gtimer'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,定时任务,gcron,gtimer,性能模块,crontab,时间间隔,TCP通信,游戏开发]
-description: '本文档介绍了GoFrame框架中定时任务模块gcron与定时器模块gtimer的区别。gtimer是高性能模块，适用于各种定时任务场景，包括TCP通信和游戏开发。gcron支持crontab语法，基于gtimer实现，为用户提供了便捷的定时任务管理方式。'
+description: 'GoFrame框架中定时任务模块gcron与定时器模块gtimer的区别。gtimer是高性能模块，适用于各种定时任务场景，包括TCP通信和游戏开发。gcron支持crontab语法，基于gtimer实现，为用户提供了便捷的定时任务管理方式。'
 ---
 
 ## `gcron` 与 `gtimer` 区别

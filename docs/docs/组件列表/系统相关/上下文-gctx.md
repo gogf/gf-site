@@ -4,7 +4,7 @@ title: '上下文-gctx'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gctx,上下文管理,链路跟踪,进程初始化,上下文对象,组件API,New方法,GetInitCtx]
-description: '本文档介绍了GoFrame框架中gctx组件的基本概念及常用方法。gctx用于简化链路跟踪及上下文对象的管理，方便进程初始化和上下文操作。主要涉及的内容包括如何创建和获取支持链路跟踪的上下文对象，以及在进程和init包中的应用。结合示例代码和API文档，可更详细地了解gctx的实际应用。'
+description: 'GoFrame框架中gctx组件的基本概念及常用方法。gctx用于简化链路跟踪及上下文对象的管理，方便进程初始化和上下文操作。主要涉及的内容包括如何创建和获取支持链路跟踪的上下文对象，以及在进程和init包中的应用。结合示例代码和API文档，可更详细地了解gctx的实际应用。'
 ---
 
 ## 基本介绍

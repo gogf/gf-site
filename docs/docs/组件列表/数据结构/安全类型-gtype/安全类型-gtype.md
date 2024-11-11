@@ -4,7 +4,7 @@ title: '安全类型-gtype'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,安全类型,并发编程,并发安全,gtype,基本类型,atomic操作,性能优化,数据类型,锁机制]
-description: '本文档介绍了GoFrame框架中的安全类型gtype，适用于任何需要并发安全的场景。通过提供对最常用基本数据类型的并发安全支持，gtype具备比互斥锁更高的性能，使用atomic原子操作简化并发控制，方便开发者在复杂场景下进行高效的并发编程。'
+description: 'GoFrame框架中的安全类型gtype，适用于任何需要并发安全的场景。通过提供对最常用基本数据类型的并发安全支持，gtype具备比互斥锁更高的性能，使用atomic原子操作简化并发控制，方便开发者在复杂场景下进行高效的并发编程。'
 ---
 
 ## 基本介绍

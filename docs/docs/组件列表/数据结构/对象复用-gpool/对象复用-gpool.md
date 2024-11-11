@@ -4,7 +4,7 @@ title: '对象复用-gpool'
 sidebar_position: 8
 hide_title: true
 keywords: [对象复用,GoFrame框架,gpool,过期时间,创建方法,销毁方法,并发安全,sync.Pool,GC压力,缓存复用]
-description: '本文档介绍了GoFrame框架中的对象复用池gpool的基本功能和使用场景，包括提供对象缓存复用、过期时间、创建和销毁方法的定义。gpool设计与sync.Pool的区别在于对过期时间的支持和GC压力缓解功能的不同，是并发安全的。'
+description: 'GoFrame框架中的对象复用池gpool的基本功能和使用场景，包括提供对象缓存复用、过期时间、创建和销毁方法的定义。gpool设计与sync.Pool的区别在于对过期时间的支持和GC压力缓解功能的不同，是并发安全的。'
 ---
 
 ## 基本介绍

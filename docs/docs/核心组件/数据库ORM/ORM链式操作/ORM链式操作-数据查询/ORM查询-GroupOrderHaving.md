@@ -4,7 +4,7 @@ title: 'ORM查询-Group/Order/Having'
 sidebar_position: 6
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM,Group,Order,Having,排序,分组查询,条件过滤,数据库查询]
-description: '本文档介绍如何使用GoFrame框架的ORM进行查询操作，包括分组、排序和条件过滤。通过Group方法实现数据分组，通过Order方法进行排序，以及通过Having方法对查询结果进行条件过滤，提供了详细的代码示例和方法说明，帮助用户更好地掌握数据库操作技能。'
+description: '使用GoFrame框架的ORM进行查询操作，包括分组、排序和条件过滤。通过Group方法实现数据分组，通过Order方法进行排序，以及通过Having方法对查询结果进行条件过滤，提供了详细的代码示例和方法说明，帮助用户更好地掌握数据库操作技能。'
 ---
 
 ## `Group/Order` 分组与排序

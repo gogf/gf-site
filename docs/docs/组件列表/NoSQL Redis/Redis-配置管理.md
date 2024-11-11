@@ -4,7 +4,7 @@ title: 'Redis-配置管理'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gredis,Redis配置,配置管理,配置文件,单例对象,集群配置,模块化,配置方法]
-description: '本文档介绍了如何在GoFrame框架中使用gredis组件进行Redis的配置管理。我们推荐通过配置文件来管理Redis配置，支持单实例和集群化配置。此外，还详细说明了各种配置项的使用方法，并提供了相关的代码示例供参考。'
+description: '在GoFrame框架中使用gredis组件进行Redis的配置管理。我们推荐通过配置文件来管理Redis配置，支持单实例和集群化配置。此外，还详细说明了各种配置项的使用方法，并提供了相关的代码示例供参考。'
 ---
 
 `gredis` 组件支持两种方式来管理 `redis` 配置和获取 `redis` 对象，一种是通过 **配置组件+单例对象** 的方式；一种是模块化通过 **配置管理方法** 及对象创建方法。

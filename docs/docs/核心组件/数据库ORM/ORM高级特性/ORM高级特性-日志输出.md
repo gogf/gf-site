@@ -4,7 +4,7 @@ title: 'ORM高级特性-日志输出'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM日志,SQL调试,日志配置,事务ID,数据库驱动,SQL语句,日志输出,调试工具]
-description: '本文档介绍了GoFrame框架中ORM组件的日志输出功能，重点讲解了如何通过SetLogger和GetLogger方法设置日志，以及如何在配置文件中启用日志输出功能。文中示例展示了SQL语句的调试过程，包括日志级别、执行耗时、SQL语句等详细信息，帮助用户更好地理解和调试应用程序中的数据库操作。'
+description: 'GoFrame框架中ORM组件的日志输出功能，重点讲解了如何通过SetLogger和GetLogger方法设置日志，以及如何在配置文件中启用日志输出功能。文中示例展示了SQL语句的调试过程，包括日志级别、执行耗时、SQL语句等详细信息，帮助用户更好地理解和调试应用程序中的数据库操作。'
 ---
 :::danger
 `ORM` 日志的输出，是在提交底层数据库 `driver` 之前， `ORM` 将链式操作或者 `SQL` 构成的模板与执行参数进行格式化打印展示，供人工阅读调试。由于底层 `driver` 可能会对提交参数进行二次的转换，所以这里的日志输出仅供参考，并不完全是底层真正执行的 `SQL` 语句。

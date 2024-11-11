@@ -4,7 +4,7 @@ title: 'ORM查询-ScanAndCount'
 sidebar_position: 4
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM查询,ScanAndCount,分页查询,Limit,Page,数据查询,总数量查询,链式查询]
-description: '本页介绍如何在使用GoFrame框架进行ORM查询时简化分页查询场景。通过ScanAndCount方法，可以在一次操作中完成数据查询和总数量查询，有效减少代码冗余，提高开发效率。适用于需要同时获取数据和其总数量的情况，如分页查询。'
+description: '在使用GoFrame框架进行ORM查询时简化分页查询场景。通过ScanAndCount方法，可以在一次操作中完成数据查询和总数量查询，有效减少代码冗余，提高开发效率。适用于需要同时获取数据和其总数量的情况，如分页查询。'
 ---
 
 ## 基本介绍

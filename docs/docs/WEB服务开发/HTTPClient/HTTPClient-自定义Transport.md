@@ -4,7 +4,7 @@ title: 'HTTPClient-自定义Transport'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTPClient,Transport,Unix Socket,自定义Transport,http.Client,gclient.Client,客户端连接池,MaxIdleConnsPerHost]
-description: '本文档介绍如何在GoFrame框架中，通过自定义Transport实现HTTPClient的高级用法。包括使用Unix Socket进行客户端与服务端通信的方法，以及设置客户端连接池大小参数的具体实现。示例提供了大量真实代码片段，帮助开发者更好地理解并应用这些技术。'
+description: '在GoFrame框架中，通过自定义Transport实现HTTPClient的高级用法。包括使用Unix Socket进行客户端与服务端通信的方法，以及设置客户端连接池大小参数的具体实现。示例提供了大量真实代码片段，帮助开发者更好地理解并应用这些技术。'
 ---
 
 由于 `gclient.Client` 内部封装扩展于标准库的 `http.Client` 对象，因此标准库 `http.Client` 有的特性， `gclient.Client` 也是支持的。我们这里提到的例子是 `Transport` 使用。来看几个示例：

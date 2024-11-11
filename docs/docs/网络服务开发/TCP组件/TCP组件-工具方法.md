@@ -4,7 +4,7 @@ title: 'TCP组件-工具方法'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,TCP组件,gtcp模块,Go语言,网络编程,TLS加密,数据通信,短链接,工具方法]
-description: '本文档介绍了GoFrame框架中的gtcp模块和一些常用的工具方法，通过这些方法可以实现TCP连接的创建、TLS安全加密通信以及数据发送和接收的功能，并提供了一个具体示例展示如何通过TCP访问指定的Web站点。'
+description: 'GoFrame框架中的gtcp模块和一些常用的工具方法，通过这些方法可以实现TCP连接的创建、TLS安全加密通信以及数据发送和接收的功能，并提供了一个具体示例展示如何通过TCP访问指定的Web站点。'
 ---
 
 `gtcp` 模块也提供了一些常用的工具方法。

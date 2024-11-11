@@ -4,7 +4,7 @@ title: 'ORM链式操作-字段获取'
 sidebar_position: 7
 hide_title: true
 keywords: [ORM,链式操作,字段获取,FieldsStr,FieldsExStr,GoFrame,GoFrame框架,数据库字段,字段前缀,字段排除]
-description: '本文档介绍了如何使用GoFrame框架中的ORM链式操作来获取数据库表字段的技巧，包括使用FieldsStr和FieldsExStr方法获取指定表的字段及排除字段的用法，支持字段前缀自定义，提升开发效率和代码可读性。'
+description: '使用GoFrame框架中的ORM链式操作来获取数据库表字段的技巧，包括使用FieldsStr和FieldsExStr方法获取指定表的字段及排除字段的用法，支持字段前缀自定义，提升开发效率和代码可读性。'
 ---
 
 ## `FieldsStr/FieldsExStr` 字段获取

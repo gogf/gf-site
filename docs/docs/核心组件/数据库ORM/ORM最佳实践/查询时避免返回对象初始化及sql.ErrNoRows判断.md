@@ -4,7 +4,7 @@ title: '查询时避免返回对象初始化及sql.ErrNoRows判断'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,SQL查询,对象初始化,sql.ErrNoRows,错误处理,指针判断,ORM结果处理,对象内存,代码复杂度]
-description: '本文介绍了如何在使用GoFrame框架进行SQL查询时，避免对象初始化以及sql.ErrNoRows错误判断问题。通过不初始化查询结果对象，使用指针为nil判断的方法，统一项目中对空查询结果的处理逻辑，从而降低代码对错误处理的复杂度。'
+description: '如何在使用GoFrame框架进行SQL查询时，避免对象初始化以及sql.ErrNoRows错误判断问题。通过不初始化查询结果对象，使用指针为nil判断的方法，统一项目中对空查询结果的处理逻辑，从而降低代码对错误处理的复杂度。'
 ---
 
 ## 查询时避免返回对象初始化及 `sql.ErrNoRows` 判断

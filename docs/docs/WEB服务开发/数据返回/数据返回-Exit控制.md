@@ -4,7 +4,7 @@ title: '数据返回-Exit控制'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Exit,ExitAll,ExitHook,服务函数,HOOK事件,流程控制,数据返回,权限控制]
-description: '本文档介绍了GoFrame框架中的数据返回控制方法，包括Exit、ExitAll和ExitHook。Exit用于退出当前执行的逻辑方法，而ExitAll会强行中断当前执行流程，非常适用于权限控制。ExitHook用于当路由匹配到多个HOOK方法时，控制其执行顺序。这些方法在服务函数和HOOK事件回调函数中有效，并通过极少的运行时开销来提高易用性。'
+description: 'GoFrame框架中的数据返回控制方法，包括Exit、ExitAll和ExitHook。Exit用于退出当前执行的逻辑方法，而ExitAll会强行中断当前执行流程，非常适用于权限控制。ExitHook用于当路由匹配到多个HOOK方法时，控制其执行顺序。这些方法在服务函数和HOOK事件回调函数中有效，并通过极少的运行时开销来提高易用性。'
 ---
 
 ## `Exit`, `ExitAll` 与 `ExitHook`

@@ -4,7 +4,7 @@ title: '日志组件-Rotate特性'
 sidebar_position: 13
 hide_title: true
 keywords: [GoFrame,GoFrame框架,glog,日志组件,日志切分,日志滚动,日志压缩,日志配置,文件格式,日志备份]
-description: '本章节介绍GoFrame框架中glog组件的日志滚动切分特性，包括通过设置日志文件名称按照日期输出、通过设置RotateSize和RotateExpire进行日志滚动切分、支持日志文件压缩与备份、配置示例，以及注意事项等内容。提供详细的配置项说明和示例代码，帮助开发者更好地管理日志文件。'
+description: 'GoFrame框架中glog组件的日志滚动切分特性，包括通过设置日志文件名称按照日期输出、通过设置RotateSize和RotateExpire进行日志滚动切分、支持日志文件压缩与备份、配置示例，以及注意事项等内容。提供详细的配置项说明和示例代码，帮助开发者更好地管理日志文件。'
 ---
 :::warning
 滚动切分目前属于实验性特性，如有问题请随时反馈。

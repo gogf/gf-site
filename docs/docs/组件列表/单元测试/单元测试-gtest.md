@@ -4,7 +4,7 @@ title: '单元测试-gtest'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,单元测试,gtest,测试断言,GoFrame框架,测试框架,测试用例,Assert,goconvey,testify]
-description: '本文档介绍了gtest模块在GoFrame框架下的使用，提供简便和轻量级的单元测试方法。gtest基于标准库testing进行功能扩展，增加了多个测试特性，如测试用例隔离和常用断言方法。适用于大部分的单元测试场景，并在需要更复杂测试时，可结合第三方测试框架如testify和goconvey使用。'
+description: 'gtest模块在GoFrame框架下的使用，提供简便和轻量级的单元测试方法。gtest基于标准库testing进行功能扩展，增加了多个测试特性，如测试用例隔离和常用断言方法。适用于大部分的单元测试场景，并在需要更复杂测试时，可结合第三方测试框架如testify和goconvey使用。'
 ---
 
 `gtest` 模块提供了简便化的、轻量级的、常用的单元测试方法。是基于标准库 `testing` 的功能扩展封装，主要增加实现了以下特性：

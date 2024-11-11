@@ -4,7 +4,7 @@ title: 'HTTPClient-代理Proxy设置'
 sidebar_position: 7
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTP客户端,代理设置,SetProxy,Proxy方法,http代理,socks5代理,链式调用,HTTP请求]
-description: '本文档介绍了如何在GoFrame框架的HTTP客户端中设置代理服务器地址，支持http和socks5两种形式。通过SetProxy和Proxy方法，用户可以轻松配置代理，实现对外网资源的访问，包括普通调用示例和链式调用示例，帮助用户快速掌握代理功能的使用。'
+description: '在GoFrame框架的HTTP客户端中设置代理服务器地址，支持http和socks5两种形式。通过SetProxy和Proxy方法，用户可以轻松配置代理，实现对外网资源的访问，包括普通调用示例和链式调用示例，帮助用户快速掌握代理功能的使用。'
 ---
 
 ## 代理 `Proxy` 设置

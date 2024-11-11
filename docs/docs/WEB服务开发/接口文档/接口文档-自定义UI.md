@@ -4,7 +4,7 @@ title: '接口文档-自定义UI'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,SwaggerUI,接口文档,OpenAPI,UI模板,自定义接口,gogf,API文档,Redoc]
-description: '本文介绍如何在GoFrame框架中使用SwaggerUI自定义接口文档UI，以替代默认的Redoc组件UI。通过示例代码展示如何快速实现接口文档的替换，连接企业内部资源，避免外网依赖。详细演示了接口文档与第三方平台的对接，使用GoFrame Server进行UI模板切换，提升文档展示灵活性及可定制性。'
+description: '在GoFrame框架中使用SwaggerUI自定义接口文档UI，以替代默认的Redoc组件UI。通过示例代码展示如何快速实现接口文档的替换，连接企业内部资源，避免外网依赖。详细演示了接口文档与第三方平台的对接，使用GoFrame Server进行UI模板切换，提升文档展示灵活性及可定制性。'
 ---
 
 ## 基本介绍

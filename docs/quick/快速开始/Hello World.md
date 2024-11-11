@@ -4,7 +4,7 @@ title: 'Hello World'
 hide_title: true
 sidebar_position: 2
 keywords: [GoFrame框架,Web Server,Go语言,模块化框架,路由绑定,自动接口文档,g.Server,网络请求,Server对象,GoFrame教程]
-description: '本文介绍了如何使用GoFrame框架构建一个简单的Hello World Web Server。GoFrame是一款模块化的Go语言框架，提供方便的Web服务器构建方式。本文详细解析了代码示例，包括Server对象的创建、路由绑定、端口设置及运行结果的解读，为初学者提供了一条快速入门的路径。'
+description: '如何使用GoFrame框架构建一个简单的Hello World Web Server。GoFrame是一款模块化的Go语言框架，提供方便的Web服务器构建方式。本文详细解析了代码示例，包括Server对象的创建、路由绑定、端口设置及运行结果的解读，为初学者提供了一条快速入门的路径。'
 ---
 
 `GoFrame` 是一款基础设施建设比较完善的模块化框架， 

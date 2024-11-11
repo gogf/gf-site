@@ -4,7 +4,7 @@ title: 'Session-Redis-KeyValue'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Redis,Session,KeyValue,多节点部署,StorageRedis,内存+Redis,JSON序列化,HashTable Storage]
-description: '本文档介绍如何在GoFrame框架中使用Redis进行Session的KeyValue存储，以解决多节点部署下Session共享的问题。通过使用StorageRedis对象实现Redis存储，提高执行效率，适合单个用户Session数据量较小的场景，并提供具体的使用示例和说明。在示例中，Session过期时间设为1分钟，展示了设置、获取、删除Session的方法及Redis中Session数据的恢复功能。'
+description: '在GoFrame框架中使用Redis进行Session的KeyValue存储，以解决多节点部署下Session共享的问题。通过使用StorageRedis对象实现Redis存储，提高执行效率，适合单个用户Session数据量较小的场景，并提供具体的使用示例和说明。在示例中，Session过期时间设为1分钟，展示了设置、获取、删除Session的方法及Redis中Session数据的恢复功能。'
 ---
 
 ## Redis KeyValue Storage

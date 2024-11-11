@@ -4,7 +4,7 @@ title: 'Struct校验-基本使用'
 sidebar_position: 0
 hide_title: true
 keywords: [Struct校验,GoFrame框架,gvalid,参数校验,属性别名,校验规则,链式操作,嵌套校验,递归校验,Go]
-description: '本文介绍了如何使用GoFrame框架进行Struct类型数据的校验，包括对校验tag规则的详细说明以及不同类型的数据校验方法，如基本校验、使用map自定义规则、以及结构体的递归校验示例。通过示例代码展示如何设置属性别名和自定义错误提示信息，实现对struct对象中不同属性的复杂校验逻辑。'
+description: '如何使用GoFrame框架进行Struct类型数据的校验，包括对校验tag规则的详细说明以及不同类型的数据校验方法，如基本校验、使用map自定义规则、以及结构体的递归校验示例。通过示例代码展示如何设置属性别名和自定义错误提示信息，实现对struct对象中不同属性的复杂校验逻辑。'
 ---
 
 `Struct` 校验常使用以下链式操作方式：

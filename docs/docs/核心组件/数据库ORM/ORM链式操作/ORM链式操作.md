@@ -4,7 +4,7 @@ title: 'ORM链式操作(🔥重点🔥)'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame框架,ORM链式操作,gdb,数据库操作,Model方法,事务处理,接口文档,数据库对象,GoFrame,链式调用]
-description: '本文介绍了GoFrame框架中gdb的链式操作方式，这是一种灵活且官方推荐的数据库操作方式。通过db.Model或tx.Model方法，可以基于数据表返回链式操作对象*Model，支持多种数据库操作，如Replace、Save、InsertGetId等，并详细说明了每种数据库的支持情况。'
+description: 'GoFrame框架中gdb的链式操作方式，这是一种灵活且官方推荐的数据库操作方式。通过db.Model或tx.Model方法，可以基于数据表返回链式操作对象*Model，支持多种数据库操作，如Replace、Save、InsertGetId等，并详细说明了每种数据库的支持情况。'
 ---
 
 ## 基本介绍

@@ -4,7 +4,7 @@ title: 'ORM结果处理-空数组结构返回'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,ORM,Go语言,数据库操作,JSON编码,前端开发,数据处理,后端开发,空数组,GoFrame框架]
-description: '本文介绍如何在GoFrame框架中处理ORM查询结果，当未查询到数据时，通过初始化空数组避免返回null值，从而增强与前端的友好交互。这种改进可以在数据需要展示于网页时，确保返回格式的预测性与稳定性。'
+description: '在GoFrame框架中处理ORM查询结果，当未查询到数据时，通过初始化空数组避免返回null值，从而增强与前端的友好交互。这种改进可以在数据需要展示于网页时，确保返回格式的预测性与稳定性。'
 ---
 
 ## 痛点描述

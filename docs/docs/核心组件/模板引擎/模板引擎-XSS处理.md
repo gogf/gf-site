@@ -4,7 +4,7 @@ title: '模板引擎-XSS处理'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,GoFrame框架,模板引擎,XSS处理,HTML转码,AutoEncode,SetAutoEncode,变量输出,安全性,框架配置]
-description: '本文档介绍了如何在使用GoFrame框架的模板引擎时进行XSS处理。默认情况下，输出变量未进行HTML转码，可能导致XSS漏洞，但GoFrame框架提供了灵活的配置参数，通过AutoEncode或SetAutoEncode方法控制转义效果，以增强输出安全性。'
+description: '在使用GoFrame框架的模板引擎时进行XSS处理。默认情况下，输出变量未进行HTML转码，可能导致XSS漏洞，但GoFrame框架提供了灵活的配置参数，通过AutoEncode或SetAutoEncode方法控制转义效果，以增强输出安全性。'
 ---
 
 默认情况下，模板引擎对所有的变量输出并没有使用 `HTML` 转码处理，也就是说，如果开发者处理不好，可能会存在XSS漏洞。

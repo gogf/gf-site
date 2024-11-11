@@ -4,7 +4,7 @@ title: '唯一数-guid'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,GUID,唯一识别,性能高效,简便使用,全局唯一数,唯一数生成,Go语言,开发工具]
-description: '本指南介绍如何使用GoFrame框架的GUID模块生成高性能且简便使用的全局唯一数。GUID生成的字符串由数字及小写英文字符组成，长度固定为32字节。文档详细说明了GUID的生成机制、使用方式及其在各种场景下的优势。'
+description: '使用GoFrame框架的GUID模块生成高性能且简便使用的全局唯一数。GUID生成的字符串由数字及小写英文字符组成，长度固定为32字节。文档详细说明了GUID的生成机制、使用方式及其在各种场景下的优势。'
 ---
 
 `guid` 提供了更简便更高性能的全局唯一数生成功能。生成的 `uid` 字符串仅包含 **数字及小写英文字符**。

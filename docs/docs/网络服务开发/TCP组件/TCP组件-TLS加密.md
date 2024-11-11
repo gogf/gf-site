@@ -4,7 +4,7 @@ title: 'TCP组件-TLS加密'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gtcp,TLS加密,网络通信,Go语言,服务器,客户端,安全通信,网络安全]
-description: '本文档介绍了如何使用GoFrame框架的gtcp模块在安全性要求较高的环境中实现TLS加密通信。通过提供的示例代码，我们讲解了如何创建TLS服务端和客户端，如何使用证书进行数据加密传输，以及如何处理可能出现的证书过期问题。这对于需要安全传输数据的开发者来说至关重要。'
+description: '使用GoFrame框架的gtcp模块在安全性要求较高的环境中实现TLS加密通信。通过提供的示例代码，我们讲解了如何创建TLS服务端和客户端，如何使用证书进行数据加密传输，以及如何处理可能出现的证书过期问题。这对于需要安全传输数据的开发者来说至关重要。'
 ---
 
 `gtcp` 模块支持 `TLS` 加密通信服务端及客户端，在对安全要求比较高的场景中非常必要。 `TLS` 服务端创建可以通过 `NewServerTLS` 或者 `NewServerKeyCrt` 方法实现。 `TLS` 客户端创建可以通过 `NewConnKeyCrt` 或者 `NewConnTLS` 方法实现。

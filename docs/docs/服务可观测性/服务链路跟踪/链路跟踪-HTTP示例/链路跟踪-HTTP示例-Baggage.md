@@ -4,7 +4,7 @@ title: '链路跟踪-HTTP示例-Baggage'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,链路跟踪,HTTP示例,Baggage,客户端,服务端,Jaeger,OTLP,TraceId]
-description: '本篇文档介绍了如何使用GoFrame框架进行链路跟踪，重点展示了通过HTTP示例实现Baggage数据在服务间传递的方法。详细说明了客户端和服务端的代码实现，包括如何设置和获取Baggage，并提供了Jaeger查看链路信息的方式，为开发者在分布式系统中实现高效的链路跟踪提供了实用指南。'
+description: '使用GoFrame框架进行链路跟踪，重点展示了通过HTTP示例实现Baggage数据在服务间传递的方法。详细说明了客户端和服务端的代码实现，包括如何设置和获取Baggage，并提供了Jaeger查看链路信息的方式，为开发者在分布式系统中实现高效的链路跟踪提供了实用指南。'
 ---
 
 ## `baggage` 链路数据传递

@@ -4,7 +4,7 @@ title: '数据返回-Stream返回'
 sidebar_position: 6
 hide_title: true
 keywords: [GoFrame,GoFrame框架,HTTP流式数据返回,流式数据,v2.4,SSE,数据返回,流式处理,事件流,Go语言]
-description: '本页介绍如何使用GoFrame框架实现HTTP流式数据返回，适用于框架版本小于v2.4及以上的版本。通过简化的代码实现高效的流式数据传输，适用于需要长连接和持续数据更新的场景，并提供注意事项和相关资料的参考。'
+description: '使用GoFrame框架实现HTTP流式数据返回，适用于框架版本小于v2.4及以上的版本。通过简化的代码实现高效的流式数据传输，适用于需要长连接和持续数据更新的场景，并提供注意事项和相关资料的参考。'
 ---
 
 我们可以很简单实现HTTP流式数据返回。

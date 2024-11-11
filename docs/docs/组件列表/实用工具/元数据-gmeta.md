@@ -4,7 +4,7 @@ title: '元数据-gmeta'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gmeta,元数据,标签,动态获取,结构体,接口文档,数据方法,获取方法]
-description: '本页面介绍了如何在GoFrame框架中使用gmeta包来为用户自定义的结构体添加元数据标签，并通过特定的方法在运行时动态获取这些标签内容，包括如何使用Data方法和Get方法获取指定对象的元数据标签信息。'
+description: '在GoFrame框架中使用gmeta包来为用户自定义的结构体添加元数据标签，并通过特定的方法在运行时动态获取这些标签内容，包括如何使用Data方法和Get方法获取指定对象的元数据标签信息。'
 ---
 
 ## 基本介绍

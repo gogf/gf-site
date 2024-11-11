@@ -4,7 +4,7 @@ title: 'ORM链式操作-更新删除'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM链式操作,数据更新,数据删除,Counter特性,自增操作,自减操作,RawSQL,软删除]
-description: '本章介绍了如何在GoFrame框架中进行ORM链式操作的数据更新和删除。详细阐述了使用Update和Delete方法时需要结合Where条件的重要性。此外，还探讨了通过Counter参数实现字段数值增减的特性，以及使用Increment和Decrement方法对字段进行自增自减的操作。同时，还讲解了嵌入原生SQL语句的技巧和实现软删除的方式，以确保数据处理的灵活性和安全性。'
+description: '在GoFrame框架中进行ORM链式操作的数据更新和删除。详细阐述了使用Update和Delete方法时需要结合Where条件的重要性。此外，还探讨了通过Counter参数实现字段数值增减的特性，以及使用Increment和Decrement方法对字段进行自增自减的操作。同时，还讲解了嵌入原生SQL语句的技巧和实现软删除的方式，以确保数据处理的灵活性和安全性。'
 ---
 :::warning
 为安全性保证、防止误操作， `Update` 及 `Delete` 方法必须带有 `Where` 条件才能提交执行，否则将会错误返回，错误信息如： `there should be WHERE condition statement for XXX operation`。 `goframe` 是一款用于企业生产级别的框架，各个模块设计严谨，工程实践的细节处理得比较好。

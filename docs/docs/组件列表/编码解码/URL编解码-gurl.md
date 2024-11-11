@@ -4,7 +4,7 @@ title: 'URL编解码-gurl'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,GoFrame框架,URL编解码,gurl,URL参数构建,URL参数编码,URL参数解码,URL解析,编码解析,Go语言]
-description: '本文档介绍了如何使用GoFrame框架中的gurl包进行URL编解码操作，包括如何构建URL参数、对URL参数进行编码和解码，以及如何解析URL以获取其不同组件。这些功能对于在Go语言中进行网络编程和数据传输时非常有用，适合有类似需求的开发者参考。'
+description: '使用GoFrame框架中的gurl包进行URL编解码操作，包括如何构建URL参数、对URL参数进行编码和解码，以及如何解析URL以获取其不同组件。这些功能对于在Go语言中进行网络编程和数据传输时非常有用，适合有类似需求的开发者参考。'
 ---
 
 `URL` 编码解析。

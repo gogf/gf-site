@@ -4,7 +4,7 @@ title: 'ORM高级特性-RawSQL'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,ORM,RawSQL,SQL注入,gdb.Raw,数据插入,数据更新,数据查询,预处理模式,SQL语句]
-description: '本文介绍了如何在GoFrame框架中使用ORM的RawSQL特性，通过使用gdb.Raw类型，可以在生成的SQL语句中嵌入自定义的SQL片段，实现更灵活的数据库操作。详细讲解了在Insert、Update和Select操作中使用RawSQL的方法及其示例，确保SQL语句的安全性和灵活性。'
+description: '如何在GoFrame框架中使用ORM的RawSQL特性，通过使用gdb.Raw类型，可以在生成的SQL语句中嵌入自定义的SQL片段，实现更灵活的数据库操作。详细讲解了在Insert、Update和Select操作中使用RawSQL的方法及其示例，确保SQL语句的安全性和灵活性。'
 ---
 
 由于 `ORM` 的安全性保障，所有输入的参数在底层都将使用预处理模式执行，防止常见的 `SQL` 注入风险。在某一些场景中，我们期望在生成执行的SQL语句中嵌入自定义的SQL语句，那么我们可以使用 `ORM` 的 `RawSQL` 特性，通过 `gdb.Raw` 类型来实现。我们来看几个示例。

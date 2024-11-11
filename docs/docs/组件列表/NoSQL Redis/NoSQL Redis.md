@@ -4,7 +4,7 @@ title: 'NoSQL Redis'
 sidebar_position: 11
 hide_title: true
 keywords: [GoFrame框架,gredis组件,Redis客户端,连接池设计,命令通道,Redis操作,GoFrame文档,接口化设计,NoSQL Redis,社区组件]
-description: '本文档介绍了NoSQL Redis客户端在GoFrame框架中的实现，主要通过gredis组件进行Redis操作，采用连接池设计和命令通道方式，保证了组件的通用性和扩展性。本文提供安装和引用指南，强调gredis的显著特性，并链接至相关接口文档。开发者可通过社区组件实现100多项常用方法，并支持包括集群化操作在内的多种高级功能。'
+description: 'NoSQL Redis客户端在GoFrame框架中的实现，主要通过gredis组件进行Redis操作，采用连接池设计和命令通道方式，保证了组件的通用性和扩展性。本文提供安装和引用指南，强调gredis的显著特性，并链接至相关接口文档。开发者可通过社区组件实现100多项常用方法，并支持包括集群化操作在内的多种高级功能。'
 ---
 
 ## 基本介绍

@@ -4,7 +4,7 @@ title: 'DES算法-gdes'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,DES算法,gdes,crypto,encryption,PKCS5PADDING,NOPADDING,三倍长DES,密钥]
-description: '本文档详细介绍了在GoFrame框架中使用DES算法的方式，展示了如何通过gdes包实现加密操作。通过链接至官方接口文档以便开发者获取更多技术细节。在包中支持两种补位方式，并对三倍长DES算法的密钥使用进行了特殊说明，以确保数据安全性。'
+description: '在GoFrame框架中使用DES算法的方式，展示了如何通过gdes包实现加密操作。通过链接至官方接口文档以便开发者获取更多技术细节。在包中支持两种补位方式，并对三倍长DES算法的密钥使用进行了特殊说明，以确保数据安全性。'
 ---
 
 DES算法。

@@ -4,7 +4,7 @@ title: '定时任务-gcron'
 sidebar_position: 7
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gcron,定时任务,crontab,CRON语法,任务管理,编程接口,框架教程,Go语言]
-description: '本文档介绍了GoFrame框架中gcron模块的使用，提供类似crontab的定时任务管理功能，支持秒级管理。介绍了如何创建、添加、管理和删除定时任务，并强调了全局时区对定时任务执行的影响，适用于需要编写定时任务的开发者。'
+description: 'GoFrame框架中gcron模块的使用，提供类似crontab的定时任务管理功能，支持秒级管理。介绍了如何创建、添加、管理和删除定时任务，并强调了全局时区对定时任务执行的影响，适用于需要编写定时任务的开发者。'
 ---
 
 ## 基本介绍

@@ -4,7 +4,7 @@ title: '并发安全环-gring'
 sidebar_position: 9
 hide_title: true
 keywords: [GoFrame,GoFrame框架,并发安全,环结构,ring,循环双向链表,缓冲区控制,并发锁,gring,链式操作]
-description: '本文档介绍了GoFrame框架中并发安全环结构gring的使用方法。该数据结构适用于需要固定大小的场景，如并发锁控制和缓冲区控制。文章提供了Gring的基本介绍，使用场景和方式，并给出了相关接口文档和链接。'
+description: 'GoFrame框架中并发安全环结构gring的使用方法。该数据结构适用于需要固定大小的场景，如并发锁控制和缓冲区控制。文章提供了Gring的基本介绍，使用场景和方式，并给出了相关接口文档和链接。'
 ---
 
 ## 基本介绍

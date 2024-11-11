@@ -4,7 +4,7 @@ title: '日志组件-Context'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,GoFrame框架,glog,日志组件,Context,CtxKeys,日志输出,OpenTelemetry,链路跟踪,Handler]
-description: '本文介绍GoFrame框架中glog日志组件的使用，特别是如何通过Context上下文变量实现日志打印。文章详细讲解了自定义CtxKeys的配置和使用示例，并提供了链路跟踪支持的功能。此外，还涉及了日志Handler的实现，以帮助开发者更好地集成日志功能。'
+description: 'GoFrame框架中glog日志组件的使用，特别是如何通过Context上下文变量实现日志打印。文章详细讲解了自定义CtxKeys的配置和使用示例，并提供了链路跟踪支持的功能。此外，还涉及了日志Handler的实现，以帮助开发者更好地集成日志功能。'
 ---
 
 从 `v2` 版本开始， `glog` 组件将 `ctx` 上下文变量作为日志打印的必需参数。

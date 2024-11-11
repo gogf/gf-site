@@ -4,7 +4,7 @@ title: "2022-01-27 Let's GoFrame"
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Golang,开源,高性能,企业级,开发框架,开箱即用,OpenTelemetry,错误堆栈]
-description: '本次分享详细介绍了GoFrame框架的核心设计、功能特性以及实战应用。GoFrame是一款模块化、高性能的企业级Go基础开发框架，适用于各种规模的业务型项目。通过丰富的基础组件、开发工具和实战化规范，开发者可以集中精力于业务逻辑，提高开发和维护效率，创造更大价值。'
+description: 'GoFrame框架的核心设计、功能特性以及实战应用。GoFrame是一款模块化、高性能的企业级Go基础开发框架，适用于各种规模的业务型项目。通过丰富的基础组件、开发工具和实战化规范，开发者可以集中精力于业务逻辑，提高开发和维护效率，创造更大价值。'
 ---
 
 Hello 朋友们，早出晚归忙活了一年，好久没有来点技术分享啦！

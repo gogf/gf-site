@@ -4,7 +4,7 @@ title: 'CSRF防御设置'
 sidebar_position: 5
 hide_title: true
 keywords: [CSRF防御,GoFrame框架,跨站请求伪造,CSRF攻击,XSRF,token校验,中间件,插件批处理,网络安全,Web应用程序安全]
-description: '本文档讲解如何在GoFrame框架中通过CSRF防御设置保护Web应用程序安全。我们将介绍使用token校验机制并通过中间件实现插件化防护的方法。包括插件的安装和配置以及前端对接的关键步骤和代码示例，帮助开发者有效抵御CSRF攻击。'
+description: '讲解如何在GoFrame框架中通过CSRF防御设置保护Web应用程序安全。我们将介绍使用token校验机制并通过中间件实现插件化防护的方法。包括插件的安装和配置以及前端对接的关键步骤和代码示例，帮助开发者有效抵御CSRF攻击。'
 ---
 
 **跨站请求伪造**（英语： `Cross-Site Request Forgery`），也被称为**one-click attack**或者**session riding**，通常缩写为**CSRF** 或者**XSRF**， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。跟跨网站脚本（ `XSS`）相比， **XSS** 利用的是用户对指定网站的信任， `CSRF` 利用的是网站对用户网页浏览器的信任。

@@ -4,7 +4,7 @@ title: '缓存管理-Redis缓存'
 sidebar_position: 2
 hide_title: true
 keywords: [GoFrame,GoFrame框架,缓存管理,Redis缓存,gcache,redis适配,Session共享,数据库查询缓存,redis db,缓存对象]
-description: '本文档介绍GoFrame框架中的缓存管理模块，重点讲解Redis缓存的适配实现及其使用方法，通过示例展示如何在多节点环境下确保数据一致性。文中提供了设置Redis客户端和使用Redis缓存适配器的详细步骤，同时探讨了Clear和Size方法在多对象连接情况下的操作注意事项，并建议针对不同业务配置独立的Redis db。'
+description: 'GoFrame框架中的缓存管理模块，重点讲解Redis缓存的适配实现及其使用方法，通过示例展示如何在多节点环境下确保数据一致性。文中提供了设置Redis客户端和使用Redis缓存适配器的详细步骤，同时探讨了Clear和Size方法在多对象连接情况下的操作注意事项，并建议针对不同业务配置独立的Redis db。'
 ---
 
 ## 基本介绍

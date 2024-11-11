@@ -4,7 +4,7 @@ title: 'HTTPClient-常见问题'
 sidebar_position: 9
 hide_title: true
 keywords: [HTTPClient,GoFrame,GoFrame框架,gclient.Client,连接池,高效,资源使用,短连接请求,表单请求,ContentType]
-description: '本文档解释了如何有效使用GoFrame框架中的gclient.Client对象，以提高效率和降低资源使用。包含gclient.Client对象复用的建议以及如何处理非法字符问题，通过示例演示设置正确的ContentType。'
+description: '解释如何有效使用GoFrame框架中的gclient.Client对象，以提高效率和降低资源使用。包含gclient.Client对象复用的建议以及如何处理非法字符问题，通过示例演示设置正确的ContentType。'
 ---
 
 ## 是否需要保存复用创建的 `gclient.Client` 对象

@@ -4,7 +4,7 @@ title: 'ORM链式操作-字段过滤'
 sidebar_position: 6
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM,字段过滤,Fields,FieldsEx,OmitEmpty,OmitNil,GoFrame DAO,数据表]
-description: '本文介绍了在使用GoFrame框架进行数据库操作时如何进行字段过滤。详细描述了Fields和FieldsEx方法的用途与示例，并深入探讨了OmitEmpty及OmitNil特性如何帮助在数据库写入过程中过滤空值数据。此外，还探讨了在数据查询过程中空值对条件参数的影响。'
+description: '在使用GoFrame框架进行数据库操作时如何进行字段过滤。详细描述了Fields和FieldsEx方法的用途与示例，并深入探讨了OmitEmpty及OmitNil特性如何帮助在数据库写入过程中过滤空值数据。此外，还探讨了在数据查询过程中空值对条件参数的影响。'
 ---
 
 ## `Fields/FieldsEx` 字段过滤

@@ -4,7 +4,7 @@ title: 'ORM查询-LeftJoin/RightJoin/InnerJoin'
 sidebar_position: 5
 hide_title: true
 keywords: [ORM查询,LeftJoin,RightJoin,InnerJoin,GoFrame,关联查询,数据表别名,字段操作符,联表查询,数据聚合]
-description: '本文档介绍了在GoFrame框架中如何使用ORM进行LeftJoin、RightJoin和InnerJoin查询，包括使用不同的关联查询方法及其应用场景。文中强调在大数据量和高并发环境中谨慎使用Join操作，推荐使用代码实现数据聚合。此外，还提供了通过自定义数据表别名和字段操作符进行join查询的示例，并结合dao展示具体的使用方法。'
+description: '在GoFrame框架中如何使用ORM进行LeftJoin、RightJoin和InnerJoin查询，包括使用不同的关联查询方法及其应用场景。文中强调在大数据量和高并发环境中谨慎使用Join操作，推荐使用代码实现数据聚合。此外，还提供了通过自定义数据表别名和字段操作符进行join查询的示例，并结合dao展示具体的使用方法。'
 ---
 
 ## `LeftJoin/RightJoin/InnerJoin`

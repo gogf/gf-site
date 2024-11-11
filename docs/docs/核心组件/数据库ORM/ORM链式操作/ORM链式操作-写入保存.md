@@ -4,7 +4,7 @@ title: 'ORM链式操作-写入保存'
 sidebar_position: 1
 hide_title: true
 keywords: [ORM链式操作,数据写入,GoFrame,Insert,Replace,Save,数据库,批量操作,SQL,RawSQL]
-description: '本文档介绍了GoFrame框架中ORM链式操作的写入保存方法，包括Insert、Replace、Save等方法的使用。这些方法支持自动单条或批量的数据写入，适用于多种数据库环境，并提供详细示例帮助理解如何结合使用Data方法进行数据操作。'
+description: 'GoFrame框架中ORM链式操作的写入保存方法，包括Insert、Replace、Save等方法的使用。这些方法支持自动单条或批量的数据写入，适用于多种数据库环境，并提供详细示例帮助理解如何结合使用Data方法进行数据操作。'
 ---
 
 ## 常用方法

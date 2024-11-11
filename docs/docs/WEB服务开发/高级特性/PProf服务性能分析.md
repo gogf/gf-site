@@ -4,7 +4,7 @@ title: 'PProf服务性能分析'
 sidebar_position: 9
 hide_title: true
 keywords: [GoFrame,PProf,性能分析,Web Server,pprof工具,EnablePProf,PProf Server,GoFrame框架,性能优化,Go工具]
-description: '本文介绍如何在使用GoFrame框架搭建的Web Server中利用pprof工具进行性能分析。GoFrame框架集成了pprof，可以借助EnablePProf方法便捷开启性能分析功能，并探讨了如何设置独立的PProf Server，以有效监控内存使用、goroutine行为及CPU性能等关键指标，同时提供具体命令行示例与解析。'
+description: '在使用GoFrame框架搭建的Web Server中利用pprof工具进行性能分析。GoFrame框架集成了pprof，可以借助EnablePProf方法便捷开启性能分析功能，并探讨了如何设置独立的PProf Server，以有效监控内存使用、goroutine行为及CPU性能等关键指标，同时提供具体命令行示例与解析。'
 ---
 
 `GoFrame` 框架的 `Web Server` 提供了非常强大和简便的服务性能分析功能，内部完美集成了 `pprof` 性能分析工具，可以在任何时候通过 `EnablePProf` 方法启用性能分析特性，并可自定义性能分析工具页面路由地址，不传递路由地址时，默认URI地址为 `/debug/pprof`。
