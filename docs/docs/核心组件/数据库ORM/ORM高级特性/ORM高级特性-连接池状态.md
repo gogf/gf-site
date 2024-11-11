@@ -4,7 +4,7 @@ title: 'ORM高级特性-连接池状态'
 sidebar_position: 8
 hide_title: true
 keywords: [GoFrame,GoFrame框架,ORM,连接池,DB Stats,数据库连接,gdb,mysql,GoFrame database,GoFrame gdb]
-description: '如何使用GoFrame框架的`DB.Stats`方法获取ORM对象的连接池状态。通过示例代码，开发者可以了解如何配置数据库连接，并通过GoFrame获取连接池的详细状态信息。同时，介绍了连接池状态输出的具体字段及其意义。'
+description: '如何使用GoFrame框架的DB.Stats方法获取ORM对象的连接池状态。通过示例代码，开发者可以了解如何配置数据库连接，并通过GoFrame获取连接池的详细状态信息。同时，介绍了连接池状态输出的具体字段及其意义。'
 ---
 
 我们可以通过 `DB.Stats` 方法获取 `orm` 对象的连接池状态。我们来看个示例：
