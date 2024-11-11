@@ -15,27 +15,27 @@ description: '在GoFrame框架中实现数据库账号密码在配置文件中�
 
 ```go
 import (
-	"database/sql"
+    "database/sql"
 
-	"github.com/gogf/gf/contrib/drivers/mysql/v2"
-	"github.com/gogf/gf/v2/database/gdb"
+    "github.com/gogf/gf/contrib/drivers/mysql/v2"
+    "github.com/gogf/gf/v2/database/gdb"
 )
 
 type MyBizDriver struct {
-	mysql.Driver
+    mysql.Driver
 }
 
 // Open creates and returns an underlying sql.DB object for mysql.
 // Note that it converts time.Time argument to local timezone in default.
 func (d *MyBizDriver) Open(config *gdb.ConfigNode) (db *sql.DB, err error) {
-	config.User = d.decode(config.User)
-	config.Pass = d.decode(config.Pass)
-	return d.Driver.Open(config)
+    config.User = d.decode(config.User)
+    config.Pass = d.decode(config.Pass)
+    return d.Driver.Open(config)
 }
 
 func (d *MyBizDriver) decode(s string) string {
-	// 执行字段解密处理逻辑
-	// ...
-	return s
+    // 执行字段解密处理逻辑
+    // ...
+    return s
 }
 ```

@@ -77,17 +77,17 @@ database:
     prefix:                "(可选)表名前缀"
     dryRun:                "(可选)ORM空跑(只读不写)"
     charset:               "(可选)数据库编码(如: utf8/gbk/gb2312)，一般设置为utf8"
-	protocol:              "(可选)数据库连接协议，默认为TCP"
+    protocol:              "(可选)数据库连接协议，默认为TCP"
     weight:                "(可选)负载均衡权重，用于负载均衡控制，不使用应用层的负载均衡机制请置空"
     timezone:              "(可选)时区配置，例如:Local"
     namespace:             "(可选)用以支持个别数据库服务Catalog&Schema区分的问题，原有的Schema代表数据库名称，而NameSpace代表个别数据库服务的Schema"
     maxIdle:               "(可选)连接池最大闲置的连接数(默认10)"
     maxOpen:               "(可选)连接池最大打开的连接数(默认无限制)"
     maxLifetime:           "(可选)连接对象可重复使用的时间长度(默认30秒)"
-	queryTimeout:          "(可选)查询语句超时时长(默认无限制，注意ctx的超时时间设置)"
-	execTimeout:           "(可选)写入语句超时时长(默认无限制，注意ctx的超时时间设置)"
-	tranTimeout:           "(可选)事务处理超时时长(默认无限制，注意ctx的超时时间设置)"
-	prepareTimeout:        "(可选)预准备SQL语句执行超时时长(默认无限制，注意ctx的超时时间设置)"
+    queryTimeout:          "(可选)查询语句超时时长(默认无限制，注意ctx的超时时间设置)"
+    execTimeout:           "(可选)写入语句超时时长(默认无限制，注意ctx的超时时间设置)"
+    tranTimeout:           "(可选)事务处理超时时长(默认无限制，注意ctx的超时时间设置)"
+    prepareTimeout:        "(可选)预准备SQL语句执行超时时长(默认无限制，注意ctx的超时时间设置)"
     createdAt:             "(可选)自动创建时间字段名称"
     updatedAt:             "(可选)自动更新时间字段名称"
     deletedAt:             "(可选)软删除时间字段名称"
@@ -116,7 +116,7 @@ database:
     maxIdle:       "10"
     maxOpen:       "100"
     maxLifetime:   "30s"
- 	protocol
+     protocol
 ```
 :::note
 使用该配置方式时， **为保证数据库安全，默认底层不支持多行 `SQL` 语句执行**。为了得到更多配置项控制，请参考推荐的简化配置，同时建议您务必了解清楚简化配置项中每个连接参数的功能作用。
