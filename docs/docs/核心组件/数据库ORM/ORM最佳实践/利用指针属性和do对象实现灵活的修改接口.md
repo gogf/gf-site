@@ -67,7 +67,7 @@ type UpdateReq struct {
     Passport string  `v:"required" dc:"用户账号"`
     Password *string `dc:"修改用户密码"`
     Nickname *string `dc:"修改用户昵称"`
-    Status   *Status `dc:"修改用户状态"`
+    Status   *string `dc:"修改用户状态"`
     Brief    *string `dc:"修改用户描述"`
 }
 ```
