@@ -71,6 +71,13 @@ CONFIGURATION SUPPORT
               option go_package    = "protobuf/demos";
               option java_package  = "protobuf/demos";
               option php_namespace = "protobuf/demos";
+            typeMapping:
+              json:
+                type: google.protobuf.Value
+                import: google/protobuf/struct.proto
+              jsonb:
+                type: google.protobuf.Value
+                import: google/protobuf/struct.proto
 ```
 :::tip
 如果使用框架推荐的项目工程脚手架，并且系统安装了 `make` 工具，也可以使用 `make pbentity` 快捷指令。
@@ -89,6 +96,8 @@ CONFIGURATION SUPPORT
 | `tables` |  | 指定当前数据库中需要执行代码生成的数据表。如果为空，表示数据库的所有表都会生成。 | `user, user_detail` |
 | `nameCase` | `CamelLower` | 生成的 `message` 属性字段名称格式。参数可选为： `Camel`、 `CamelLower`、 `Snake`、 `SnakeScreaming`、 `SnakeFirstUpper`、 `Kebab`、 `KebabScreaming`。具体介绍请参考命名行帮助示例。 | `Snake` |
 | `option` |  | 额外的 `proto option` 配置列表 |  |
+| `typeMapping` |  | 用于自定义数据表字段类型到生成的Go文件中对应属性类型映射 |  |
+| `fieldMapping` |  | 用于自定义数据表具体字段到生成的Go文件中对应属性类型映射 |  |
 
 ## 与 `gen dao` 中的 `entity` 差别
 
