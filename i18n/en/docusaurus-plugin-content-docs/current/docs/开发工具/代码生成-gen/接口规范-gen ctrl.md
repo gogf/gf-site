@@ -39,7 +39,7 @@ One of the purposes of this command is to standardize `api` code writing, which 
   - **Version** is usually defined as `v1`/`v2`, etc., for compatibility version control of `API`. Different versions are marked by different version numbers when compatibility updates occur. The first version is managed with `v1` by default.
   - **Definition file** refers to the `API` input and output definition files, where each `API` is usually maintained independently in a separate `go` file. Of course, it also supports putting multiple `APIs` in one `go` file for unified maintenance.
 - Structure names in `api` definition should conform to the naming convention of `Operation+Req` and `Operation+Res`, e.g., `GetOneReq/GetOneRes`, `GetListReq/GetListRes`, `DeleteReq/DeleteRes`, etc.
-  - The operation refers to the current `API` module's operation name, typically corresponding to `CRUD` as: `Create`, `Update`, `GetList/GetOne`, `Delete`.
+  - The operation refers to the current `API` module's operation name, typically corresponding to `CRUD` as: `Create`, `Read`, `Update`, `Delete`.
 
 Below is a `Hello` interface example in the project template:
 
