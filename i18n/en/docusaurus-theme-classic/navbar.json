@@ -34,5 +34,9 @@
   "item.label.实战教程-星辰英语本": {
     "message": "Practical Tutorial - Star English Book",
     "description": "Navbar item with label 实战教程-星辰英语本"
+  },
+  "item.label.微服务实战教程-比邻英语本": {
+    "message": "Microservice Tutorial - Proxima Book",
+    "description": "Navbar item with label 微服务实战教程-比邻英语本"
   }
 }
