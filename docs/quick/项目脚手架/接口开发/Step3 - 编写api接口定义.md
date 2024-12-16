@@ -99,7 +99,7 @@ type GetOneRes struct {
 type GetListReq struct {
     g.Meta `path:"/user" method:"get" tags:"User" summary:"Get users"`
     Age    *uint   `v:"between:18,200" dc:"user age"`
-    Status *Status `v:"in:0,1" dc:"user age"`
+    Status *Status `v:"in:0,1" dc:"user status"`
 }
 type GetListRes struct {
     List []*entity.User `json:"list" dc:"user list"`
