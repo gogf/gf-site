@@ -1,6 +1,6 @@
 ---
 slug: '/course/starbook'
-title: '实战教程-星辰英语本'
+title: '入门实战教程-星辰英语本'
 hide_title: true
 sidebar_position: 1
 keywords: [GoFrame,GoFrame框架,星辰英语本,Golang教程,编程技巧,项目开发,程序员入门,技术栈,软件开发,计算机科学]

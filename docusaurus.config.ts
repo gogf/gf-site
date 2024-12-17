@@ -151,7 +151,7 @@ const config: Config = {
             },
             {
               sidebarId: 'courseStarBookSidebar',
-              label: '实战教程-星辰英语本',
+              label: '入门实战教程-星辰英语本',
               to: '/course/starbook',
             },
             {
