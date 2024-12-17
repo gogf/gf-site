@@ -31,7 +31,7 @@ If you are already a programmer but not very familiar with `Go` and want to furt
 ---
 This is a hands-on book, and the only suggestion is to follow it step by step. Learning from books alone can be superficial; practical experience is essential!
 
-While following the book, it's best to refer to the [official development manual](https://goframe.org/docs/design) and try to extrapolate on it to better understand and master the content.
+While following the book, it's best to refer to the [official development manual](../../docs/框架设计/框架设计.md) and try to extrapolate on it to better understand and master the content.
 
 ## Contact the Author
 ---
