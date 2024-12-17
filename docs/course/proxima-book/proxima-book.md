@@ -9,7 +9,7 @@ description: '本书通过GoFrame框架，以比邻英语本项目实战为例�
 
 ## 本书简介
 ---
-**比邻英语本**是 `GoFrame` 中级实战教程。与初级教程[星辰英语本](https://goframe.org/course/starbook)不同，**微服务**开发是本书的主旋律。
+**比邻英语本**是 `GoFrame` 中级实战教程。与初级教程[星辰英语本](../starbook/starbook.md)不同，**微服务**开发是本书的主旋律。
 
 ## 编写本书的动机
 ---
