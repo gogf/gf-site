@@ -36,7 +36,7 @@ hide_title: true
   - 这里的 **版本** 通常使用 `v1`/ `v2`..这样的形式来定义，用以 `API` 兼容性的版本控制。当相同的 `API` 出现兼容性更新时，需要通过不同版本号来区分。默认使用 `v1` 来管理第一个版本。
   - 这里的 **定义文件** 指的是 `API` 的输入输出定义文件，通常每个 `API` 需要单独定义一个 `go` 文件来独立维护。当然也支持将多个 `API` 放到一个 `go` 文件中统一维护。
 - `api` 定义的结构体名称需要满足 `操作+Req` 及 `操作+Res` 的命名方式。例如： `GetOneReq/GetOneRes`、 `GetListReq/GetListRes`、 `DeleteReq/DeleteRes`、etc.
-  - 这里的操作是当前 `API` 模块的操作名称，通常对应 `CURD` 是： `Create`、 `Update`、 `GetList/GetOne`、 `Delete`。
+  - 这里的操作是当前 `API` 模块的操作名称，通常对应 `CRUD` 是： `Create`、 `Update`、 `GetList/GetOne`、 `Delete`。
 
 以下是项目工程模板中的 `Hello` 接口示例：
 

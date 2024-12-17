@@ -8,7 +8,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 function geti18nTitle() {
   switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
     case "en": return "GoFrame - A powerful framework for faster, easier, and more efficient project development";
-    default: return "GoFrame官网 - 类似PHP-Laravel,Java-SpringBoot的Go企业级开发框架";
+    default: return "GoFrame官网 - 类似PHP-Laravel,Java-SpringBoot的Go语言开发框架";
   }
 }
 
@@ -17,7 +17,7 @@ function geti18nTitle() {
 const config: Config = {
   title: geti18nTitle(),
   tagline:
-    'GoFrame is a modular, powerful, high-performance and enterprise-class application development framework of Golang.',
+    'A powerful framework for faster, easier, and more efficient project development',
   favicon: '/img/favicon.ico',
   url: 'https://goframe.org/',
   baseUrl: '/',
@@ -237,6 +237,10 @@ const config: Config = {
       src: 'https://hm.baidu.com/hm.js?38f38a0626fd7805722db06243cd0fa7',
       async: true,
     },
+    // {
+    //   src: '/ad.js',
+    //   async: true,
+    // },
   ],
 };
 

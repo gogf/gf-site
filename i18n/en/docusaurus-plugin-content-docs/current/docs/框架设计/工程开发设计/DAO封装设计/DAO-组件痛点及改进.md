@@ -69,7 +69,7 @@ Need to pre-initialize return objects regardless of whether data is queried
 
 ### 6. Entire Project Uses Low-Level Bare `DB` Object Operations Without Object Encapsulation
 
-Most `Golang` beginners seem to prefer using a global `DB` object to create a specific table `Model` object for `CURD` operations. This approach lacks a layered code design, **resulting in high coupling between data operations and business logic**.
+Most `Golang` beginners seem to prefer using a global `DB` object to create a specific table `Model` object for `CRUD` operations. This approach lacks a layered code design, **resulting in high coupling between data operations and business logic**.
 
 ![](/markdown/d73fdaa5b76b831db0a2c1069742c218.png)
 

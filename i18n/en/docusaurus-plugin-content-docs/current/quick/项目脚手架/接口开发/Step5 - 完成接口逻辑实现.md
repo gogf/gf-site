@@ -3,11 +3,11 @@ slug: '/quick/scaffold-api-implements'
 title: 'Step5 - Implement API Logic'
 hide_title: true
 sidebar_position: 5
-keywords: [GoFrame, CURD Logic, API Creation, Parameter Validation, Update API, Delete API, Retrieve API, Database Operations, Scaffold Tool, Business Logic Implementation]
-description: "Use GoFrame framework to complete API logic implementation. By using the project scaffolding, pre-generate code unrelated to project business logic and focus on business logic implementation. The specific implementation process of CURD operations, including creation, update, deletion, and retrieval of APIs, is introduced. It elaborates on parameter validation, form data insertion and update, intelligent data mapping, validation mechanism, and efficiently utilizing GoFrame framework functionalities during data operations."
+keywords: [GoFrame, CRUD Logic, API Creation, Parameter Validation, Update API, Delete API, Retrieve API, Database Operations, Scaffold Tool, Business Logic Implementation]
+description: "Use GoFrame framework to complete API logic implementation. By using the project scaffolding, pre-generate code unrelated to project business logic and focus on business logic implementation. The specific implementation process of CRUD operations, including creation, update, deletion, and retrieval of APIs, is introduced. It elaborates on parameter validation, form data insertion and update, intelligent data mapping, validation mechanism, and efficiently utilizing GoFrame framework functionalities during data operations."
 ---
 
-As you can see, with the project scaffold tool, a lot of code unrelated to the project's business logic has already been pre-generated, so we only need to focus on the business logic implementation. Let's take a look at how to implement the specific `CURD` logic.
+As you can see, with the project scaffold tool, a lot of code unrelated to the project's business logic has already been pre-generated, so we only need to focus on the business logic implementation. Let's take a look at how to implement the specific `CRUD` logic.
 
 ## `Create`
 
@@ -154,7 +154,7 @@ When retrieving list data, we also use the `Scan` method, which is very powerful
 
 Example source code for this chapter: https://github.com/gogf/quick-demo/tree/main/internal/controller/user
 
-As you can see, using the `GoFrame` database `ORM` component can very quickly and efficiently complete API development work. Throughout the `CURD` API development, the business logic that developers need to implement requires only a few lines of code😼.
+As you can see, using the `GoFrame` database `ORM` component can very quickly and efficiently complete API development work. Throughout the `CRUD` API development, the business logic that developers need to implement requires only a few lines of code😼.
 
 The improvement in development efficiency is not only due to the scaffold tool automatically generating the `dao` and `controller` code but also thanks to the powerful database `ORM` component. As you can see, when we operate the database table, the code is very concise and elegant, but the internal design of the database `ORM` component involves a lot of fine design, strict code testing, and the result of years of functional iteration.
 

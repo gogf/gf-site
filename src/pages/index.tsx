@@ -53,11 +53,7 @@ function HomepageHeader() {
 
                 <div className="container mt-5 text-left">
                     <p>
-                        <code>GoFrame</code> 是一款模块化、高性能、企业级的 <code>Go</code> 语言基础开发框架。
-                        <code>GoFrame</code> 是一款通用性的基础开发框架，提供通用丰富的基础开发组件，
-                        既可用于开发完整的工程化项目，也可以作为工具库独立使用。
-                    </p>
-                    <p>
+                        <code>GoFrame</code> 是一款模块化、高性能的<code>Go</code> 语言开发框架。
                         如果您想使用 <code>Golang</code> 开发一个业务型项目，无论是小型还是中大型项目，
                         <code>GoFrame</code> 是您的不二之选。如果您想开发一个 <code>Golang</code> 组件库，
                         <code>GoFrame</code> 提供开箱即用、丰富强大的基础组件库也能助您的工作事半功倍。

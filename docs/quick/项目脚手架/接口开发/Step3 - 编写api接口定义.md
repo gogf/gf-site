@@ -4,10 +4,10 @@ title: 'Step3 - 编写api接口定义'
 hide_title: true
 sidebar_position: 3
 keywords: [GoFrame,接口定义,RESTful,HTTP Method,版本控制,参数校验,用户管理,元数据管理,数据返回,Golang]
-description: '在项目的api目录下定义CURD接口，采用RESTful风格的接口设计，使用HTTP Method来规范接口请求。接口定义中使用g.Meta管理元数据信息，包括路由地址、请求方式和接口描述。请求参数和返回数据结构体定义了详细的参数校验规则。接口版本控制上开始使用v1版本，以便维护未来的兼容性。接口参数采用灵活接收方式，满足接口请求的多样化需求。'
+description: '在项目的api目录下定义CRUD接口，采用RESTful风格的接口设计，使用HTTP Method来规范接口请求。接口定义中使用g.Meta管理元数据信息，包括路由地址、请求方式和接口描述。请求参数和返回数据结构体定义了详细的参数校验规则。接口版本控制上开始使用v1版本，以便维护未来的兼容性。接口参数采用灵活接收方式，满足接口请求的多样化需求。'
 ---
 
-在项目的`api`目录下，我们开始定义我们的`CURD`接口。
+在项目的`api`目录下，我们开始定义我们的`CRUD`接口。
 - 接口我们使用`RESTful`风格设计，充分使用`GET/POST/PUT/DELETE`的`HTTP Method`，这样规范设计的接口会非常优雅。
 - 同样的，我们默认开始使用`v1`版本。使用版本号做为良好的开发习惯，有利于未来接口的兼容性维护。
 
@@ -99,7 +99,7 @@ type GetOneRes struct {
 type GetListReq struct {
     g.Meta `path:"/user" method:"get" tags:"User" summary:"Get users"`
     Age    *uint   `v:"between:18,200" dc:"user age"`
-    Status *Status `v:"in:0,1" dc:"user age"`
+    Status *Status `v:"in:0,1" dc:"user status"`
 }
 type GetListRes struct {
     List []*entity.User `json:"list" dc:"user list"`

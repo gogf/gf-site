@@ -32,9 +32,14 @@ go env GOARCH
 
 ### 通过 `go install` 安装
 
+#### 最新版本
 ```bash
-go install github.com/gogf/gf/cmd/gf/v2@latest # 最新版本
-go install github.com/gogf/gf/cmd/gf/v2@v2.5.5 # 指定版本(版本需要 >= v2.5.5)
+go install github.com/gogf/gf/cmd/gf/v2@latest
+```
+
+#### 指定版本(版本需要 >= v2.5.5)
+```bash
+go install github.com/gogf/gf/cmd/gf/v2@v2.5.5
 ```
 
 ### 其它版本下载

@@ -470,3 +470,24 @@ func main() {
 ![](/markdown/452372a121db73abd8c5027077b3026e.png)
 
 我们可以发现通过通用的 `OpenAPIv3` 对象我们可以自定义修改其内容，并且根据它生成其他各种自定义类型的接口文档。
+
+## 六、添加api.json(swagger)自定义鉴权
+
+对于需要进行api文档鉴权的情况，可以使用 `ghttp.BindHookHandler` 方法对 `s.GetOpenApiPath()` 路由绑定前置方法进行鉴权，示例如下：
+
+``` go
+func main() {
+    s := g.Server()
+    // if api.json requires authentication, add openApiBasicAuth handler
+    s.BindHookHandler(s.GetOpenApiPath(), ghttp.HookBeforeServe, openApiBasicAuth)
+    s.Run()
+}
+
+func openApiBasicAuth(r *ghttp.Request) {
+    if !r.BasicAuth("OpenApiAuthUserName", "OpenApiAuthPass", "Restricted") {
+        r.ExitAll()
+        return
+    }
+}
+
+```

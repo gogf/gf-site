@@ -36,7 +36,7 @@ docker run -d --name mysql \
 
 启动后，连接数据库，将数据表创建`sql`语句应用进去：
 ```text
-$ mysql -h127.0.0.1 -p3306 -uroot -p
+$ mysql -h 127.0.0.1 -P 3306 -u root -p
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.

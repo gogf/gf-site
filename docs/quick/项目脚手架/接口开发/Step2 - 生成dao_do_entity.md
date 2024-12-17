@@ -4,7 +4,7 @@ title: 'Step2 - 生成/dao/do/entity'
 hide_title: true
 sidebar_position: 2
 keywords: [GoFrame,CLI工具,数据访问对象,自动化生成,数据模型,数据库配置,Make命令,数据转换,代码生成,ORM组件]
-description: '使用GoFrame框架中的脚手架工具进行数据访问对象的自动生成，确保CLI工具配置正确，然后通过命令执行代码生成，创建数据库表后生成相应的dao、do和entity文件，以简化数据表的CURD操作。展示了具体的文件结构和使用方式，以及不同类型文件的生成原理。'
+description: '使用GoFrame框架中的脚手架工具进行数据访问对象的自动生成，确保CLI工具配置正确，然后通过命令执行代码生成，创建数据库表后生成相应的dao、do和entity文件，以简化数据表的CRUD操作。展示了具体的文件结构和使用方式，以及不同类型文件的生成原理。'
 ---
 
 
@@ -60,7 +60,7 @@ done!
 
 ### dao
 生成的`dao`文件有两个：
-- `internal/dao/internal/user.go`用于封装对数据表`user`的访问。该文件自动生成了一些数据结构和方法，简化对数据表的`CURD`操作。该文件每次生成都会覆盖，由开发工具自动维护，开发者无需关心。
+- `internal/dao/internal/user.go`用于封装对数据表`user`的访问。该文件自动生成了一些数据结构和方法，简化对数据表的`CRUD`操作。该文件每次生成都会覆盖，由开发工具自动维护，开发者无需关心。
 - `internal/dao/user.go`其实是对`internal/dao/internal/user.go`的进一步封装，用于供其他模块直接调用访问。该文件开发者可以随意修改，或者扩展`dao`的能力。
 
 由于生成的`internal/dao/internal/user.go`文件完全由开发工具维护，那么我们只需关心`internal/dao/user.go`这个生成的源码文件，后续如果有需要可以在这个文件上做功能扩展。
@@ -153,4 +153,4 @@ type User struct {
 
 可以感受到，使用`GoFrame`框架便捷的脚手架工具，我们从一些重复性的代码劳动中解放了出来，极大地提高了生产效率。针对数据库的操作将会变得非常简单。
 
-在下一步，我们将设计`CURD`接口，一起看看在`GoFrame`框架中是如何快速定义接口的吧。
+在下一步，我们将设计`CRUD`接口，一起看看在`GoFrame`框架中是如何快速定义接口的吧。

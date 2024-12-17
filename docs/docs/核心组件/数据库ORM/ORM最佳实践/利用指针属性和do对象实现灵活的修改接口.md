@@ -36,8 +36,8 @@ CREATE TABLE `user`(
 type Status string
 
 const (
-    StatusEnabled  = "enabled"
-    StatusDisabled = "disabled"
+    StatusEnabled  Status = "enabled"
+    StatusDisabled Status = "disabled"
 )
 ```
 

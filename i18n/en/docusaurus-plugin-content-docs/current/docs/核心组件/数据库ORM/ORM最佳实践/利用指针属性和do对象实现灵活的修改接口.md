@@ -36,8 +36,8 @@ For the user status, we use a separate type definition to implement enumeration 
 type Status string
 
 const (
-    StatusEnabled  = "enabled"
-    StatusDisabled = "disabled"
+    StatusEnabled  Status = "enabled"
+    StatusDisabled Status = "disabled"
 )
 ```
 

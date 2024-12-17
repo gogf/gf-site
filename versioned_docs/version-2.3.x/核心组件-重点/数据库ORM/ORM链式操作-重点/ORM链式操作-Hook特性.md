@@ -4,7 +4,7 @@ sidebar_position: 13
 hide_title: true
 ---
 
-`Hook` 特性允许我们对特性的 `Model` 绑定 `CURD` 钩子处理。
+`Hook` 特性允许我们对特性的 `Model` 绑定 `CRUD` 钩子处理。
 
 ## 相关定义
 

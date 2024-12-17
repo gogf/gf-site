@@ -1,0 +1,61 @@
+
+
+@media only screen and (max-width: 1100px) {
+  .ad-content-right {
+      display: none;
+  }
+}
+
+.ad-content-right {
+    margin-top: 1rem;
+    padding: 0 1rem 0 0.8rem;
+    position: relative;
+}
+
+.ad-content-right img {
+    border-radius: 5px;
+}
+
+.ad-tag {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    z-index: 1;
+}
+
+.ad-close {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2;
+    border: none;
+    padding: 0;
+}
+
+.ad-close:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 广告容器的固定定位样式 */
+.custom-right-sidebar {
+    position: sticky !important;
+    top: 4rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    height: 100%;
+}

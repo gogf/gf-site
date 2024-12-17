@@ -471,3 +471,25 @@ The core API information has already been automatically generated. If developers
 ![](/markdown/452372a121db73abd8c5027077b3026e.png)
 
 From this, we can see that with the general `OpenAPIv3` object, we can customize its content and generate various other types of custom API documentation based on it.
+
+
+## VI、Add api.json(swagger) custom authentication
+
+For situations where api document authentication is required, you can use the `ghttp.BindHookHandler` method to authenticate the `s.GetOpenApiPath()` routing binding pre-method. The example is as follows:
+
+``` go
+func main() {
+    s := g.Server()
+    // if api.json requires authentication, add openApiBasicAuth handler
+    s.BindHookHandler(s.GetOpenApiPath(), ghttp.HookBeforeServe, openApiBasicAuth)
+    s.Run()
+}
+
+func openApiBasicAuth(r *ghttp.Request) {
+    if !r.BasicAuth("OpenApiAuthUserName", "OpenApiAuthPass", "Restricted") {
+        r.ExitAll()
+        return
+    }
+}
+
+```

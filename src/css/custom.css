@@ -215,6 +215,10 @@ table th, table td {
   }
 }
 
-.beian {
+.beian a{
   font-size: 88%;
+  color: var(--ifm-font-color-base);
 }
+
+
+@import "./ad.css";

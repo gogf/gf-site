@@ -14,7 +14,7 @@ export default function Comments(): JSX.Element {
         category="General"
         categoryId="DIC_kwDONDiuo84Cj4QE"
         mapping="pathname"
-        strict="0"
+        strict="1"
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
