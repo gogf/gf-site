@@ -154,6 +154,11 @@ const config: Config = {
               label: '实战教程-星辰英语本',
               to: '/course/starbook',
             },
+            {
+              sidebarId: 'courseProximaBookSidebar',
+              label: '微服务实战教程-比邻英语本',
+              to: '/course/proxima-book',
+            },
           ],
         },
         {to: 'showcase', label: '案例展示', position: 'left'},
@@ -191,7 +196,7 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
     footer: {
-      copyright: `Copyright ©${new Date().getFullYear()} GoFrame OpenSource Team`,
+      copyright: `Copyright ${new Date().getFullYear()} GoFrame OpenSource Team`,
     },
     // 代码块配置
     prism: {

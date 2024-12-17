@@ -45,12 +45,6 @@ The `GoFrame ORM` component has the following notable features:
 13. Supports debugging modes, log output, `DryRun`, custom `Handler`, automatic type conversion, custom interface conversion, and other advanced features.
 14. Supports query caching, soft delete, automatic time updates, model associations, database cluster configurations (software master-slave mode), and other practical features.
 
-## Component Association
-
-![](/markdown/cf10ab2ff4d4b341190d5e5a47692061.png)
-
-`GoFrame ORM Dependencies`
-
 ## `g.DB` vs `gdb.New` & `gdb.Instance`
 
 There are three ways to obtain database operation objects: using the `g.DB` method (recommended), using the native `gdb.New` method, and using the package's native singleton method `gdb.Instance`, with the first being the recommended usage. The differences between these three methods are as follows:
