@@ -32,11 +32,11 @@ import TabItem from '@theme/TabItem';
 
 常见的基础标签包括：
 
-| 常见OpenAPIv3标签 | 说明 | 备注 |
+| 常见标签 | 说明 | 备注 |
 | --- | --- | --- |
 | `path` | 结合注册时的前缀共同构成接口URI路径 | 用于 `g.Meta` 标识接口元数据 |
 | `tags` | 接口所属的标签，用于接口分类 | 用于 `g.Meta` 标识接口元数据 |
-| `method` | 接口的请求方式： `GET/PUT/POST/DELETE...(不区分大小写)` | 用于 `g.Meta` 标识接口元数据 |
+| `method` | 接口的请求方式： `ALL/GET/PUT/POST/DELETE...(不区分大小写)`。支持组合方式如`GET,POST`，多种方式使用`,`分隔。 | 用于 `g.Meta` 标识接口元数据 |
 | `deprecated` | 标记该接口废弃 | 用于 `g.Meta` 标识接口元数据 |
 | `summary` | 接口/参数概要描述 | 缩写 `sm` |
 | `description` | 接口/参数详细描述 | 缩写 `dc` |
@@ -48,6 +48,8 @@ import TabItem from '@theme/TabItem';
 更多标签请参考标准的 `OpenAPIv3` 协议： [https://swagger.io/specification/](https://swagger.io/specification/)
 :::
 
+<!--
+
 除此之外，响应结构体的 `g.Meta` 还支持额外的标签以设置更详细的文档信息：
 
 | 标签 | 说明 | 备注 |
@@ -58,40 +60,42 @@ import TabItem from '@theme/TabItem';
 `responseExample` 支持的 `json` 文件格式如下：
 
 <Tabs>
-<TabItem value="array" label="Array">
-```json
-[
+    <TabItem value="array" label="Array">
+    ```json
+    [
+        {
+            "code": 0,
+            "message": "Success",
+            "data": null
+        },
+        {
+            "code": 1,
+            "message": "Internal Server Error",
+            "data": null
+        }
+    ]
+    ```
+    </TabItem>
+    
+    <TabItem value="object" label="Object">
+    ```json
     {
-        "code": 0,
-        "message": "Success",
-        "data": null
-    },
-    {
-        "code": 1,
-        "message": "Internal Server Error",
-        "data": null
+        "success": {
+            "code": 0,
+            "message": "Success",
+            "data": null
+        },
+        "error": {
+            "code": 1,
+            "message": "Internal Server Error",
+            "data": null
+        }
     }
-]
-```
-</TabItem>
-<TabItem value="object" label="Object">
-```json
-{
-    "success": {
-        "code": 0,
-        "message": "Success",
-        "data": null
-    },
-    "error": {
-        "code": 1,
-        "message": "Internal Server Error",
-        "data": null
-    }
-}
-```
-</TabItem>
+    ```
+    </TabItem>
 </Tabs>
 
+-->
 
 ### 2、扩展标签
 
