@@ -9,7 +9,7 @@ description: 'This book uses the Proxima Notebook project as a practical example
 
 ## Introduction
 ---
-The **Proxima Notebook** is an intermediate-level practical tutorial for GoFrame. Unlike the beginner-level tutorial [Star Notebook](https://goframe.org/course/starbook), this book focuses primarily on **microservices** development.
+The **Proxima Notebook** is an intermediate-level practical tutorial for GoFrame. Unlike the beginner-level tutorial [Starbook](../starbook/starbook.md), this book focuses primarily on **microservices** development.
 
 ## Motivation
 ---
