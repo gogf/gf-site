@@ -7,6 +7,18 @@ keywords: [ORM常见问题,GoFrame,GoFrame框架,数据库连接池,MaxLifeTime,
 description: '在使用GoFrame框架进行ORM操作时可能遇到的几种常见问题及其解决方案，包括数据库连接池过期导致的连接错误、update和insert操作不生效、无法找到数据库驱动、查询条件带有WHERE 0=1的问题以及MySQL表情存储乱码问题等。同时给出了一些配置建议以优化使用体验。'
 ---
 
+## `ORM`是否可以直接执行SQL文件
+
+1. 首先，`ORM`底层依赖的数据库`driver`从安全性考虑，通常默认不支持同时执行多条`SQL`语句。你可以读取`SQL`文件内容，将内容拆分为单条`SQL`语句（通过`;`分隔符号分隔多条`SQL`语句），然后调用`ORM`的`Exec`方法来执行。
+2. 其次，如果你想要允许底层`driver`一次性执行多条`SQL`语句，可以参考底层`driver`的配置，比如`mysql`的配置，可以设置`multiStatements=true`(参考[mysql-driver配置](https://github.com/go-sql-driver/mysql?tab=readme-ov-file#multistatements))，这样`ORM`的`Exec`方法就可以执行多条`SQL`语句了。配置项示例：
+    ```yaml
+    database:
+        default:
+            link: "mysql:root:123456@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+    ```
+
+
+
 ## `driver: bad connection`
 
 ![](/markdown/7b384b6f57115b11938d9c0a30dde732.png)
