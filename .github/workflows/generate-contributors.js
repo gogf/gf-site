@@ -2,7 +2,10 @@ const fs = require("fs")
 const sharp = require('sharp')
 
 // github api url
-const githubUrl = `https://api.github.com/repos/gogf/gf/contributors`
+const githubUrl = [
+    "https://api.github.com/repos/gogf/gf/contributors",
+    "https://api.github.com/repos/gogf/gf-site/contributors",
+]
 
 // 生成 svg 的位置
 const svgPath = "../../static/img/contributors.svg"
@@ -28,27 +31,39 @@ getContributors().then(contributors => {
 
 // getContributors 获取所有的贡献者
 async function getContributors() {
-    const contributors = []
-    let page = 1
-    let per_page = 100
-    let hasMore = true
+    let contributors = []
 
-    while (hasMore) {
-        const response = await fetch(`${githubUrl}?page=${page}&per_page=${per_page}`)
-        const data = await response.json()
+    let f = async function (url) {
+        let page = 1
+        let per_page = 100
+        let hasMore = true
 
-        if (response.status !== 200) {
-            throw new Error(`Failed to fetch contributors: ${response.statusText}`)
-        }
+        while (hasMore) {
+            const response = await fetch(`${url}?page=${page}&per_page=${per_page}`)
+            const data = await response.json()
 
-        contributors.push(...data)
+            if (response.status !== 200) {
+                throw new Error(`Failed to fetch contributors: ${response.statusText}`)
+            }
 
-        if (data.length < per_page) {
-            hasMore = false
-        } else {
-            page++
+            contributors.push(...data)
+
+            if (data.length < per_page) {
+                hasMore = false
+            } else {
+                page++
+            }
         }
     }
+
+    for (const url of githubUrl) {
+        await f(url)
+    }
+
+    // 根据id去重
+    contributors = contributors.filter((value, index, self) => {
+        return self.findIndex(v => v.id === value.id) === index
+    })
 
     return contributors
 }
