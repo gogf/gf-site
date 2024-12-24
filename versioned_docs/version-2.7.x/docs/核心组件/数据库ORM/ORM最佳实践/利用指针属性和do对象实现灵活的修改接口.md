@@ -45,7 +45,7 @@ const (
 
 ```go
 type User struct {
-    g.Meta    `table:"uer" orm:"do:true"`
+    g.Meta    `table:"user" orm:"do:true"`
     Id        interface{}
     Passport  interface{}
     Password  interface{}
