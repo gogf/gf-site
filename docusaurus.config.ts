@@ -136,7 +136,7 @@ const config: Config = {
           position: 'left',
           label: '开发手册',
           sidebarId: 'mainSidebar',
-          to: '/docs/cli',
+          to: '/docs/core',
         },
         {
           sidebarId: 'courseSidebar',
