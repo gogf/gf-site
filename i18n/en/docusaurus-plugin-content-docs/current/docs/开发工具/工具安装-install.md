@@ -46,7 +46,6 @@ go install github.com/gogf/gf/cmd/gf/v2@latest
 go install github.com/gogf/gf/cmd/gf/v2@v2.5.5
 ```
 
-
 ### Download Other Versions
 
 #### v2 Version
