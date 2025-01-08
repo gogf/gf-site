@@ -99,6 +99,28 @@ database:
 :::note
 使用该配置方式时， **为保证数据库安全，默认底层不支持多行 `SQL` 语句执行**。为了得到更多配置项控制，请参考推荐的`link`简化配置，并了解清楚简化配置项中每个连接参数的功能作用，以及对应驱动的官方额外配置参数。
 :::
+
+配置示例：
+```yaml
+database:
+  default:
+    link:  "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    extra: "charset=utf8mb4&parseTime=True&loc=Local"
+  mysql:
+    type: "mysql"
+    host: "127.0.0.1"
+    port: "3306"
+    user: "root"
+    pass: "12345678"
+    name: "test"
+    charset: "utf8mb4"
+    timezone: "Local"
+    maxIdle: "10"
+    maxOpen: "100"
+    maxLifetime: "30s"
+    extra: "parseTime=True"
+```
+
 ## 集群模式
 
 `gdb` 的配置支持集群模式，数据库配置中每一项分组配置均可以是多个节点，支持负载均衡权重策略，例如：
