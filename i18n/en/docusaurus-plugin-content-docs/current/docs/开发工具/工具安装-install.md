@@ -32,10 +32,20 @@ Download link: [releases](https://github.com/gogf/gf/releases)
 
 ### Install via `go install`
 
+Note: Add `GOPATH/bin` to the system environment variables, check with `go env GOPATH`.
+
+#### Latest version
+
 ```bash
-go install github.com/gogf/gf/cmd/gf/v2@latest # Latest version
-go install github.com/gogf/gf/cmd/gf/v2@v2.5.5 # Specify version (version needs to be >= v2.5.5)
+go install github.com/gogf/gf/cmd/gf/v2@latest
 ```
+
+#### Specify version (version needs to be >= v2.5.5)
+
+```bash
+go install github.com/gogf/gf/cmd/gf/v2@v2.5.5
+```
+
 
 ### Download Other Versions
 
