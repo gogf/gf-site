@@ -32,7 +32,7 @@ Download link: [releases](https://github.com/gogf/gf/releases)
 
 ### Install via `go install`
 
-Note: Add `GOPATH/bin` to the system environment variables, check with `go env GOPATH`.
+Note: Add `$GOPATH/bin` to the system environment variables, check with `go env GOPATH`.
 
 #### Latest version
 
