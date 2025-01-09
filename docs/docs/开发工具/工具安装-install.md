@@ -32,7 +32,7 @@ go env GOARCH
 
 ### 通过 `go install` 安装
 
-注意：需要将 `GOPATH/bin` 加入到系统环境变量中，通过 `go env GOPATH` 查看。
+注意：需要将 `$GOPATH/bin` 加入到系统环境变量中，通过 `go env GOPATH` 查看。
 
 #### 最新版本
 
