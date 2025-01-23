@@ -13,13 +13,13 @@ description: '在不同操作系统上安装GoFrame工具，包括MacOS和Window
 
 ### 最新版下载
 
-#### `Mac`&`Linux` 快捷下载命令
+#### `Mac`&`Linux`  快捷下载命令
 
 ```bash
 wget -O gf https://github.com/gogf/gf/releases/latest/download/gf_$(go env GOOS)_$(go env GOARCH) && chmod +x gf && ./gf install -y && rm ./gf
 ```
 
-#### Windows需手动下载
+#### Windows 需手动下载
 
 确定自己当前项目的 `goframe` 依赖版本，查看自己的系统信息：
 
@@ -32,25 +32,29 @@ go env GOARCH
 
 ### 通过 `go install` 安装
 
+注意：需要将 `$GOPATH/bin` 加入到系统环境变量中，通过 `go env GOPATH` 查看。
+
 #### 最新版本
+
 ```bash
 go install github.com/gogf/gf/cmd/gf/v2@latest
 ```
 
 #### 指定版本(版本需要 >= v2.5.5)
+
 ```bash
 go install github.com/gogf/gf/cmd/gf/v2@v2.5.5
 ```
 
 ### 其它版本下载
 
-#### v2版本
+#### v2 版本
 
 预编译二进制下载： [releases](https://github.com/gogf/gf/releases)
 
 源码：[gf/cmd/gf](https://github.com/gogf/gf/tree/master/cmd/gf)
 
-#### v1版本
+#### v1 版本
 
 预编译二进制下载： [releases](https://github.com/gogf/gf-cli/releases)
 
