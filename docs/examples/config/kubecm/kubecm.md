@@ -1,146 +1,43 @@
 ---
 title: Kubernetes ConfigMap
 slug: /examples/config/kubecm
-keywords: [config, kubernetes, configmap, goframe]
-description: Kubernetes ConfigMap configuration integration with GoFrame
+keywords: [配置中心, kubernetes, configmap, goframe]
+description: GoFrame 框架中 Kubernetes ConfigMap 的集成示例
 hide_title: true
+sidebar_position: 9
 ---
 
-# Kubernetes ConfigMap Configuration Example
+# `Kubernetes ConfigMap` 配置示例
 
 Code Source: https://github.com/gogf/examples/tree/main/config/kubecm
 
 
-## Description
+## 介绍
 
-This directory contains an example demonstrating how to integrate Kubernetes ConfigMap with GoFrame applications for configuration management. It shows:
+本示例展示了如何在 `GoFrame` 应用程序中通过配置管理组件集成 `Kubernetes ConfigMap`。
 
-1. Kubernetes Client Configuration
-   - In-Pod configuration setup
-   - Out-of-Pod configuration setup
-   - ConfigMap access and management
-   - Error handling and logging
 
-2. Configuration Management
-   - Configuration loading and parsing
-   - Dynamic configuration updates
-   - Configuration value retrieval
+## 目录结构
 
-## Directory Structure
-
-```
+```text
 .
-├── boot_in_pod/     # Bootstrap configuration for in-pod deployment
-│   └── boot.go      # In-pod client initialization
-├── boot_out_pod/    # Bootstrap configuration for out-of-pod deployment
-│   └── boot.go      # Out-of-pod client initialization
-├── main.go          # Main application entry
-├── go.mod           # Go module file
-└── go.sum           # Go module checksums
+├── boot_in_pod/     # Pod内部署的启动配置
+│   └── boot.go      # Pod内客户端初始化
+├── boot_out_pod/    # Pod外部署的启动配置
+│   └── boot.go      # Pod外客户端初始化
+├── main.go          # 主程序入口
+├── go.mod           # Go 模块文件
+└── go.sum           # Go 模块校验和
 ```
 
-## Requirements
 
-- [Go](https://golang.org/dl/) 1.22 or higher
+## 环境要求
+
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [GoFrame Kubernetes ConfigMap Config](https://github.com/gogf/gf/tree/master/contrib/config/kubecm)
-- [Kubernetes Cluster](https://kubernetes.io/) or [Minikube](https://minikube.sigs.k8s.io/)
 
-## Features
 
-The example showcases the following features:
 
-1. Kubernetes Integration
-   - In-Pod configuration
-   - Out-of-Pod configuration
-   - ConfigMap management
-   - Error handling
 
-2. Configuration Management
-   - Configuration loading
-   - Value retrieval
-   - Type conversion
-   - Default values
-
-3. Dynamic Updates
-   - Configuration watching
-   - Change notification
-   - Hot reload support
-
-## Configuration
-
-### Kubernetes Setup
-1. Cluster Configuration:
-   - Kubernetes cluster access
-   - Namespace management
-   - RBAC permissions
-
-2. ConfigMap Setup:
-   - ConfigMap creation
-   - Data item management
-   - Access control
-
-### Client Configuration
-1. In-Pod Settings:
-   - Automatic service account
-   - ConfigMap name
-   - Data item name
-
-2. Out-of-Pod Settings:
-   - KubeConfig path
-   - Namespace selection
-   - Client configuration
-   - Access permissions
-
-## Usage
-
-1. Create ConfigMap:
-   ```bash
-   # Create a ConfigMap with configuration data
-   kubectl create configmap test-configmap --from-file=config.yaml=./config.yaml
-   ```
-
-2. Configure Access:
-   ```bash
-   # Ensure proper RBAC permissions
-   kubectl create role config-reader --verb=get,list,watch --resource=configmaps
-   kubectl create rolebinding config-reader-binding --role=config-reader --serviceaccount=default:default
-   ```
-
-3. Run Example:
-   ```bash
-   # For in-pod deployment
-   go run main.go
-
-   # For out-of-pod deployment (local development)
-   KUBE_CONFIG=~/.kube/config go run main.go
-   ```
-
-## Implementation Details
-
-1. In-Pod Setup (`boot_in_pod/boot.go`):
-   - Simple configuration for in-pod deployment
-   - Automatic service account usage
-   - Minimal configuration required
-
-2. Out-of-Pod Setup (`boot_out_pod/boot.go`):
-   - External cluster access configuration
-   - KubeConfig file usage
-   - Namespace specification
-   - Custom client configuration
-
-3. Configuration Access (`main.go`):
-   - Configuration availability check
-   - Bulk configuration retrieval
-   - Single value access
-   - Error handling
-
-## Notes
-
-- The example supports both in-pod and out-of-pod deployments
-- In-pod deployment uses the pod's service account
-- Out-of-pod deployment requires KubeConfig file
-- ConfigMap changes are automatically reflected
-- Proper RBAC permissions are required
-- Configuration paths can be customized based on needs

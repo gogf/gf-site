@@ -1,80 +1,45 @@
 ---
-title: Rate Limit
+title: 访问限流
 slug: /examples/httpserver/rate-limit
-keywords: [http, server, rate limit, middleware, goframe]
-description: Rate limiting in a HTTP server using GoFrame framework
+keywords: [http, 服务器, 限流, 中间件, goframe]
+description: 使用 GoFrame 框架实现 HTTP 服务器限流
 hide_title: true
+sidebar_position: 2
 ---
 
-# HTTP Server Rate Limit
+# HTTP 服务器限流
 
 Code Source: https://github.com/gogf/examples/tree/main/httpserver/rate-limit
 
 
+## 介绍
 
-## Description
+本示例展示了如何在使用 `GoFrame` 的 HTTP 服务器中实现限流。它展示了如何使用 `golang.org/x/time/rate` 包实现的令牌桶算法来保护 API 端点免受过多请求的影响。
 
-This example demonstrates how to implement rate limiting in a HTTP server using `GoFrame`. It showcases how to protect your API endpoints from being overwhelmed by too many requests using the token bucket algorithm implemented by `golang.org/x/time/rate` package.
 
-The example implements:
-- A simple HTTP endpoint `/hello` that returns a greeting message
-- A rate limiting middleware that restricts requests to 10 per second
-- Proper error handling when rate limit is exceeded (HTTP 429 Too Many Requests)
+## 环境要求
 
-## Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file.
-- `main.go`: The main application entry point.
+- `go.mod`: Go 模块文件
+- `main.go`: 主程序入口
 
-## Features
+## 使用说明
 
-- Token bucket based rate limiting
-- Configurable request rate and burst size
-- Global middleware implementation
-- Clean API endpoint implementation using GoFrame's binding feature
-- Request validation and documentation using metadata
-- Proper error handling and status codes
-
-## Usage
-
-1. Run the example:
+1. 启动服务器：
    ```bash
    go run main.go
    ```
 
-2. The server will start at http://127.0.0.1:8080
-
-3. Test the rate limiting:
+2. 测试限流：
    ```bash
-   # Normal request
-   curl "http://127.0.0.1:8080/hello?name=world"
+   # 正常请求
+   curl http://localhost:8199/hello?name=world
    
-   # To test rate limiting, send multiple requests quickly:
-   for i in {1..20}; do curl "http://127.0.0.1:8080/hello?name=world"; done
+   # 快速发送多个请求测试限流
+   for i in {1..20}; do curl http://localhost:8199/hello?name=world; done
    ```
-
-## Implementation Details
-
-The rate limiting is implemented using:
-1. `golang.org/x/time/rate.Limiter` for token bucket algorithm
-2. GoFrame's middleware system for request interception
-3. Clean request/response structs with validation and documentation
-
-Key components:
-- Rate limit is set to 10 requests per second
-- Burst size is set to 1 (no bursting allowed)
-- Requests exceeding the limit receive HTTP 429 status code
-- Request validation ensures required parameters are provided
-
-## Notes
-
-- The rate limit is global (applies to all clients)
-- No persistence of rate limit state (resets on server restart)
-- Rate limit can be configured by modifying the limiter parameters
-- Consider using distributed rate limiting for production environments

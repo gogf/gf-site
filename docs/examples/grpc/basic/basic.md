@@ -1,100 +1,56 @@
 ---
-title: Basic Usage
+title: 基础示例
 slug: /examples/grpc/basic
-keywords: [grpc, basic, goframe]
-description: basic gRPC usage in GoFrame
+keywords: [grpc, 基础, goframe]
+description: GoFrame 中的基础 gRPC 用法
 hide_title: true
 sidebar_position: 0
 ---
 
-## gRPC - Basic Usage
+# `gRPC` - 基础示例
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/basic
 
-This example demonstrates the basic usage of gRPC in GoFrame applications. It shows how to:
-- Create gRPC servers and clients
-- Define and use protocol buffers
-- Implement service handlers
-- Make RPC calls
 
-### Structure
+## 介绍
 
-```
+本示例展示了在 `GoFrame` 应用程序中使用 `gRPC` 的基础示例。
+
+
+
+## 目录结构
+
+```text
 .
-├── client/         # Client example
-│   └── client.go   # Client implementation
-├── controller/     # Service controllers
-│   └── hello.go    # Hello service implementation
-├── protobuf/       # Protocol buffer definitions
-├── server/         # Server example
-│   ├── config.yaml # Server configuration
-│   └── server.go   # Server implementation
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── client/         # 客户端示例
+│   └── client.go   # 客户端实现
+├── controller/     # 服务控制器
+│   └── hello.go    # Hello 服务实现
+├── protobuf/       # protobuf协议定义
+├── server/         # 服务器示例
+│   ├── config.yaml # 服务器配置
+│   └── server.go   # 服务器实现
+├── go.mod          # Go 模块文件
+└── go.sum          # Go 模块校验和
 ```
 
-### Features
+## 环境要求
 
-The example showcases the following features:
-1. Service Implementation
-   - Protocol buffer definitions
-   - Service handlers
-   - Request/response handling
-   - Error management
-
-2. Client Usage
-   - Connection management
-   - RPC calls
-   - Error handling
-   - Context usage
-
-3. Protocol Support
-   - gRPC services
-   - Protocol buffer messages
-   - Custom metadata
-   - Stream processing
-
-### Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
-- [gRPC](https://grpc.io/docs/languages/go/quickstart/)
+- [Protocol Buffers](https://developers.google.com/protocol-buffers)
 
-### Prerequisites
+## 使用说明
 
-1. Protocol buffer compiler installed:
-   ```bash
-   # For macOS
-   brew install protobuf
-   
-   # Install protoc-gen-go and protoc-gen-go-grpc
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-   ```
-
-### Usage
-
-1. Generate protocol buffer code:
-   ```bash
-   cd protobuf
-   protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. *.proto
-   ```
-
-2. Start the server:
+1. 启动服务器：
    ```bash
    cd server
    go run server.go
    ```
 
-3. Run the client:
+2. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
-
-### Implementation Details
-
-The example demonstrates:
-1. Service definition
-2. Client/server implementation

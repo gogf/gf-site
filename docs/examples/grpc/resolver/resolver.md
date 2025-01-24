@@ -1,105 +1,64 @@
 ---
-title: Service Resolver
+title: 服务发现
 slug: /examples/grpc/resolver
-keywords: [grpc, resolver, etcd, goframe]
-description: gRPC service resolver with etcd in GoFrame
+keywords: [grpc, 服务发现, etcd, goframe]
+description: GoFrame 中使用 etcd 的 gRPC 服务发现
 hide_title: true
+sidebar_position: 1
 ---
 
-## gRPC - Service Resolver
+# `gRPC` - 服务发现
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/resolver
 
-This example demonstrates how to use service resolver with etcd in gRPC services using GoFrame. It shows how to:
-- Configure service resolver with etcd
-- Register services to etcd
-- Discover services using resolver
-- Handle service updates
 
-### Structure
+## 介绍
 
-```
+本示例展示了如何在 `GoFrame` 的 `gRPC` 服务中使用 `etcd` 进行服务发现。
+
+
+## 目录结构
+
+```text
 .
-├── client/              # Client example
-│   └── client.go        # Client with service resolver
-├── controller/          # Service controllers
-│   └── helloworld.go    # Hello service implementation
-├── protobuf/            # Protocol buffer definitions
-│   └── helloworld.proto # Service and message definitions
-├── server/              # Server example
-│   └── server.go        # Server with service registration
-├── go.mod               # Go module file
-└── go.sum               # Go module checksums
+├── client/              # 客户端示例
+│   └── client.go        # 带服务发现的客户端
+├── controller/          # 服务控制器
+│   └── helloworld.go    # Hello 服务实现
+├── protobuf/            # protobuf协议定义
+│   └── helloworld.proto # 服务和消息定义
+├── server/              # 服务器示例
+│   └── server.go        # 带服务注册的服务器
+├── go.mod               # Go 模块文件
+└── go.sum               # Go 模块校验和
 ```
 
-### Features
 
-The example showcases the following features:
-1. Service Resolution
-   - etcd integration
-   - Service registration
-   - Service discovery
-   - Update handling
 
-2. Client Usage
-   - Resolver configuration
-   - Service discovery
-   - Connection management
-   - Error handling
+## 环境要求
 
-3. Server Features
-   - Service registration
-   - etcd integration
-   - Health checking
-   - Metadata management
-
-### Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
-- [gRPC](https://grpc.io/docs/languages/go/quickstart/)
+- [Protocol Buffers](https://developers.google.com/protocol-buffers)
+- [etcd](https://etcd.io/)
 
-### Prerequisites
+## 使用说明
 
-1. Running etcd instance:
+1. 启动 `etcd`：
    ```bash
-   # Using Docker
    docker run -d --name etcd -p 2379:2379 -e ALLOW_NONE_AUTHENTICATION=yes bitnami/etcd:3.4.24
    ```
 
-2. Protocol buffer compiler:
-   ```bash
-   # For macOS
-   brew install protobuf
-   
-   # Install protoc-gen-go and protoc-gen-go-grpc
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-   ```
-
-### Usage
-
-1. Generate protocol buffer code:
-   ```bash
-   cd protobuf
-   protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. *.proto
-   ```
-
-2. Start the server:
+2. 启动服务器：
    ```bash
    cd server
    go run server.go
    ```
 
-3. Run the client:
+3. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
 
-### Implementation Details
-
-The example demonstrates:
-1. Service registration with etcd
-2. Service discovery using resolver

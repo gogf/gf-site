@@ -1,61 +1,62 @@
 ---
-title: In-Process Service (HTTP Exporter)
+title: 进程内服务 (HTTP导出器)
 slug: /examples/observability/trace/inprocess
-keywords: [trace, inprocess, goframe, otlp-http]
-description: distributed tracing in in-process services using GoFrame with HTTP-based OpenTelemetry exporter
+keywords: [链路跟踪, 进程内, goframe, otlp-http]
+description: 使用GoFrame和基于HTTP的OpenTelemetry导出器实现进程内服务的分布式跟踪
 hide_title: true
+sidebar_position: 1
 ---
 
-# Tracing - In-Process Service (HTTP Exporter)
+# 链路跟踪 - 进程内服务 (HTTP导出器)
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess
 
 
-## Description
+## 简介
 
-This example demonstrates how to implement distributed tracing in in-process services using GoFrame with HTTP-based OpenTelemetry exporter. It shows how to:
-- Configure tracing in a single process using HTTP exporter
-- Trace function calls and operations
-- Propagate trace context
-- Visualize distributed traces
+本示例演示了如何使用GoFrame和基于HTTP的OpenTelemetry导出器在进程内服务中实现分布式跟踪。主要展示：
+- 使用HTTP导出器配置单进程跟踪
+- 跟踪函数调用和操作
+- 传播跟踪上下文
+- 可视化分布式跟踪
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry HTTP Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlphttp)
+- Go 1.22 或更高版本
+- GoFrame框架
+- GoFrame OpenTelemetry HTTP跟踪
 
-## Structure
+## 目录结构
 
 ```
 .
-├── main.go         # Main application with HTTP-based tracing
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── main.go         # 带HTTP跟踪的主应用程序
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Distributed Tracing with HTTP Exporter
-   - HTTP-based trace data transmission
-   - Span management
-   - Trace visualization
+本示例展示了以下功能：
 
-2. Function Call Tracing
-   - Function entry/exit tracing
-   - Context propagation
-   - Error handling
+1. 基于HTTP导出器的分布式跟踪
+   - 基于HTTP的跟踪数据传输
+   - Span管理
+   - 跟踪可视化
 
-3. Data Operations
-   - User data retrieval
-   - Data aggregation
-   - Error handling
+2. 函数调用跟踪
+   - 函数进入/退出跟踪
+   - 上下文传播
+   - 错误处理
 
-## Prerequisites
+3. 数据操作
+   - 用户数据检索
+   - 数据聚合
+   - 错误处理
 
-1. Running Jaeger instance:
+## 前置条件
+
+1. 运行Jaeger实例：
    ```bash
    docker run --rm --name jaeger \
    -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -72,64 +73,82 @@ The example showcases the following features:
    jaegertracing/all-in-one:1.55
    ```
 
-## Usage
+## 使用说明
 
-1. Run the application:
+1. 运行应用程序：
    ```bash
    go run main.go
    ```
 
-2. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+2. 查看跟踪：
+   在浏览器中打开 http://localhost:16686 查看Jaeger UI中的跟踪信息。
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
+本示例演示了：
 
-1. User Data Operations
+1. 用户数据操作
    ```go
-   GetUser(ctx, id)       // Retrieves complete user data
-   ├── GetInfo(ctx, id)   // Gets basic user information
-   ├── GetDetail(ctx, id) // Gets detailed user information
-   └── GetScores(ctx, id) // Gets user scores
+   GetUser(ctx, id)       // 检索完整的用户数据
+   ├── GetInfo(ctx, id)   // 获取基本用户信息
+   ├── GetDetail(ctx, id) // 获取详细用户信息
+   └── GetScores(ctx, id) // 获取用户成绩
    ```
 
-2. Trace Context Flow
-   - Main function creates root span
-   - Each function creates child span
-   - Context propagates through function calls
-   - All spans are properly ended
+2. 跟踪上下文流程
+   ```go
+   // 创建根span
+   ctx, span := gtrace.NewSpan(ctx, "main")
+   defer span.End()
 
-3. Error Handling
-   - Non-existent user IDs return nil
-   - Each function handles errors independently
-   - Errors are traced and logged
+   // 创建子span并传播上下文
+   ctx, span := gtrace.NewSpan(ctx, "GetUser")
+   defer span.End()
+   ```
 
-4. HTTP-based Trace Export
-   - Uses HTTP protocol for trace data transmission
-   - Configures HTTP trace collector endpoint
-   - Handles HTTP connection management
+3. 错误处理
+   ```go
+   // 处理不存在的用户ID
+   if id == 100 {
+       return g.Map{
+           "id":     100,
+           "name":   "john",
+           "gender": 1,
+       }
+   }
+   return nil
+   ```
 
-## Troubleshooting
+4. 基于HTTP的跟踪导出
+   ```go
+   // 初始化HTTP跟踪导出器
+   shutdown, err = otlphttp.Init(serviceName, endpoint, path)
+   if err != nil {
+       g.Log().Fatal(ctx, err)
+   }
+   defer shutdown(ctx)
+   ```
 
-1. Application Issues:
-   - Check if application is running correctly
-   - Verify function call outputs
-   - Review error logs
+## 故障排除
 
-2. Tracing Issues:
-   - Verify Jaeger is running: `docker ps | grep jaeger`
-   - Check Jaeger UI accessibility: http://localhost:16686
-   - Ensure HTTP endpoint is correct in configuration
+1. 应用程序问题：
+   - 检查应用程序是否正常运行
+   - 验证函数调用输出
+   - 查看错误日志
 
-3. HTTP Export Issues:
-   - Check HTTP connection status
-   - Verify HTTP endpoint accessibility
-   - Review HTTP error messages
+2. 跟踪问题：
+   - 验证Jaeger是否运行：`docker ps | grep jaeger`
+   - 检查Jaeger UI可访问性：http://localhost:16686
+   - 确保配置中的HTTP端点正确
 
-## Example Output
+3. HTTP导出问题：
+   - 检查HTTP连接状态
+   - 验证HTTP端点可访问性
+   - 查看HTTP错误消息
 
-For user ID 100:
+## 示例输出
+
+对于用户ID 100：
 ```go
 {
     "id":      100,
@@ -143,6 +162,24 @@ For user ID 100:
 }
 ```
 
-For non-existent user IDs:
+对于不存在的用户ID：
 ```go
 {}
+```
+
+## 最佳实践
+
+1. 跟踪配置
+   - 设置合适的服务名称，便于在Jaeger UI中识别
+   - 配置适当的采样率，平衡性能和可观测性
+   - 使用有意义的span名称和标签
+
+2. 错误处理
+   - 在span中记录错误信息
+   - 使用合适的状态码标识错误类型
+   - 保持日志和跟踪的一致性
+
+3. 性能优化
+   - 避免创建过多的span
+   - 及时关闭span
+   - 合理使用上下文传播

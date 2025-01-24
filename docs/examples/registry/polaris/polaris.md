@@ -1,116 +1,122 @@
 ---
 title: Polaris
 slug: /examples/registry/polaris
-keywords: [registry, polaris, service discovery, goframe]
-description: Polaris service registry integration in GoFrame
+keywords: [注册中心, polaris, 服务发现, goframe]
+description: GoFrame框架中的Polaris服务注册与发现集成
 hide_title: true
+sidebar_position: 1
 ---
 
-# Registry - Polaris Integration
+# 注册中心 - `Polaris` 集成
 
 Code Source: https://github.com/gogf/examples/tree/main/registry/polaris
 
 
-## Description
+## 简介
 
-This example demonstrates how to integrate Polaris service registry with GoFrame applications. It shows how to:
-- Register services with Polaris
-- Discover services using Polaris
-- Implement service health checks
-- Build distributed systems
+本示例演示了如何在 `GoFrame` 应用程序中集成 `Polaris` 服务注册中心。主要展示：
+- 使用 `Polaris` 注册服务
+- 使用 `Polaris` 发现服务
+- 实现服务健康检查
+- 构建分布式系统
 
-## Structure
+## 目录结构
 
-```
+```text
 .
-├── client/           # Client example
-│   └── client.go     # Client implementation with Polaris discovery
-├── server/           # Server example
-│   └── server.go     # Server implementation with Polaris registration
-├── go.mod            # Go module file
-└── go.sum            # Go module checksums
+├── client/           # 客户端示例
+│   └── client.go     # 基于Polaris的服务发现客户端实现
+├── server/           # 服务器示例
+│   └── server.go     # 基于Polaris的服务注册服务器实现
+├── go.mod            # Go模块文件
+└── go.sum            # Go模块校验和
 ```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Service Registration
-   - Automatic service registration
-   - Health check configuration
-   - Metadata management
-   - Service routing
-   - Rate limiting
+本示例展示了以下功能：
 
-2. Service Discovery
-   - Dynamic service discovery
-   - Load balancing
-   - Failover support
-   - Circuit breaking
-   - Fault tolerance
+1. 服务注册
+   - 自动服务注册
+   - 健康检查配置
+   - 元数据管理
+   - 服务路由
+   - 限流控制
 
-3. Protocol Support
-   - HTTP services
-   - Custom protocols
-   - Protocol extension
+2. 服务发现
+   - 动态服务发现
+   - 负载均衡
+   - 故障转移支持
+   - 熔断机制
+   - 容错处理
 
-## Requirements
+3. 协议支持
+   - `HTTP` 服务
+   - 自定义协议
+   - 协议扩展
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame Polaris Registry](https://github.com/gogf/gf/tree/master/contrib/registry/polaris)
-- [Polaris](https://polarismesh.cn/docs/)
+## 环境要求
 
-## Prerequisites
+- `Go` 1.22 或更高版本
+- `Polaris` 服务器
+- 本地缓存目录读写权限
 
-1. Running Polaris server:
-   ```bash
-   # Using docker
-   docker run -d \
-     --name polaris \
-     -p 8090:8090 \
-     -p 8091:8091 \
-     -p 8093:8093 \
-     -p 8761:8761 \
-     polarismesh/polaris-server
+## 使用说明
+
+1. 配置 `Polaris` 服务器地址：
+   ```go
+   conf := config.NewDefaultConfiguration([]string{"183.47.111.80:8091"})
    ```
 
-## Usage
+2. 配置本地缓存：
+   ```go
+   conf.Consumer.LocalCache.SetPersistDir("/tmp/polaris/backup")
+   api.SetLoggersDir("/tmp/polaris/log")
+   ```
 
-1. Start the server:
+3. 启动服务器：
    ```bash
    cd server
    go run server.go
    ```
 
-2. Run the client:
+4. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. Polaris client configuration
-2. Service registration process
-3. Service discovery mechanism
-4. Health check implementation
-5. Load balancing strategies
-6. Circuit breaker configuration
-7. Rate limiting setup
+1. 服务器实现
+   - 使用默认配置创建 `Polaris` 客户端
+   - 配置本地缓存提升性能
+   - 支持服务路由和限流配置
+   - 提供健康检查和故障恢复
 
-## Notes
+2. 客户端实现
+   - 自动服务发现和负载均衡
+   - 支持熔断和容错机制
+   - 本地缓存提供离线能力
+   - 自动重试和故障转移
 
-- Polaris server must be running
-- Default Polaris address: 127.0.0.1:8091
-- Services are registered automatically
-- Health checks are configured by default
-- Load balancing is handled automatically
-- Consider security in production
-- Handle failover scenarios
-- Monitor service health
-- Implement proper error handling
-- Configure rate limits
-- Set up circuit breakers
-- Manage service routing
+## 高级特性
+
+1. 本地缓存
+   - 服务信息持久化
+   - 离线运行支持
+   - 性能优化
+
+2. 可靠性保障
+   - 熔断保护
+   - 限流控制
+   - 故障转移
+   - 容错处理
+
+## 注意事项
+
+1. 确保配置正确的Polaris服务器地址
+2. 本地缓存目录需要有读写权限
+3. 建议开启日志记录便于调试
+4. 合理配置熔断和限流参数
+5. 注意监控服务健康状态

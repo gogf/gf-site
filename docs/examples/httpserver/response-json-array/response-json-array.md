@@ -1,83 +1,45 @@
 ---
-title: Response with JSON Array
+title: JSON 数组响应
 slug: /examples/httpserver/response-json-array
-keywords: [http, server, json, array, goframe]
-description: Handle JSON array responses in a HTTP server using GoFrame framework
+keywords: [http, 服务器, json, 数组, goframe]
+description: 使用 GoFrame 框架处理 HTTP 服务器的 JSON 数组响应
 hide_title: true
+sidebar_position: 4
 ---
 
-# HTTP Server Response with JSON Array
+# HTTP 服务器 JSON 数组响应
 
 Code Source: https://github.com/gogf/examples/tree/main/httpserver/response-json-array
 
 
+## 介绍
 
-## Description
+本示例展示了如何使用 `GoFrame` 实现一个返回 JSON 数组响应的 HTTP 服务器。它展示了如何：
+- 将 API 响应构造为 JSON 数组
+- 配置 OpenAPI/Swagger 文档
+- 使用 GoFrame 的中间件实现一致的响应处理
+- 定义类型安全的请求和响应结构
 
-This example demonstrates how to implement a HTTP server that returns JSON array responses using `GoFrame`. It showcases how to:
-- Structure your API response as a JSON array
-- Configure OpenAPI/Swagger documentation
-- Use GoFrame's middleware for consistent response handling
-- Define type-safe request and response structures
+本示例实现了一个返回 JSON 数组格式用户列表的 `/user` 端点。
 
-The example implements a `/user` endpoint that returns a list of users in JSON array format.
+## 环境要求
 
-## Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file.
-- `main.go`: The main application entry point.
+- `go.mod`: Go 模块文件
+- `main.go`: 主程序入口
 
-## Features
+## 使用说明
 
-- JSON array response handling
-- OpenAPI/Swagger integration
-- Middleware-based response processing
-- Type-safe request/response structures
-- Clean API documentation
-- Automatic response wrapping
-
-## Usage
-
-1. Run the example:
+1. 启动服务：
    ```bash
    go run main.go
    ```
 
-2. The server will start at http://127.0.0.1:8199
+2. 测试接口：http://localhost:8199/user
 
-3. Access the endpoints:
-   ```bash
-   # Get user list
-   curl "http://127.0.0.1:8199/user"
-   
-   # View API documentation
-   # Open in browser: http://127.0.0.1:8199/swagger
-   ```
-
-## Implementation Details
-
-The example demonstrates several key concepts:
-1. Using slice types for JSON array responses
-2. Configuring OpenAPI/Swagger documentation
-3. Implementing middleware for consistent response handling
-4. Structuring type-safe API endpoints
-
-Key components:
-- Response wrapper middleware for consistent JSON structure
-- OpenAPI configuration for proper documentation
-- Type definitions for request and response objects
-- Swagger UI integration for API testing
-
-## Notes
-
-- Response format includes a wrapper with standard fields
-- OpenAPI documentation is available at `/api`
-- Swagger UI is available at `/swagger`
-- Response data is automatically wrapped by the middleware
-- All responses are properly documented in OpenAPI format
+3. 接口文档：http://127.0.0.1:8199/swagger

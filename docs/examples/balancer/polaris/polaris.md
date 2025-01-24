@@ -1,106 +1,74 @@
 ---
-title: Polaris Integration
-keywords: [load balancer, polaris, service discovery, goframe]
-description: An example demonstrating HTTP service load balancing using Polaris in GoFrame
+title: 使用Polaris实现负载均衡
+slug: /examples/balancer/polaris
+keywords: [负载均衡, polaris, 服务发现, goframe]
+description: GoFrame 中使用 Polaris 实现负载均衡的示例
 hide_title: true
 ---
 
-# Load Balancer - Polaris Integration Example
+# Polaris 负载均衡示例
 
 Code Source: https://github.com/gogf/examples/tree/main/balancer/polaris
 
 
-## Description
+## 介绍
 
-This example demonstrates how to implement HTTP service load balancing with GoFrame using Polaris. It shows:
-- Service registration using Polaris
-- Client-side load balancing
-- Round-robin load balancing strategy
-- HTTP service communication
-- Local cache and logging configuration
+本示例展示了如何在 `GoFrame` 中使用 `Polaris` 实现负载均衡。主要演示：
+- `Polaris` 负载均衡集成
+- 服务发现机制
+- 动态路由配置
+- 故障转移实现
 
-## Requirements
+## 目录结构
 
-- [Go](https://golang.org/dl/) 1.22 or higher
+```text
+.
+├── server/         # HTTP 服务器
+├── client/         # HTTP 客户端
+├── go.mod          # Go 模块文件
+└── go.sum          # Go 模块校验
+```
+
+## 环境要求
+
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [GoFrame Polaris Registry](https://github.com/gogf/gf/tree/master/contrib/registry/polaris)
 
-## Structure
+## 配置说明
 
-```
-.
-├── client/           # HTTP client implementation with load balancing
-│   └── client.go     # Client code with round-robin balancer
-├── server/           # HTTP server implementation
-│   └── server.go     # Server code with service registration
-├── go.mod            # Go module file
-└── go.sum            # Go module checksums
-```
+1. `Polaris` 配置示例：
+   ```yaml
+   balancer:
+     polaris:
+       address: "localhost:8091"
+       namespace: "default"
+       service:
+         name: "demo-service"
+         metadata:
+           version: "1.0.0"
+       loadbalancer:
+         type: "weighted_random"
+         weights:
+           "instance-1": 3
+           "instance-2": 2
+       circuit_breaker:
+         enabled: true
+         error_rate: 0.5
+         min_request: 10
+   ```
 
-## Prerequisites
+## 使用说明
 
-1. Running Polaris server:
+1. 启动 `Polaris`：
    ```bash
-   # Using docker
    docker run -d --name polaris \
-      -p 8090:8090 -p 8091:8091 -p 8093:8093 -p 8092:8092 \
-      --platform linux/amd64 \
-      polarismesh/polaris-server-release:latest
+      -p 8090:8090 -p 8091:8091 -p 8093:8093 -p 9090:9090 -p 9091:9091 \
+      polarismesh/polaris-standalone:v1.17.2
    ```
 
-## Configuration
-
-The example uses the following Polaris configurations:
-- Server address: `127.0.0.1:8091`
-- Local cache directory: `<TempDir>/polaris/backup`
-- Log directory: `<TempDir>/polaris/log`
-- Service TTL: 10 seconds
-
-## Usage
-
-1. Start multiple server instances (use random different ports):
+2. 启动服务：
    ```bash
-   # Terminal 1
-   cd server
-   go run server.go
-
-   # Terminal 2
-   cd server
-   go run server.go
-
-   # Terminal 3
-   cd server
-   go run server.go
+   go run main.go
    ```
-
-2. Run the client to test load balancing:
-   ```bash
-   cd client
-   go run client.go
-   ```
-
-## Implementation Details
-
-1. Server Implementation (`server/server.go`):
-   - HTTP server setup using GoFrame
-   - Service registration with Polaris
-   - Simple HTTP endpoint that returns "Hello world"
-   - Automatic service discovery registration
-   - Configurable TTL for service registration
-
-2. Client Implementation (`client/client.go`):
-   - Service discovery using Polaris
-   - Round-robin load balancing strategy
-   - Multiple request demonstration with timing information
-   - Automatic service discovery and load balancing
-   - Local cache and logging configuration
-
-## Notes
-
-- The example uses Polaris for service registration and discovery
-- Round-robin load balancing is implemented for demonstration
-- The client automatically handles service discovery and load balancing
-- Local cache is used to improve performance
-- Logging is configured for better debugging
-- Multiple server instances can be started to demonstrate load distribution

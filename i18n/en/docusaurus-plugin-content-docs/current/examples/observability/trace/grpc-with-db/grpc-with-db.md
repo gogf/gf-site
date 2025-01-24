@@ -13,7 +13,7 @@ Code Source: https://github.com/gogf/examples/tree/main/observability/trace/grpc
 
 ## Description
 
-This example demonstrates how to implement distributed tracing in a gRPC service that interacts with a database using GoFrame. It shows how to:
+This example demonstrates how to implement distributed tracing in a gRPC service that interacts with a database using `GoFrame`. It shows how to:
 - Configure tracing in gRPC services
 - Trace database operations
 - Propagate trace context
@@ -31,7 +31,7 @@ This example demonstrates how to implement distributed tracing in a gRPC service
 
 ## Structure
 
-```
+```text
 .
 ├── client/          # Client example
 │   └── client.go    # Client with tracing
@@ -165,7 +165,7 @@ redis:
    ```
 
 4. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+   Open http://localhost:16686 in your browser to view traces in `Jaeger` UI.
 
 ## Implementation Details
 
@@ -176,20 +176,20 @@ The example demonstrates:
 ## Troubleshooting
 
 1. Database Connection Issues:
-   - Ensure MySQL is running: `docker ps | grep mysql`
-   - Check MySQL connection: `docker exec -it mysql mysql -uroot -p12345678 -e "SELECT 1"`
+   - Ensure `MySQL` is running: `docker ps | grep mysql`
+   - Check `MySQL` connection: `docker exec -it mysql mysql -uroot -p12345678 -e "SELECT 1"`
    - Verify database schema: `docker exec -it mysql mysql -uroot -p12345678 test -e "DESC user"`
 
 2. Redis Connection Issues:
-   - Ensure Redis is running: `docker ps | grep redis`
-   - Test Redis connection: `docker exec -it redis redis-cli ping`
+   - Ensure `Redis` is running: `docker ps | grep redis`
+   - Test `Redis` connection: `docker exec -it redis redis-cli ping`
 
 3. Tracing Issues:
-   - Verify Jaeger is running: `docker ps | grep jaeger`
-   - Check Jaeger UI accessibility: http://localhost:16686
+   - Verify `Jaeger` is running: `docker ps | grep jaeger`
+   - Check `Jaeger` UI accessibility: http://localhost:16686
    - Ensure trace endpoint is correct in configuration
 
 4. gRPC Issues:
    - Check if protobuf files are generated correctly
-   - Verify service registration in etcd
+   - Verify service registration in `etcd`
    - Ensure server is listening on correct port

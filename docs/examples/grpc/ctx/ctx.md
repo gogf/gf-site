@@ -1,100 +1,55 @@
 ---
-title: Context Usage
+title: 上下文示例
 slug: /examples/grpc/ctx
-keywords: [grpc, context, metadata, goframe]
-description: gRPC context usage in GoFrame
+keywords: [grpc, 上下文, 元数据, goframe]
+description: GoFrame 中的 gRPC 上下文用法
 hide_title: true
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-## gRPC - Context Usage
+# `gRPC` - 上下文示例
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/ctx
 
-This example demonstrates how to use context and metadata in gRPC with GoFrame. It shows how to:
-- Pass metadata through gRPC context
-- Handle context values and deadlines
-- Manage request context
-- Process context metadata
 
-### Structure
+## 介绍
 
-```
+本示例展示了如何在 `GoFrame` 的 `gRPC` 中使用上下文和元数据。
+
+
+## 目录结构
+
+```text
 .
-├── client/           # Client example
-│   └── client.go     # Client implementation with context
-├── controller/       # Service controllers
-│   └── helloworld.go # Hello service with context handling
-├── protobuf/         # Protocol buffer definitions
-├── server/           # Server example
-│   ├── config.yaml   # Server configuration
-│   └── server.go     # Server implementation
-├── go.mod            # Go module file
-└── go.sum            # Go module checksums
+├── client/           # 客户端示例
+│   └── client.go     # 带上下文处理的客户端实现
+├── controller/       # 服务控制器
+│   └── helloworld.go # 带上下文处理的 Hello 服务
+├── protobuf/         # protobuf协议定义
+├── server/           # 服务器示例
+│   ├── config.yaml   # 服务器配置
+│   └── server.go     # 服务器实现
+├── go.mod           # Go 模块文件
+└── go.sum           # Go 模块校验和
 ```
 
-### Features
+## 环境要求
 
-The example showcases the following features:
-1. Context Management
-   - Metadata handling
-   - Value propagation
-   - Deadline management
-   - Cancellation handling
-
-2. Client Usage
-   - Context creation
-   - Metadata attachment
-   - Context values
-   - Timeout configuration
-
-3. Server Features
-   - Context extraction
-   - Metadata processing
-   - Value retrieval
-   - Timeout handling
-
-### Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
-- [gRPC](https://grpc.io/docs/languages/go/quickstart/)
+- [Protocol Buffers](https://developers.google.com/protocol-buffers)
 
-### Prerequisites
+## 使用说明
 
-1. Protocol buffer compiler installed:
-   ```bash
-   # For macOS
-   brew install protobuf
-   
-   # Install protoc-gen-go and protoc-gen-go-grpc
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-   ```
-
-## Usage
-
-1. Generate protocol buffer code:
-   ```bash
-   cd protobuf
-   protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. *.proto
-   ```
-
-2. Start the server:
+1. 启动服务器：
    ```bash
    cd server
    go run server.go
    ```
 
-3. Run the client:
+2. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
-
-## Implementation Details
-
-The example demonstrates:
-1. Context propagation
-2. Metadata handling

@@ -1,68 +1,52 @@
 ---
-title: HTTP with Database
+title: HTTP带数据库
 slug: /examples/observability/trace/http-with-db
-keywords: [trace, http, database, goframe]
-description: distributed tracing in HTTP services with database operations using GoFrame
+keywords: [链路跟踪, http, 数据库, goframe]
+description: GoFrame中HTTP服务与数据库操作的分布式跟踪实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Tracing - HTTP with Database
+# 链路跟踪 - HTTP带数据库
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/http-with-db
 
 
-## Description
+## 简介
 
-This example demonstrates how to implement distributed tracing in an HTTP service that interacts with a database using GoFrame. It shows how to:
-- Configure tracing in HTTP services
-- Trace database operations
-- Propagate trace context
-- Visualize distributed traces
+本示例演示了如何在 `GoFrame` 中实现HTTP服务与数据库交互的分布式跟踪。主要展示：
+- 配置HTTP服务的跟踪
+- 跟踪数据库操作
+- 传播跟踪上下文
+- 可视化分布式跟踪
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame MySQL Driver](https://github.com/gogf/gf/tree/master/contrib/drivers/mysql)
-- [GoFrame Redis Driver](https://github.com/gogf/gf/tree/master/contrib/nosql/redis)
-- [GoFrame OpenTelemetry Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlphttp)
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame MySQL` 驱动
+- `GoFrame Redis` 驱动
+- `GoFrame OpenTelemetry` 跟踪
 
-## Structure
+## 目录结构
 
-```
+```text
 .
-├── client/          # Client example
-│   └── client.go    # Client with tracing
-├── server/          # Server example
-│   ├── server.go    # Server with tracing
-│   └── config.yaml  # Server configuration
-├── sql.sql         # Database schema
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── client/          # 客户端示例
+│   └── client.go    # 带跟踪的客户端
+├── server/          # 服务端示例
+│   ├── server.go    # 带跟踪的服务端
+│   └── config.yaml  # 服务端配置
+├── sql.sql         # 数据库模式
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Features
 
-The example showcases the following features:
-1. Distributed Tracing
-   - Trace propagation
-   - Span management
-   - Trace visualization
 
-2. Database Operations
-   - Query tracing
-   - Transaction tracing
-   - Error tracking
+## 前置条件
 
-3. HTTP Integration
-   - Request tracing
-   - Context propagation
-   - Error handling
-
-## Prerequisites
-
-1. Running MySQL instance:
+1. 运行 `MySQL` 实例：
    ```bash
    docker run -d --name mysql \
    -p 3306:3306 \
@@ -71,20 +55,20 @@ The example showcases the following features:
    mysql:5.7
    ```
 
-2. Initialize database schema:
+2. 初始化数据库模式：
    ```bash
-   # Connect to MySQL container
+   # 连接MySQL容器
    docker exec -i mysql mysql -uroot -p12345678 test < sql.sql
    ```
 
-3. Running Redis instance:
+3. 运行 `Redis` 实例：
    ```bash
    docker run -d --name redis \
    -p 6379:6379 \
    redis:6.0
    ```
 
-4. Running Jaeger instance:
+4. 运行 `Jaeger` 实例：
    ```bash
    docker run --rm --name jaeger \
    -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -101,95 +85,109 @@ The example showcases the following features:
    jaegertracing/all-in-one:1.55
    ```
 
-## Configuration
+## 配置说明
 
-The server configuration is defined in `server/config.yaml`:
+服务端配置在`server/config.yaml`中定义：
 
 ```yaml
 database:
   logger:
-    level: "all"                    # Log all SQL operations
-    stdout: true                    # Print to stdout
+    level: "all"                    # 记录所有SQL操作
+    stdout: true                    # 打印到标准输出
   default:
     link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
-    debug: true                     # Enable debug mode
+    debug: true                     # 启用调试模式
 
 redis:
   default:
-    address: 127.0.0.1:6379        # Default Redis instance
+    address: 127.0.0.1:6379        # 默认Redis实例
     db:      0
   cache:
-    address: 127.0.0.1:6379        # Cache Redis instance
+    address: 127.0.0.1:6379        # 缓存Redis实例
     db:      1
 ```
 
-## Usage
+## 使用说明
 
-1. Start the server:
+1. 启动服务端：
    ```bash
    cd server
    go run server.go
    ```
 
-2. Run the client:
+2. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
 
-3. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+3. 查看跟踪：
+   在浏览器中打开 http://localhost:16686 查看 `Jaeger` UI中的跟踪信息。
 
-## API Endpoints
+## API接口
 
-The server provides the following HTTP endpoints:
+服务器提供以下HTTP接口：
 
-1. Insert User
-   ```
+1. 插入用户
+   ```text
    POST /insert
-   Request: {"Name": "string"}
-   Response: {"ID": number}
+   请求: {"Name": "string"}
+   响应: {"ID": number}
    ```
 
-2. Query User
-   ```
+2. 查询用户
+   ```text
    GET /query
-   Request: {"ID": number}
-   Response: {"User": object}
+   请求: {"ID": number}
+   响应: {"User": object}
    ```
 
-3. Delete User
-   ```
+3. 删除用户
+   ```text
    DELETE /delete
-   Request: {"Id": number}
-   Response: {}
+   请求: {"Id": number}
+   响应: {}
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. HTTP request tracing
-2. Database operation tracing
-3. Redis cache integration
-4. Error handling and propagation
+1. 服务端实现
+   ```go
+   // 配置Redis作为ORM缓存适配器
+   g.DB().GetCache().SetAdapter(gcache.NewAdapterRedis(g.Redis()))
 
-## Troubleshooting
+   // 启动HTTP服务器
+   s := g.Server()
+   s.Use(ghttp.MiddlewareHandlerResponse)
+   s.Group("/", func(group *ghttp.RouterGroup) {
+       group.ALL("/user", new(cTrace))
+   })
 
-1. Database Connection Issues:
-   - Ensure MySQL is running: `docker ps | grep mysql`
-   - Check MySQL connection: `docker exec -it mysql mysql -uroot -p12345678 -e "SELECT 1"`
-   - Verify database schema: `docker exec -it mysql mysql -uroot -p12345678 test -e "DESC user"`
+   // 查询用户信息
+   func (c *cTrace) Query(ctx context.Context, req *QueryReq) (res *QueryRes, err error) {
+       one, err := g.Model("user").Ctx(ctx).Cache(gdb.CacheOption{
+           Duration: 5 * time.Second,
+           Name:     c.userCacheKey(req.ID),
+           Force:    false,
+       }).WherePri(req.ID).One()
+       if err != nil {
+           return nil, err
+       }
+       res = &QueryRes{
+           User: one,
+       }
+       return
+   }
+   ```
 
-2. Redis Connection Issues:
-   - Ensure Redis is running: `docker ps | grep redis`
-   - Test Redis connection: `docker exec -it redis redis-cli ping`
+2. 客户端实现
+   ```go
+   // 创建新的跟踪span
+   ctx, span := gtrace.NewSpan(gctx.New(), "StartRequests")
+   defer span.End()
 
-3. Tracing Issues:
-   - Verify Jaeger is running: `docker ps | grep jaeger`
-   - Check Jaeger UI accessibility: http://localhost:16686
-   - Ensure trace endpoint is correct in configuration
-
-4. HTTP Issues:
-   - Check if server is running: `curl http://localhost:8199/ping`
-   - Verify request format matches API specification
-   - Check server logs for detailed error messages
+   // 发送HTTP请求
+   err = client.PostVar(ctx, "http://127.0.0.1:8199/user/insert", g.Map{
+       "name": "john",
+   }).Scan(&insertRes)
+   ```

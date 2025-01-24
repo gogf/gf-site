@@ -1,130 +1,53 @@
 ---
 title: Consul
 slug: /examples/config/consul
-keywords: [config, consul, goframe]
-description: Consul configuration center integration with GoFrame
+keywords: [配置中心, consul, goframe]
+description: GoFrame 框架中 Consul 配置中心的集成示例
 hide_title: true
+sidebar_position: 1
 ---
 
-## Consul Configuration Center Example
+# `Consul` 配置中心示例
 
-## Description
+Code Source: https://github.com/gogf/examples/tree/main/config/consul
 
-This directory contains an example demonstrating how to integrate Consul configuration center with GoFrame applications. It shows:
 
-1. Consul Client Configuration
-   - Consul client setup and initialization
-   - Configuration adapter implementation
-   - Error handling and logging
+## 介绍
 
-2. Configuration Management
-   - Configuration loading and parsing
-   - Dynamic configuration updates
-   - Configuration value retrieval
+本示例展示了如何在 `GoFrame` 应用程序中通过配置管理组件集成 `Consul` 配置中心。
 
-## Directory Structure
 
-```
+## 目录结构
+
+```text
 .
-├── boot/           # Bootstrap configuration
-│   └── boot.go     # Consul client initialization
-├── main.go         # Main application entry
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── boot/           # 启动配置
+│   └── boot.go     # Consul 客户端初始化
+├── main.go         # 主程序入口
+├── go.mod          # Go 模块文件
+└── go.sum          # Go 模块校验和
 ```
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [GoFrame Consul Config](https://github.com/gogf/gf/tree/master/contrib/config/consul)
 
-## Features
+## 使用说明
 
-The example showcases the following features:
+1. 确保 `Consul` 服务端已启动
 
-1. Consul Integration
-   - Client configuration
-   - Connection management
-   - Key-Value store access
-   - Error handling
-
-2. Configuration Management
-   - Configuration loading
-   - Value retrieval
-   - Type conversion
-   - Default values
-
-3. Dynamic Updates
-   - Configuration watching
-   - Change notification
-   - Hot reload support
-
-## Configuration
-
-### Consul Server
-1. Server Configuration:
-   - Default port: 8500
-   - Default datacenter: dc1
-   - Default scheme: http
-
-2. Authentication:
-   - Token-based authentication
-   - ACL system support
-   - Datacenter level isolation
-
-### Client Configuration
-1. Basic Settings:
-   - Address: Consul server address
-   - Scheme: HTTP/HTTPS
-   - Datacenter: Configuration datacenter
-   - Token: Access token
-
-2. Advanced Options:
-   - Path customization
-   - Watch configuration
-   - Transport settings
-   - Retry options
-
-## Usage
-
-1. Start Consul Server:
-   ```bash
-   # Start Consul server using Docker
-   docker run -d --name consul \
-      -p 8500:8500 -p 8600:8600/udp \
-      hashicorp/consul
+2. 配置 `Consul` 连接信息：
+   ```yaml
+   consul:
+     address: "localhost:8500"
+     scheme: "http"
+     datacenter: "dc1"
    ```
 
-2. Configure Consul:
-   - Access Consul UI at http://localhost:8500
-   - Create key-value pairs under your config path
-   - Set up ACL tokens if needed
-
-3. Run Example:
+3. 运行示例：
    ```bash
    go run main.go
    ```
-
-## Implementation Details
-
-1. Client Setup (`boot/boot.go`):
-   - Consul client configuration
-   - Transport layer setup
-   - Authentication configuration
-   - Error handling
-
-2. Configuration Access (`main.go`):
-   - Configuration availability check
-   - Bulk configuration retrieval
-   - Single value access
-   - Error handling
-
-## Notes
-
-- The example uses Consul's Key-Value store for configuration management
-- Configuration changes in Consul are automatically reflected in the application
-- The client supports secure connections via HTTPS
-- ACL tokens can be used for secure access
-- Configuration paths can be customized based on needs

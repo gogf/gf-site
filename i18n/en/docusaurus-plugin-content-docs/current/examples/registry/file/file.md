@@ -6,14 +6,14 @@ description: File-based service registry integration in GoFrame
 hide_title: true
 ---
 
-# Registry - File Integration
+# Registry - `File` Integration
 
 Code Source: https://github.com/gogf/examples/tree/main/registry/file
 
 
 ## Description
 
-This example demonstrates how to use File-based service registry with GoFrame applications. It shows how to:
+This example demonstrates how to use File-based service registry with `GoFrame` applications. It shows how to:
 - Register services using file system
 - Discover services from files
 - Implement simple service discovery
@@ -21,7 +21,7 @@ This example demonstrates how to use File-based service registry with GoFrame ap
 
 ## Structure
 
-```
+```text
 .
 ├── client/            # Client example
 │   └── client.go      # Client implementation with file-based discovery
@@ -47,7 +47,7 @@ The example showcases the following features:
    - Simple failover support
 
 3. Protocol Support
-   - HTTP services
+   - `HTTP` services
    - Extensible for other protocols
 
 ## Requirements

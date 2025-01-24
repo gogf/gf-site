@@ -1,95 +1,113 @@
 ---
-title: Callback
+title: 回调处理
 slug: /examples/observability/metric/callback
-keywords: [metrics, callback, prometheus, opentelemetry, goframe]
-description: callback-based metric collection in GoFrame
+keywords: [指标, 回调, prometheus, opentelemetry, goframe]
+description: GoFrame 中基于回调的指标收集实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Metric - Callback Example
+# 指标收集 - 回调处理
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/metric/callback
 
 
-## Description
+## 简介
 
-This example demonstrates how to implement callback-based metric collection in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
-- Create metrics with callback functions
-- Automatically update metric values through callbacks
-- Configure metric attributes
-- Export metrics in Prometheus format
+本示例演示了如何在 `GoFrame` 中使用 `OpenTelemetry` 和 `Prometheus` 集成来实现基于回调的指标收集。主要展示：
+- 创建带有回调函数的指标
+- 通过回调自动更新指标值
+- 配置指标属性
+- 导出 `Prometheus` 格式的指标
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file for dependency management
-- `go.sum`: The Go module checksums file
-- `main.go`: The main application demonstrating callback-based metrics
+```text
+.
+├── go.mod            # Go 模块文件
+├── go.sum            # Go 模块校验和
+└── main.go           # 主程序，演示回调式指标使用
+```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Callback-based Metrics
-   - Automatic value updates
-   - Custom callback functions
-   - No manual update needed
+本示例展示了以下功能：
 
-2. Regular Metrics
-   - Manual value updates
-   - Direct control over values
-   - Comparison with callback approach
+1. 基于回调的指标
+   - 自动值更新
+   - 自定义回调函数
+   - 无需手动更新
+   - 适用于动态值监控
 
-3. Metric Configuration
-   - Custom attributes
-   - Help text
-   - Units
+2. 常规指标
+   - 手动值更新
+   - 直接控制值
+   - 与回调方式对比
+   - 适用于事件计数
 
-## Requirements
+3. 指标配置
+   - 自定义属性
+   - 帮助文本
+   - 单位设置
+   - 常量标签
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry Metric](https://github.com/gogf/gf/tree/master/contrib/metric/otelmetric)
+## 环境要求
 
-## Usage
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame OpenTelemetry Metric` 扩展
 
-1. Run the example:
+## 使用说明
+
+1. 运行示例：
    ```bash
    go run main.go
    ```
 
-2. Access the metrics:
+2. 访问指标：
    ```bash
-   # Using curl
+   # 使用 curl
    curl http://localhost:8000/metrics
    
-   # Or open in browser
+   # 或在浏览器中打开
    http://localhost:8000/metrics
    ```
 
-3. Example metrics output:
-   ```
-   # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
+3. 指标输出示例：
+   ```text
+   # HELP goframe_metric_demo_counter 这是 Counter 使用的简单演示
    goframe_metric_demo_counter{const_attr_1="1"} 11
    
-   # HELP goframe_metric_demo_observable_counter This is a simple demo for ObservableCounter usage
+   # HELP goframe_metric_demo_observable_counter 这是 ObservableCounter 使用的简单演示
    goframe_metric_demo_observable_counter{const_attr_3="3"} 10
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. Creating metrics with callback functions
-2. Automatic value updates through callbacks
-3. Comparison between callback and manual updates
-4. Proper metric configuration
-5. Prometheus integration
+1. 回调式指标实现
+   ```go
+   observableCounter := meter.MustObservableCounter(
+       "goframe.metric.demo.observable_counter",
+       gmetric.MetricOption{
+           Help: "回调计数器示例",
+           Unit: "%",
+           Callback: func(ctx context.Context, obs gmetric.MetricObserver) error {
+               obs.Observe(10)  // 自动设置值为 10
+               return nil
+           },
+       },
+   )
+   ```
 
-## Notes
-
-- Callbacks are executed automatically by the metrics system
-- No need for manual updates of callback-based metrics
-- Callbacks should be lightweight and fast
-- Consider thread safety in callbacks
-- Proper cleanup is handled via defer
-- Default port is 8000
-- Metrics endpoint is at /metrics
+2. 常规指标实现
+   ```go
+   counter := meter.MustCounter(
+       "goframe.metric.demo.counter",
+       gmetric.MetricOption{
+           Help: "普通计数器示例",
+           Unit: "%",
+       },
+   )
+   counter.Inc(ctx)      // 手动增加 1
+   counter.Add(ctx, 10)  // 手动增加指定值
+   ```

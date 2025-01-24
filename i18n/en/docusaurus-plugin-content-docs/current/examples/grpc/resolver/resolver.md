@@ -6,19 +6,22 @@ description: gRPC service resolver with etcd in GoFrame
 hide_title: true
 ---
 
-## gRPC - Service Resolver
+# `gRPC` - Service Resolver
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/resolver
 
-This example demonstrates how to use service resolver with etcd in gRPC services using GoFrame. It shows how to:
-- Configure service resolver with etcd
-- Register services to etcd
+
+## Description
+
+This example demonstrates how to use service resolver with `etcd` in `gRPC` services using `GoFrame`. It shows how to:
+- Configure service resolver with `etcd`
+- Register services to `etcd`
 - Discover services using resolver
 - Handle service updates
 
-### Structure
+## Structure
 
-```
+```text
 .
 ├── client/              # Client example
 │   └── client.go        # Client with service resolver
@@ -32,11 +35,11 @@ This example demonstrates how to use service resolver with etcd in gRPC services
 └── go.sum               # Go module checksums
 ```
 
-### Features
+## Features
 
 The example showcases the following features:
 1. Service Resolution
-   - etcd integration
+   - `etcd` integration
    - Service registration
    - Service discovery
    - Update handling
@@ -49,20 +52,20 @@ The example showcases the following features:
 
 3. Server Features
    - Service registration
-   - etcd integration
+   - `etcd` integration
    - Health checking
    - Metadata management
 
-### Requirements
+## Requirements
 
 - [Go](https://golang.org/dl/) 1.22 or higher
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [gRPC](https://grpc.io/docs/languages/go/quickstart/)
 
-### Prerequisites
+## Prerequisites
 
-1. Running etcd instance:
+1. Running `etcd` instance:
    ```bash
    # Using Docker
    docker run -d --name etcd -p 2379:2379 -e ALLOW_NONE_AUTHENTICATION=yes bitnami/etcd:3.4.24
@@ -78,7 +81,7 @@ The example showcases the following features:
    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
    ```
 
-### Usage
+## Usage
 
 1. Generate protocol buffer code:
    ```bash
@@ -98,8 +101,8 @@ The example showcases the following features:
    go run client.go
    ```
 
-### Implementation Details
+## Implementation Details
 
 The example demonstrates:
-1. Service registration with etcd
+1. Service registration with `etcd`
 2. Service discovery using resolver

@@ -1,102 +1,50 @@
 ---
-title: File Upload Example
+title: 文件上传
 slug: /examples/httpserver/upload-file
-keywords: [http, server, file, upload, goframe]
-description: Handle file uploads in a HTTP server using GoFrame framework
+keywords: [http, 服务器, 文件, 上传, goframe]
+description: 使用 GoFrame 框架处理 HTTP 服务器的文件上传
 hide_title: true
+sidebar_position: 3
 ---
 
-# HTTP Server File Upload
+# HTTP 服务器文件上传
 
 Code Source: https://github.com/gogf/examples/tree/main/httpserver/upload-file
 
 
+## 介绍
 
-## Description
+本示例展示了如何使用 `GoFrame` 在 HTTP 服务器中实现文件上传功能。它展示了：
+- 现代化且用户友好的文件上传界面
+- 服务器端文件上传处理
+- 文件上传进度跟踪
+- 适当的错误处理和验证
+- 最大文件大小配置
 
-This example demonstrates how to implement file upload functionality in a HTTP server using `GoFrame`. It showcases:
-- A modern and user-friendly file upload interface
-- Server-side file upload handling
-- Progress tracking for file uploads
-- Proper error handling and validation
-- Maximum file size configuration
+本示例同时提供了 REST API 端点和 Web 界面用于文件上传。
 
-The example provides both a REST API endpoint and a web interface for file uploads.
+## 环境要求
 
-## Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file for dependency management.
-- `go.sum`: The Go module checksum file.
-- `main.go`: The main application entry point that implements the file upload server.
-- `static/`: Directory containing static web files
-  - `index.html`: A modern web interface for file uploads with progress tracking.
+- `go.mod`: Go 模块文件，用于依赖管理
+- `main.go`: 主程序入口
+- `resource/`: 静态资源目录
+  - `public/`: 公共资源
+    - `upload.html`: 上传页面
+  - `upload/`: 上传文件存储目录
 
-The project is organized as follows:
-```
-upload-file/
-├── go.mod           # Go module definition
-├── go.sum           # Go module checksums
-├── main.go          # Server implementation
-└── static/          # Static web assets
-    └── index.html   # Upload interface
-```
+## 使用说明
 
-## Features
-
-- Modern web interface for file uploads
-- Progress bar for upload tracking
-- Support for large file uploads (up to 600MB)
-- File validation and error handling
-- Optional message attachment with uploads
-- Access log enabled for debugging
-- Clean API documentation
-
-## Usage
-
-1. Run the example:
+1. 启动服务：
    ```bash
    go run main.go
    ```
 
-2. The server will start at http://127.0.0.1:8199
+2. 上传页面：http://localhost:8199/upload.html
 
-3. Access the upload interface:
-   - Web Interface: http://127.0.0.1:8199/
-   - API Endpoint: POST http://127.0.0.1:8199/upload
 
-4. Upload files using either:
-   - The web interface by selecting a file and clicking "Upload"
-   - Using curl:
-     ```bash
-     curl -X POST http://127.0.0.1:8199/upload \
-          -F "file=@/path/to/your/file" \
-          -F "msg=Optional message"
-     ```
-
-## Implementation Details
-
-The example implements several key features:
-1. A modern HTML/CSS/JS frontend for file uploads
-2. Server-side file handling using GoFrame's features
-3. Progress tracking for large file uploads
-4. Proper error handling and validation
-
-Key components:
-- Maximum file size limit of 600MB
-- Access logging for debugging
-- Clean separation of frontend and backend code
-- Type-safe request/response structures
-
-## Notes
-
-- The maximum file size is set to 600MB
-- Access logs are enabled for debugging
-- The server supports multipart/form-data uploads
-- Frontend provides visual feedback during uploads
-- All uploads are validated server-side

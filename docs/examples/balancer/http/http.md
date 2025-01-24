@@ -1,94 +1,47 @@
 ---
-title: HTTP Service
+title: HTTP负载均衡
 slug: /examples/balancer/http
-keywords: [load balancer, http, service discovery, goframe]
-description: HTTP service load balancing in GoFrame
+keywords: [负载均衡, http, 服务发现, goframe]
+description: GoFrame 中的 HTTP 服务负载均衡示例
 hide_title: true
 ---
 
-# Load Balancer - HTTP Service Example
+# HTTP 服务负载均衡示例
 
 Code Source: https://github.com/gogf/examples/tree/main/balancer/http
 
 
-## Description
+## 介绍
 
-This example demonstrates how to implement HTTP service load balancing with GoFrame. It shows:
-- Service registration using etcd
-- Client-side load balancing
-- Round-robin load balancing strategy
-- HTTP service communication
+本示例展示了如何在 `GoFrame` 应用程序中实现 HTTP 服务的负载均衡。主要演示：
+- 使用 `etcd` 配置负载均衡器
+- 服务注册和服务发现
+- 请求路由和负载分发
 
-## Requirements
+## 目录结构
 
-- [Go](https://golang.org/dl/) 1.22 or higher
+```text
+.
+├── server/         # HTTP 服务器
+├── client/         # HTTP 客户端
+├── go.mod          # Go 模块文件
+└── go.sum          # Go 模块校验
+```
+
+## 环境要求
+
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 
-## Structure
+## 使用说明
 
-```
-.
-├── client/           # HTTP client implementation with load balancing
-│   └── client.go     # Client code with round-robin balancer
-├── server/           # HTTP server implementation
-│   └── server.go     # Server code with service registration
-├── go.mod            # Go module file
-└── go.sum            # Go module checksums
-```
-
-## Prerequisites
-
-1. Running etcd server:
+1. 启动服务器：
    ```bash
-   # Using docker
-   docker run -d --name etcd-server \
-      --publish 2379:2379 \
-      --publish 2380:2380 \
-      --env ALLOW_NONE_AUTHENTICATION=yes \
-      bitnami/etcd:latest
+   go run server/main.go
    ```
 
-## Usage
-
-1. Start multiple server instances (use random different ports):
+2. 在另一个终端启动客户端：
    ```bash
-   # Terminal 1
-   cd server
-   go run server.go
-
-   # Terminal 2
-   cd server
-   go run server.go
-
-   # Terminal 3
-   cd server
-   go run server.go
+   go run client/main.go
    ```
-
-2. Run the client to test load balancing:
-   ```bash
-   cd client
-   go run client.go
-   ```
-
-## Implementation Details
-
-1. Server Implementation (`server/server.go`):
-   - HTTP server setup using GoFrame
-   - Service registration with etcd
-   - Simple HTTP endpoint that returns "Hello world"
-   - Automatic service discovery registration
-
-2. Client Implementation (`client/client.go`):
-   - Service discovery using etcd
-   - Round-robin load balancing strategy
-   - Multiple request demonstration
-   - Automatic service discovery and load balancing
-
-## Notes
-
-- The example uses etcd for service registration and discovery
-- Round-robin load balancing is implemented for demonstration
-- The client automatically handles service discovery and load balancing
-- Multiple server instances can be started to demonstrate load distribution

@@ -13,17 +13,19 @@ Code Source: https://github.com/gogf/examples/tree/main/observability/metric/bas
 
 ## Description
 
-This example demonstrates the basic usage of various metric types in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
+This example demonstrates the basic usage of various metric types in `GoFrame` using `OpenTelemetry` and `Prometheus` integration. It shows how to:
 - Create and use different types of metrics
 - Configure metric attributes
-- Export metrics in Prometheus format
+- Export metrics in `Prometheus` format
 - Set up a metrics endpoint
 
 ## Structure
 
+```text
 - `go.mod`: The Go module file for dependency management
 - `go.sum`: The Go module checksums file
 - `main.go`: The main application demonstrating metric usage
+```
 
 ## Features
 
@@ -73,7 +75,7 @@ The example showcases the following metric types:
    ```
 
 3. Example metrics output:
-   ```
+   ```text
    # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
    goframe_metric_demo_counter{const_attr_1="1"} 11
    
@@ -89,12 +91,12 @@ The example demonstrates:
 1. Proper metric initialization and configuration
 2. Different ways to update metrics
 3. Attribute handling
-4. Prometheus integration
+4. `Prometheus` integration
 5. Observable metric callbacks
 
 ## Notes
 
-- Metrics are exported in Prometheus format
+- Metrics are exported in `Prometheus` format
 - Default port is 8000
 - Metrics endpoint is at /metrics
 - All metrics include constant attributes

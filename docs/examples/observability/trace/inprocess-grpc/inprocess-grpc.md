@@ -1,61 +1,44 @@
 ---
-title: In-Process Service (gRPC Exporter)
+title: 进程内服务 (gRPC导出器)
 slug: /examples/observability/trace/inprocess-grpc
-keywords: [trace, inprocess, grpc, goframe, otlp-grpc]
-description: distributed tracing in in-process services using GoFrame with gRPC-based OpenTelemetry exporter
+keywords: [链路跟踪, 进程内, grpc, goframe, otlp-grpc]
+description: 使用GoFrame和基于gRPC的OpenTelemetry导出器实现进程内服务的分布式链路跟踪
 hide_title: true
+sidebar_position: 1
 ---
 
-# Tracing - In-Process Service (gRPC Exporter)
+# 链路跟踪 - 进程内服务 (gRPC导出器)
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess-grpc
 
 
-## Description
+## 简介
 
-This example demonstrates how to implement distributed tracing in in-process services using GoFrame with gRPC-based OpenTelemetry exporter. It shows how to:
-- Configure tracing in a single process using gRPC exporter
-- Trace function calls and operations
-- Propagate trace context through gRPC
-- Visualize distributed traces
+本示例演示了如何使用GoFrame和基于gRPC的OpenTelemetry导出器在进程内服务中实现分布式跟踪。主要展示：
+- 使用gRPC导出器配置单进程跟踪
+- 跟踪函数调用和操作
+- 通过gRPC传播跟踪上下文
+- 可视化分布式跟踪
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry gRPC Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlpgrpc)
+- Go 1.22 或更高版本
+- GoFrame框架
+- GoFrame OpenTelemetry gRPC跟踪
 
-## Structure
+## 目录结构
 
 ```
 .
-├── main.go         # Main application with gRPC-based tracing
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── main.go         # 带gRPC跟踪的主应用程序
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Features
 
-The example showcases the following features:
-1. Distributed Tracing with gRPC Exporter
-   - gRPC-based trace data transmission
-   - Span management with gRPC context
-   - Trace visualization
+## 前置条件
 
-2. Function Call Tracing
-   - Function entry/exit tracing
-   - gRPC context propagation
-   - Error handling
-
-3. Data Operations
-   - User data retrieval
-   - Data aggregation
-   - Error handling
-
-## Prerequisites
-
-1. Running Jaeger instance:
+1. 运行Jaeger实例：
    ```bash
    docker run --rm --name jaeger \
    -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -72,66 +55,66 @@ The example showcases the following features:
    jaegertracing/all-in-one:1.55
    ```
 
-## Usage
+## 使用说明
 
-1. Run the application:
+1. 运行应用程序：
    ```bash
    go run main.go
    ```
 
-2. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+2. 查看跟踪：
+   在浏览器中打开 http://localhost:16686 查看Jaeger UI中的跟踪信息。
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
+本示例演示了：
 
-1. User Data Operations
+1. 用户数据操作
    ```go
-   GetUser(ctx, id)       // Retrieves complete user data
-   ├── GetInfo(ctx, id)   // Gets basic user information
-   ├── GetDetail(ctx, id) // Gets detailed user information
-   └── GetScores(ctx, id) // Gets user scores
+   GetUser(ctx, id)       // 检索完整的用户数据
+   ├── GetInfo(ctx, id)   // 获取基本用户信息
+   ├── GetDetail(ctx, id) // 获取详细用户信息
+   └── GetScores(ctx, id) // 获取用户成绩
    ```
 
-2. Trace Context Flow
-   - Main function creates root span with gRPC context
-   - Each function creates child span with gRPC metadata
-   - Context propagates through gRPC calls
-   - All spans are properly ended with gRPC cleanup
+2. 跟踪上下文流程
+   ```go
+   // 创建带gRPC上下文的根span
+   ctx, span := gtrace.NewSpan(ctx, "main")
+   defer span.End()
 
-3. Error Handling
-   - Non-existent user IDs return nil
-   - Each function handles errors independently
-   - Errors are traced and logged with gRPC status codes
+   // 创建带gRPC元数据的子span
+   ctx, span := gtrace.NewSpan(ctx, "GetUser")
+   defer span.End()
+   ```
 
-4. gRPC-based Trace Export
-   - Uses gRPC protocol for trace data transmission
-   - Configures gRPC trace collector endpoint
-   - Handles gRPC connection management
-   - Supports gRPC authentication and TLS
+3. 错误处理
+   ```go
+   // 处理不存在的用户ID
+   if id == 100 {
+       return g.Map{
+           "id":     100,
+           "name":   "john",
+           "gender": 1,
+       }
+   }
+   return nil
+   ```
 
-## Troubleshooting
+4. 基于gRPC的跟踪导出
+   ```go
+   // 初始化gRPC跟踪导出器
+   shutdown, err = otlpgrpc.Init(serviceName, endpoint, traceToken)
+   if err != nil {
+       g.Log().Fatal(ctx, err)
+   }
+   defer shutdown(ctx)
+   ```
 
-1. Application Issues:
-   - Check if application is running correctly
-   - Verify function call outputs
-   - Review error logs
 
-2. Tracing Issues:
-   - Verify Jaeger is running: `docker ps | grep jaeger`
-   - Check Jaeger UI accessibility: http://localhost:16686
-   - Ensure gRPC endpoint is correct in configuration
+## 示例输出
 
-3. gRPC Issues:
-   - Check gRPC connection status
-   - Verify gRPC endpoint accessibility
-   - Review gRPC error messages and status codes
-   - Verify gRPC authentication token
-
-## Example Output
-
-For user ID 100:
+对于用户ID 100：
 ```go
 {
     "id":      100,
@@ -145,6 +128,7 @@ For user ID 100:
 }
 ```
 
-For non-existent user IDs:
+对于不存在的用户ID：
 ```go
 {}
+```

@@ -7,19 +7,22 @@ hide_title: true
 sidebar_position: 0
 ---
 
-## gRPC - Basic Usage
+# `gRPC` - Basic Usage
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/basic
 
-This example demonstrates the basic usage of gRPC in GoFrame applications. It shows how to:
-- Create gRPC servers and clients
+
+## Description
+
+This example demonstrates the basic usage of `gRPC` in `GoFrame` applications. It shows how to:
+- Create `gRPC` servers and clients
 - Define and use protocol buffers
 - Implement service handlers
-- Make RPC calls
+- Make `RPC` calls
 
-### Structure
+## Structure
 
-```
+```text
 .
 ├── client/         # Client example
 │   └── client.go   # Client implementation
@@ -33,7 +36,7 @@ This example demonstrates the basic usage of gRPC in GoFrame applications. It sh
 └── go.sum          # Go module checksums
 ```
 
-### Features
+## Features
 
 The example showcases the following features:
 1. Service Implementation
@@ -44,24 +47,24 @@ The example showcases the following features:
 
 2. Client Usage
    - Connection management
-   - RPC calls
+   - `RPC` calls
    - Error handling
    - Context usage
 
 3. Protocol Support
-   - gRPC services
+   - `gRPC` services
    - Protocol buffer messages
    - Custom metadata
    - Stream processing
 
-### Requirements
+## Requirements
 
 - [Go](https://golang.org/dl/) 1.22 or higher
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [gRPC](https://grpc.io/docs/languages/go/quickstart/)
 
-### Prerequisites
+## Prerequisites
 
 1. Protocol buffer compiler installed:
    ```bash
@@ -73,7 +76,7 @@ The example showcases the following features:
    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
    ```
 
-### Usage
+## Usage
 
 1. Generate protocol buffer code:
    ```bash
@@ -93,8 +96,8 @@ The example showcases the following features:
    go run client.go
    ```
 
-### Implementation Details
+## Implementation Details
 
 The example demonstrates:
-1. Service definition
-2. Client/server implementation
+1. Service definition using `gRPC` and protocol buffers
+2. Client/server implementation with `GoFrame` integration

@@ -1,95 +1,130 @@
 ---
-title: Dynamic Attributes
+title: 动态属性
 slug: /examples/observability/metric/dynamic_attributes
-keywords: [metrics, dynamic attributes, prometheus, opentelemetry, goframe]
-description: dynamic metric attributes in GoFrame
+keywords: [指标, 动态属性, prometheus, opentelemetry, goframe]
+description: GoFrame中动态指标属性的实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Metric - Dynamic Attributes Example
+# 指标收集 - 动态属性
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/metric/dynamic_attributes
 
 
-## Description
+## 简介
 
-This example demonstrates how to work with dynamic metric attributes in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
-- Add dynamic attributes to metrics at runtime
-- Combine constant and dynamic attributes
-- Use attributes in both regular and observable metrics
-- Export metrics with dynamic attributes
+本示例演示了如何在 `GoFrame` 中使用 `OpenTelemetry` 和 `Prometheus` 集成来实现动态指标属性。主要展示：
+- 在运行时为指标添加动态属性
+- 组合使用常量属性和动态属性
+- 在常规指标和可观察指标中使用属性
+- 导出带有动态属性的指标
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file for dependency management
-- `go.sum`: The Go module checksums file
-- `main.go`: The main application demonstrating dynamic metric attributes
+```text
+.
+├── go.mod            # Go模块文件
+├── go.sum            # Go模块校验和
+└── main.go           # 主程序，演示动态属性使用
+```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Dynamic Attributes
-   - Runtime attribute assignment
-   - Attribute combination
-   - Value-based attributes
+本示例展示了以下功能：
 
-2. Metric Types with Attributes
-   - Counter with dynamic attributes
-   - Observable Counter with dynamic attributes
-   - Constant attribute baseline
+1. 动态属性
+   - 运行时属性赋值
+   - 属性组合使用
+   - 基于值的属性
+   - 灵活的标签管理
 
-3. Attribute Management
-   - Attribute creation
-   - Value typing
-   - Attribute scoping
+2. 带属性的指标类型
+   - 带动态属性的计数器
+   - 带动态属性的可观察计数器
+   - 常量属性基线
+   - 属性继承机制
 
-## Requirements
+3. 属性管理
+   - 属性创建
+   - 值类型处理
+   - 属性作用域
+   - 属性生命周期
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry Metric](https://github.com/gogf/gf/tree/master/contrib/metric/otelmetric)
+## 环境要求
 
-## Usage
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame OpenTelemetry Metric` 扩展
 
-1. Run the example:
+## 使用说明
+
+1. 运行示例：
    ```bash
    go run main.go
    ```
 
-2. Access the metrics:
+2. 访问指标：
    ```bash
-   # Using curl
+   # 使用curl
    curl http://localhost:8000/metrics
    
-   # Or open in browser
+   # 或在浏览器中打开
    http://localhost:8000/metrics
    ```
 
-3. Example metrics output:
-   ```
-   # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
+3. 指标输出示例：
+   ```text
+   # HELP goframe_metric_demo_counter 这是Counter使用的简单演示
    goframe_metric_demo_counter{const_attr_1="1",dynamic_attr_2="2"} 11
    
-   # HELP goframe_metric_demo_observable_counter This is a simple demo for ObservableCounter usage
+   # HELP goframe_metric_demo_observable_counter 这是ObservableCounter使用的简单演示
    goframe_metric_demo_observable_counter{const_attr_4="4",dynamic_attr_1="1"} 10
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. Creating metrics with constant attributes
-2. Adding dynamic attributes at runtime
-3. Combining different attribute types
-4. Attribute scoping and inheritance
-5. Proper attribute value typing
+1. 常规指标的动态属性
+   ```go
+   counter := meter.MustCounter(
+       "goframe.metric.demo.counter",
+       gmetric.MetricOption{
+           Help: "计数器示例",
+           Unit: "bytes",
+           Attributes: gmetric.Attributes{
+               gmetric.NewAttribute("const_attr_1", 1), // 常量属性
+           },
+       },
+   )
+   
+   // 添加动态属性
+   counter.Add(ctx, 10, gmetric.Option{
+       Attributes: gmetric.Attributes{
+           gmetric.NewAttribute("dynamic_attr_2", 2), // 动态属性
+       },
+   })
+   ```
 
-## Notes
-
-- Dynamic attributes are added per observation
-- Constant attributes are always present
-- Attributes can be of various types
-- Consider cardinality when using dynamic attributes
-- High cardinality can impact performance
-- Default port is 8000
-- Metrics endpoint is at /metrics
+2. 可观察指标的动态属性
+   ```go
+   observableCounter := meter.MustObservableCounter(
+       "goframe.metric.demo.observable_counter",
+       gmetric.MetricOption{
+           Help: "可观察计数器示例",
+           Unit: "%",
+           Attributes: gmetric.Attributes{
+               gmetric.NewAttribute("const_attr_4", 4), // 常量属性
+           },
+       },
+   )
+   
+   // 在回调中添加动态属性
+   meter.MustRegisterCallback(func(ctx context.Context, obs gmetric.Observer) error {
+       obs.Observe(observableCounter, 10, gmetric.Option{
+           Attributes: gmetric.Attributes{
+               gmetric.NewAttribute("dynamic_attr_1", 1), // 动态属性
+           },
+       })
+       return nil
+   }, observableCounter)
+   ```

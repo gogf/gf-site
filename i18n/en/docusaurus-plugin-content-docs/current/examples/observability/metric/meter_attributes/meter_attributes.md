@@ -13,7 +13,7 @@ Code Source: https://github.com/gogf/examples/tree/main/observability/metric/met
 
 ## Description
 
-This example demonstrates how to work with meter-level attributes in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
+This example demonstrates how to work with meter-level attributes in `GoFrame` using `OpenTelemetry` and `Prometheus` integration. It shows how to:
 - Configure meter-level attributes
 - Apply attributes across all metrics
 - Combine meter and metric attributes
@@ -21,9 +21,11 @@ This example demonstrates how to work with meter-level attributes in GoFrame usi
 
 ## Structure
 
+```text
 - `go.mod`: The Go module file for dependency management
 - `go.sum`: The Go module checksums file
 - `main.go`: The main application demonstrating meter attributes
+```
 
 ## Features
 
@@ -67,7 +69,7 @@ The example showcases the following features:
    ```
 
 3. Example metrics output:
-   ```
+   ```text
    # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
    goframe_metric_demo_counter{const_attr_1="1",meter_label_1="1",meter_label_2="2"} 11
    

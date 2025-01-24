@@ -13,17 +13,19 @@ Code Source: https://github.com/gogf/examples/tree/main/observability/metric/cal
 
 ## Description
 
-This example demonstrates how to implement callback-based metric collection in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
+This example demonstrates how to implement callback-based metric collection in `GoFrame` using `OpenTelemetry` and `Prometheus` integration. It shows how to:
 - Create metrics with callback functions
 - Automatically update metric values through callbacks
 - Configure metric attributes
-- Export metrics in Prometheus format
+- Export metrics in `Prometheus` format
 
 ## Structure
 
+```text
 - `go.mod`: The Go module file for dependency management
 - `go.sum`: The Go module checksums file
 - `main.go`: The main application demonstrating callback-based metrics
+```
 
 ## Features
 
@@ -67,7 +69,7 @@ The example showcases the following features:
    ```
 
 3. Example metrics output:
-   ```
+   ```text
    # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
    goframe_metric_demo_counter{const_attr_1="1"} 11
    
@@ -82,7 +84,7 @@ The example demonstrates:
 2. Automatic value updates through callbacks
 3. Comparison between callback and manual updates
 4. Proper metric configuration
-5. Prometheus integration
+5. `Prometheus` integration
 
 ## Notes
 

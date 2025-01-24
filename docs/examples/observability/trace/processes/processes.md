@@ -1,154 +1,167 @@
 ---
-title: Multi-Process Example
+title: 多进程示例
 slug: /examples/observability/trace/processes
-keywords: [trace, processes, gcmd, gproc, goframe]
-description: Examples demonstrating distributed tracing across multiple processes using different GoFrame process management approaches
+keywords: [链路跟踪, 多进程, gcmd, gproc, goframe]
+description: 使用GoFrame不同进程管理方式实现的多进程分布式链路跟踪示例
 hide_title: true
+sidebar_position: 1
 ---
 
-# Multi-Process Tracing Examples
+# 多进程链路跟踪示例
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/processes
 
 
-## Description
+## 简介
 
-This directory contains examples demonstrating distributed tracing across multiple processes using different GoFrame process management approaches. It includes:
+本目录包含了使用GoFrame不同进程管理方式实现多进程分布式链路跟踪的示例。包括：
 
-1. Command-Line Process Management (`gcmd/`)
-   - Uses `gcmd` package for process management
-   - Demonstrates command-line based process creation
-   - Shows trace context propagation between parent and child processes
+1. 命令行进程管理 (`gcmd/`)
+   - 使用`gcmd`包进行进程管理
+   - 演示基于命令行的进程创建
+   - 展示父子进程间的链路跟踪上下文传播
 
-2. Process Management (`gproc/`)
-   - Uses `gproc` package for process management
-   - Demonstrates programmatic process creation
-   - Shows trace context propagation in process hierarchy
+2. 程序化进程管理 (`gproc/`)
+   - 使用`gproc`包进行进程管理
+   - 演示程序化的进程创建
+   - 展示进程层级中的链路跟踪传播
 
-## Directory Structure
+## 目录结构
 
 ```
 .
-├── gcmd/           # Command-line process management example
-│   ├── main.go     # Main process implementation
-│   └── sub/        # Sub-process implementation
-│       └── sub.go  # Sub-process code
-├── gproc/          # Process management example
-│   ├── main.go     # Main process implementation
-│   └── sub/        # Sub-process implementation
-│       └── sub.go  # Sub-process code
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── gcmd/           # 命令行进程管理示例
+│   ├── main.go     # 主进程实现
+│   └── sub/        # 子进程实现
+│       └── sub.go  # 子进程代码
+├── gproc/          # 进程管理示例
+│   ├── main.go     # 主进程实现
+│   └── sub/        # 子进程实现
+│       └── sub.go  # 子进程代码
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
+- Go 1.22 或更高版本
+- GoFrame框架
+- GoFrame链路跟踪支持
 
-## Features
+## 功能特性
 
-The examples showcase the following features:
+本示例展示了以下功能：
 
-1. Process Management
-   - Process creation and execution
-   - Command-line argument handling
-   - Process communication
-   - Error handling
+1. 进程管理
+   ```go
+   // gcmd方式
+   Main = &gcmd.Command{
+       Name:  "main",
+       Brief: "main process",
+       Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
+           return gproc.ShellRun(ctx, `go run sub/sub.go`)
+       },
+   }
 
-2. Trace Context Propagation
-   - Parent-child process trace linking
-   - Context management across processes
-   - Trace baggage handling
+   // gproc方式
+   if err := gproc.ShellRun(ctx, `go run sub/sub.go`); err != nil {
+       panic(err)
+   }
+   ```
 
-3. Logging and Debugging
-   - Process identification
-   - Debug logging
-   - Error reporting
+2. 链路跟踪上下文传播
+   ```go
+   // 主进程
+   ctx := gctx.GetInitCtx()
+   g.Log().Debug(ctx, `this is main process`)
 
-## Comparison of Approaches
+   // 子进程
+   ctx := gctx.GetInitCtx()
+   g.Log().Debug(ctx, `this is sub process`)
+   ```
 
-### Command-Line Management (gcmd/)
-1. Features:
-   - Command-line interface
-   - Structured command handling
-   - Built-in help and documentation
-   - Command hierarchy support
+3. 日志和调试
+   - 进程标识
+   - 调试日志
+   - 错误报告
 
-2. Use Cases:
-   - CLI applications
-   - Command-driven tools
-   - Interactive applications
+## 管理方式对比
 
-### Process Management (gproc/)
-1. Features:
-   - Programmatic process control
-   - Direct process manipulation
-   - Shell command execution
-   - Process synchronization
+### 命令行管理 (gcmd/)
+1. 特点：
+   - 命令行界面
+   - 结构化命令处理
+   - 内置帮助和文档
+   - 命令层级支持
 
-2. Use Cases:
-   - Background processes
-   - Service management
-   - Process automation
+2. 使用场景：
+   - CLI应用程序
+   - 命令驱动工具
+   - 交互式应用
 
-## Usage
+### 程序化管理 (gproc/)
+1. 特点：
+   - 程序化进程控制
+   - 直接进程操作
+   - Shell命令执行
+   - 进程同步
 
-### Command-Line Example
-1. Navigate to gcmd example:
+2. 使用场景：
+   - 后台进程
+   - 服务管理
+   - 进程自动化
+
+## 使用说明
+
+### 命令行示例
+1. 进入gcmd示例目录：
    ```bash
    cd gcmd
    ```
 
-2. Run the example:
+2. 运行示例：
    ```bash
    go run main.go
    ```
 
-### Process Management Example
-1. Navigate to gproc example:
+### 程序化管理示例
+1. 进入gproc示例目录：
    ```bash
    cd gproc
    ```
 
-2. Run the example:
+2. 运行示例：
    ```bash
    go run main.go
    ```
 
-## Implementation Details
+## 实现说明
 
-Both examples demonstrate:
+两个示例都演示了：
 
-1. Process Creation
-   - Main process initialization
-   - Sub-process spawning
-   - Process environment setup
+1. 进程创建
+   - 主进程初始化
+   - 子进程启动
+   - 进程环境设置
 
-2. Context Management
-   - Context creation and initialization
-   - Context propagation between processes
-   - Context cleanup
+2. 上下文管理
+   ```go
+   // 创建和初始化上下文
+   ctx := gctx.GetInitCtx()
 
-3. Error Handling
-   - Process execution errors
-   - Command execution errors
-   - Graceful error reporting
+   // 在进程间传播上下文
+   g.Log().Debug(ctx, `process message`)
+   ```
 
-## Troubleshooting
+3. 错误处理
+   ```go
+   // 进程执行错误处理
+   if err := gproc.ShellRun(ctx, command); err != nil {
+       panic(err)
+   }
 
-1. Process Issues:
-   - Check process execution permissions
-   - Verify process environment variables
-   - Review process exit codes
-
-2. Context Issues:
-   - Verify context propagation
-   - Check context cancellation
-   - Review context deadlines
-
-3. General Issues:
-   - Check Go environment setup
-   - Verify GoFrame installation
-   - Review application logs
+   // 命令执行错误处理
+   if err := cmd.Run(ctx); err != nil {
+       return err
+   }
+   ```

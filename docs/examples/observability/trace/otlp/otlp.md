@@ -1,53 +1,53 @@
 ---
-title: OpenTelemetry Example
+title: OpenTelemetry示例
 slug: /examples/observability/trace/otlp
-keywords: [trace, otlp, grpc, http, goframe]
-description: OpenTelemetry trace data export methods in GoFrame
+keywords: [链路跟踪, otlp, grpc, http, goframe]
+description: GoFrame中OpenTelemetry链路跟踪数据导出方法
 hide_title: true
+sidebar_position: 8
 ---
 
-# OpenTelemetry Tracing Examples
+# OpenTelemetry链路跟踪示例
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/otlp
 
 
-## Description
+## 简介
 
-This directory contains examples demonstrating different methods of exporting OpenTelemetry trace data in GoFrame applications. It includes:
+本目录包含了演示在GoFrame应用程序中使用不同方法导出OpenTelemetry链路跟踪数据的示例。包括：
 
-1. gRPC-based Export (`grpc/`)
-   - Uses gRPC protocol for trace data transmission
-   - Suitable for high-performance, streaming trace data export
-   - Supports bidirectional streaming and connection multiplexing
+1. 基于gRPC的导出 (`grpc/`)
+   - 使用gRPC协议传输链路跟踪数据
+   - 适用于高性能、流式链路跟踪数据导出
+   - 支持双向流和连接复用
 
-2. HTTP-based Export (`http/`)
-   - Uses HTTP protocol for trace data transmission
-   - Suitable for environments with HTTP proxy or firewall restrictions
-   - Simpler to configure and debug
+2. 基于HTTP的导出 (`http/`)
+   - 使用HTTP协议传输链路跟踪数据
+   - 适用于有HTTP代理或防火墙限制的环境
+   - 配置和调试更简单
 
-## Directory Structure
+## 目录结构
 
 ```
 .
-├── grpc/           # gRPC-based tracing example
-│   └── main.go     # gRPC trace exporter implementation
-├── http/           # HTTP-based tracing example
-│   └── main.go     # HTTP trace exporter implementation
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── grpc/           # 基于gRPC的链路跟踪示例
+│   └── main.go     # gRPC链路跟踪导出器实现
+├── http/           # 基于HTTP的链路跟踪示例
+│   └── main.go     # HTTP链路跟踪导出器实现
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry gRPC Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlpgrpc)
-- [GoFrame OpenTelemetry HTTP Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlphttp)
+- Go 1.22 或更高版本
+- GoFrame框架
+- GoFrame OpenTelemetry gRPC链路跟踪
+- GoFrame OpenTelemetry HTTP链路跟踪
 
-## Prerequisites
+## 前置条件
 
-1. Running Jaeger instance:
+1. 运行Jaeger实例：
    ```bash
    docker run --rm --name jaeger \
    -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -64,100 +64,106 @@ This directory contains examples demonstrating different methods of exporting Op
    jaegertracing/all-in-one:1.55
    ```
 
-## Comparison of Export Methods
+## 导出方法对比
 
-### gRPC Export (grpc/)
-1. Advantages:
-   - Higher performance
-   - Bidirectional streaming
-   - Connection multiplexing
-   - Better for high-volume tracing
+### gRPC导出 (grpc/)
+1. 优势：
+   - 更高性能
+   - 双向流传输
+   - 连接复用
+   - 更适合大量链路跟踪数据
 
-2. Configuration:
-   - Requires gRPC endpoint
-   - Supports authentication token
-   - Configurable connection settings
+2. 配置：
+   - 需要gRPC端点
+   - 支持认证令牌
+   - 可配置连接设置
 
-3. Use Cases:
-   - High-volume trace data
-   - Microservices architecture
-   - Performance-critical systems
+3. 使用场景：
+   - 大量链路跟踪数据
+   - 微服务架构
+   - 性能关键系统
 
-### HTTP Export (http/)
-1. Advantages:
-   - Simpler setup
-   - Works through HTTP proxies
-   - Easier to debug
-   - Better firewall compatibility
+### HTTP导出 (http/)
+1. 优势：
+   - 设置更简单
+   - 可通过HTTP代理
+   - 更易调试
+   - 更好的防火墙兼容性
 
-2. Configuration:
-   - Requires HTTP endpoint
-   - Supports path configuration
-   - Standard HTTP settings
+2. 配置：
+   - 需要HTTP端点
+   - 支持路径配置
+   - 标准HTTP设置
 
-3. Use Cases:
-   - Environments with HTTP proxy
-   - Simpler deployment requirements
-   - Development and testing
+3. 使用场景：
+   - 有HTTP代理的环境
+   - 简单部署要求
+   - 开发和测试
 
-## Usage
+## 使用说明
 
-### gRPC Export Example
-1. Navigate to gRPC example:
+### gRPC导出示例
+1. 进入gRPC示例目录：
    ```bash
    cd grpc
    ```
 
-2. Run the example:
+2. 运行示例：
    ```bash
    go run main.go
    ```
 
-### HTTP Export Example
-1. Navigate to HTTP example:
+### HTTP导出示例
+1. 进入HTTP示例目录：
    ```bash
    cd http
    ```
 
-2. Run the example:
+2. 运行示例：
    ```bash
    go run main.go
    ```
 
-3. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+3. 查看链路跟踪：
+   在浏览器中打开 http://localhost:16686 查看Jaeger UI中的链路跟踪信息。
 
-## Implementation Details
+## 实现说明
 
-Both examples demonstrate:
-1. Trace Context Management
-   - Span creation and management
-   - Context propagation
-   - Baggage handling
+两个示例都演示了：
 
-2. Error Handling
-   - Connection error handling
-   - Export error handling
-   - Graceful shutdown
+1. 链路跟踪上下文管理
+   ```go
+   // 创建新的链路跟踪span
+   ctx, span := gtrace.NewSpan(gctx.New(), "StartRequests")
+   defer span.End()
 
-3. Configuration
-   - Service name configuration
-   - Endpoint configuration
-   - Authentication setup
+   // 设置链路跟踪的baggage值
+   ctx = gtrace.SetBaggageValue(ctx, "name", "john")
+   ```
 
-## Troubleshooting
+2. 错误处理
+   ```go
+   // 初始化导出器
+   shutdown, err = otlpgrpc.Init(serviceName, endpoint, traceToken)
+   if err != nil {
+       g.Log().Fatal(ctx, err)
+   }
+   defer shutdown(ctx)
+   ```
 
-1. gRPC Export Issues:
-   - Check gRPC endpoint accessibility
-   - Verify authentication token
-   - Review gRPC connection logs
+3. 配置管理
+   ```go
+   // gRPC配置
+   const (
+       serviceName = "otlp-grpc-client"
+       endpoint    = "tracing-analysis-dc-bj.aliyuncs.com:8090"
+       traceToken  = "******_******"
+   )
 
-2. HTTP Export Issues:
-   - Check HTTP endpoint accessibility
-   - Verify path configuration
-   - Review HTTP response codes
-
-3. General Issues:
-   - Verify Jaeger is running
-   - Check network connectivity
-   - Review application logs
+   // HTTP配置
+   const (
+       serviceName = "otlp-http-client"
+       endpoint    = "tracing-analysis-dc-hz.aliyuncs.com"
+       path        = "adapt_******_******/api/otlp/traces"
+   )
+   ```

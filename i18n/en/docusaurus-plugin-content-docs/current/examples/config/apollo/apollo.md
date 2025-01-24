@@ -6,17 +6,17 @@ description: Apollo configuration center integration with GoFrame
 hide_title: true
 ---
 
-# Apollo Configuration Center Example
+# `Apollo` Configuration Center Example
 
 Code Source: https://github.com/gogf/examples/tree/main/config/apollo
 
 
 ## Description
 
-This directory contains an example demonstrating how to integrate Apollo configuration center with GoFrame applications. It shows:
+This directory contains an example demonstrating how to integrate `Apollo` configuration center with `GoFrame` applications. It shows:
 
-1. Apollo Client Configuration
-   - Apollo client setup and initialization
+1. `Apollo` Client Configuration
+   - `Apollo` client setup and initialization
    - Configuration adapter implementation
    - Error handling and logging
 
@@ -27,7 +27,7 @@ This directory contains an example demonstrating how to integrate Apollo configu
 
 ## Directory Structure
 
-```
+```text
 .
 ├── boot/           # Bootstrap configuration
 │   └── boot.go     # Apollo client initialization
@@ -47,7 +47,7 @@ This directory contains an example demonstrating how to integrate Apollo configu
 
 The example showcases the following features:
 
-1. Apollo Integration
+1. `Apollo` Integration
    - Client configuration
    - Connection management
    - Namespace handling
@@ -66,7 +66,7 @@ The example showcases the following features:
 
 ## Configuration
 
-### Apollo Server
+### `Apollo` Server
 1. Server Configuration:
    - Default port: 8080
    - Default cluster: default
@@ -81,7 +81,7 @@ The example showcases the following features:
 1. Basic Settings:
    - AppID: Application identifier
    - Cluster: Configuration cluster
-   - IP: Apollo server address
+   - IP: `Apollo` server address
 
 2. Advanced Options:
    - Namespace customization
@@ -90,13 +90,13 @@ The example showcases the following features:
 
 ## Usage
 
-1. Start Apollo Server:
+1. Start `Apollo` Server:
    ```bash
    # Start Apollo server using Docker
    docker run -p 8080:8080 apolloconfig/apollo-portal
    ```
 
-2. Configure Apollo:
+2. Configure `Apollo`:
    - Create application namespace
    - Add configuration items
    - Publish configuration

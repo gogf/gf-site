@@ -1,95 +1,50 @@
 ---
-title: Proxy
+title: 反向代理
 slug: /examples/httpserver/proxy
-keywords: [http, server, proxy, reverse, goframe]
-description: A reverse proxy server using GoFrame framework
+keywords: [http, 服务器, 代理, 反向代理, goframe]
+description: 使用 GoFrame 框架实现反向代理服务器
 hide_title: true
+sidebar_position: 1
 ---
 
-# HTTP Server Proxy
+# HTTP 服务器代理
 
 Code Source: https://github.com/gogf/examples/tree/main/httpserver/proxy
 
 
+## 介绍
 
-## Description
+本示例展示了如何使用 `GoFrame` 创建一个反向代理服务器。示例包含两个服务器：
 
-This example demonstrates how to create a reverse proxy server using `GoFrame`. The example consists of two servers:
+1. 在 8198 端口运行的后端服务器，提供实际服务
+2. 在 8199 端口运行的代理服务器，将请求转发到后端服务器
 
-1. A backend server running on port 8198 that provides the actual service
-2. A proxy server running on port 8199 that forwards requests to the backend server
+代理服务器实现了以下功能：
+- 使用 `httputil.NewSingleHostReverseProxy` 实现反向代理功能
+- 自定义代理失败的错误处理
+- URL 路径重写
+- 请求体处理
+- 详细的代理操作日志
 
-The proxy server implements the following features:
-- Reverse proxy functionality using `httputil.NewSingleHostReverseProxy`
-- Custom error handling for proxy failures
-- URL path rewriting
-- Request body handling
-- Detailed logging of proxy operations
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 
-## Structure
+## 使用说明
 
-- `go.mod`: The Go module file.
-- `main.go`: The main application entry point.
-
-## Features
-
-- Simple and efficient reverse proxy implementation
-- Automatic URL path rewriting
-- Error handling for backend server failures
-- Logging of proxy operations
-- Support for all HTTP methods
-
-## Setup
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/gogf/examples.git
-    cd examples/httpserver/proxy
-    ```
-
-2. Install the dependencies:
-    ```bash
-    go mod tidy
-    ```
-
-3. Run the application:
-    ```bash
-    go run main.go
-    ```
-
-## Usage
-
-1. Run the example:
+1. 运行服务:
    ```bash
    go run main.go
    ```
 
-2. The example will start two servers:
-   - Backend server at: http://127.0.0.1:8198
-   - Proxy server at: http://127.0.0.1:8199
+2. 服务监听两个端口:
+   - 后端服务器在 http://127.0.0.1:8198
+   - 代理服务器在 http://127.0.0.1:8199
 
-3. Test the proxy:
-   - Access through proxy: http://127.0.0.1:8199/proxy/user/1
-   - Direct backend access: http://127.0.0.1:8198/user/1
+3. 测试代理:
+   - 通过代理访问：http://127.0.0.1:8199/proxy/user/1
+   - 直接访问后端：http://127.0.0.1:8198/user/1
 
-## Implementation Details
-
-The proxy server uses Go's built-in `httputil.NewSingleHostReverseProxy` for implementing the reverse proxy functionality. All requests to the proxy server with the path prefix `/proxy/*` are forwarded to the backend server after removing the `/proxy` prefix.
-
-The implementation includes:
-- Request path rewriting
-- Error handling for backend failures
-- Request body handling for proper forwarding
-- Logging of proxy operations for debugging
-
-## Notes
-
-- The proxy server modifies the request URL path before forwarding
-- All HTTP methods are supported
-- Backend server errors result in a 502 Bad Gateway response

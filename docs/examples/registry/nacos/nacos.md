@@ -1,136 +1,113 @@
 ---
 title: Nacos
 slug: /examples/registry/nacos
-keywords: [registry, nacos, service discovery, goframe]
-description: Nacos service registry integration in GoFrame
+keywords: [注册中心, nacos, 服务发现, goframe]
+description: GoFrame框架中的Nacos服务注册与发现集成
 hide_title: true
+sidebar_position: 1
 ---
 
-# Registry - Nacos Integration
+# 注册中心 - `Nacos` 集成
 
 Code Source: https://github.com/gogf/examples/tree/main/registry/nacos
 
 
-## Description
+## 简介
 
-This example demonstrates how to integrate Nacos service registry with GoFrame applications. It shows how to:
-- Register services with Nacos
-- Discover services using Nacos
-- Implement service health checks
-- Build distributed systems
+本示例演示了如何在 `GoFrame` 应用程序中集成 `Nacos` 服务注册中心。主要展示：
+- 使用 `Nacos` 注册服务
+- 使用 `Nacos` 发现服务
+- 实现服务健康检查
+- 构建分布式系统
 
-## Structure
+## 目录结构
 
-```
+```text
 .
-├── docker-compose/     # Docker compose files for running Nacos
-│   ├── standalone/     # Standalone mode configuration
-│   └── cluster/        # Cluster mode configuration
-├── grpc/               # gRPC service examples
-│   ├── client/         # gRPC client implementation
-│   ├── controller/     # gRPC service controllers
-│   ├── protobuf/       # Protocol buffer definitions
-│   └── server/         # gRPC server implementation
-│       ├── main.go     # Server startup code
-│       └── config.yaml # Server configuration
-├── http/               # HTTP service examples
-│   ├── client/         # HTTP client implementation
-│   └── server/         # HTTP server implementation
-├── go.mod              # Go module file
-└── go.sum              # Go module checksums
+├── docker-compose/      # Docker配置文件
+│   ├── docker-compose.yml  # Docker编排配置
+│   └── env/               # 环境变量配置
+│       └── nacos.env      # Nacos环境配置
+├── grpc/                # gRPC服务示例
+│   ├── client/          # gRPC客户端实现
+│   ├── controller/      # gRPC服务控制器
+│   ├── protobuf/        # Protocol buffer定义
+│   └── server/          # gRPC服务器实现
+│       ├── main.go      # 服务器启动代码
+│       └── config.yaml  # 服务器配置
+├── http/                # HTTP服务示例
+│   ├── client/          # HTTP客户端实现
+│   └── server/          # HTTP服务器实现
+├── go.mod               # Go模块文件
+└── go.sum               # Go模块校验和
 ```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Service Registration
-   - Automatic service registration
-   - Health check configuration
-   - Metadata management
-   - Namespace support
-   - Group management
+本示例展示了以下功能：
 
-2. Service Discovery
-   - Dynamic service discovery
-   - Load balancing
-   - Failover support
-   - Service grouping
-   - Namespace isolation
+1. 服务注册
+   - 自动服务注册
+   - 健康检查配置
+   - 元数据管理
+   - 命名空间和分组管理
 
-3. Protocol Support
-   - HTTP services
-   - gRPC services
-   - Custom protocols
+2. 服务发现
+   - 动态服务发现
+   - 负载均衡
+   - 故障转移支持
+   - 服务订阅机制
 
-## Requirements
+3. 协议支持
+   - `HTTP` 服务注册与发现
+   - `gRPC` 服务注册与发现
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame Nacos Registry](https://github.com/gogf/gf/tree/master/contrib/registry/nacos)
-- [Nacos](https://nacos.io/en-us/docs/v2/quickstart/quick-start.html)
+## 环境要求
 
-## Prerequisites
+- `Go` 1.22 或更高版本
+- `Docker` (用于运行 `Nacos`)
+- `Nacos` 2.1.2+
 
-1. Running Nacos server:
+## 使用说明
+
+1. 启动 `Nacos` 服务：
    ```bash
-   # Using docker-compose
    cd docker-compose
    docker-compose up -d
    ```
 
-## Usage
-
-### HTTP Example
-
-1. Start the HTTP server:
+2. `HTTP` 服务示例：
    ```bash
+   # 启动HTTP服务器
    cd http/server
    go run server.go
-   ```
 
-2. Run the HTTP client:
-   ```bash
+   # 运行HTTP客户端
    cd http/client
    go run client.go
    ```
 
-### gRPC Example
-
-1. Start the gRPC server:
+3. `gRPC` 服务示例：
    ```bash
+   # 启动gRPC服务器
    cd grpc/server
    go run server.go
-   ```
 
-2. Run the gRPC client:
-   ```bash
+   # 运行gRPC客户端
    cd grpc/client
    go run client.go
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. Nacos client configuration
-2. Service registration process
-3. Service discovery mechanism
-4. Health check implementation
-5. Load balancing strategies
-6. Namespace management
-7. Service grouping
+1. `HTTP` 服务实现
+   - 服务器使用 `g.Server` 创建 `HTTP` 服务
+   - 通过 `gsvc.SetRegistry` 设置 `Nacos` 注册中心
+   - 客户端使用 `g.Client()` 自动发现并访问服务
+   - 支持自动的健康检查和服务发现
 
-## Notes
-
-- Nacos server must be running
-- Default Nacos address: 127.0.0.1:8848
-- Services are registered automatically
-- Health checks are configured by default
-- Load balancing is handled automatically
-- Consider security in production
-- Handle failover scenarios
-- Monitor service health
-- Implement proper error handling
-- Use appropriate namespaces
-- Configure service groups
-- Manage metadata properly
+2. `gRPC` 服务实现
+   - 服务器使用 `grpc.Server` 创建 `gRPC` 服务
+   - 通过 `gsvc.SetRegistry` 设置 `Nacos` 注册中心
+   - 客户端使用 `grpc.Client` 自动发现并访问服务
+   - 支持自动的健康检查和服务发现

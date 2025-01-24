@@ -1,101 +1,118 @@
 ---
-title: HTTP Client
+title: HTTP客户端
 slug: /examples/observability/metric/http_client
-keywords: [metrics, http client, prometheus, opentelemetry, goframe]
-description: HTTP client metrics collection in GoFrame
+keywords: [指标, http客户端, prometheus, opentelemetry, goframe]
+description: GoFrame中HTTP客户端指标收集的实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Metric - HTTP Client Example
+# 指标收集 - HTTP客户端
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/metric/http_client
 
 
-## Description
+## 简介
 
-This example demonstrates how to collect and monitor HTTP client metrics in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
-- Monitor HTTP client requests
-- Track request durations
-- Collect response status codes
-- Export client-side metrics
+本示例演示了如何在 `GoFrame` 中使用 `OpenTelemetry` 和 `Prometheus` 集成来收集和监控HTTP客户端指标。主要展示：
+- 监控HTTP客户端请求
+- 跟踪请求持续时间
+- 收集响应状态码
+- 导出客户端指标数据
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file for dependency management
-- `go.sum`: The Go module checksums file
-- `main.go`: The main application demonstrating HTTP client metrics
+```text
+.
+├── go.mod            # Go模块文件
+├── go.sum            # Go模块校验和
+└── main.go           # 主程序，演示HTTP客户端指标收集
+```
 
-## Features
+## 功能特性
 
-The example showcases the following metrics:
-1. Request Metrics
-   - Total requests count
-   - Active requests
-   - Request duration
-   - Request size
+本示例展示了以下指标：
 
-2. Response Metrics
-   - Response status codes
-   - Response size
-   - Error count
-   - Response duration
+1. 请求指标
+   - 总请求数（Total Requests Count）
+   - 活跃请求数（Active Requests）
+   - 请求持续时间（Request Duration）
+   - 请求大小（Request Size）
 
-3. Connection Metrics
-   - Connection pool stats
-   - DNS lookup duration
-   - TLS handshake duration
+2. 响应指标
+   - 响应状态码（Response Status Codes）
+   - 响应大小（Response Size）
+   - 错误计数（Error Count）
+   - 响应持续时间（Response Duration）
 
-## Requirements
+3. 连接指标
+   - 连接池统计（Connection Pool Stats）
+   - DNS查询持续时间（DNS Lookup Duration）
+   - TLS握手持续时间（TLS Handshake Duration）
+   - 连接建立时间（Connection Establishment Time）
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry Metric](https://github.com/gogf/gf/tree/master/contrib/metric/otelmetric)
+## 环境要求
 
-## Usage
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame OpenTelemetry Metric` 扩展
 
-1. Run the example:
+## 使用说明
+
+1. 运行示例：
    ```bash
    go run main.go
    ```
 
-2. Access the metrics:
+2. 访问指标：
    ```bash
-   # Using curl
+   # 使用curl
    curl http://localhost:8000/metrics
    
-   # Or open in browser
+   # 或在浏览器中打开
    http://localhost:8000/metrics
    ```
 
-3. Example metrics output:
-   ```
-   # HELP goframe_http_client_request_duration_seconds Duration of HTTP requests
+3. 指标输出示例：
+   ```text
+   # HELP goframe_http_client_request_duration_seconds HTTP请求的持续时间
    goframe_http_client_request_duration_seconds_bucket{method="GET",status="200",url="https://goframe.org",le="0.1"} 1
    
-   # HELP goframe_http_client_requests_total Total number of HTTP requests made
+   # HELP goframe_http_client_requests_total HTTP请求的总数
    goframe_http_client_requests_total{method="GET",status="200",url="https://goframe.org"} 1
    
-   # HELP goframe_http_client_response_size_bytes Size of HTTP response payloads
+   # HELP goframe_http_client_response_size_bytes HTTP响应的大小
    goframe_http_client_response_size_bytes{method="GET",status="200",url="https://goframe.org"} 12345
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. HTTP client configuration
-2. Automatic metric collection
-3. Built-in metrics integration
-4. Prometheus export setup
-5. Metric attribute handling
+1. 配置指标导出器
+   ```go
+   // 创建Prometheus导出器，用于指标数据的导出
+   exporter, err := prometheus.New(
+       prometheus.WithoutCounterSuffixes(), // 移除计数器后缀以保持指标名称简洁
+       prometheus.WithoutUnits(),           // 移除单位后缀以保持指标名称简洁
+   )
+   if err != nil {
+       g.Log().Fatal(ctx, err)
+   }
+   ```
 
-## Notes
+2. 初始化OpenTelemetry提供者
+   ```go
+   // 初始化并配置OpenTelemetry提供者
+   provider := otelmetric.MustProvider(
+       otelmetric.WithReader(exporter),     // 配置指标读取器
+       otelmetric.WithBuiltInMetrics(),     // 启用内置指标收集
+   )
+   provider.SetAsGlobal()                   // 设置为全局指标提供者
+   defer provider.Shutdown(ctx)             // 确保程序退出时正确关闭提供者
+   ```
 
-- Metrics are collected automatically
-- No manual instrumentation needed
-- Built-in metrics are enabled by default
-- Supports all HTTP methods
-- Tracks all response codes
-- Default port is 8000
-- Metrics endpoint is at /metrics
-- Consider security implications when exposing metrics
+3. 使用HTTP客户端
+   ```go
+   // 发起HTTP请求并自动收集指标
+   url := `https://goframe.org`
+   content := g.Client().GetContent(ctx, url)  // 发起HTTP GET请求
+   ```

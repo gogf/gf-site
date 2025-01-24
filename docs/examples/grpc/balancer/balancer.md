@@ -1,104 +1,63 @@
 ---
-title: Load Balancing
+title: 负载均衡
 slug: /examples/grpc/balancer
-keywords: [grpc, load balancing, service discovery, goframe]
-description: gRPC load balancing in GoFrame
+keywords: [grpc, 负载均衡, 服务发现, goframe]
+description: GoFrame 中的 gRPC 负载均衡
 hide_title: true
+sidebar_position: 2
 ---
 
-## gRPC - Load Balancing
+# `gRPC` - 负载均衡
 
-### Description
+Code Source: https://github.com/gogf/examples/tree/main/grpc/balancer
 
-This example demonstrates how to implement gRPC load balancing in GoFrame applications. It shows how to:
-- Configure gRPC load balancers
-- Implement different balancing strategies
-- Build resilient distributed systems
 
-### Structure
+## 介绍
 
-```
+本示例展示了如何在 `GoFrame` 应用程序中实现 `gRPC` 负载均衡。
+
+
+## 目录结构
+
+```text
 .
-├── client/         # Client example
-│   └── client.go   # Client implementation with load balancing
-├── controller/     # Service controllers
-│   └── hello.go    # Hello service implementation
-├── protobuf/       # Protocol buffer definitions
-├── server/         # Server example
-│   ├── config.yaml # Server configuration
-│   └── server.go   # Server implementation
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── client/         # 客户端示例
+│   └── client.go   # 带负载均衡的客户端实现
+├── controller/     # 服务控制器
+│   └── hello.go    # Hello 服务实现
+├── protobuf/       # protobuf协议定义
+├── server/         # 服务器示例
+│   ├── config.yaml # 服务器配置
+│   └── server.go   # 服务器实现
+├── go.mod          # Go 模块文件
+└── go.sum          # Go 模块校验和
 ```
 
-### Features
 
-The example showcases the following features:
-1. Load Balancing
-   - Round-robin balancing
-   - Weight-based balancing
-   - Least connection balancing
-   - Custom balancing strategies
 
-2. Service Management
-   - Service registration
-   - Health checking
-   - Failover handling
-   - Connection management
+## 环境要求
 
-3. Protocol Support
-   - gRPC services
-   - Protocol buffer messages
-   - Custom metadata handling
-   - Stream processing
-
-### Requirements
-
-- [Go](https://golang.org/dl/) 1.22 or higher
+- [Go](https://golang.org/dl/) 1.22 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
-- [gRPC](https://grpc.io/docs/languages/go/quickstart/)
+- [Protocol Buffers](https://developers.google.com/protocol-buffers)
 
-### Prerequisites
+## 使用说明
 
-1. Protocol buffer compiler installed:
-   ```bash
-   # For macOS
-   brew install protobuf
-   
-   # Install protoc-gen-go and protoc-gen-go-grpc
-   go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-   ```
-
-### Usage
-
-1. Generate protocol buffer code:
-   ```bash
-   cd protobuf
-   protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. *.proto
-   ```
-
-2. Start multiple server instances:
+1. 启动多个服务器实例（使用随机端口）：
    ```bash
    cd server
-   # Start first instance on a random free port
    go run server.go
-   
-   # Start second instance on a random free port
+
+   # 启动第二个服务器实例
+   go run server.go
+
+   # 启动第三个服务器实例
    go run server.go
    ```
 
-3. Run the client:
+2. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
-
-## Implementation Details
-
-The example demonstrates:
-1. Load balancer configuration
-2. Service registration process
-3. Connection management
-4. Load balancing strategies

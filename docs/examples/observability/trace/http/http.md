@@ -1,59 +1,47 @@
 ---
-title: HTTP Service
+title: HTTP服务
 slug: /examples/observability/trace/http
-keywords: [trace, http, goframe]
-description: distributed tracing in HTTP services using GoFrame
+keywords: [链路跟踪, http, goframe]
+description: GoFrame中HTTP服务的分布式跟踪实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Tracing - HTTP Service
+# 链路跟踪 - HTTP服务
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/trace/http
 
 
-## Description
+## 简介
 
-This example demonstrates how to implement distributed tracing in HTTP services using GoFrame. It shows how to:
-- Configure tracing in HTTP services
-- Trace HTTP requests and responses
-- Propagate trace context
-- Visualize distributed traces
+本示例演示了如何在 `GoFrame` 中实现HTTP服务的分布式跟踪。主要展示：
+- 配置HTTP服务的跟踪
+- 跟踪HTTP请求和响应
+- 传播跟踪上下文
+- 可视化分布式跟踪
 
-## Requirements
+## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry Tracing](https://github.com/gogf/gf/tree/master/contrib/trace/otlphttp)
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame OpenTelemetry` 跟踪
 
-## Structure
+## 目录结构
 
-```
+```text
 .
-├── client/          # Client example
-│   └── client.go    # Client with tracing
-├── server/          # Server example
-│   └── server.go    # Server with tracing
-├── go.mod          # Go module file
-└── go.sum          # Go module checksums
+├── client/          # 客户端示例
+│   └── client.go    # 带跟踪的客户端
+├── server/          # 服务端示例
+│   └── server.go    # 带跟踪的服务端
+├── go.mod          # Go模块文件
+└── go.sum          # Go模块校验和
 ```
 
-## Features
 
-The example showcases the following features:
-1. Distributed Tracing
-   - Trace propagation
-   - Span management
-   - Trace visualization
+## 前置条件
 
-2. HTTP Integration
-   - Request tracing
-   - Context propagation
-   - Error handling
-
-## Prerequisites
-
-1. Running Jaeger instance:
+1. 运行 `Jaeger` 实例：
    ```bash
    docker run --rm --name jaeger \
    -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -70,47 +58,65 @@ The example showcases the following features:
    jaegertracing/all-in-one:1.55
    ```
 
-## Usage
+## 使用说明
 
-1. Start the server:
+1. 启动服务端：
    ```bash
    cd server
    go run server.go
    ```
 
-2. Run the client:
+2. 运行客户端：
    ```bash
    cd client
    go run client.go
    ```
 
-3. View traces:
-   Open http://localhost:16686 in your browser to view traces in Jaeger UI.
+3. 查看跟踪：
+   在浏览器中打开 http://localhost:16686 查看 `Jaeger` UI中的跟踪信息。
 
-## API Endpoints
+## API接口
 
-The server provides the following HTTP endpoint:
+服务器提供以下HTTP接口：
 
 1. Hello World
-   ```
+   ```text
    GET /hello
-   Response: "Hello World"
+   响应: "Hello World"
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. HTTP request tracing
-2. Trace context propagation
-3. Error handling and logging
+1. 服务端实现
+   ```go
+   // 初始化跟踪
+   shutdown, err := otlphttp.Init(serviceName, endpoint, path)
 
-## Troubleshooting
+   // 创建HTTP服务器
+   s := g.Server()
+   s.Group("/", func(group *ghttp.RouterGroup) {
+       group.GET("/hello", HelloHandler)
+   })
 
-1. Server Issues:
-   - Ensure server is running: `curl http://localhost:8199/hello`
-   - Check server logs for detailed error messages
+   // 处理请求并跟踪
+   func HelloHandler(r *ghttp.Request) {
+       ctx, span := gtrace.NewSpan(r.Context(), "HelloHandler")
+       defer span.End()
 
-2. Tracing Issues:
-   - Verify Jaeger is running: `docker ps | grep jaeger`
-   - Check Jaeger UI accessibility: http://localhost:16686
-   - Ensure trace endpoint is correct in configuration
+       value := gtrace.GetBaggageVar(ctx, "name").String()
+       r.Response.Write("hello:", value)
+   }
+   ```
+
+2. 客户端实现
+   ```go
+   // 创建新的跟踪span
+   ctx, span := gtrace.NewSpan(gctx.New(), "StartRequests")
+   defer span.End()
+
+   // 设置跟踪的baggage值
+   ctx = gtrace.SetBaggageValue(ctx, "name", "GoFrame")
+
+   // 发送HTTP请求
+   response, err := g.Client().Get(ctx, "http://127.0.0.1:8199/hello")
+   ```

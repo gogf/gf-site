@@ -1,95 +1,118 @@
 ---
-title: Global Attributes
+title: 全局属性
 slug: /examples/observability/metric/global_attributes
-keywords: [metrics, global attributes, prometheus, opentelemetry, goframe]
-description: global metric attributes in GoFrame
+keywords: [指标, 全局属性, prometheus, opentelemetry, goframe]
+description: GoFrame中全局指标属性的实现
 hide_title: true
+sidebar_position: 1
 ---
 
-# Metric - Global Attributes Example
+# 指标收集 - 全局属性
 
 Code Source: https://github.com/gogf/examples/tree/main/observability/metric/global_attributes
 
 
-## Description
+## 简介
 
-This example demonstrates how to work with global metric attributes in GoFrame using OpenTelemetry and Prometheus integration. It shows how to:
-- Set and manage global attributes
-- Apply global attributes across multiple metrics
-- Configure attribute scope and patterns
-- Combine global attributes with local ones
+本示例演示了如何在 `GoFrame` 中使用 `OpenTelemetry` 和 `Prometheus` 集成来实现全局指标属性。主要展示：
+- 设置和管理全局属性
+- 在多个指标中应用全局属性
+- 配置属性作用域和匹配模式
+- 组合使用全局属性和局部属性
 
-## Structure
+## 目录结构
 
-- `go.mod`: The Go module file for dependency management
-- `go.sum`: The Go module checksums file
-- `main.go`: The main application demonstrating global metric attributes
+```text
+.
+├── go.mod            # Go模块文件
+├── go.sum            # Go模块校验和
+└── main.go           # 主程序，演示全局属性使用
+```
 
-## Features
+## 功能特性
 
-The example showcases the following features:
-1. Global Attributes
-   - Global attribute configuration
-   - Attribute inheritance
-   - Pattern-based application
+本示例展示了以下功能：
 
-2. Metric Types with Global Attributes
-   - Counter with global attributes
-   - Observable Counter with global attributes
-   - Local attribute combination
+1. 全局属性
+   - 全局属性配置
+   - 属性继承机制
+   - 基于模式的应用
+   - 版本控制支持
 
-3. Attribute Management
-   - Global attribute scoping
-   - Version-based filtering
-   - Pattern-based filtering
+2. 带全局属性的指标类型
+   - 带全局属性的计数器
+   - 带全局属性的可观察计数器
+   - 局部属性组合
+   - 属性优先级
 
-## Requirements
+3. 属性管理
+   - 全局属性作用域
+   - 基于版本的过滤
+   - 基于模式的过滤
+   - 属性继承规则
 
-- [Go](https://golang.org/dl/) 1.22 or higher
-- [Git](https://git-scm.com/downloads)
-- [GoFrame](https://goframe.org)
-- [GoFrame OpenTelemetry Metric](https://github.com/gogf/gf/tree/master/contrib/metric/otelmetric)
+## 环境要求
 
-## Usage
+- `Go` 1.22 或更高版本
+- `GoFrame` 框架
+- `GoFrame OpenTelemetry Metric` 扩展
 
-1. Run the example:
+## 使用说明
+
+1. 运行示例：
    ```bash
    go run main.go
    ```
 
-2. Access the metrics:
+2. 访问指标：
    ```bash
-   # Using curl
+   # 使用curl
    curl http://localhost:8000/metrics
    
-   # Or open in browser
+   # 或在浏览器中打开
    http://localhost:8000/metrics
    ```
 
-3. Example metrics output:
-   ```
-   # HELP goframe_metric_demo_counter This is a simple demo for Counter usage
+3. 指标输出示例：
+   ```text
+   # HELP goframe_metric_demo_counter 这是Counter使用的简单演示
    goframe_metric_demo_counter{const_attr_1="1",global_attr_1="1"} 11
    
-   # HELP goframe_metric_demo_observable_counter This is a simple demo for ObservableCounter usage
+   # HELP goframe_metric_demo_observable_counter 这是ObservableCounter使用的简单演示
    goframe_metric_demo_observable_counter{const_attr_2="2",global_attr_1="1"} 10
    ```
 
-## Implementation Details
+## 实现说明
 
-The example demonstrates:
-1. Setting up global attributes
-2. Configuring attribute patterns
-3. Version-based attribute filtering
-4. Attribute inheritance and precedence
-5. Global attribute scoping
+1. 设置全局属性
+   ```go
+   gmetric.SetGlobalAttributes(gmetric.Attributes{
+       gmetric.NewAttribute("global_attr_1", 1), // 全局属性
+   }, gmetric.SetGlobalAttributesOption{
+       Instrument:        instrument,        // 仅应用于特定的instrument
+       InstrumentVersion: instrumentVersion, // 仅应用于特定版本
+       InstrumentPattern: "",               // 空模式表示应用于所有指标
+   })
+   ```
 
-## Notes
+2. 带全局属性的指标
+   ```go
+   counter := meter.MustCounter(
+       "goframe.metric.demo.counter",
+       gmetric.MetricOption{
+           Help: "计数器示例",
+           Unit: "bytes",
+           Attributes: gmetric.Attributes{
+               gmetric.NewAttribute("const_attr_1", 1), // 局部常量属性
+           },
+       },
+   )
+   ```
 
-- Global attributes apply to all matching metrics
-- Local attributes take precedence over global ones
-- Pattern matching controls attribute application
-- Version filtering enables targeted attribute sets
-- Consider attribute cardinality impact
-- Default port is 8000
-- Metrics endpoint is at /metrics
+3. 在可观察指标中使用全局属性
+   ```go
+   meter.MustRegisterCallback(func(ctx context.Context, obs gmetric.Observer) error {
+       obs.Observe(observableCounter, 10) // 全局属性会自动添加
+       return nil
+   }, observableCounter)
+   ```
