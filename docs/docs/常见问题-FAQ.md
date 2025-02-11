@@ -161,7 +161,7 @@ export GOPROXY=https://goproxy.cn
 
 具体请看：
 
-- [Go Module](其他资料/准备工作/Go%20Module.md)
+- [Go Module](其他资料/准备开发环境/Go%20Module.md)
 - [https://goproxy.cn](https://goproxy.cn)
 
 ### 2、 `Linux` 下安装 `gf` 提示命令不存在 `command not found`

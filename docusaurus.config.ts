@@ -161,6 +161,12 @@ const config: Config = {
             },
           ],
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'examplesSidebar',
+          position: 'left',
+          label: '代码示例',
+        },
         {to: 'showcase', label: '案例展示', position: 'left'},
         {
           type: 'docSidebar',
