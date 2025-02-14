@@ -19,9 +19,9 @@
     "message": "Show Case",
     "description": "Navbar item with label 案例展示"
   },
-  "item.label.使用示例": {
+  "item.label.代码示例": {
     "message": "Examples",
-    "description": "Navbar item with label 使用示例"
+    "description": "Navbar item with label 代码示例"
   },
   "item.label.发布记录": {
     "message": "Releases",
