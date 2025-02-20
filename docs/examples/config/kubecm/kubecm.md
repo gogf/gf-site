@@ -33,7 +33,7 @@ Code Source: https://github.com/gogf/examples/tree/main/config/kubecm
 
 ## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 或更高版本
+- [Go](https://golang.org/dl/) `1.22` 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [GoFrame Kubernetes ConfigMap Config](https://github.com/gogf/gf/tree/master/contrib/config/kubecm)

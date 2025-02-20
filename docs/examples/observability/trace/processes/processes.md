@@ -44,7 +44,7 @@ Code Source: https://github.com/gogf/examples/tree/main/observability/trace/proc
 
 ## 环境要求
 
-- Go 1.22 或更高版本
+- Go `1.22` 或更高版本
 - GoFrame框架
 - GoFrame链路跟踪支持
 

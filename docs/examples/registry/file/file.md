@@ -54,7 +54,7 @@ Code Source: https://github.com/gogf/examples/tree/main/registry/file
 
 ## 环境要求
 
-- `Go` 1.22 或更高版本
+- `Go` `1.22` 或更高版本
 - 本地文件系统读写权限
 
 ## 使用说明

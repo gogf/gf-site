@@ -17,29 +17,30 @@ description: '使用GoFrame框架构建HTTPS服务，包括准备工作、示例
 
 1. 使用常用的 `RSA` 算法生成秘钥文件
 
-```shell
-openssl genrsa -out server.key 2048
-```
+    ```shell
+    openssl genrsa -out server.key 2048
+    ```
 
-此外，我们也可以使用 `ECDSA` 算法来生成秘钥文件：
+    （可选）或者，我们也可以使用 `ECDSA` 算法来生成秘钥文件：
 
-```shell
-openssl ecparam -genkey -name secp384r1 -out server.key
-```
+    ```shell
+    openssl ecparam -genkey -name secp384r1 -out server.key
+    ```
 
 2. 根据秘钥文件生成证书文件
 
-```shell
-openssl req -new -x509 -key server.key -out server.crt -days 365
-```
+    ```shell
+    openssl req -new -x509 -key server.key -out server.crt -days 365
+    ```
 
-3. (可选)根据秘钥生成公钥文件，该文件用于客户端与服务端通信
+3. （可选）根据秘钥生成公钥文件，该文件用于客户端与服务端通信
 
-```shell
-openssl rsa -in server.key -out server.key.public
-```
+    ```shell
+    openssl rsa -in server.key -out server.key.public
+    ```
 
-    `openssl` 支持的算法以及命令参数比较多，如果想要深入了解请使用 `man openssl` 命令进行查看。本次示例中，本地环境( `Ubuntu`)使用命令生成相关秘钥、公钥、证书文件的流程如下：
+
+`openssl` 支持的算法以及命令参数比较多，如果想要深入了解请使用 `man openssl` 命令进行查看。本次示例中，本地环境（`Ubuntu`）使用命令生成相关秘钥、公钥、证书文件的流程如下：
 
 ```bash
 $ openssl genrsa -out server.key 2048
@@ -87,17 +88,18 @@ drwxr-xr-x 90 john john 4096 Apr 23 20:55 ../
 package main
 
 import (
-    "github.com/gogf/gf/v2/net/ghttp"
+	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/ghttp"
 )
 
 func main() {
-    s := ghttp.GetServer()
-    s.BindHandler("/", func(r *ghttp.Request){
-        r.Response.Writeln("来自于HTTPS的：哈喽世界！")
-    })
-    s.EnableHTTPS("/home/john/https/server.crt", "/home/john/https/server.key")
-    s.SetPort(8199)
-    s.Run()
+	s := g.Server()
+	s.BindHandler("/", func(r *ghttp.Request) {
+		r.Response.Writeln("来自于HTTPS的：哈喽世界！")
+	})
+	s.EnableHTTPS("server.crt", "server.key")
+	s.SetPort(8000)
+	s.Run()
 }
 ```
 
@@ -121,18 +123,19 @@ func main() {
 package main
 
 import (
-    "github.com/gogf/gf/v2/net/ghttp"
+	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/ghttp"
 )
 
 func main() {
-    s := ghttp.GetServer()
-    s.BindHandler("/", func(r *ghttp.Request){
-        r.Response.Writeln("您可以同时通过HTTP和HTTPS方式看到该内容！")
-    })
-    s.EnableHTTPS("/home/john/https/server.crt", "/home/john/https/server.key")
-    s.SetHTTPSPort(443)
-    s.SetPort(80)
-    s.Run()
+	s := g.Server()
+	s.BindHandler("/", func(r *ghttp.Request) {
+		r.Response.Writeln("您可以同时通过HTTP和HTTPS方式看到该内容！")
+	})
+	s.EnableHTTPS("server.crt", "server.key")
+	s.SetHTTPSPort(443)
+	s.SetPort(80)
+	s.Run()
 }
 ```
 
@@ -151,8 +154,8 @@ func (s *Server) SetHTTPSPort(port ...int) error
 
 `SSL免费证书` 机构比较多，如：
 
-1. `腾讯云DV SSL 证书`: [https://cloud.tencent.com/product/ssl](https://cloud.tencent.com/product/ssl)
-2. `Let’s Encrypt`: [https://letsencrypt.org/](https://letsencrypt.org/)
+1. `Let’s Encrypt`: [https://letsencrypt.org/](https://letsencrypt.org/)
+2. `腾讯云DV SSL 证书`: [https://cloud.tencent.com/product/ssl](https://cloud.tencent.com/product/ssl)
 3. `CloudFlare SSL`: [https://www.cloudflare.com/](https://www.cloudflare.com/)
 4. `StartSSL`: [https://www.startcomca.com/](https://www.startcomca.com/)
 5. `Wosign沃通SSL`: [https://www.wosign.com/](https://www.wosign.com/)
@@ -228,16 +231,20 @@ IMPORTANT NOTES:
 package main
 
 import (
-    "github.com/gogf/gf/v2/net/ghttp"
+	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/ghttp"
 )
 
 func main() {
-    s := ghttp.GetServer()
-    s.BindHandler("/", func(r *ghttp.Request){
-        r.Response.Writeln("来自于HTTPS的：哈喽世界！")
-    })
-    s.EnableHTTPS("/etc/letsencrypt/live/goframe.org/fullchain.pem", "/etc/letsencrypt/live/goframe.org/privkey.pem")
-    s.Run()
+	s := g.Server()
+	s.BindHandler("/", func(r *ghttp.Request) {
+		r.Response.Writeln("来自于HTTPS的：哈喽世界！")
+	})
+	s.EnableHTTPS(
+		"/etc/letsencrypt/live/goframe.org/fullchain.pem",
+		"/etc/letsencrypt/live/goframe.org/privkey.pem",
+	)
+	s.Run()
 }
 ```
 

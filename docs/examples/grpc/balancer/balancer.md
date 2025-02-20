@@ -37,7 +37,7 @@ Code Source: https://github.com/gogf/examples/tree/main/grpc/balancer
 
 ## 环境要求
 
-- [Go](https://golang.org/dl/) 1.22 或更高版本
+- [Go](https://golang.org/dl/) `1.22` 或更高版本
 - [Git](https://git-scm.com/downloads)
 - [GoFrame](https://goframe.org)
 - [Protocol Buffers](https://developers.google.com/protocol-buffers)

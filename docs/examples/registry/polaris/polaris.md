@@ -57,7 +57,7 @@ Code Source: https://github.com/gogf/examples/tree/main/registry/polaris
 
 ## 环境要求
 
-- `Go` 1.22 或更高版本
+- `Go` `1.22` 或更高版本
 - `Polaris` 服务器
 - 本地缓存目录读写权限
 
