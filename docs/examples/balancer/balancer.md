@@ -9,7 +9,7 @@ sidebar_position: 5
 
 # 负载均衡示例
 
-Code Source: https://github.com/gogf/examples/tree/main/balancer
+Github Source: https://github.com/gogf/examples/tree/main/balancer
 
 
 ## 介绍

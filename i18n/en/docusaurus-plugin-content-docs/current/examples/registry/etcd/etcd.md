@@ -8,7 +8,7 @@ hide_title: true
 
 # Registry - `Etcd` Integration
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/etcd
+Github Source: https://github.com/gogf/examples/tree/main/registry/etcd
 
 
 ## Description

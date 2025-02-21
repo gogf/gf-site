@@ -4,11 +4,12 @@ slug: /examples/httpserver/websocket
 keywords: [websocket, server, client, goframe, https]
 description: 使用GoFrame框架实现的WebSocket服务器和客户端
 hide_title: true
+sidebar_position: 5
 ---
 
 # `WebSocket` 服务器和客户端
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/websocket
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/websocket
 
 
 ## 描述
@@ -30,8 +31,8 @@ Code Source: https://github.com/gogf/examples/tree/main/httpserver/websocket
 
 - [Go](https://golang.org/dl/) `1.22` 或更高版本
 - [Git](https://git-scm.com/downloads)
-- [`GoFrame`](https://goframe.org)
-- [`Gorilla WebSocket`](https://github.com/gorilla/websocket)
+- [GoFrame](https://goframe.org)
+- [Gorilla WebSocket](https://github.com/gorilla/websocket)
 
 ## 目录结构
 
@@ -72,7 +73,7 @@ websocket/
     go mod tidy
     ```
 
-3. 对于HTTPS/WSS支持，生成自签名证书（可选）：
+3. 对于`HTTPS/WSS`支持，生成自签名证书（可选）：
     ```bash
     mkdir -p https/certs
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout https/certs/server.key -out https/certs/server.crt
@@ -114,7 +115,8 @@ websocket/
 
 3. 通过浏览器访问演示页面：
 
-   在浏览器中打开 `https://127.0.0.1:8000` 查看 `WebSocket` 演示效果。注意：由于使用自签名证书，浏览器可能会显示安全警告，这是正常的。
+   在浏览器中打开 `https://127.0.0.1:8000` 查看 `WebSocket` 演示效果。
+   注意：由于使用自签名证书，浏览器可能会显示安全警告，这是正常的。
 
 ## 实现细节
 
@@ -140,7 +142,7 @@ websocket/
 
 ## 更多信息
 
-更多关于WebSocket实现的详细信息，请参考：
+更多关于`WebSocket`实现的详细信息，请参考：
 - [GoFrame WebSocket指南](https://goframe.org/docs/web/senior-websocket)
 - [Gorilla WebSocket文档](https://github.com/gorilla/websocket)
 

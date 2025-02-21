@@ -8,7 +8,7 @@ hide_title: true
 
 # Tracing - In-Process Service (gRPC Exporter)
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess-grpc
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess-grpc
 
 
 ## Description

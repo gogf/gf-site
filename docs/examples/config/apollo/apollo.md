@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `Apollo` 配置中心示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config/apollo
+Github Source: https://github.com/gogf/examples/tree/main/config/apollo
 
 
 ## 介绍

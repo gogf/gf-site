@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `gRPC` - Context Usage
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/ctx
+Github Source: https://github.com/gogf/examples/tree/main/grpc/ctx
 
 
 ## Description

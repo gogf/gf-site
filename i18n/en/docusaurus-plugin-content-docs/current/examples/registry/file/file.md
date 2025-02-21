@@ -8,7 +8,7 @@ hide_title: true
 
 # Registry - `File` Integration
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/file
+Github Source: https://github.com/gogf/examples/tree/main/registry/file
 
 
 ## Description

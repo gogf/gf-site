@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - 计量器属性
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/meter_attributes
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/meter_attributes
 
 
 ## 简介

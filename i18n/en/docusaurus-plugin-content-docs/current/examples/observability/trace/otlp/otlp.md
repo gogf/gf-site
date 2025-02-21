@@ -8,7 +8,7 @@ hide_title: true
 
 # OpenTelemetry Tracing Examples
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/otlp
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/otlp
 
 
 ## Description

@@ -8,7 +8,7 @@ hide_title: true
 
 # HTTP 服务负载均衡示例
 
-Code Source: https://github.com/gogf/examples/tree/main/balancer/http
+Github Source: https://github.com/gogf/examples/tree/main/balancer/http
 
 
 ## 介绍

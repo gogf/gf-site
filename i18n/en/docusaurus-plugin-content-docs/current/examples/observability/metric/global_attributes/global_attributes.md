@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - Global Attributes Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/global_attributes
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/global_attributes
 
 
 ## Description

@@ -8,7 +8,7 @@ hide_title: true
 
 # HTTP Server Response with JSON Array
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/response-json-array
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/response-json-array
 
 
 

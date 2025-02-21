@@ -9,7 +9,7 @@ sidebar_position: 3
 
 # `gRPC` - 上下文示例
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/ctx
+Github Source: https://github.com/gogf/examples/tree/main/grpc/ctx
 
 
 ## 介绍

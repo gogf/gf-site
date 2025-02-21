@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `Polaris` 配置中心示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config/polaris
+Github Source: https://github.com/gogf/examples/tree/main/config/polaris
 
 
 ## 介绍

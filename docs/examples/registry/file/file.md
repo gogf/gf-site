@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 注册中心 - 文件系统集成
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/file
+Github Source: https://github.com/gogf/examples/tree/main/registry/file
 
 
 ## 简介

@@ -8,7 +8,7 @@ hide_title: true
 
 # `gRPC` - Service Resolver
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/resolver
+Github Source: https://github.com/gogf/examples/tree/main/grpc/resolver
 
 
 ## Description

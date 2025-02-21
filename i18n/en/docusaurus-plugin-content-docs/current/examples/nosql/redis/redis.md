@@ -10,7 +10,7 @@ sidebar_position: 1
 
 # GoFrame Redis Example
 
-Code Source: https://github.com/gogf/examples/tree/main/nosql/redis
+Github Source: https://github.com/gogf/examples/tree/main/nosql/redis
 
 
 This example demonstrates how to use `Redis` with `GoFrame` framework.
@@ -94,7 +94,7 @@ go run main.go
 
 ## Further Reading
 
-For more advanced `Redis` usage, please refer to the third-party package [`github.com/redis/go-redis`](https://github.com/redis/go-redis).
+For more advanced `Redis` usage, please refer to the third-party package [github.com/redis/go-redis](https://github.com/redis/go-redis).
 
 ## Notes
 

@@ -8,7 +8,7 @@ hide_title: true
 
 # HTTP Server File Upload
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/upload-file
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/upload-file
 
 
 

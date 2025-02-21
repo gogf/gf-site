@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - HTTP服务器
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/http_server
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/http_server
 
 
 ## 简介

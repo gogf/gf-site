@@ -9,7 +9,7 @@ sidebar_position: 9
 
 # OpenTelemetry Provider链路跟踪示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/provider
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/provider
 
 
 ## 简介

@@ -8,7 +8,7 @@ hide_title: true
 
 # Tracing - HTTP Service
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/http
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/http
 
 
 ## Description

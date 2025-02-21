@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 链路跟踪 - 进程内服务 (HTTP导出器)
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess
 
 
 ## 简介

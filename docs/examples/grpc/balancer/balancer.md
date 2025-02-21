@@ -9,7 +9,7 @@ sidebar_position: 2
 
 # `gRPC` - 负载均衡
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/balancer
+Github Source: https://github.com/gogf/examples/tree/main/grpc/balancer
 
 
 ## 介绍

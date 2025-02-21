@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 注册中心 - `Polaris` 集成
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/polaris
+Github Source: https://github.com/gogf/examples/tree/main/registry/polaris
 
 
 ## 简介

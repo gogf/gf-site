@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - 回调处理
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/callback
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/callback
 
 
 ## 简介

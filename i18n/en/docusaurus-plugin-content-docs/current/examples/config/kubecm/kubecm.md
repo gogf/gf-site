@@ -8,7 +8,7 @@ hide_title: true
 
 # `Kubernetes ConfigMap` Configuration Example
 
-Code Source: https://github.com/gogf/examples/tree/main/config/kubecm
+Github Source: https://github.com/gogf/examples/tree/main/config/kubecm
 
 
 ## Description

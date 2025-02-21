@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # GoFrame Redis 示例
 
-Code Source: https://github.com/gogf/examples/tree/main/nosql/redis
+Github Source: https://github.com/gogf/examples/tree/main/nosql/redis
 
 
 此示例演示了如何在 `GoFrame` 框架中使用 `Redis`。
@@ -89,4 +89,4 @@ go run main.go
 
 ## 更多参考
 
-更多 `Redis` 的使用方法请参考第三方组件 [`github.com/redis/go-redis`](https://github.com/redis/go-redis)。
+更多 `Redis` 的使用方法请参考第三方组件 [github.com/redis/go-redis](https://github.com/redis/go-redis)。

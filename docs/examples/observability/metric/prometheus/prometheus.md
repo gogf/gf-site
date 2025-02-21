@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - Prometheus直接集成
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/prometheus
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/prometheus
 
 
 ## 简介

@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - HTTP Client Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/http_client
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/http_client
 
 
 ## Description

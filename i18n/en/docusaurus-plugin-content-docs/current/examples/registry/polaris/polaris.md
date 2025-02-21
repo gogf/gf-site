@@ -8,7 +8,7 @@ hide_title: true
 
 # Registry - `Polaris` Integration
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/polaris
+Github Source: https://github.com/gogf/examples/tree/main/registry/polaris
 
 
 ## Description

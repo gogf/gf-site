@@ -8,7 +8,7 @@ hide_title: true
 
 # HTTP Server Rate Limit
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/rate-limit
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/rate-limit
 
 
 

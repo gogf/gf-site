@@ -8,7 +8,7 @@ hide_title: true
 
 # Tracing - gRPC with Database
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/grpc-with-db
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/grpc-with-db
 
 
 ## Description

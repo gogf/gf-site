@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - 基础用法
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/basic
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/basic
 
 
 ## 简介

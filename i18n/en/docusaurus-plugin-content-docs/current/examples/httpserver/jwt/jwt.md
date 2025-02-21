@@ -9,7 +9,7 @@ sidebar_position: 0
 
 # JWT Authentication Example with GoFrame
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/jwt
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/jwt
 
 
 This example demonstrates how to implement JWT (JSON Web Token) authentication in a GoFrame HTTP server using the `github.com/golang-jwt/jwt` package.

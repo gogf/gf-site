@@ -9,7 +9,7 @@ sidebar_position: 4
 
 # 注册发现示例
 
-Code Source: https://github.com/gogf/examples/tree/main/registry
+Github Source: https://github.com/gogf/examples/tree/main/registry
 
 
 ## 介绍

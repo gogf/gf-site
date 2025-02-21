@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - Dynamic Attributes Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/dynamic_attributes
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/dynamic_attributes
 
 
 ## Description

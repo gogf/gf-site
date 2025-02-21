@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - HTTP Server Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/http_server
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/http_server
 
 
 ## Description

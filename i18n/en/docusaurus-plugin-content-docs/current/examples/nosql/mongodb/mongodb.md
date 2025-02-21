@@ -9,7 +9,7 @@ sidebar_position: 2
 
 # GoFrame MongoDB Example
 
-Code Source: https://github.com/gogf/examples/tree/main/nosql/mongodb
+Github Source: https://github.com/gogf/examples/tree/main/nosql/mongodb
 
 
 This example demonstrates how to use `MongoDB` with `GoFrame` framework.
@@ -95,7 +95,7 @@ go run main.go
 
 ## Further Reading
 
-For more advanced `MongoDB` usage, please refer to the official `MongoDB` Go driver [`github.com/mongodb/mongo-go-driver`](https://github.com/mongodb/mongo-go-driver).
+For more advanced `MongoDB` usage, please refer to the official `MongoDB` Go driver [github.com/mongodb/mongo-go-driver](https://github.com/mongodb/mongo-go-driver).
 
 ## Notes
 

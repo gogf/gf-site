@@ -8,7 +8,7 @@ hide_title: true
 
 # Registry - `Nacos` Integration
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/nacos
+Github Source: https://github.com/gogf/examples/tree/main/registry/nacos
 
 
 ## Description

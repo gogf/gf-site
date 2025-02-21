@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 注册中心 - `Nacos` 集成
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/nacos
+Github Source: https://github.com/gogf/examples/tree/main/registry/nacos
 
 
 ## 简介

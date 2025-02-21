@@ -8,7 +8,7 @@ hide_title: true
 
 # Multi-Process Tracing Examples
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/processes
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/processes
 
 
 ## Description

@@ -9,7 +9,7 @@ sidebar_position: 6
 
 # 可观测性示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability
+Github Source: https://github.com/gogf/examples/tree/main/observability
 
 
 ## 介绍

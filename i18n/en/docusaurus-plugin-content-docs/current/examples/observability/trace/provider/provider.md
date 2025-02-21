@@ -8,7 +8,7 @@ hide_title: true
 
 # OpenTelemetry Provider Examples
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/provider
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/provider
 
 
 ## Description

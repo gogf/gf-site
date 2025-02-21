@@ -7,7 +7,7 @@ sidebar_position: 0
 
 # `gRPC` 使用示例
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc
+Github Source: https://github.com/gogf/examples/tree/main/grpc
 
 
 ## 介绍

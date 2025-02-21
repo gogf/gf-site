@@ -8,7 +8,7 @@ hide_title: true
 
 # Tracing - HTTP with Database
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/http-with-db
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/http-with-db
 
 
 ## Description

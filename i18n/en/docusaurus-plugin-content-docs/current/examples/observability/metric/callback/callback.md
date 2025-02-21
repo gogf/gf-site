@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - Callback Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/callback
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/callback
 
 
 ## Description

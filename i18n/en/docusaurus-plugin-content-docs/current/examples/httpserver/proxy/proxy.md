@@ -8,7 +8,7 @@ hide_title: true
 
 # HTTP Server Proxy
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/proxy
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/proxy
 
 
 

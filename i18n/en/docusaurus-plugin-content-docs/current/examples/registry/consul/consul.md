@@ -8,7 +8,7 @@ hide_title: true
 
 # Registry - `Consul` Integration
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/consul
+Github Source: https://github.com/gogf/examples/tree/main/registry/consul
 
 
 ## Description

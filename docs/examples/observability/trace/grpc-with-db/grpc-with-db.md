@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 链路跟踪 - gRPC带数据库
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/grpc-with-db
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/grpc-with-db
 
 
 ## 简介

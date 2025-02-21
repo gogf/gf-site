@@ -9,7 +9,7 @@ sidebar_position: 9
 
 # `gRPC` - 原生示例
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/rawgrpc
+Github Source: https://github.com/gogf/examples/tree/main/grpc/rawgrpc
 
 
 ## 介绍

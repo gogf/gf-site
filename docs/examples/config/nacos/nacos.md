@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `Nacos` 配置中心示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config/nacos
+Github Source: https://github.com/gogf/examples/tree/main/config/nacos
 
 
 ## 介绍

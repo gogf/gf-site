@@ -8,7 +8,7 @@ hide_title: true
 
 # 指标收集示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric
 
 
 ## 介绍

@@ -9,7 +9,7 @@ sidebar_position: 0
 
 # `NoSQL` 示例
 
-Code Source: https://github.com/gogf/examples/tree/main/nosql
+Github Source: https://github.com/gogf/examples/tree/main/nosql
 
 
 ## 介绍

@@ -8,7 +8,7 @@ hide_title: true
 
 # `gRPC` - Load Balancing
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/balancer
+Github Source: https://github.com/gogf/examples/tree/main/grpc/balancer
 
 
 ## Description

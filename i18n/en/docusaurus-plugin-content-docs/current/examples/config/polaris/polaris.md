@@ -8,7 +8,7 @@ hide_title: true
 
 # `Polaris` Configuration Center Example
 
-Code Source: https://github.com/gogf/examples/tree/main/config/polaris
+Github Source: https://github.com/gogf/examples/tree/main/config/polaris
 
 
 ## Description

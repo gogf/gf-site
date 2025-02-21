@@ -9,7 +9,7 @@ sidebar_position: 3
 
 # 配置管理示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config
+Github Source: https://github.com/gogf/examples/tree/main/config
 
 
 ## 介绍

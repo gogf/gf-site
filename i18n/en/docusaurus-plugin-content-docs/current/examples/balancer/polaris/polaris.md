@@ -8,7 +8,7 @@ hide_title: true
 
 # Load Balancer - `Polaris` Integration Example
 
-Code Source: https://github.com/gogf/examples/tree/main/balancer/polaris
+Github Source: https://github.com/gogf/examples/tree/main/balancer/polaris
 
 
 ## Description
@@ -24,8 +24,8 @@ This example demonstrates how to implement HTTP service load balancing with `GoF
 
 - [Go](https://golang.org/dl/) `1.22` or higher
 - [Git](https://git-scm.com/downloads)
-- [`GoFrame`](https://goframe.org)
-- [`GoFrame Polaris Registry`](https://github.com/gogf/gf/tree/master/contrib/registry/polaris)
+- [GoFrame](https://goframe.org)
+- [GoFrame Polaris Registry](https://github.com/gogf/gf/tree/master/contrib/registry/polaris)
 
 ## Structure
 

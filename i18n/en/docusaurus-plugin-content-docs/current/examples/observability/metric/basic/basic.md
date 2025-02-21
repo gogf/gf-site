@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - Basic Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/basic
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/basic
 
 
 ## Description

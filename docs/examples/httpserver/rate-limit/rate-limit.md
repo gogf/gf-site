@@ -9,12 +9,13 @@ sidebar_position: 2
 
 # HTTP 服务器限流
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/rate-limit
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/rate-limit
 
 
 ## 介绍
 
-本示例展示了如何在使用 `GoFrame` 的 HTTP 服务器中实现限流。它展示了如何使用 `golang.org/x/time/rate` 包实现的令牌桶算法来保护 API 端点免受过多请求的影响。
+本示例展示了如何在使用 `GoFrame` 的 HTTP 服务器中实现限流。
+它展示了如何使用 `golang.org/x/time/rate` 包实现的令牌桶算法来保护 `API` 端点免受过多请求的影响。
 
 
 ## 环境要求

@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 指标收集 - 动态属性
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/dynamic_attributes
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/dynamic_attributes
 
 
 ## 简介

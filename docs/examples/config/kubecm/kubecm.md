@@ -9,7 +9,7 @@ sidebar_position: 9
 
 # `Kubernetes ConfigMap` 配置示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config/kubecm
+Github Source: https://github.com/gogf/examples/tree/main/config/kubecm
 
 
 ## 介绍

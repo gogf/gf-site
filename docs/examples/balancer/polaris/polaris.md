@@ -8,7 +8,7 @@ hide_title: true
 
 # Polaris 负载均衡示例
 
-Code Source: https://github.com/gogf/examples/tree/main/balancer/polaris
+Github Source: https://github.com/gogf/examples/tree/main/balancer/polaris
 
 
 ## 介绍

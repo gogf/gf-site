@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `gRPC` - 服务发现
 
-Code Source: https://github.com/gogf/examples/tree/main/grpc/resolver
+Github Source: https://github.com/gogf/examples/tree/main/grpc/resolver
 
 
 ## 介绍

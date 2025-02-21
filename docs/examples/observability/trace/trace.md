@@ -8,7 +8,7 @@ hide_title: true
 
 # 链路跟踪示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace
 
 
 ## 介绍

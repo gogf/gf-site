@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 链路跟踪 - HTTP服务
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/http
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/http
 
 
 ## 简介

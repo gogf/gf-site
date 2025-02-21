@@ -8,7 +8,7 @@ hide_title: true
 
 # Tracing - In-Process Service (HTTP Exporter)
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess
 
 
 ## Description

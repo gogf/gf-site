@@ -9,7 +9,7 @@ sidebar_position: 0
 
 # GoFrame JWT认证示例
 
-Code Source: https://github.com/gogf/examples/tree/main/httpserver/jwt
+Github Source: https://github.com/gogf/examples/tree/main/httpserver/jwt
 
 
 本示例展示了如何在`GoFrame`HTTP服务器中使用 `github.com/golang-jwt/jwt` 包实现`JWT(JSON Web Token)`认证。
@@ -48,7 +48,7 @@ jwt/
    ```
 
 2. 受保护资源: `GET /api/protected`
-   - 需要在Authorization头部携带Bearer令牌
+   - 需要在`Authorization`头部携带`Bearer`令牌
    - 示例: `Authorization: Bearer your-token-here`
 
 ## 运行示例
@@ -58,7 +58,7 @@ jwt/
    go run main.go
    ```
 
-2. 服务器将在8199端口启动
+2. 服务器将在`8199`端口启动
 
 ## 测试API
 

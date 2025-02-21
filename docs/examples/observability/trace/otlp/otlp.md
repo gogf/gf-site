@@ -9,7 +9,7 @@ sidebar_position: 8
 
 # OpenTelemetry链路跟踪示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/otlp
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/otlp
 
 
 ## 简介

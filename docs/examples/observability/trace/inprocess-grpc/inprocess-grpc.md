@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 链路跟踪 - 进程内服务 (gRPC导出器)
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess-grpc
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/inprocess-grpc
 
 
 ## 简介

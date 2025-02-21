@@ -8,7 +8,7 @@ hide_title: true
 
 # Load Balancer - HTTP Service Example
 
-Code Source: https://github.com/gogf/examples/tree/main/balancer/http
+Github Source: https://github.com/gogf/examples/tree/main/balancer/http
 
 
 ## Description

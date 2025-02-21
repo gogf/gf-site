@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 多进程链路跟踪示例
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/trace/processes
+Github Source: https://github.com/gogf/examples/tree/main/observability/trace/processes
 
 
 ## 简介

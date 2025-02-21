@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # 注册中心 - `Etcd` 集成
 
-Code Source: https://github.com/gogf/examples/tree/main/registry/etcd
+Github Source: https://github.com/gogf/examples/tree/main/registry/etcd
 
 
 ## 简介

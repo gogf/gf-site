@@ -9,7 +9,7 @@ sidebar_position: 1
 
 # `Consul` 配置中心示例
 
-Code Source: https://github.com/gogf/examples/tree/main/config/consul
+Github Source: https://github.com/gogf/examples/tree/main/config/consul
 
 
 ## 介绍

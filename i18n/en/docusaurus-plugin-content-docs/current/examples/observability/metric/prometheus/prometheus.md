@@ -8,7 +8,7 @@ hide_title: true
 
 # Metric - Direct Prometheus Integration Example
 
-Code Source: https://github.com/gogf/examples/tree/main/observability/metric/prometheus
+Github Source: https://github.com/gogf/examples/tree/main/observability/metric/prometheus
 
 
 ## Description
