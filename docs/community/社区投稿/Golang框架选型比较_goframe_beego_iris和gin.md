@@ -1,4 +1,13 @@
 
+---
+slug: '/articles/framework-comparison-goframe-beego-iris-gin'
+title: 'Golang Framework Comparison: GoFrame, Beego, Iris and Gin'
+sidebar_position: 0
+hide_title: true
+keywords: [GoFrame, Beego, Iris, Gin, Golang框架对比, Web框架, 框架选型, 技术选型, 模块化设计, 工程化, 易用性, 框架性能, 开发效率]
+description: '深入对比GoFrame、Beego、Iris和Gin四大Golang Web框架的特性、优势和实践经验，从模块化设计、易用性、文档完善度、工程化等多个维度进行分析，为团队技术选型提供参考。包含实际项目经验分享及框架迁移案例。'
+---
+
 迁移自旧版官网社区贡献文章：https://wiki.goframe.org/pages/viewpage.action?pageId=3673375
 
 
@@ -11,7 +20,125 @@ Solve problems? Bring problems?
 评估指标
 ====
 
-<table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 13.9137%;"> <col style="width: 86.0863%;"></colgroup><tbody><tr><th class="confluenceTh">指标</th><th class="confluenceTh">说明</th></tr><tr><td class="confluenceTd"><strong>基本介绍</strong></td><td class="confluenceTd">来源各自官网。</td></tr><tr><td class="confluenceTd"><strong>模块化设计</strong></td><td class="confluenceTd">是否支持模块化插拔设计、模块之间低耦合设计，是否可以独立使用其中某部分组件。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>模块完善度</strong></td><td colspan="1" class="confluenceTd">框架提供的功能模块是否丰富。模块能否能覆盖日常普遍的开发需求。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>使用易用性</strong></td><td colspan="1" class="confluenceTd">易用性不仅仅是值框架好不好用，更多是团队能否在低成本下快速接入，长期来看能否低成本维护。</td></tr><tr><td class="confluenceTd"><strong>文档完善性</strong></td><td class="confluenceTd">参考官网提供的介绍资料，包括但不限于：文档、视频、示例、案例资料。同时，本地中文文档支持也是参考项。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>工程化完备</strong></td><td colspan="1" class="confluenceTd">是否能够快速接入项目开发，是否提供项目接入规范、设计模式、开发工具链，文档是否完善、源码是否易读、是否便于长期维护。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>开发模式</strong></td><td colspan="1" class="confluenceTd">框架适用的开发模式，或者官方推荐的开发模式。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>工程规范</strong></td><td colspan="1" class="confluenceTd">项目接入时的开发规范，如目录规范、设计规范、编码规范、命名规范等。</td></tr><tr><td class="confluenceTd"><strong>社区活跃</strong></td><td class="confluenceTd">官方与社区沟通是否便捷，问题是否能够快速解答，BUG是否能够快速响应处理。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>开发工具链</strong></td><td colspan="1" class="confluenceTd">项目开发时使用到的CLI开发工具，如初始化项目、交叉编译、代码生成、swagger、热编译能力等等。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 性能测试</strong></td><td colspan="1" class="confluenceTd"><p>来源第三方评测 <a class="external-link" href="https://github.com/the-benchmarker/web-frameworks" rel="nofollow">https://github.com/the-benchmarker/web-frameworks</a> 。</p></td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 路由冲突处理</strong></td><td colspan="1" class="confluenceTd">存在路由注册冲突时有无良好的解决方案，在业务项目开发中比较常见。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 域名支持</strong></td><td colspan="1" class="confluenceTd">Web路由是否支持域名绑定，甚至多域名的绑定。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 文件服务</strong></td><td colspan="1" class="confluenceTd">Web服务是否提供静态资源的访问能力。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 优雅重启/关闭</strong></td><td colspan="1" class="confluenceTd">Web服务在重启时不会影响请求执行，关闭时会等待正在执行的请求处理完，新请求不再接入。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>ORM</strong></td><td colspan="1" class="confluenceTd">框架是否自带ORM组件，ORM组件是业务项目的核心组件。无论是自研还是通过第三方组件引入。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Session</strong></td><td colspan="1" class="confluenceTd">框架是否提供会话管理组件，无论是通用型Session组件，还是仅针对于Web服务的Session组件。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>I18N支持</strong></td><td colspan="1" class="confluenceTd">国际化组件支持（常用但非核心组件）。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>配置管理</strong></td><td colspan="1" class="confluenceTd">配置管理也是框架需要完备的核心组件能力。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>日志组件</strong></td><td colspan="1" class="confluenceTd">日志组件也是框架需要完备的核心组件能力。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>数据校验</strong></td><td colspan="1" class="confluenceTd">数据校验也是框架需要完备的核心组件能力。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>缓存管理</strong></td><td colspan="1" class="confluenceTd">缓存管理也是框架需要完备的核心组件能力。无论是内存还是Redis，无论是自研还是通过第三方组件引入。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>资源打包</strong></td><td colspan="1" class="confluenceTd">支持将依赖的文件资源例如静态资源、配置文件等固定文件编译到可执行文件中。框架组件自动支持资源检索。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>链路跟踪</strong></td><td colspan="1" class="confluenceTd">框架是否具备分布式链路跟踪能力，分布式跟踪在微服务架构中是必不可少的能力。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>测试框架</strong></td><td colspan="1" class="confluenceTd">框架是否支持单元测试接入，提供单元测试接入规范。无论是使用标准库还是第三方测试框架。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>突出优点</strong></td><td colspan="1" class="confluenceTd">比较明显的几点优点。</td></tr><tr><td colspan="1" class="confluenceTd"><strong>突出缺点</strong></td><td colspan="1" class="confluenceTd">比较明显的几点缺点。</td></tr></tbody></table>
+<table class="relative-table wrapped confluenceTable">
+    <tbody>
+        <tr>
+            <th class="confluenceTh">指标</th>
+            <th class="confluenceTh">说明</th>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>基本介绍</strong></td>
+            <td class="confluenceTd">来源各自官网。</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>模块化设计</strong></td>
+            <td class="confluenceTd">是否支持模块化插拔设计、模块之间低耦合设计，是否可以独立使用其中某部分组件。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>模块完善度</strong></td>
+            <td colspan="1" class="confluenceTd">框架提供的功能模块是否丰富。模块能否能覆盖日常普遍的开发需求。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>使用易用性</strong></td>
+            <td colspan="1" class="confluenceTd">易用性不仅仅是值框架好不好用，更多是团队能否在低成本下快速接入，长期来看能否低成本维护。</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>文档完善性</strong></td>
+            <td class="confluenceTd">参考官网提供的介绍资料，包括但不限于：文档、视频、示例、案例资料。同时，本地中文文档支持也是参考项。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>工程化完备</strong></td>
+            <td colspan="1" class="confluenceTd">是否能够快速接入项目开发，是否提供项目接入规范、设计模式、开发工具链，文档是否完善、源码是否易读、是否便于长期维护。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>开发模式</strong></td>
+            <td colspan="1" class="confluenceTd">框架适用的开发模式，或者官方推荐的开发模式。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>工程规范</strong></td>
+            <td colspan="1" class="confluenceTd">项目接入时的开发规范，如目录规范、设计规范、编码规范、命名规范等。</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>社区活跃</strong></td>
+            <td class="confluenceTd">官方与社区沟通是否便捷，问题是否能够快速解答，BUG是否能够快速响应处理。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>开发工具链</strong></td>
+            <td colspan="1" class="confluenceTd">项目开发时使用到的CLI开发工具，如初始化项目、交叉编译、代码生成、swagger、热编译能力等等。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 性能测试</strong></td>
+            <td colspan="1" class="confluenceTd">
+                <p>来源第三方评测 <a class="external-link" href="https://github.com/the-benchmarker/web-frameworks"
+                        rel="nofollow">https://github.com/the-benchmarker/web-frameworks</a> 。</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 路由冲突处理</strong></td>
+            <td colspan="1" class="confluenceTd">存在路由注册冲突时有无良好的解决方案，在业务项目开发中比较常见。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 域名支持</strong></td>
+            <td colspan="1" class="confluenceTd">Web路由是否支持域名绑定，甚至多域名的绑定。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 文件服务</strong></td>
+            <td colspan="1" class="confluenceTd">Web服务是否提供静态资源的访问能力。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 优雅重启/关闭</strong></td>
+            <td colspan="1" class="confluenceTd">Web服务在重启时不会影响请求执行，关闭时会等待正在执行的请求处理完，新请求不再接入。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>ORM</strong></td>
+            <td colspan="1" class="confluenceTd">框架是否自带ORM组件，ORM组件是业务项目的核心组件。无论是自研还是通过第三方组件引入。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Session</strong></td>
+            <td colspan="1" class="confluenceTd">框架是否提供会话管理组件，无论是通用型Session组件，还是仅针对于Web服务的Session组件。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>I18N支持</strong></td>
+            <td colspan="1" class="confluenceTd">国际化组件支持（常用但非核心组件）。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>配置管理</strong></td>
+            <td colspan="1" class="confluenceTd">配置管理也是框架需要完备的核心组件能力。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>日志组件</strong></td>
+            <td colspan="1" class="confluenceTd">日志组件也是框架需要完备的核心组件能力。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>数据校验</strong></td>
+            <td colspan="1" class="confluenceTd">数据校验也是框架需要完备的核心组件能力。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>缓存管理</strong></td>
+            <td colspan="1" class="confluenceTd">缓存管理也是框架需要完备的核心组件能力。无论是内存还是Redis，无论是自研还是通过第三方组件引入。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>资源打包</strong></td>
+            <td colspan="1" class="confluenceTd">支持将依赖的文件资源例如静态资源、配置文件等固定文件编译到可执行文件中。框架组件自动支持资源检索。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>链路跟踪</strong></td>
+            <td colspan="1" class="confluenceTd">框架是否具备分布式链路跟踪能力，分布式跟踪在微服务架构中是必不可少的能力。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>测试框架</strong></td>
+            <td colspan="1" class="confluenceTd">框架是否支持单元测试接入，提供单元测试接入规范。无论是使用标准库还是第三方测试框架。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>突出优点</strong></td>
+            <td colspan="1" class="confluenceTd">比较明显的几点优点。</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>突出缺点</strong></td>
+            <td colspan="1" class="confluenceTd">比较明显的几点缺点。</td>
+        </tr>
+    </tbody>
+</table>
 
 横向比较
 ====
@@ -21,7 +148,377 @@ Solve problems? Bring problems?
 *   以下特性如果官网提供文档则直接提供文档地址，找不到文档但是笔者知道有就会简单标注。
 *   各个"框架"功能特性实现不同，在文档、功能、易用性上存在较大差异，各位朋友可自行查阅链接。
 
-<table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 13.613%;"> <col style="width: 21.56%;"> <col style="width: 23.9146%;"> <col style="width: 21.0449%;"> <col style="width: 19.8675%;"></colgroup><tbody><tr><th style="text-align: center;" class="confluenceTh"><br></th><th class="confluenceTh">GoFrame</th><th class="confluenceTh">Beego</th><th colspan="1" class="confluenceTh">Iris</th><th colspan="1" class="confluenceTh">Gin</th></tr><tr><td colspan="1" class="confluenceTd"><strong>比较版本</strong></td><td colspan="1" class="confluenceTd">v1.15.2</td><td colspan="1" class="confluenceTd">v1.12.3</td><td colspan="1" class="confluenceTd">v12.0.2</td><td colspan="1" class="confluenceTd">v1.6.3</td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>项目类型</strong></td><td class="confluenceTd">开源（国内）</td><td class="confluenceTd">开源（国内）</td><td colspan="1" class="confluenceTd">开源（海外）</td><td colspan="1" class="confluenceTd">开源（海外）</td></tr><tr><td colspan="1" class="confluenceTd"><strong>开源协议</strong></td><td colspan="1" class="confluenceTd">MIT</td><td colspan="1" class="confluenceTd">Apache-2</td><td colspan="1" class="confluenceTd">BSD-3-Clause</td><td colspan="1" class="confluenceTd">MIT</td></tr><tr><td colspan="1" class="confluenceTd"><strong>框架类型</strong></td><td colspan="1" class="confluenceTd">模块化框架</td><td colspan="1" class="confluenceTd">Web框架</td><td colspan="1" class="confluenceTd">Web"框架"</td><td colspan="1" class="confluenceTd">Web"框架"</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><p><strong>基本介绍</strong></p></td><td colspan="1" class="confluenceTd">工程完备、简单易用，模块化、高质量、高性能、企业级开发框架。</td><td colspan="1" class="confluenceTd">最简单易用的企业级Go应用开发框架。</td><td colspan="1" class="confluenceTd">目前发展最快的Go Web框架。提供完整的MVC功能并且面向未来。</td><td colspan="1" class="confluenceTd">一个Go语言写的HTTP Web框架。它提供了Martini风格的API并有更好的性能。</td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>项目地址</strong></td><td class="confluenceTd"><p><a class="external-link" href="https://github.com/gogf/gf" rel="nofollow">github.com/gogf/gf</a></p></td><td class="confluenceTd"><a class="external-link" href="https://github.com/beego/beego" rel="nofollow">github.com/beego/beego</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/kataras/iris" rel="nofollow" style="text-decoration: none;">github.com/kataras/iris</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/gin-gonic/gin" rel="nofollow" style="text-decoration: none;">github.com/gin-gonic/gin</a></td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>官网地址</strong></td><td class="confluenceTd"><a class="external-link" href="https://goframe.org/" rel="nofollow">goframe.org</a></td><td class="confluenceTd"><a class="external-link" href="https://beego.me/" rel="nofollow" style="text-decoration: none;">beego.me</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://iris-go.com/" rel="nofollow" style="text-decoration: none;">iris-go.com</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/" rel="nofollow">gin-gonic.com</a></td></tr><tr><td style="text-align: left;" class="confluenceTd"><p><strong>模块化设计</strong></p></td><td class="confluenceTd">是</td><td class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>模块完善度</strong></td><td colspan="1" class="confluenceTd">10</td><td colspan="1" class="confluenceTd">6</td><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">2</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><p><strong>使用易用性</strong></p></td><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd">10</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><p><strong>文档完善度</strong></p></td><td colspan="1" class="confluenceTd">10</td><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">6</td><td colspan="1" class="confluenceTd">4</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>工程化完备</strong></td><td colspan="1" class="confluenceTd">10</td><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">1</td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>社区活跃</strong></td><td class="confluenceTd">9</td><td class="confluenceTd">10</td><td colspan="1" class="confluenceTd">9</td><td colspan="1" class="confluenceTd">10</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>开发模式</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114411" rel="nofollow">模块引入</a>、<a class="external-link" href="https://goframe.org//pages/viewpage.action?pageId=3672442" rel="nofollow">三层架构</a>、MVC</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/" rel="nofollow">MVC</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=quick-start" rel="nofollow">MVC</a></td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>工程规范</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=3672442" rel="nofollow">分层设计</a>、<a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=3672526" rel="nofollow">对象设计</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/intro/#beego-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84" rel="nofollow">项目结构</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>开发工具链</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114260" rel="nofollow">gf工具链</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/install/bee.md" rel="nofollow">bee工具链</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>Web: 性能测试</strong></td><td class="confluenceTd">8</td><td class="confluenceTd">8</td><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">9</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: HTTPS</strong></td><td colspan="1" class="confluenceTd"><a href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114278">HTTPS &amp; TLS</a></td><td colspan="1" class="confluenceTd">支持</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=custom-http-configuration" rel="nofollow">CustomHttpConfiguration</a></td><td colspan="1" class="confluenceTd">支持</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: HTTP2</strong></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">支持</td><td colspan="1" class="confluenceTd">支持</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: WebSocket</strong></td><td colspan="1" class="confluenceTd"><a href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114298">WebSocket服务</a></td><td colspan="1" class="confluenceTd">有</td><td colspan="1" class="confluenceTd">有</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: 分组路由</strong></td><td colspan="1" class="confluenceTd"><a href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114517">路由注册-分组路由</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/controller/router.md#namespace" rel="nofollow">Namespace</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=grouping-routes" rel="nofollow">GroupingRoutes</a></td><td colspan="1" class="confluenceTd">有</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: 路由冲突处理</strong></td><td colspan="1" class="confluenceTd">有</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">有</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: 域名支持</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A" rel="nofollow">域名绑定</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: 文件服务</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114172" rel="nofollow">静态文件服务</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/quickstart/static.md" rel="nofollow">静态文件处理</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=serving-static-files" rel="nofollow">ServingStaticFiles</a></td><td colspan="1" class="confluenceTd">有</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: 多端口/实例</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%A4%9A%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC" rel="nofollow">多端口监听</a>、<a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%A4%9A%E5%AE%9E%E4%BE%8B%E6%94%AF%E6%8C%81" rel="nofollow">多实例监听</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=run-multiple-service-using-iris" rel="nofollow">RunMultipleServiceUsingIris</a></td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: 优雅重启/关闭</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114220" rel="nofollow">平滑重启特性</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/grace.md" rel="nofollow">热升级</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=graceful-shutdown-or-restart" rel="nofollow">GracefulShutdownOrRestart</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/examples/graceful-restart-or-stop/" rel="nofollow">GracefulRestartOrStop</a></td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>ORM</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114686" rel="nofollow">ORM文档</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/model/overview.md" rel="nofollow">ORM文档</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Session</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/display/gf/Session" rel="nofollow">Session</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/controller/session.md" rel="nofollow">Session</a></td><td colspan="1" class="confluenceTd">有</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>I18N支持</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114191" rel="nofollow">I18N</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/i18n.md" rel="nofollow">I18N</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=localization" rel="nofollow">Localization</a></td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>模板引擎</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114680" rel="nofollow">模板引擎</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/view/tutorial.md" rel="nofollow">View设计</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=template-rendering" rel="nofollow">TemplateRendering</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/examples/html-rendering/" rel="nofollow">HtmlRendering</a></td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>配置管理</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114668" rel="nofollow">配置管理</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/controller/config.md" rel="nofollow">参数配置</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/examples/custom-http-config/" rel="nofollow">CustomHttpConfig</a></td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>日志组件</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114673" rel="nofollow">日志组件</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/controller/logs.md" rel="nofollow">Logging</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>数据校验</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114678" rel="nofollow">数据校验</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/controller/validation.md" rel="nofollow">表单数据验证</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/examples/custom-validators/" rel="nofollow">CustomValidators</a></td></tr><tr><td style="text-align: left;" colspan="1" class="confluenceTd"><strong>缓存管理</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114679" rel="nofollow">缓存管理</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/cache.md" rel="nofollow">Cache</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>资源打包</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114671" rel="nofollow">资源管理</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/install/bee.md" rel="nofollow">bee工具bale命令</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>链路跟踪</strong></td><td colspan="1" class="confluenceTd"><a href="https://wiki.goframe.org/pages/viewpage.action?pageId=3673684">服务链路跟踪</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd">-</td></tr><tr><td colspan="1" class="confluenceTd"><strong>测试框架</strong></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=1114153" rel="nofollow">单元测试</a></td><td colspan="1" class="confluenceTd">-</td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://www.iris-go.com/docs/#/?id=testing" rel="nofollow">Testing</a></td><td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/testing/" rel="nofollow">Testing</a></td></tr><tr><td colspan="1" class="confluenceTd"><strong>突出优点</strong></td><td colspan="1" class="confluenceTd">goframe主要以工程化和企业级方向为主，特别是模块化设计和工程化设计思想非常棒。针对业务项目而言，提供了开发规范、项目规范、命名规范、设计模式、开发工具链、丰富的模块、高质量代码和文档，社区活跃。作者也是资深的PHP开发者，PHP转Go的小伙伴会倍感亲切。</td><td colspan="1" class="confluenceTd">beego开源的比较早，最早的一款功能比较全面的Golang开发框架，一直在Golang领域有着比较大的影响力，作者谢大多年组织着国内影响力比较大GopherCN活动。beego有着比较丰富的开发模块、开箱即用，提供了基于MVC设计模式的项目结构、开发工具链，主要定位为Web开发，当然也可以用于非Web项目开发。</td><td colspan="1" class="confluenceTd">iris主要侧重于Web开发，提供了Web开发的一系列功能组件，基于MVC开发模式。iris这一年发展比较快，从一个Web Server的组件，也慢慢朝着beego的设计方向努力。</td><td colspan="1" class="confluenceTd">gin专注于轻量级的Web Server，比较简单，易于理解，路由和中间件设计不错，可以看做替代标准库net/http.Server的路由加强版web server。献给爱造轮子的朋友们。</td></tr><tr><td style="text-align: left;" class="confluenceTd"><strong>突出缺点</strong></td><td class="confluenceTd">开源时间较晚，推广过于佛系，目前主要面向国内用户，未推广海外。</td><td class="confluenceTd">起步较早，自谢大创业后，近几年发展较慢。非模块化设计，对第三方重量级模块依赖较多。</td><td colspan="1" class="confluenceTd"><p>号称性能最强，结果平平。非模块化设计。最近两年开始朝beego方向发展，但整体框架能力还不完备，需要加油。</p></td><td colspan="1" class="confluenceTd">功能简单易用，既是优点，也是缺点。</td></tr></tbody></table>
+<table class="relative-table wrapped confluenceTable">
+    <tbody>
+        <tr>
+            <th><br/></th>
+            <th class="confluenceTh">GoFrame</th>
+            <th class="confluenceTh">Beego</th>
+            <th colspan="1" class="confluenceTh">Iris</th>
+            <th colspan="1" class="confluenceTh">Gin</th>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>比较版本</strong></td>
+            <td colspan="1" class="confluenceTd">v1.15.2</td>
+            <td colspan="1" class="confluenceTd">v1.12.3</td>
+            <td colspan="1" class="confluenceTd">v12.0.2</td>
+            <td colspan="1" class="confluenceTd">v1.6.3</td>
+        </tr>
+        <tr>
+            <td><strong>项目类型</strong></td>
+            <td class="confluenceTd">开源（国内）</td>
+            <td class="confluenceTd">开源（国内）</td>
+            <td colspan="1" class="confluenceTd">开源（海外）</td>
+            <td colspan="1" class="confluenceTd">开源（海外）</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>开源协议</strong></td>
+            <td colspan="1" class="confluenceTd">MIT</td>
+            <td colspan="1" class="confluenceTd">Apache-2</td>
+            <td colspan="1" class="confluenceTd">BSD-3-Clause</td>
+            <td colspan="1" class="confluenceTd">MIT</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>框架类型</strong></td>
+            <td colspan="1" class="confluenceTd">模块化框架</td>
+            <td colspan="1" class="confluenceTd">Web框架</td>
+            <td colspan="1" class="confluenceTd">Web"框架"</td>
+            <td colspan="1" class="confluenceTd">Web"框架"</td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>基本介绍</strong></p>
+            </td>
+            <td colspan="1" class="confluenceTd">工程完备、简单易用，模块化、高质量、高性能、企业级开发框架。</td>
+            <td colspan="1" class="confluenceTd">最简单易用的企业级Go应用开发框架。</td>
+            <td colspan="1" class="confluenceTd">目前发展最快的Go Web框架。提供完整的MVC功能并且面向未来。</td>
+            <td colspan="1" class="confluenceTd">一个Go语言写的HTTP Web框架。它提供了Martini风格的API并有更好的性能。</td>
+        </tr>
+        <tr>
+            <td><strong>项目地址</strong></td>
+            <td class="confluenceTd">
+                <p><a class="external-link" href="https://github.com/gogf/gf" rel="nofollow">github.com/gogf/gf</a></p>
+            </td>
+            <td class="confluenceTd"><a class="external-link" href="https://github.com/beego/beego"
+                    rel="nofollow">github.com/beego/beego</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/kataras/iris"
+                    rel="nofollow">github.com/kataras/iris</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/gin-gonic/gin"
+                    rel="nofollow">github.com/gin-gonic/gin</a></td>
+        </tr>
+        <tr>
+            <td><strong>官网地址</strong></td>
+            <td class="confluenceTd"><a class="external-link" href="https://goframe.org/" rel="nofollow">goframe.org</a>            </td>
+            <td class="confluenceTd"><a class="external-link" href="https://beego.me/" rel="nofollow"
+                   >beego.me</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://iris-go.com/" rel="nofollow"
+                   >iris-go.com</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/"
+                    rel="nofollow">gin-gonic.com</a></td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>模块化设计</strong></p>
+            </td>
+            <td class="confluenceTd">是</td>
+            <td class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>模块完善度</strong></td>
+            <td colspan="1" class="confluenceTd">10</td>
+            <td colspan="1" class="confluenceTd">6</td>
+            <td colspan="1" class="confluenceTd">4</td>
+            <td colspan="1" class="confluenceTd">2</td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>使用易用性</strong></p>
+            </td>
+            <td colspan="1" class="confluenceTd">9</td>
+            <td colspan="1" class="confluenceTd">9</td>
+            <td colspan="1" class="confluenceTd">9</td>
+            <td colspan="1" class="confluenceTd">10</td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>文档完善度</strong></p>
+            </td>
+            <td colspan="1" class="confluenceTd">10</td>
+            <td colspan="1" class="confluenceTd">8</td>
+            <td colspan="1" class="confluenceTd">6</td>
+            <td colspan="1" class="confluenceTd">4</td>
+        </tr>
+        <tr>
+            <td><strong>工程化完备</strong></td>
+            <td colspan="1" class="confluenceTd">10</td>
+            <td colspan="1" class="confluenceTd">8</td>
+            <td colspan="1" class="confluenceTd">5</td>
+            <td colspan="1" class="confluenceTd">1</td>
+        </tr>
+        <tr>
+            <td><strong>社区活跃</strong></td>
+            <td class="confluenceTd">9</td>
+            <td class="confluenceTd">10</td>
+            <td colspan="1" class="confluenceTd">9</td>
+            <td colspan="1" class="confluenceTd">10</td>
+        </tr>
+        <tr>
+            <td><strong>开发模式</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114411" rel="nofollow">模块引入</a>、<a
+                    class="external-link" href="https://goframe.org//pages/viewpage.action?pageId=3672442"
+                    rel="nofollow">三层架构</a>、MVC</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/mvc/"
+                    rel="nofollow">MVC</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=quick-start" rel="nofollow">MVC</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>工程规范</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=3672442" rel="nofollow">分层设计</a>、<a
+                    class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=3672526"
+                    rel="nofollow">对象设计</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/intro/#beego-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"
+                    rel="nofollow">项目结构</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>开发工具链</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114260" rel="nofollow">gf工具链</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/install/bee.md"
+                    rel="nofollow">bee工具链</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 性能测试</strong></td>
+            <td class="confluenceTd">8</td>
+            <td class="confluenceTd">8</td>
+            <td colspan="1" class="confluenceTd">8</td>
+            <td colspan="1" class="confluenceTd">9</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: HTTPS</strong></td>
+            <td colspan="1" class="confluenceTd"><a
+                    href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114278">HTTPS &amp; TLS</a></td>
+            <td colspan="1" class="confluenceTd">支持</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=custom-http-configuration"
+                    rel="nofollow">CustomHttpConfiguration</a></td>
+            <td colspan="1" class="confluenceTd">支持</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: HTTP2</strong></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">支持</td>
+            <td colspan="1" class="confluenceTd">支持</td>
+        </tr>
+        <tr>
+            <td><strong>Web: WebSocket</strong></td>
+            <td colspan="1" class="confluenceTd"><a
+                    href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114298">WebSocket服务</a></td>
+            <td colspan="1" class="confluenceTd">有</td>
+            <td colspan="1" class="confluenceTd">有</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 分组路由</strong></td>
+            <td colspan="1" class="confluenceTd"><a
+                    href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114517">路由注册-分组路由</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/controller/router.md#namespace" rel="nofollow">Namespace</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=grouping-routes" rel="nofollow">GroupingRoutes</a></td>
+            <td colspan="1" class="confluenceTd">有</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 路由冲突处理</strong></td>
+            <td colspan="1" class="confluenceTd">有</td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">有</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 域名支持</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"
+                    rel="nofollow">域名绑定</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: 文件服务</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114172" rel="nofollow">静态文件服务</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/quickstart/static.md" rel="nofollow">静态文件处理</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=serving-static-files" rel="nofollow">ServingStaticFiles</a></td>
+            <td colspan="1" class="confluenceTd">有</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 多端口/实例</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%A4%9A%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC"
+                    rel="nofollow">多端口监听</a>、<a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%A4%9A%E5%AE%9E%E4%BE%8B%E6%94%AF%E6%8C%81"
+                    rel="nofollow">多实例监听</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=run-multiple-service-using-iris"
+                    rel="nofollow">RunMultipleServiceUsingIris</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>Web: 优雅重启/关闭</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114220" rel="nofollow">平滑重启特性</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/grace.md"
+                    rel="nofollow">热升级</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=graceful-shutdown-or-restart"
+                    rel="nofollow">GracefulShutdownOrRestart</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://gin-gonic.com/docs/examples/graceful-restart-or-stop/"
+                    rel="nofollow">GracefulRestartOrStop</a></td>
+        </tr>
+        <tr>
+            <td><strong>ORM</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114686" rel="nofollow">ORM文档</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/model/overview.md" rel="nofollow">ORM文档</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>Session</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/display/gf/Session"
+                    rel="nofollow">Session</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/controller/session.md" rel="nofollow">Session</a></td>
+            <td colspan="1" class="confluenceTd">有</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>I18N支持</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114191" rel="nofollow">I18N</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/i18n.md"
+                    rel="nofollow">I18N</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=localization" rel="nofollow">Localization</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>模板引擎</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114680" rel="nofollow">模板引擎</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/view/tutorial.md" rel="nofollow">View设计</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=template-rendering" rel="nofollow">TemplateRendering</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://gin-gonic.com/docs/examples/html-rendering/" rel="nofollow">HtmlRendering</a></td>
+        </tr>
+        <tr>
+            <td><strong>配置管理</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114668" rel="nofollow">配置管理</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/controller/config.md" rel="nofollow">参数配置</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://gin-gonic.com/docs/examples/custom-http-config/" rel="nofollow">CustomHttpConfig</a></td>
+        </tr>
+        <tr>
+            <td><strong>日志组件</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114673" rel="nofollow">日志组件</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/controller/logs.md" rel="nofollow">Logging</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td><strong>数据校验</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114678" rel="nofollow">数据校验</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://beego.me/docs/mvc/controller/validation.md" rel="nofollow">表单数据验证</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://gin-gonic.com/docs/examples/custom-validators/" rel="nofollow">CustomValidators</a></td>
+        </tr>
+        <tr>
+            <td><strong>缓存管理</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114679" rel="nofollow">缓存管理</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/cache.md"
+                    rel="nofollow">Cache</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>资源打包</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114671" rel="nofollow">资源管理</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/install/bee.md"
+                    rel="nofollow">bee工具bale命令</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>链路跟踪</strong></td>
+            <td colspan="1" class="confluenceTd"><a
+                    href="https://wiki.goframe.org/pages/viewpage.action?pageId=3673684">服务链路跟踪</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd">-</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>测试框架</strong></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://goframe.org/pages/viewpage.action?pageId=1114153" rel="nofollow">单元测试</a></td>
+            <td colspan="1" class="confluenceTd">-</td>
+            <td colspan="1" class="confluenceTd"><a class="external-link"
+                    href="https://www.iris-go.com/docs/#/?id=testing" rel="nofollow">Testing</a></td>
+            <td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/docs/testing/"
+                    rel="nofollow">Testing</a></td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>突出优点</strong></td>
+            <td colspan="1" class="confluenceTd">
+                goframe主要以工程化和企业级方向为主，特别是模块化设计和工程化设计思想非常棒。针对业务项目而言，提供了开发规范、项目规范、命名规范、设计模式、开发工具链、丰富的模块、高质量代码和文档，社区活跃。作者也是资深的PHP开发者，PHP转Go的小伙伴会倍感亲切。
+            </td>
+            <td colspan="1" class="confluenceTd">
+                beego开源的比较早，最早的一款功能比较全面的Golang开发框架，一直在Golang领域有着比较大的影响力，作者谢大多年组织着国内影响力比较大GopherCN活动。beego有着比较丰富的开发模块、开箱即用，提供了基于MVC设计模式的项目结构、开发工具链，主要定位为Web开发，当然也可以用于非Web项目开发。
+            </td>
+            <td colspan="1" class="confluenceTd">iris主要侧重于Web开发，提供了Web开发的一系列功能组件，基于MVC开发模式。iris这一年发展比较快，从一个Web
+                Server的组件，也慢慢朝着beego的设计方向努力。</td>
+            <td colspan="1" class="confluenceTd">gin专注于轻量级的Web
+                Server，比较简单，易于理解，路由和中间件设计不错，可以看做替代标准库net/http.Server的路由加强版web server。献给爱造轮子的朋友们。</td>
+        </tr>
+        <tr>
+            <td><strong>突出缺点</strong></td>
+            <td class="confluenceTd">开源时间较晚，推广过于佛系，目前主要面向国内用户，未推广海外。</td>
+            <td class="confluenceTd">起步较早，自谢大创业后，近几年发展较慢。非模块化设计，对第三方重量级模块依赖较多。</td>
+            <td colspan="1" class="confluenceTd">
+                <p>号称性能最强，结果平平。非模块化设计。最近两年开始朝beego方向发展，但整体框架能力还不完备，需要加油。</p>
+            </td>
+            <td colspan="1" class="confluenceTd">功能简单易用，既是优点，也是缺点。</td>
+        </tr>
+    </tbody>
+</table>
 
 经验分享
 ====

@@ -20,7 +20,125 @@ Due to work requirements, I have encountered many development frameworks over th
 Evaluation Criteria
 ====
 
-<table class="relative-table wrapped confluenceTable" style="width: 100.0%;"><colgroup><col style="width: 13.9137%;"> <col style="width: 86.0863%;"></colgroup><tbody><tr><th class="confluenceTh">Criteria</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd"><strong>Basic Introduction</strong></td><td class="confluenceTd">Sourced from respective official websites.</td></tr><tr><td class="confluenceTd"><strong>Modular Design</strong></td><td class="confluenceTd">Whether it supports modular plug-and-play design, low coupling between modules, and whether components can be used independently.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Module Completeness</strong></td><td colspan="1" class="confluenceTd">Whether the framework provides rich functional modules and if these modules can cover common development needs.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Ease of Use</strong></td><td colspan="1" class="confluenceTd">Usability is not just about how good the framework is, but more about whether teams can quickly integrate it at low cost and maintain it cost-effectively in the long term.</td></tr><tr><td class="confluenceTd"><strong>Documentation Completeness</strong></td><td class="confluenceTd">Reference materials provided on official websites, including but not limited to: documentation, videos, examples, and case studies. Local Chinese documentation support is also a reference point.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Engineering Completeness</strong></td><td colspan="1" class="confluenceTd">Whether it can be quickly integrated into project development, provides project integration specifications, design patterns, development toolchain, has complete documentation, readable source code, and is easy to maintain long-term.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Development Mode</strong></td><td colspan="1" class="confluenceTd">The development mode suitable for the framework or officially recommended development patterns.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Engineering Standards</strong></td><td colspan="1" class="confluenceTd">Development standards for project integration, such as directory standards, design standards, coding standards, naming conventions, etc.</td></tr><tr><td class="confluenceTd"><strong>Community Activity</strong></td><td class="confluenceTd">Whether communication with the official team and community is convenient, questions can be answered quickly, and bugs can be responded to promptly.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Development Toolchain</strong></td><td colspan="1" class="confluenceTd">CLI development tools used in project development, such as project initialization, cross-compilation, code generation, swagger, hot compilation capabilities, etc.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: Performance Test</strong></td><td colspan="1" class="confluenceTd"><p>Source from third-party evaluation <a class="external-link" href="https://github.com/the-benchmarker/web-frameworks" rel="nofollow">https://github.com/the-benchmarker/web-frameworks</a>.</p></td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: Routing Conflict Handling</strong></td><td colspan="1" class="confluenceTd">Whether there are good solutions for handling route registration conflicts, which is common in business project development.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: Domain Support</strong></td><td colspan="1" class="confluenceTd">Whether Web routing supports domain binding, even multiple domain bindings.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: File Service</strong></td><td colspan="1" class="confluenceTd">Whether the Web service provides static resource access capabilities.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Web: Graceful Restart/Shutdown</strong></td><td colspan="1" class="confluenceTd">Web service restart doesn't affect request execution, and during shutdown, it waits for executing requests to complete while not accepting new requests.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>ORM</strong></td><td colspan="1" class="confluenceTd">Whether the framework includes an ORM component, which is a core component for business projects. Whether self-developed or introduced through third-party components.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Session</strong></td><td colspan="1" class="confluenceTd">Whether the framework provides session management components, either general-purpose Session components or Web service-specific Session components.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>I18N Support</strong></td><td colspan="1" class="confluenceTd">Internationalization component support (commonly used but non-core component).</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Configuration Management</strong></td><td colspan="1" class="confluenceTd">Configuration management is also a core component capability required by the framework.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Logging Component</strong></td><td colspan="1" class="confluenceTd">Logging component is also a core component capability required by the framework.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Data Validation</strong></td><td colspan="1" class="confluenceTd">Data validation is also a core component capability required by the framework.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Cache Management</strong></td><td colspan="1" class="confluenceTd">Cache management is also a core component capability required by the framework. Whether memory or Redis, whether self-developed or introduced through third-party components.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Resource Packaging</strong></td><td colspan="1" class="confluenceTd">Support for compiling dependent file resources such as static resources and configuration files into executable files. Framework components automatically support resource retrieval.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Distributed Tracing</strong></td><td colspan="1" class="confluenceTd">Whether the framework has distributed tracing capabilities, which is essential in microservice architecture.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Testing Framework</strong></td><td colspan="1" class="confluenceTd">Whether the framework supports unit test integration and provides unit test integration standards. Whether using standard library or third-party testing frameworks.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Key Advantages</strong></td><td colspan="1" class="confluenceTd">Several notable advantages.</td></tr><tr><td colspan="1" class="confluenceTd"><strong>Key Disadvantages</strong></td><td colspan="1" class="confluenceTd">Several notable disadvantages.</td></tr></tbody></table>
+<table class="relative-table wrapped confluenceTable">
+    <tbody>
+        <tr>
+            <th class="confluenceTh">Criteria</th>
+            <th class="confluenceTh">Description</th>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>Basic Introduction</strong></td>
+            <td class="confluenceTd">Information sourced from official websites.</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>Modular Design</strong></td>
+            <td class="confluenceTd">Support for modular plug-and-play design, low coupling between modules, and ability to use components independently.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Module Completeness</strong></td>
+            <td colspan="1" class="confluenceTd">Richness of framework modules and their ability to cover common development needs.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Ease of Use</strong></td>
+            <td colspan="1" class="confluenceTd">Beyond basic usability, focuses on team's ability to adopt quickly and maintain with low cost in the long term.</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>Documentation Quality</strong></td>
+            <td class="confluenceTd">Reference materials including documentation, videos, examples, and case studies. Local language support is also considered.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Engineering Completeness</strong></td>
+            <td colspan="1" class="confluenceTd">Rapid project integration capability, project standards, design patterns, development toolchain, documentation quality, code readability, and maintainability.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Development Mode</strong></td>
+            <td colspan="1" class="confluenceTd">Supported or officially recommended development patterns.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Engineering Standards</strong></td>
+            <td colspan="1" class="confluenceTd">Development standards including directory structure, design patterns, coding standards, and naming conventions.</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd"><strong>Community Activity</strong></td>
+            <td class="confluenceTd">Ease of communication with official team, speed of problem resolution, and bug fix response time.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Development Toolchain</strong></td>
+            <td colspan="1" class="confluenceTd">CLI development tools for project initialization, cross-compilation, code generation, swagger support, hot reloading, etc.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: Performance Tests</strong></td>
+            <td colspan="1" class="confluenceTd">
+                <p>Third-party benchmarks from <a class="external-link" href="https://github.com/the-benchmarker/web-frameworks"
+                        rel="nofollow">https://github.com/the-benchmarker/web-frameworks</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: Route Conflict Handling</strong></td>
+            <td colspan="1" class="confluenceTd">Solutions for handling route registration conflicts, which are common in business projects.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: Domain Support</strong></td>
+            <td colspan="1" class="confluenceTd">Support for domain binding, including multiple domain capabilities.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: File Service</strong></td>
+            <td colspan="1" class="confluenceTd">Static resource serving capabilities.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Web: Graceful Restart/Shutdown</strong></td>
+            <td colspan="1" class="confluenceTd">Ability to restart without affecting ongoing requests and gracefully shut down by completing active requests while refusing new ones.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>ORM</strong></td>
+            <td colspan="1" class="confluenceTd">Built-in or third-party ORM support, which is crucial for business projects.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Session</strong></td>
+            <td colspan="1" class="confluenceTd">Session management support, either general-purpose or web-specific.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>I18N Support</strong></td>
+            <td colspan="1" class="confluenceTd">Internationalization component support (common but non-core component).</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Configuration Management</strong></td>
+            <td colspan="1" class="confluenceTd">Core framework capability for configuration management.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Logging Component</strong></td>
+            <td colspan="1" class="confluenceTd">Core framework capability for logging.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Data Validation</strong></td>
+            <td colspan="1" class="confluenceTd">Core framework capability for data validation.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Cache Management</strong></td>
+            <td colspan="1" class="confluenceTd">Core framework capability for cache management, including memory and Redis support, either built-in or via third-party components.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Resource Bundling</strong></td>
+            <td colspan="1" class="confluenceTd">Support for bundling static resources, configuration files, and other assets into the executable. Framework components automatically support resource discovery.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Distributed Tracing</strong></td>
+            <td colspan="1" class="confluenceTd">Framework capability for distributed tracing, essential for microservice architectures.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Testing Framework</strong></td>
+            <td colspan="1" class="confluenceTd">Unit testing support and standards, whether using standard library or third-party testing frameworks.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Key Advantages</strong></td>
+            <td colspan="1" class="confluenceTd">Notable strengths of the framework.</td>
+        </tr>
+        <tr>
+            <td colspan="1" class="confluenceTd"><strong>Key Disadvantages</strong></td>
+            <td colspan="1" class="confluenceTd">Notable limitations or weaknesses.</td>
+        </tr>
+    </tbody>
+</table>
 
 Horizontal Comparison
 ====
@@ -31,17 +149,10 @@ Horizontal Comparison
 *   Different "frameworks" implement features differently, with significant variations in documentation, functionality, and usability. Readers can refer to the links for more details.
 
 
-<table class="relative-table wrapped confluenceTable" style="width: 100.0%;">
-    <colgroup>
-        <col style="width: 13.613%;">
-        <col style="width: 21.56%;">
-        <col style="width: 23.9146%;">
-        <col style="width: 21.0449%;">
-        <col style="width: 19.8675%;">
-    </colgroup>
+<table class="relative-table wrapped confluenceTable">
     <tbody>
         <tr>
-            <th style="text-align: center;" class="confluenceTh"><br></th>
+            <th><br/></th>
             <th class="confluenceTh">GoFrame</th>
             <th class="confluenceTh">Beego</th>
             <th colspan="1" class="confluenceTh">Iris</th>
@@ -55,7 +166,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">v1.6.3</td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Project Type</strong></td>
+            <td><strong>Project Type</strong></td>
             <td class="confluenceTd">Open Source (China)</td>
             <td class="confluenceTd">Open Source (China)</td>
             <td colspan="1" class="confluenceTd">Open Source (International)</td>
@@ -76,7 +187,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">Web "Framework"</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd">
+            <td>
                 <p><strong>Basic Introduction</strong></p>
             </td>
             <td colspan="1" class="confluenceTd">A comprehensive, easy-to-use, modular, high-quality, high-performance,
@@ -89,30 +200,29 @@ Horizontal Comparison
                 with better performance.</td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Project URL</strong></td>
+            <td><strong>Project URL</strong></td>
             <td class="confluenceTd">
                 <p><a class="external-link" href="https://github.com/gogf/gf" rel="nofollow">github.com/gogf/gf</a></p>
             </td>
             <td class="confluenceTd"><a class="external-link" href="https://github.com/beego/beego"
                     rel="nofollow">github.com/beego/beego</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/kataras/iris"
-                    rel="nofollow" style="text-decoration: none;">github.com/kataras/iris</a></td>
+                    rel="nofollow">github.com/kataras/iris</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://github.com/gin-gonic/gin"
-                    rel="nofollow" style="text-decoration: none;">github.com/gin-gonic/gin</a></td>
+                    rel="nofollow">github.com/gin-gonic/gin</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Official Website</strong></td>
-            <td class="confluenceTd"><a class="external-link" href="https://goframe.org/" rel="nofollow">goframe.org</a>
-            </td>
+            <td><strong>Official Website</strong></td>
+            <td class="confluenceTd"><a class="external-link" href="https://goframe.org/" rel="nofollow">goframe.org</a></td>
             <td class="confluenceTd"><a class="external-link" href="https://beego.me/" rel="nofollow"
-                    style="text-decoration: none;">beego.me</a></td>
+                   >beego.me</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://iris-go.com/" rel="nofollow"
-                    style="text-decoration: none;">iris-go.com</a></td>
+                   >iris-go.com</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://gin-gonic.com/"
                     rel="nofollow">gin-gonic.com</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd">
+            <td>
                 <p><strong>Modular Design</strong></p>
             </td>
             <td class="confluenceTd">Yes</td>
@@ -128,7 +238,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">2</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd">
+            <td>
                 <p><strong>Ease of Use</strong></p>
             </td>
             <td colspan="1" class="confluenceTd">9</td>
@@ -137,7 +247,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">10</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd">
+            <td>
                 <p><strong>Documentation Completeness</strong></p>
             </td>
             <td colspan="1" class="confluenceTd">10</td>
@@ -146,22 +256,21 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">4</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Engineering Completeness</strong>
-            </td>
+            <td><strong>Engineering Completeness</strong></td>
             <td colspan="1" class="confluenceTd">10</td>
             <td colspan="1" class="confluenceTd">8</td>
             <td colspan="1" class="confluenceTd">5</td>
             <td colspan="1" class="confluenceTd">1</td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Community Activity</strong></td>
+            <td><strong>Community Activity</strong></td>
             <td class="confluenceTd">9</td>
             <td class="confluenceTd">10</td>
             <td colspan="1" class="confluenceTd">9</td>
             <td colspan="1" class="confluenceTd">10</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Development Mode</strong></td>
+            <td><strong>Development Mode</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114411" rel="nofollow">Module Import</a>、<a
                     class="external-link" href="https://goframe.org//pages/viewpage.action?pageId=3672442"
@@ -173,7 +282,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Engineering Standards</strong></td>
+            <td><strong>Engineering Standards</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=3672442" rel="nofollow">Layered Design</a>,
                 <a class="external-link" href="https://goframe.org/pages/viewpage.action?pageId=3672526"
@@ -185,7 +294,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Development Toolchain</strong></td>
+            <td><strong>Development Toolchain</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114260" rel="nofollow">gf工具链</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/install/bee.md"
@@ -194,7 +303,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Web: Performance Test</strong></td>
+            <td><strong>Web: Performance Test</strong></td>
             <td class="confluenceTd">8</td>
             <td class="confluenceTd">8</td>
             <td colspan="1" class="confluenceTd">8</td>
@@ -218,7 +327,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">Supported</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: WebSocket</strong></td>
+            <td><strong>Web: WebSocket</strong></td>
             <td colspan="1" class="confluenceTd"><a
                     href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114298">WebSocket服务</a></td>
             <td colspan="1" class="confluenceTd">Yes</td>
@@ -226,7 +335,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: Group Routing</strong></td>
+            <td><strong>Web: Group Routing</strong></td>
             <td colspan="1" class="confluenceTd"><a
                     href="https://wiki.goframe.org/pages/viewpage.action?pageId=1114517">Group Route Registration</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
@@ -236,14 +345,14 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">Yes</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: Route Conflict Handling</strong></td>
+            <td><strong>Web: Route Conflict Handling</strong></td>
             <td colspan="1" class="confluenceTd">Yes</td>
             <td colspan="1" class="confluenceTd">-</td>
             <td colspan="1" class="confluenceTd">Yes</td>
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: Domain Support</strong></td>
+            <td><strong>Web: Domain Support</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"
                     rel="nofollow">Domain Binding</a></td>
@@ -258,12 +367,11 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://beego.me/docs/quickstart/static.md" rel="nofollow">Static File Handling</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
-                    href="https://www.iris-go.com/docs/#/?id=serving-static-files" rel="nofollow">ServingStaticFiles</a>
-            </td>
+                    href="https://www.iris-go.com/docs/#/?id=serving-static-files" rel="nofollow">ServingStaticFiles</a></td>
             <td colspan="1" class="confluenceTd">Yes</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: Multi-port/Instance</strong></td>
+            <td><strong>Web: Multi-port/Instance</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114155#id-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-%E5%A4%9A%E7%AB%AF%E5%8F%A3%E7%9B%91%E5%90%AC"
                     rel="nofollow">Multi-port Listening</a>、<a class="external-link"
@@ -276,7 +384,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Web: Graceful Restart/Shutdown</strong></td>
+            <td><strong>Web: Graceful Restart/Shutdown</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114220" rel="nofollow">Graceful Restart Feature</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/grace.md"
@@ -289,7 +397,7 @@ Horizontal Comparison
                     rel="nofollow">GracefulRestartOrStop</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>ORM</strong></td>
+            <td><strong>ORM</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114686" rel="nofollow">ORM Documentation</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
@@ -298,7 +406,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Session</strong></td>
+            <td><strong>Session</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://goframe.org/display/gf/Session"
                     rel="nofollow">Session</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
@@ -317,31 +425,28 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Template Engine</strong></td>
+            <td><strong>Template Engine</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114680" rel="nofollow">Template Engine</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://beego.me/docs/mvc/view/tutorial.md" rel="nofollow">View Design</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
-                    href="https://www.iris-go.com/docs/#/?id=template-rendering" rel="nofollow">TemplateRendering</a>
-            </td>
+                    href="https://www.iris-go.com/docs/#/?id=template-rendering" rel="nofollow">TemplateRendering</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://gin-gonic.com/docs/examples/html-rendering/" rel="nofollow">HtmlRendering</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Configuration Management</strong>
-            </td>
+            <td><strong>Configuration Management</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114668" rel="nofollow">Configuration Management</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://beego.me/docs/mvc/controller/config.md" rel="nofollow">Parameter Configuration</a></td>
             <td colspan="1" class="confluenceTd">-</td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
-                    href="https://gin-gonic.com/docs/examples/custom-http-config/" rel="nofollow">CustomHttpConfig</a>
-            </td>
+                    href="https://gin-gonic.com/docs/examples/custom-http-config/" rel="nofollow">CustomHttpConfig</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Logging Component</strong></td>
+            <td><strong>Logging Component</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114673" rel="nofollow">Logging Component</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
@@ -350,18 +455,17 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">-</td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Data Validation</strong></td>
+            <td><strong>Data Validation</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114678" rel="nofollow">Data Validation</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://beego.me/docs/mvc/controller/validation.md" rel="nofollow">Form Data Validation</a></td>
             <td colspan="1" class="confluenceTd">-</td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
-                    href="https://gin-gonic.com/docs/examples/custom-validators/" rel="nofollow">CustomValidators</a>
-            </td>
+                    href="https://gin-gonic.com/docs/examples/custom-validators/" rel="nofollow">CustomValidators</a></td>
         </tr>
         <tr>
-            <td style="text-align: left;" colspan="1" class="confluenceTd"><strong>Cache Management</strong></td>
+            <td><strong>Cache Management</strong></td>
             <td colspan="1" class="confluenceTd"><a class="external-link"
                     href="https://goframe.org/pages/viewpage.action?pageId=1114679" rel="nofollow">Cache Management</a></td>
             <td colspan="1" class="confluenceTd"><a class="external-link" href="https://beego.me/docs/module/cache.md"
@@ -408,7 +512,7 @@ Horizontal Comparison
             <td colspan="1" class="confluenceTd">Gin focuses on being a lightweight Web Server that is simple and easy to understand. It features well-designed routing and middleware systems and can be considered an enhanced version of the standard net/http.Server with improved routing capabilities. It's a great choice for those who love building their own components.</td>
         </tr>
         <tr>
-            <td style="text-align: left;" class="confluenceTd"><strong>Key Disadvantages</strong></td>
+            <td><strong>Key Disadvantages</strong></td>
             <td class="confluenceTd">Relatively late to open source, takes a passive approach to promotion, currently mainly targets domestic users, and hasn't expanded internationally.</td>
             <td class="confluenceTd">Started early but development has slowed in recent years after the author's entrepreneurial ventures. Non-modular design with heavy reliance on third-party modules.</td>
             <td colspan="1" class="confluenceTd">
