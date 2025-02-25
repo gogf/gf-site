@@ -1,12 +1,13 @@
-
 ---
 slug: '/articles/framework-comparison-goframe-beego-iris-gin'
-title: 'Golang Framework Comparison: GoFrame, Beego, Iris and Gin'
+title: 'Golang框架选型比较: goframe, beego, iris和gin'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame, Beego, Iris, Gin, Golang框架对比, Web框架, 框架选型, 技术选型, 模块化设计, 工程化, 易用性, 框架性能, 开发效率]
 description: '深入对比GoFrame、Beego、Iris和Gin四大Golang Web框架的特性、优势和实践经验，从模块化设计、易用性、文档完善度、工程化等多个维度进行分析，为团队技术选型提供参考。包含实际项目经验分享及框架迁移案例。'
 ---
+
+
 
 迁移自旧版官网社区贡献文章：https://wiki.goframe.org/pages/viewpage.action?pageId=3673375
 
