@@ -140,7 +140,7 @@ func main() {
 
 这是符合标准库设计的行为，客户端终止请求后，服务端也没有继续执行下去的必要。
 
-[服务端频繁出现contextcancel错误](https://wiki.goframe.org/pages/viewpage.action?pageId=124387603#id-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%A2%91%E7%B9%81%E5%87%BA%E7%8E%B0contextcancel%E9%94%99%E8%AF%AF)
+[服务端频繁出现contextcancel错误](../docs/WEB服务开发/常见问题.md)
 
 ## 五、环境相关
 

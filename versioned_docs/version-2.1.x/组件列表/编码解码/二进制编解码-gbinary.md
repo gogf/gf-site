@@ -73,7 +73,7 @@ type Bit int8
 
 我们来看一个比较完整的二进制操作示例，基本演示了绝大部分的二进制转换操作。
 
-[github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/binary.go](https://github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/binary.go)
+[github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/binary.go](https://github.com/gogf/gf/blob/master/.example/encoding/gbinary/binary.go)
 
 ```go
 package main
@@ -188,7 +188,7 @@ I'm string!
 
 看以下的例子，用以上报平台100个传感器已开启，上报的状态顺序便是传感器在网关下端口顺序(索引从0开始)：
 
-[https://github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/bits1.go](https://github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/bits1.go)
+[https://github.com/gogf/gf/blob/master/.example/encoding/gbinary/bits1.go](https://github.com/gogf/gf/blob/master/.example/encoding/gbinary/bits1.go)
 
 
 
@@ -285,7 +285,7 @@ alived sensor: 100
 
 我们使用一条元数据来演示编码/解码操作。
 
-[github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/bits2.go](https://github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/bits2.go)
+[github.com/gogf/gf/v2/blob/master/.example/encoding/gbinary/bits2.go](https://github.com/gogf/gf/blob/master/.example/encoding/gbinary/bits2.go)
 
 
 

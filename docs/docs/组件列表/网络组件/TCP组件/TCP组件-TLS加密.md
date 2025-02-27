@@ -11,7 +11,7 @@ description: '使用GoFrame框架的gtcp模块在安全性要求较高的环境�
 
 使用示例：
 
-[https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls)
+[https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls)
 
 ```go
 package main

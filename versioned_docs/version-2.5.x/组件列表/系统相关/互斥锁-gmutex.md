@@ -44,7 +44,7 @@ type Mutex
 
 ### 基准测试
 
-`gmutex.Mutex` 与标准库的 `sync.Mutex` 及 `sync.RWMutex` 的基准测试对比结果： [gmutex\_bench\_test.go](https://github.com/gogf/gf/v2/blob/master/os/gmutex/gmutex_bench_test.go)
+`gmutex.Mutex` 与标准库的 `sync.Mutex` 及 `sync.RWMutex` 的基准测试对比结果： [gmutex\_bench\_test.go](https://github.com/gogf/gf/blob/master/os/gmutex/gmutex_bench_test.go)
 
 ```
 goos: linux

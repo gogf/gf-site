@@ -136,7 +136,7 @@ From version `v2.5` of the framework, the `Request` object of the framework's `H
 
 This behavior is in line with the standard library design. There is no need for the server to continue execution after the client terminates the request.
 
-[Frequent server context cancel errors](https://wiki.goframe.org/pages/viewpage.action?pageId=124387603#id-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%A2%91%E7%B9%81%E5%87%BA%E7%8E%B0contextcancel%E9%94%99%E8%AF%AF)
+[Frequent server context cancel errors](../docs/WEB服务开发/常见问题.md)
 
 ## V. Environment Related
 

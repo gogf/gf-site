@@ -11,7 +11,7 @@ In most scenarios, the common `Storage` implementations provided by the built-in
 
 ## Storage Definition
 
-[https://github.com/gogf/gf/v2/blob/master/os/gsession/gsession_storage.go](https://github.com/gogf/gf/v2/blob/master/os/gsession/gsession_storage.go)
+[https://github.com/gogf/gf/blob/master/os/gsession/gsession_storage.go](https://github.com/gogf/gf/blob/master/os/gsession/gsession_storage.go)
 
 ```go
 // Storage is the interface definition for session storage.

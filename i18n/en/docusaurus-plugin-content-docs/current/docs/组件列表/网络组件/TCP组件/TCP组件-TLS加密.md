@@ -11,7 +11,7 @@ The `gtcp` module supports `TLS` encrypted communication servers and clients, wh
 
 Examples:
 
-[https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls)
+[https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls)
 
 ```go
 package main

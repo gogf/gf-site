@@ -31,4 +31,4 @@ Thanks to this `Golang` technical sharing event held by `GoCN` and `Tap4Fun`, th
 
 Here is the PPT manuscript of this `GoFrame` framework technical sharing, feel free to use it as needed.
 
-[gocn-GoFrame Framework Introduction and Design.pdf](https://wiki.goframe.org/download/attachments/7296880/gocn-GoFrame%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D%E5%8F%8A%E8%AE%BE%E8%AE%A1.pdf?version=1&modificationDate=1618678587595&api=v2)
+[gocn-GoFrame Framework Introduction and Design.pdf](/attachments/gocn-GoFrame-intro.pdf)

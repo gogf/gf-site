@@ -17,6 +17,6 @@ This Thursday at 8 PM `GOCN` Open Source Talk will feature the topic `Let's GoFr
 
 `GoFrame` offers a unified and practical engineering development standard and supporting tools, automatic data model and database operation code generation, automatic `OpenAPIv3` document generation, support for `OpenTelemetry` observability standards, full error stack features, support for error codes, full API design of core components, and more. Using `GoFrame`'s out-of-the-box basic components, rich development documentation, practical tools, and standards can help us focus our energy on the business itself, write more standardized, secure, and observable code, improve project development and maintenance efficiency, and enable teams and individuals to create more value.
 
-PPT file download: [gocn-Let's GoFrame.pptx](https://wiki.goframe.org/download/attachments/35359084/gocn-Let%27s%20GoFrame.pptx?version=1&modificationDate=1643289965129&api=v2)
+PPT file download: [gocn-Let's GoFrame.pptx](/attachments/gocn-LetsGoFrame.pptx)
 
 `bilibili` video link: [https://www.bilibili.com/video/BV1U34y117w7/](https://www.bilibili.com/video/BV1U34y117w7/)

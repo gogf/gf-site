@@ -17,6 +17,6 @@ Hello 朋友们，早出晚归忙活了一年，好久没有来点技术分享�
 
 `GoFrame` 提供了统一的、实战化工程开发规范及配套落地的开发工具、自动化的数据模型及数据库操作代码生成、自动化的 `OpenAPIv3` 接口文档生成、支持 `OpenTelemetry` 可观测性标准、全错误堆栈特性、支持错误码特性、核心组件全接口化设计等等功能特性。使用 `GoFrame` 开箱即用的基础组件、丰富的开发文档、实战化的工具和规范能帮助我们将精力聚焦到业务本身，编写更加规范、安全、可观测的代码，提高项目开发维护效率，团队及个人能够创造更多的价值。
 
-PPT文件下载： [gocn-Let's GoFrame.pptx](https://wiki.goframe.org/download/attachments/35359084/gocn-Let%27s%20GoFrame.pptx?version=1&modificationDate=1643289965129&api=v2)
+PPT文件下载： [gocn-Let's GoFrame.pptx](/attachments/gocn-LetsGoFrame.pptx)
 
 `bilibili` 视频地址： [https://www.bilibili.com/video/BV1U34y117w7/](https://www.bilibili.com/video/BV1U34y117w7/)

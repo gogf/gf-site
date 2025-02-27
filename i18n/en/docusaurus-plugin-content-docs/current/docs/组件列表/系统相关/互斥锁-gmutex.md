@@ -39,7 +39,7 @@ type RWMutex
 
 ### Benchmark
 
-Benchmark comparison results of `gmutex.Mutex` with the standard library's `sync.Mutex` and `sync.RWMutex`: [gmutex\_bench\_test.go](https://github.com/gogf/gf/v2/blob/master/os/gmutex/gmutex_bench_test.go)
+Benchmark comparison results of `gmutex.Mutex` with the standard library's `sync.Mutex` and `sync.RWMutex`: [gmutex\_bench\_test.go](https://github.com/gogf/gf/blob/master/os/gmutex/gmutex_bench_test.go)
 
 ```
 goos: linux

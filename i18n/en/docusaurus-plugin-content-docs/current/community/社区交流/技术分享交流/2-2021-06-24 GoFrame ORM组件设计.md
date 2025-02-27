@@ -9,12 +9,12 @@ description: 'The theme of this sharing session "GoFrame ORM Component Design" m
 
 Hi, everyone, this Thursday at 8 PM, the GOCN Open Source Sharing session will cover the topic "GoFrame ORM Component Design," mainly introducing the design and related features of the core component ORM in the GoFrame framework.
 
-The GoFrame ORM component is quite powerful. Due to limited preparation and sharing time, this session will mainly introduce some of its outstanding features. More details are available in the [development documentation](https://wiki.goframe.org/pages/viewpage.action?pageId=1114686) and [project source code](https://github.com/gogf/gf/v2/tree/master/database/gdb).
+The GoFrame ORM component is quite powerful. Due to limited preparation and sharing time, this session will mainly introduce some of its outstanding features. More details are available in the [development documentation](../../../docs/核心组件/核心组件.md) and [project source code](https://github.com/gogf/gf/tree/master/database/gdb).
 
 Live broadcast address: [https://live.bilibili.com/21878276](https://live.bilibili.com/21878276)
 
 ![](/markdown/2a110b53cb90f2b0ea1af07ed17c4925.png)![](/markdown/823bc3dcb047efeda12e132de48456e4.png)
 
-PPT file download: [GoFrame ORM Component Design.pptx](https://wiki.goframe.org/download/attachments/7302551/GoFrame%20ORM%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1.pptx?version=1&modificationDate=1624540592693&api=v2)
+PPT file download: [GoFrame ORM Component Design.pptx](/attachments/GoFrameORM-design.pptx)
 
 Recorded video viewing: [https://www.bilibili.com/video/BV1yw411o7NE](https://www.bilibili.com/video/BV1yw411o7NE)
