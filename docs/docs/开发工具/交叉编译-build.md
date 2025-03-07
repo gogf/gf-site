@@ -44,8 +44,8 @@ gfcli:
 | 名称 | 默认值 | 含义 | 示例 |
 | --- | --- | --- | --- |
 | `name` | 与程序入口 `go` 文件同名 | 生成的可执行文件名称。如果是 `windows` 平台，那么默认会加上 `.exe` 后缀 | `gf` |
-| `arch` | 当前系统架构 | 编译架构，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持架构 | `386,amd64,arm` |
-| `system` | `当前系统平台` | 编译平台，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持平台 | `linux,darwin,windows` |
+| `arch` | 当前系统架构 | 编译架构，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持架构 | `386,amd64,arm` [更多](https://golang.google.cn/doc/install/source#environment) |
+| `system` | `当前系统平台` | 编译平台，多个以 `,` 号分隔，如果是 `all` 表示编译所有支持平台 | `linux,darwin,windows` [更多](https://golang.google.cn/doc/install/source#environment) |
 | `path` | `./bin` | 编译可执行文件存储的 **目录地址** | `./bin` |
 | `mod` |  | 同 `go build -mod` 编译选项，不常用 | `none` |
 | `cgo` | `false` | 是否开启 `CGO`，默认是关闭的。如果开启，那么交叉编译可能会有问题。 |  |
