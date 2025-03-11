@@ -12,6 +12,13 @@ function geti18nTitle() {
   }
 }
 
+function getFooterFollowUs() {
+  switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
+    case "en": return "Follow Us On WeChat";
+    default: return "微信关注我们";
+  }
+}
+
 // https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter
 // https://docusaurus.io/zh-CN/docs/api/docusaurus-config
 const config: Config = {
@@ -202,6 +209,16 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
     footer: {
+      links: [
+        {
+          title: getFooterFollowUs(),
+          items: [
+            {
+              html: '<img src="/img/wechat.jpg" width="110" />'
+            },
+          ],
+        },
+      ],
       copyright: `Copyright ${new Date().getFullYear()} GoFrame OpenSource Team`,
     },
     // 代码块配置
