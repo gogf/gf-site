@@ -71,6 +71,24 @@ OnDuplicate(g.Map{
 
 其中 `OnDuplicateEx` 用于排除指定忽略更新的字段，排除的字段需要在写入的数据集合中。
 
+#### 使用 `gdb.Counter` 实现字段自增
+
+在使用 `OnDuplicate` 方法时，可以结合 `gdb.Counter` 类型来实现字段的自增操作。`gdb.Counter` 类型包含两个属性：`Field` 和 `Value`，分别表示要自增的字段名和自增的值。
+
+```go
+_, err := db.Model("user").OnConflict("id").OnDuplicate(g.Map{
+    "count": gdb.Counter{Field: "count", Value: 1},       // count = count + 1
+    "amount": gdb.Counter{Field: "amount", Value: 9.99}, // amount = amount + 9.99
+}).Data(g.Map{
+    "id":       1,
+    "name":     "john",
+    "count":    0,
+    "amount":   0,
+}).Save()
+```
+
+上述示例中，当插入数据时遇到 `id` 冲突，会将现有记录的 `count` 字段值增加 `1`，将 `amount` 字段值增加 `9.99`。这在需要统计计数或累加金额等场景中非常有用。
+
 ## 使用示例
 
 ### 示例1，基本使用

@@ -206,7 +206,7 @@ const config: Config = {
     // toc目录层级显示设置
     tableOfContents: {
       minHeadingLevel: 2,
-      maxHeadingLevel: 4,
+      maxHeadingLevel: 3,
     },
     footer: {
       links: [

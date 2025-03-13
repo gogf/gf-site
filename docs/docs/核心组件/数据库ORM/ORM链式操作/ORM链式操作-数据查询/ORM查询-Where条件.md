@@ -7,7 +7,7 @@ keywords: [GoFrame,ORM,查询,Where条件,条件查询,数据库,条件方法,Go
 description: 'GoFrame框架中ORM组件提供的多种条件查询方法，详细阐述了Where、WhereOr、Wheref等方法的使用方式，及它们如何进行条件组合作用。通过示例展示了如何利用这些方法进行复杂数据库查询，并探讨了使用主键查询的优势。'
 ---
 
-`ORM` 组件提供了一些常用的条件查询方法，并且条件方法支持多种数据类型输入。
+`ORM` 组件提供了一些常用的条件查询方法，并且条件方法支持多种数据类型输入。`Where`条件方法比较多，本章节方法更新可能会不及时，完整的接口列表请参考接口文档：https://pkg.go.dev/github.com/gogf/gf/v2/database/gdb#Model
 
 ```go
 func (m *Model) Where(where interface{}, args...interface{}) *Model
@@ -41,6 +41,9 @@ func (m *Model) WhereOrNotBetween(column string, min, max interface{}) *Model
 func (m *Model) WhereOrNotLike(column string, like interface{}) *Model
 func (m *Model) WhereOrNotIn(column string, in interface{}) *Model
 func (m *Model) WhereOrNotNull(columns ...string) *Model
+
+func (m *Model) WhereExists(subQuery *Model) *Model 
+func (m *Model) WhereNotExists(subQuery *Model) *Model
 ```
 
 下面我们对其中的几个常用方法做简单介绍，其他条件查询方法用法类似。
@@ -215,6 +218,74 @@ m := g.Model("user")
 all, err := m.Where("id", 1).Where("address", "USA").Where(
     m.Builder().Where("status", "active").WhereOr("status", "pending"),
 ).All()
+```
+
+## `WhereExists/WhereNotExists` 子查询条件
+
+### 基本介绍
+
+`WhereExists` 和 `WhereNotExists` 方法用于创建 `EXISTS` 和 `NOT EXISTS` 子查询条件，这是 SQL 中常用的高级查询技术。这两个方法接受一个 `*Model` 类型的参数作为子查询。
+
+```go
+func (b *WhereBuilder) WhereExists(subQuery *Model) *WhereBuilder
+func (b *WhereBuilder) WhereNotExists(subQuery *Model) *WhereBuilder
+```
+
+`EXISTS` 子查询用于检查子查询是否返回任何行，如果子查询返回至少一行，则 `EXISTS` 条件为真；如果子查询不返回任何行，则 `EXISTS` 条件为假。`NOT EXISTS` 则相反，当子查询不返回任何行时条件为真。
+
+这两个方法特别适合于以下场景：
+1. 需要检查一个表中的记录是否在另一个表中存在关联记录
+2. 需要查找满足或不满足某些复杂条件的记录
+3. 替代复杂的 JOIN 查询，提高查询性能
+
+### 使用示例
+
+#### 基本用法
+
+```go
+// 查询存在关联订单的用户
+// SELECT * FROM user WHERE EXISTS (SELECT 1 FROM order WHERE order.user_id = user.id)
+subQuery := g.Model("order").Fields("1").Where("order.user_id = user.id")
+users, err := g.Model("user").WhereExists(subQuery).All()
+// SELECT * FROM user WHERE EXISTS (SELECT 1 FROM order WHERE order.user_id = user.id)
+```
+
+#### 使用表别名
+
+```go
+// 查询没有任何订单的用户
+subQuery := g.Model("order").Fields("id").Where("user_id = u.id")
+users, err := g.Model("user u").WhereNotExists(subQuery).All()
+// SELECT * FROM user u WHERE NOT EXISTS (SELECT id FROM order WHERE user_id = u.id)
+```
+
+#### 与其他条件组合
+
+```go
+// 查询活跃状态且有订单的用户
+subQuery := g.Model("order").Fields("id").Where("user_id = user.id")
+users, err := g.Model("user").Where("status", "active").WhereExists(subQuery).All()
+// SELECT * FROM user WHERE (status='active') AND EXISTS (SELECT id FROM order WHERE user_id = user.id)
+```
+
+#### 复杂子查询
+
+```go
+// 查询有未完成订单的VIP用户
+subQuery := g.Model("order").Fields("id").Where("user_id = u.id").Where("status", "pending")
+users, err := g.Model("user u").Where("vip", 1).WhereExists(subQuery).All()
+// SELECT * FROM user u WHERE (vip=1) AND EXISTS (SELECT id FROM order WHERE user_id = u.id AND status='pending')
+```
+
+#### 使用原始SQL引用
+
+在子查询中引用外部查询的字段时，可以使用 `db.Raw()` 方法：
+
+```go
+// 查询有相同名称产品的类别
+subQuery := g.Model("product").Fields("id").Where("name = ?", db.Raw("category.name"))
+categories, err := g.Model("category").WhereExists(subQuery).All()
+// SELECT * FROM category WHERE EXISTS (SELECT id FROM product WHERE name = category.name)
 ```
 
 ## 注意事项：空数组条件引发的 `0=1` 条件
