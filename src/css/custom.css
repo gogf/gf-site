@@ -237,3 +237,9 @@ table th, table td {
 .footer__col {
   margin-bottom: 0;
 }
+
+pre {
+  tab-size: 4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+}
