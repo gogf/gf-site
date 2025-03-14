@@ -1,7 +1,7 @@
 ---
 slug: '/docs/core/gconv-map'
 title: '类型转换-Map转换'
-sidebar_position: 1
+sidebar_position: 2000
 hide_title: true
 keywords: [GoFrame,类型转换,Map转换,GoFrame框架,属性标签,递归转换,自定义标签,MapDeep,struct转换,gconv]
 description: '使用GoFrame框架中的gconv.Map方法实现类型转换，包括将任意map或struct/*struct类型转换为map[string]interface{}类型。支持属性标签和自定义标签，并可通过MapDeep方法实现递归转换，解析出嵌套对象的详细结构，适合多层次数据处理。'
