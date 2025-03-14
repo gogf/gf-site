@@ -132,7 +132,7 @@ Integer error codes are the most common choice, particularly in traditional comm
 ```go
 // Integer error code example
 // Using gcode for effective integer-string conversion mapping maintenance
-const (
+var (
     CodeSuccess       = gcode.New(0, "success", nil)
     CodeUserNotLogin  = gcode.New(10001, "user not login", nil)
     CodeUserNotFound  = gcode.New(10002, "user not found", nil)
@@ -162,7 +162,7 @@ String error codes have their advantages in certain specific scenarios:
 // String error code example
 // Ignore integer error code parameter when using gcode
 // Use string description field as error code, with optional detailed description field
-const (
+var (
     ErrInvalidEmail = gcode.New(0, "user.invalid_email", nil)
     ErrUserBlocked  = gcode.New(0, "user.blocked", nil)
 )
@@ -309,7 +309,7 @@ The `gerror` error code system is a structured error handling mechanism provided
 
 ```go
 // Error code definition
-const (
+var (
     CodeOrderNotFound = gcode.New(2001, "order not found", nil)
 )
 
@@ -425,7 +425,7 @@ We use `gcode` to create error codes and maintain mappings between integer value
 // internal/logic/errors/errors_code.go
 
 // System level error codes
-const (
+var (
     CodeSuccess       = gcode.New(0, "success", nil)          // Success
     CodeUnknownError  = gcode.New(1, "unkhown", nil)          // Unknown error
     CodeNotAuthorized = gcode.New(401, "not authorized", nil) // Not authorized
@@ -440,7 +440,7 @@ const (
 // internal/logic/errors/errors_code_user.go
 
 // User module error codes (10xx)
-const (
+var (
     CodeUserNotFound    = gcode.New(1001, "user not found", nil)   // User not found
     CodePasswordInvalid = gcode.New(1002, "invalid password", nil) // Invalid password
     CodeTokenExpired    = gcode.New(1003, "token expired", nil)    // Token expired
@@ -454,7 +454,7 @@ const (
 // internal/logic/errors/errors_code_order.go
 
 // Order module error codes (20xx)
-const (
+var (
     CodeOrderNotFound  = gcode.New(2001, "order not found", nil) // Order not found
     CodeOrderPaid      = gcode.New(2002, "order paid", nil)      // Order already paid
     CodeOrderCancelled = gcode.New(2003, "order cancelled", nil) // Order cancelled

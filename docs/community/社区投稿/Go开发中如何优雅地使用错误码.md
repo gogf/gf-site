@@ -133,7 +133,7 @@ description: "本文详细探讨了错误码的发展历史、使用场景及最
 ```go
 // 整型错误码示例
 // 使用gcode能够有效做整形与字符串转换映射维护
-const (
+var (
     CodeSuccess       = gcode.New(0, "success", nil)
     CodeUserNotLogin  = gcode.New(10001, "user not login", nil)
     CodeUserNotFound  = gcode.New(10002, "user not found", nil)
@@ -163,7 +163,7 @@ func HandleError(err error) {
 // 字符串错误码示例
 // 使用gcode时忽略整型错误码参数
 // 使用字符串描述字段作为错误码，可以选择附加详细描述字段
-const (
+var (
     ErrInvalidEmail = gcode.New(0, "user.invalid_email", nil)
     ErrUserBlocked  = gcode.New(0, "user.blocked", nil)
 )
@@ -310,7 +310,7 @@ func main() {
 
 ```go
 // 错误码定义
-const (
+var (
     CodeOrderNotFound = gcode.New(2001, "order not found", nil)
 )
 
@@ -426,7 +426,7 @@ monorepo
 // internal/logic/errors/errors_code.go
 
 // 系统级别错误码
-const (
+var (
     CodeSuccess       = gcode.New(0, "success", nil)          // 成功
     CodeUnknownError  = gcode.New(1, "unkhown", nil)          // 未知错误
     CodeNotAuthorized = gcode.New(401, "not authorized", nil) // 未授权
@@ -441,7 +441,7 @@ const (
 // internal/logic/errors/errors_code_user.go
 
 // 用户模块错误码 (10xx)
-const (
+var (
     CodeUserNotFound    = gcode.New(1001, "user not found", nil)   // 用户不存在
     CodePasswordInvalid = gcode.New(1002, "invalid password", nil) // 密码错误
     CodeTokenExpired    = gcode.New(1003, "token expired", nil)    // 令牌过期
@@ -455,7 +455,7 @@ const (
 // internal/logic/errors/errors_code_order.go
 
 // 订单模块错误码 (20xx)
-const (
+var (
     CodeOrderNotFound  = gcode.New(2001, "order not found", nil) // 订单不存在
     CodeOrderPaid      = gcode.New(2002, "order paid", nil)      // 订单已支付
     CodeOrderCancelled = gcode.New(2003, "order cancelled", nil) // 订单已取消
