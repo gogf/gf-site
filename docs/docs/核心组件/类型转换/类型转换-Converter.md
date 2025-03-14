@@ -165,7 +165,7 @@ import (
 	"github.com/gogf/gf/v2/util/gconv"
 )
 
-// 定义复杂的自定义类型
+// UserInfo 自定义类型
 type UserInfo struct {
 	ID       int
 	Name     string
@@ -178,27 +178,23 @@ type UserDTO struct {
 	Age      int
 }
 
+func userInfoT2UserDTO(in UserInfo) (*UserDTO, error) {
+	if in.ID <= 0 {
+		return nil, fmt.Errorf("invalid user ID: %d", in.ID)
+	}
+	// 计算年龄
+	age := time.Now().Year() - in.Birthday.Year()
+	return &UserDTO{
+		UserID:   fmt.Sprintf("U%d", in.ID),
+		UserName: in.Name,
+		Age:      age,
+	}, nil
+}
+
 func main() {
 	converter := gconv.NewConverter()
-
 	// 注册自定义类型转换函数 - 从UserInfo到UserDTO
-	err := converter.RegisterTypeConverterFunc(
-		func(in UserInfo) (*UserDTO, error) {
-			if in.ID <= 0 {
-				return nil, fmt.Errorf("invalid user ID: %d", in.ID)
-			}
-			
-			// 计算年龄
-			age := time.Now().Year() - in.Birthday.Year()
-			
-			return &UserDTO{
-				UserID:   fmt.Sprintf("U%d", in.ID),
-				UserName: in.Name,
-				Age:      age,
-			}, nil
-		},
-	)
-
+	err := converter.RegisterTypeConverterFunc(userInfoT2UserDTO)
 	if err != nil {
 		fmt.Println("注册转换函数失败:", err)
 		return
@@ -210,14 +206,14 @@ func main() {
 		Name:     "张三",
 		Birthday: time.Date(1990, 5, 15, 0, 0, 0, 0, time.Local),
 	}
-	
+
 	var userDTO UserDTO
 	err = converter.Scan(userInfo, &userDTO)
 	if err != nil {
 		fmt.Println("转换失败:", err)
 	} else {
-		fmt.Printf("自定义类型转换结果: %+v\n", userDTO) 
-		// 输出类似: 自定义类型转换结果: {UserID:U101 UserName:张三 Age:35}
+		fmt.Printf("自定义类型转换结果: %#v\n", userDTO)
+		// 输出类似: 自定义类型转换结果: main.UserDTO{UserID:"U101", UserName:"张三", Age:35}
 	}
 
 	// 测试错误处理
@@ -230,6 +226,8 @@ func main() {
 ```
 
 在上面的示例中，我们定义了两个复杂类型：`UserInfo`（源类型）和`UserDTO`（目标类型），并注册了一个自定义转换函数，用于将`UserInfo`转换为`UserDTO`。这种转换不仅仅是简单的字段映射，还包含了业务逻辑（如计算年龄）。
+
+更多关于自定义类型转换的介绍，请参考章节：[类型转换-自定义类型转换](./类型转换-自定义类型转换.md)
 
 ## 与传统`gconv`包方法的区别
 
