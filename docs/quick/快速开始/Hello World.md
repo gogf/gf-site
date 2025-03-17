@@ -14,31 +14,29 @@ description: '使用GoFrame框架构建一个简单的Hello World Web Server。G
 
 我们先来开发一个简单的`Web Server`程序。
 
-- 新建main.go文件
-```go title="main.go"
-package main
+- 新建`main.go`文件
+  ```go title="main.go"
+  package main
 
-import (
-    "github.com/gogf/gf/v2/frame/g"
-    "github.com/gogf/gf/v2/net/ghttp"
-)
+  import (
+      "github.com/gogf/gf/v2/frame/g"
+      "github.com/gogf/gf/v2/net/ghttp"
+  )
 
-func main() {
-    s := g.Server()
-    s.BindHandler("/", func(r *ghttp.Request) {
-        r.Response.Write("Hello World!")
-    })
-    s.SetPort(8000)
-    s.Run()
-}
-
-
-```
-- 配置 go mod 并安装依赖
-```shell
-go mod init main
-go mod tidy
-```
+  func main() {
+      s := g.Server()
+      s.BindHandler("/", func(r *ghttp.Request) {
+          r.Response.Write("Hello World!")
+      })
+      s.SetPort(8000)
+      s.Run()
+  }
+  ```
+- 配置`go mod`并安装依赖
+  ```shell
+  go mod init main
+  go mod tidy
+  ```
 
 我们来看看这段代码：
 - 任何时候，您都可以通过 `g.Server()` 方法获得一个默认的 `Server` 对象，该方法采用**单例模式**设计，
