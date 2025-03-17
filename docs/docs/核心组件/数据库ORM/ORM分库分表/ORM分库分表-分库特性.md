@@ -53,7 +53,7 @@ model := db.Model("user").
 
 ### 默认分库规则
 
-`GoFrame ORM`内置了默认的分库规则`DefaultShardingRule`，它基于分片值的哈希取模来确定数据库名：
+`GoFrame ORM`提供了默认的分库规则`DefaultShardingRule`，它基于分片值的哈希取模来确定数据库名：
 
 ```go
 // 默认分库规则实现

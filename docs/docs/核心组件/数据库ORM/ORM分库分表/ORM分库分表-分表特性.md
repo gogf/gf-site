@@ -54,7 +54,7 @@ model := db.Model("user").
 
 ### 默认分表规则
 
-`GoFrame ORM`内置了默认的分表规则`DefaultShardingRule`，它基于分片值的哈希取模来确定表名：
+`GoFrame ORM`提供了默认的分表规则`DefaultShardingRule`，它基于分片值的哈希取模来确定表名：
 
 ```go
 // 默认分表规则实现
