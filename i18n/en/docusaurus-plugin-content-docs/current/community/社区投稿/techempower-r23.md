@@ -43,6 +43,8 @@ Finally, TechEmpower provides an overall ranking based on the comprehensive perf
 
 In the latest TechEmpower Web Benchmarks Round 23 evaluation, GoFrame demonstrated excellent performance:
 
+![GoFrame's performance in Round 23](/img/image-1.png)
+
 ### Performance Highlights
 
 **GoFrame performed impressively in Round 23:**
@@ -52,6 +54,8 @@ In the latest TechEmpower Web Benchmarks Round 23 evaluation, GoFrame demonstrat
 - **Resource Consumption**: Single instance memory usage maintained below 128MB, high resource utilization efficiency
 
 ### Go Framework Performance Comparison
+
+![GoFrame's performance comparison with other mainstream frameworks in the Go language ecosystem](/img/image.png)
 
 In the Go language ecosystem, the performance comparison between GoFrame and other mainstream frameworks is as follows:
 

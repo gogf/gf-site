@@ -43,6 +43,8 @@ TechEmpower Web Benchmarks采用多维度的评测指标，全面衡量Web框架
 
 在最新发布的TechEmpower Web Benchmarks Round 23评测中，GoFrame展现了出色的性能表现：
 
+![GoFrame在TechEmpower Web Benchmarks Round 23中的表现](/img/image-1.png)
+
 ### 性能亮点
 
 **GoFrame 在 Round 23 中表现亮眼：**
@@ -52,6 +54,8 @@ TechEmpower Web Benchmarks采用多维度的评测指标，全面衡量Web框架
 - **资源消耗**：单实例内存占用保持在 128MB 以下，资源利用效率高
 
 ### Go框架性能对比
+
+![在Go语言生态中，GoFrame与其他主流框架的性能对比](/img/image.png)
 
 在Go语言生态中，GoFrame与其他主流框架的性能对比如下：
 
