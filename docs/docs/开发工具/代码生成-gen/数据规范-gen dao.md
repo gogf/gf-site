@@ -13,7 +13,7 @@ description: 'GoFrame框架中gen dao命令的使用方法与参数配置。gen 
 :::
 ## 使用方式
 
-大部分场景下，进入项目根目录执行 `gf gen dao` 即可。以下为命令行帮助信息。
+大部分场景下，进入项目根目录执行 `gf gen dao` 即可。以下为命令行帮助信息。以下命令行输出仅供参考：
 
 ```text
 $ gf gen dao -h
@@ -150,6 +150,8 @@ gfcli:
 | `tplDaoEntityPath` |  | 自定义 `Entity` 代码生成模板文件路径，使用该参数请参考源码 |  |
 | `typeMapping` |  | **从版本v2.5开始支持**。用于自定义数据表字段类型到生成的Go文件中对应属性类型映射。 |  |
 | `fieldMapping` |   | **从版本v2.8开始支持**。用于自定义数据表具体字段到生成的Go文件中对应属性类型映射。|    | 
+| `shardingPattern` |   | **从版本v2.9开始支持**。用于自定义数据表分表规则。|    | 
+
 
 ### 参数：`typeMapping`
 
@@ -180,6 +182,106 @@ paid_orders.amount:
   import: github.com/shopspring/decimal
 ```
 示例中，`paid_orders`为表名称，`amount`为字段名称，`type`表示生成的`Go`代码中对应的数据类型名称，`import`表示生成的代码中需要引入第三方包。
+
+### 参数：`shardingPattern`
+
+参数`shardingPattern`用于配置分库分表规则。该参数在`v2.9`版本中新增，用于识别和处理分片表（`Sharding Tables`）。分片表是指按照某种规则拆分的多个具有相同结构的数据表，例如按照时间分片的`orders_202301`、`orders_202302`等表，或者按照用户ID分片的`users_0001`、`users_0002`等表。
+
+#### 参数说明
+
+- 类型：字符串数组
+- 格式：使用`?`作为通配符来匹配表名中的分片部分
+- 作用：将多个匹配同一模式的表识别为同一个逻辑表，并生成支持分片的`DAO`代码
+
+#### 工作原理
+
+当使用`shardingPattern`参数时，`gen dao`命令会：
+
+1. 根据提供的模式匹配数据库中的表名
+2. 将匹配同一模式的多个表识别为同一个逻辑表
+3. 移除表名中的分片标识符部分
+4. 为该逻辑表生成支持分片的`DAO`代码
+
+#### 参数示例
+
+假设数据库中有以下表：
+
+```text
+users_0001
+users_0002
+users_0003
+products
+```
+
+使用以下`shardingPattern`配置：
+
+```yaml
+gendao:
+  - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    shardingPattern:
+      - "users_?"
+```
+
+生成的结果将包含：
+
+1. 一个名为`users.go`的`DAO`文件，而不是为每个分片表生成单独的`DAO`文件
+2. 该`DAO`文件中会包含分片配置代码，自动处理对不同分片表的操作
+3. 产品表会正常生成`products.go`的`DAO`文件
+
+生成的`DAO`文件示例：
+```go
+// ...
+
+type usersDao struct {
+    *internal.UsersDao
+}
+
+var (
+    // Users is a globally accessible object for table users_0001 operations.
+    Users = usersDao{internal.NewUsersDao(userShardingHandler)}
+)
+
+// userShardingHandler is the handler for sharding operations.
+// You can fill this sharding handler with your custom implementation.
+func userShardingHandler(m *gdb.Model) *gdb.Model {
+    m = m.Sharding(gdb.ShardingConfig{
+        Table: gdb.ShardingTableConfig{
+            Enable: true,
+            Prefix: "",
+            // Replace Rule field with your custom sharding rule.
+            // Or you can use "&gdb.DefaultShardingRule{}" for default sharding rule.
+            Rule: nil,
+        },
+        Schema: gdb.ShardingSchemaConfig{},
+    })
+    return m
+}
+
+// ...
+```
+其中，您需要自行设定`DAO`文件中的`userShardingHandler`函数中`Sharding`的分表规则，也可以设定分库规则。如果生成分表`DAO`文件但是未手动设置分表规则，直接调用`DAO`对象将会报错。
+
+
+#### 多个分片模式
+
+可以同时指定多个分片模式的配置示例：
+
+```yaml
+gendao:
+  - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    shardingPattern:
+      - "users_?"
+      - "orders_?"
+```
+
+这将同时处理`users_`和`orders_`前缀的分片表，生成`users.go`和`orders.go`的`DAO`文件。
+
+#### 注意事项
+
+1. 分片表必须具有相同的表结构。
+2. 分片标识符可以是数字、日期或其他格式，只要能用`?`通配符匹配即可。
+3. 生成的`DAO`代码会自动包含所有匹配的分片表，如果后续添加新的分片表，需要重新生成`DAO`代码。
+4. 你需要在生成的`DAO`文件中，为每个分片表添加`Sharding`方法，用于指定分表规则，具体请参考章节：[ORM分库分表-分表特性](../../核心组件/数据库ORM/ORM分库分表/ORM分库分表-分表特性.md)。
 
 ## 使用示例
 

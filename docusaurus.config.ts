@@ -1,4 +1,4 @@
-const LATEST_VERSION_LABEL = '2.8.x(Latest)';
+const LATEST_VERSION_LABEL = '2.9.x(Latest)';
 
 import type { Options as IdealImageOptions } from '@docusaurus/plugin-ideal-image';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -206,7 +206,7 @@ const config: Config = {
     // toc目录层级显示设置
     tableOfContents: {
       minHeadingLevel: 2,
-      maxHeadingLevel: 4,
+      maxHeadingLevel: 3,
     },
     footer: {
       links: [

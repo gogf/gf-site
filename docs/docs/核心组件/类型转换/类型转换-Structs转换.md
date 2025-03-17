@@ -1,7 +1,7 @@
 ---
 slug: '/docs/core/gconv-structs'
 title: '类型转换-Structs转换'
-sidebar_position: 3
+sidebar_position: 4000
 hide_title: true
 keywords: [GoFrame,GoFrame框架,类型转换,Struct,Structs,struct数组,转换方法,gconv,使用示例,Go语言]
 description: 'GoFrame框架中的类型转换方法，主要聚焦于使用Structs方法实现对struct数组的转换。Structs方法与Struct方法类似，并在其基础上扩展了对struct数组的支持。文中还提供了具体的代码示例，演示了如何在实际应用中使用这一功能。'

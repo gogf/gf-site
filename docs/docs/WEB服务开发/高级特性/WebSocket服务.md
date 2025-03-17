@@ -121,67 +121,67 @@ description: '使用GoFrame框架开发WebSocket服务，包括HTML5客户端、
 package main
 
 import (
-	"net/http"
+    "net/http"
 
-	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/gorilla/websocket"
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+    "github.com/gorilla/websocket"
 )
 
 func main() {
-	var (
-		s          = g.Server()
-		logger     = g.Log()
-		wsUpGrader = websocket.Upgrader{
-			// CheckOrigin allows any origin in development
-			// In production, implement proper origin checking for security
-			CheckOrigin: func(r *http.Request) bool {
-				return true
-			},
-			// Error handler for upgrade failures
-			Error: func(w http.ResponseWriter, r *http.Request, status int, reason error) {
-				// Implement error handling logic here
-			},
-		}
-	)
+    var (
+        s          = g.Server()
+        logger     = g.Log()
+        wsUpGrader = websocket.Upgrader{
+            // CheckOrigin allows any origin in development
+            // In production, implement proper origin checking for security
+            CheckOrigin: func(r *http.Request) bool {
+                return true
+            },
+            // Error handler for upgrade failures
+            Error: func(w http.ResponseWriter, r *http.Request, status int, reason error) {
+                // Implement error handling logic here
+            },
+        }
+    )
 
-	// Bind WebSocket handler to /ws endpoint
-	s.BindHandler("/ws", func(r *ghttp.Request) {
-		// Upgrade HTTP connection to WebSocket
-		ws, err := wsUpGrader.Upgrade(r.Response.Writer, r.Request, nil)
-		if err != nil {
-			r.Response.Write(err.Error())
-			return
-		}
-		defer ws.Close()
+    // Bind WebSocket handler to /ws endpoint
+    s.BindHandler("/ws", func(r *ghttp.Request) {
+        // Upgrade HTTP connection to WebSocket
+        ws, err := wsUpGrader.Upgrade(r.Response.Writer, r.Request, nil)
+        if err != nil {
+            r.Response.Write(err.Error())
+            return
+        }
+        defer ws.Close()
 
-		// Get request context for logging
-		var ctx = r.Context()
+        // Get request context for logging
+        var ctx = r.Context()
 
-		// Message handling loop
-		for {
-			// Read incoming WebSocket message
-			msgType, msg, err := ws.ReadMessage()
-			if err != nil {
-				break // Connection closed or error occurred
-			}
-			// Log received message
-			logger.Infof(ctx, "received message: %s", msg)
-			// Echo the message back to client
-			if err = ws.WriteMessage(msgType, msg); err != nil {
-				break // Error writing message
-			}
-		}
-		// Log connection closure
-		logger.Info(ctx, "websocket connection closed")
-	})
+        // Message handling loop
+        for {
+            // Read incoming WebSocket message
+            msgType, msg, err := ws.ReadMessage()
+            if err != nil {
+                break // Connection closed or error occurred
+            }
+            // Log received message
+            logger.Infof(ctx, "received message: %s", msg)
+            // Echo the message back to client
+            if err = ws.WriteMessage(msgType, msg); err != nil {
+                break // Error writing message
+            }
+        }
+        // Log connection closure
+        logger.Info(ctx, "websocket connection closed")
+    })
 
-	// Configure static file serving
-	s.SetServerRoot("static")
-	// Set server port
-	s.SetPort(8000)
-	// Start the server
-	s.Run()
+    // Configure static file serving
+    s.SetServerRoot("static")
+    // Set server port
+    s.SetPort(8000)
+    // Start the server
+    s.Run()
 }
 ```
 
@@ -203,53 +203,53 @@ func main() {
 package main
 
 import (
-	"net/http"
+    "net/http"
 
-	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/gorilla/websocket"
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+    "github.com/gorilla/websocket"
 )
 
 func main() {
-	var (
-		s          = g.Server()
-		logger     = g.Log()
-		wsUpGrader = websocket.Upgrader{
-			CheckOrigin: func(r *http.Request) bool {
-				// In production, you should implement proper origin checking
-				return true
-			},
-			Error: func(w http.ResponseWriter, r *http.Request, status int, reason error) {
-				// Error callback function.
-			},
-		}
-	)
+    var (
+        s          = g.Server()
+        logger     = g.Log()
+        wsUpGrader = websocket.Upgrader{
+            CheckOrigin: func(r *http.Request) bool {
+                // In production, you should implement proper origin checking
+                return true
+            },
+            Error: func(w http.ResponseWriter, r *http.Request, status int, reason error) {
+                // Error callback function.
+            },
+        }
+    )
 
-	s.BindHandler("/ws", func(r *ghttp.Request) {
-		ws, err := wsUpGrader.Upgrade(r.Response.Writer, r.Request, nil)
-		if err != nil {
-			r.Response.Write(err.Error())
-			return
-		}
-		defer ws.Close()
+    s.BindHandler("/ws", func(r *ghttp.Request) {
+        ws, err := wsUpGrader.Upgrade(r.Response.Writer, r.Request, nil)
+        if err != nil {
+            r.Response.Write(err.Error())
+            return
+        }
+        defer ws.Close()
 
-		var ctx = r.Context()
-		for {
-			msgType, msg, err := ws.ReadMessage()
-			if err != nil {
-				break
-			}
-			logger.Infof(ctx, "received message: %s", msg)
-			if err = ws.WriteMessage(msgType, msg); err != nil {
-				break
-			}
-		}
-		logger.Info(ctx, "websocket connection closed")
-	})
-	s.EnableHTTPS("certs/server.crt", "certs/server.key")
-	s.SetServerRoot("static")
-	s.SetPort(8000)
-	s.Run()
+        var ctx = r.Context()
+        for {
+            msgType, msg, err := ws.ReadMessage()
+            if err != nil {
+                break
+            }
+            logger.Infof(ctx, "received message: %s", msg)
+            if err = ws.WriteMessage(msgType, msg); err != nil {
+                break
+            }
+        }
+        logger.Info(ctx, "websocket connection closed")
+    })
+    s.EnableHTTPS("certs/server.crt", "certs/server.key")
+    s.SetServerRoot("static")
+    s.SetPort(8000)
+    s.Run()
 }
 ```
 
@@ -274,46 +274,46 @@ func main() {
 package main
 
 import (
-	"context"
+    "context"
 
-	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gorilla/websocket"
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gorilla/websocket"
 )
 
 func main() {
-	var (
-		ctx    = context.Background()
-		logger = g.Log()
-	)
+    var (
+        ctx    = context.Background()
+        logger = g.Log()
+    )
 
-	// Connect to WebSocket server using default dialer
-	ws, _, err := websocket.DefaultDialer.Dial("ws://127.0.0.1:8000/ws", nil)
-	if err != nil {
-		logger.Fatalf(ctx, "dial failed: %+v", err)
-	}
-	// Ensure connection is closed when function returns
-	defer ws.Close()
+    // Connect to WebSocket server using default dialer
+    ws, _, err := websocket.DefaultDialer.Dial("ws://127.0.0.1:8000/ws", nil)
+    if err != nil {
+        logger.Fatalf(ctx, "dial failed: %+v", err)
+    }
+    // Ensure connection is closed when function returns
+    defer ws.Close()
 
-	// Send a test message to the server
-	err = ws.WriteMessage(websocket.TextMessage, []byte("hello"))
-	if err != nil {
-		logger.Fatalf(ctx, "ws.WriteMessage failed: %+v", err)
-	}
+    // Send a test message to the server
+    err = ws.WriteMessage(websocket.TextMessage, []byte("hello"))
+    if err != nil {
+        logger.Fatalf(ctx, "ws.WriteMessage failed: %+v", err)
+    }
 
-	// Read the server's response
-	_, msg, err := ws.ReadMessage()
-	if err != nil {
-		logger.Fatalf(ctx, "ws.ReadMessage failed: %+v", err)
-		return
-	}
+    // Read the server's response
+    _, msg, err := ws.ReadMessage()
+    if err != nil {
+        logger.Fatalf(ctx, "ws.ReadMessage failed: %+v", err)
+        return
+    }
 
-	logger.Infof(ctx, `received message: %s`, msg)
+    logger.Infof(ctx, `received message: %s`, msg)
 
-	// Cleanly close the connection by sending a close message
-	// This is important for proper connection cleanup
-	err = ws.WriteMessage(websocket.CloseMessage, []byte("going to close"))
-	if err != nil {
-		logger.Fatalf(ctx, "ws.WriteMessage failed: %+v", err)
-	}
+    // Cleanly close the connection by sending a close message
+    // This is important for proper connection cleanup
+    err = ws.WriteMessage(websocket.CloseMessage, []byte("going to close"))
+    if err != nil {
+        logger.Fatalf(ctx, "ws.WriteMessage failed: %+v", err)
+    }
 }
 ```
