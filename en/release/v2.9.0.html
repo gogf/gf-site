@@ -1,0 +1,212 @@
+<!doctype html><html lang=en-US dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-release/v2.9 2025-03-18" data-has-hydrated=false><meta charset=UTF-8><meta name=generator content="Docusaurus v3.6.3"><title data-rh=true>v2.9 2025-03-18 | GoFrame - A powerful framework for faster, easier, and more efficient project development</title><meta data-rh=true name=viewport content="width=device-width,initial-scale=1.0"><meta data-rh=true name=twitter:card content=summary_large_image><meta data-rh=true property=og:url content=https://goframe.org/en/release/v2.9.0><meta data-rh=true property=og:locale content=en_US><meta data-rh=true property=og:locale:alternate content=zh_Hans><meta data-rh=true name=docusaurus_locale content=en><meta data-rh=true name=docsearch:language content=en><meta data-rh=true name=docusaurus_version content=current><meta data-rh=true name=docusaurus_tag content=docs-default-current><meta data-rh=true name=docsearch:version content=current><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current><meta data-rh=true property=og:title content="v2.9 2025-03-18 | GoFrame - A powerful framework for faster, easier, and more efficient project development"><meta data-rh=true name=description content="GoFrame v2.9 release notes, including several important features and improvements such as ORM database and table sharding, transaction propagation, OpenAPIv3.1 support, gzip middleware, Converter type conversion, and various bug fixes and command-line tool improvements."><meta data-rh=true property=og:description content="GoFrame v2.9 release notes, including several important features and improvements such as ORM database and table sharding, transaction propagation, OpenAPIv3.1 support, gzip middleware, Converter type conversion, and various bug fixes and command-line tool improvements."><meta data-rh=true name=keywords content="GoFrame,v2.9,Version Release,Sharding,Transaction Propagation,OpenAPIv3.1,Middleware,gzip,Type Conversion,Converter"><link data-rh=true rel=icon href=/en/img/favicon.ico><link data-rh=true rel=canonical href=https://goframe.org/en/release/v2.9.0><link data-rh=true rel=alternate href=https://goframe.org/release/v2.9.0 hreflang=zh-Hans><link data-rh=true rel=alternate href=https://goframe.org/en/release/v2.9.0 hreflang=en-US><link data-rh=true rel=alternate href=https://goframe.org/release/v2.9.0 hreflang=x-default><link data-rh=true rel=preconnect href=https://ZQUL8VI47R-dsn.algolia.net crossorigin><link rel=search type=application/opensearchdescription+xml title="GoFrame - A powerful framework for faster, easier, and more efficient project development" href=/en/opensearch.xml><script src=https://hm.baidu.com/hm.js?38f38a0626fd7805722db06243cd0fa7 async></script><link rel=stylesheet href=/en/assets/css/styles.f09ff20a.css><script src=/en/assets/js/main.a965dce7.js defer></script><script src=/en/assets/js/runtime~main.3b8ee384.js defer></script><body class=navigation-with-keyboard><script>!function(){var t,e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t=null!==e?e:"light",document.documentElement.setAttribute("data-theme",t)}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="navbar navbar--fixed-top"><div class=navbar__inner><div class=navbar__items><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/en/><div class=navbar__logo><img src=/en/img/logo2.png alt="GoFrame Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src=/en/img/logo2.png alt="GoFrame Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a><a class="navbar__item navbar__link" sidebarid=quickSidebar href=/en/quick/install>Quick Start</a><a class="navbar__item navbar__link" sidebarid=mainSidebar href=/en/docs/core>Documentation</a><div class="navbar__item dropdown dropdown--hoverable"><a class=navbar__link aria-haspopup=true aria-expanded=false role=button sidebarid=courseSidebar href=/en/course>Courses</a><ul class=dropdown__menu><li><a class=dropdown__link sidebarid=courseSidebar href=/en/course/bilibili-video>Video Tutorial(Chinese)</a><li><a class=dropdown__link sidebarid=courseStarBookSidebar href=/en/course/starbook>Practical Tutorial - Star English Book</a><li><a class=dropdown__link sidebarid=courseProximaBookSidebar href=/en/course/proxima-book>Microservice Tutorial - Proxima Book</a></ul></div><a class="navbar__item navbar__link" href=/en/examples/grpc>Examples</a><a class="navbar__item navbar__link" href=/en/showcase>Show Case</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/en/release/note>Release</a><a class="navbar__item navbar__link" sidebarid=communitySidebar href=/en/share/group>Community</a></div><div class="navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a class=navbar__link aria-haspopup=true aria-expanded=false role=button href=/en/release/v2.9.0>2.8.x(Latest)</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/en/release/v2.9.0>2.8.x(Latest)</a><li><a class=dropdown__link href=/en/2.8.x/docs/cli>2.8.x</a><li><a class=dropdown__link href=/en/2.7.x/docs/design>2.7.x</a><li><a class=dropdown__link href=/en/2.6.x/项目开发>2.6.x</a><li><a class=dropdown__link href=/en/2.5.x/项目开发>2.5.x</a><li><a class=dropdown__link href=/en/2.4.x/开发工具>2.4.x</a><li><a class=dropdown__link href=/en/2.3.x/开发工具>2.3.x</a><li><a class=dropdown__link href=/en/2.2.x/开发工具>2.2.x</a><li><a class=dropdown__link href=/en/2.1.x/开发工具>2.1.x</a><li><a class=dropdown__link href=/en/2.0.x/开发工具>2.0.x</a><li><a class=dropdown__link href=/en/1.16.x/开发工具>1.16.x</a></ul></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href=# aria-haspopup=true aria-expanded=false role=button class=navbar__link><svg viewBox="0 0 24 24" width=20 height=20 aria-hidden=true class=iconLanguage_nlXk><path fill=currentColor d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>English</a><ul class=dropdown__menu><li><a href=/release/v2.9.0 rel="noopener noreferrer" class=dropdown__link lang=zh-Hans>简体中文</a><li><a href=/en/release/v2.9.0 rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang=en-US>English</a></ul></div><a href=https://github.com/gogf/gf target=_blank rel="noopener noreferrer" class="navbar__item navbar__link header-github-link"></a><div class=navbarSearchContainer_Bca1><button type=button class="DocSearch DocSearch-Button" aria-label="Search (Command+K)"><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 20 20" aria-hidden=true><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke=currentColor fill=none fill-rule=evenodd stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/note>Version Release Notes</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current=page href=/en/release/v2.9.0>v2.9 2025-03-18</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.8>v2.8 2024-11-18</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.7.0>v2.7 2024-04-09</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.6.0>v2.6 2023-12-19</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.5.0>v2.5 2023-07-17</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.4.0>v2.4 2023-04-24</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.3.0>v2.3 2023-01-18</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.2.0>v2.2 2022-10-11</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.1.0>v2.1 2022-06-22</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/en/release/v2.0.0>v2.0 2022-03-09</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/en/release/v1.x>Historical Version v1.x</a><button aria-label="Expand sidebar category 'Historical Version v1.x'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/en/release/v0.x>Historical Version v0.x</a><button aria-label="Expand sidebar category 'Historical Version v0.x'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs itemscope itemtype=https://schema.org/BreadcrumbList><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/en/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li itemscope itemprop=itemListElement itemtype=https://schema.org/ListItem class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link itemprop=name>v2.9 2025-03-18</span><meta itemprop=position content=1></ul></nav><span class="theme-doc-version-badge badge badge--secondary">Version: 2.8.x(Latest)</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h2 class="anchor anchorWithStickyNavbar_LWe7" id=main-content>Main Content<a href=#main-content class=hash-link aria-label="Direct link to Main Content" title="Direct link to Main Content">​</a></h2>
+<p><code>GoFrame v2.9</code> brings several important features and improvements, including <code>ORM</code> database and table sharding, transaction propagation & isolation level control, <code>OpenAPIv3.1</code> support, <code>gzip</code> middleware, and the new <code>Converter</code> type conversion interface. These new features significantly enhance the framework's performance, scalability, and development experience.</p>
+<p>The following are the main contents of this version. For detailed <code>Change Log</code>, please refer to:
+<a href=https://github.com/gogf/gf/releases/tag/v2.9.0 target=_blank rel="noopener noreferrer">https://github.com/gogf/gf/releases/tag/v2.9.0</a></p>
+<p>For complete code changes, please refer to: <a href=https://github.com/gogf/gf/compare/v2.8.0...v2.9.0 target=_blank rel="noopener noreferrer">https://github.com/gogf/gf/compare/v2.8.0...v2.9.0</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id=special-thanks>Special Thanks<a href=#special-thanks class=hash-link aria-label="Direct link to Special Thanks" title="Direct link to Special Thanks">​</a></h2>
+<p>💖💖💖 Thanks to all developers who contributed to this version 💖💖💖</p>
+<p><img decoding=async loading=lazy alt="GoFrame v2.9 Contributors" src=/en/assets/images/QQ_1741945299450-37f09cec31d6ad40b413da34c9cd79d0.png width=1398 height=244 class=img_ev3q></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id=compatibility-notes>Compatibility Notes<a href=#compatibility-notes class=hash-link aria-label="Direct link to Compatibility Notes" title="Direct link to Compatibility Notes">​</a></h2>
+<ol>
+<li>
+<p><code>net/client</code></p>
+<ul>
+<li>When the global service registration and discovery component is enabled, the <code>HTTP Client</code> objects created by this component no longer enable service discovery by default. Manual activation is required.</li>
+</ul>
+</li>
+<li>
+<p><code>os/glog</code></p>
+<ul>
+<li>The default time printing format for logs has been adjusted to the more rigorous <code>2006-01-02T15:04:05.000Z07:00</code>.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id=component-improvements>Component Improvements<a href=#component-improvements class=hash-link aria-label="Direct link to Component Improvements" title="Direct link to Component Improvements">​</a></h2>
+<ol>
+<li>
+<p><code>database/gdb</code></p>
+<ul>
+<li>Added ORM database and table sharding features, supporting horizontal table sharding and vertical database sharding, greatly enhancing large-scale data processing capabilities: <a href=/en/docs/core/gdb-sharding>ORM Database and Table Sharding</a></li>
+<li>Added ORM transaction propagation features, supporting transaction propagation behaviors similar to <code>Spring</code>, providing more flexible transaction management: <a href=/en/docs/core/gdb-transaction-propagation>ORM Transaction Processing - Transaction Propagation</a></li>
+<li>Added ORM transaction isolation levels, supporting standard SQL transaction isolation level settings: <a href=/en/docs/core/gdb-transaction-isolation-level>ORM Transaction Processing - Isolation Levels</a></li>
+<li>Added ORM transaction read-only mode, optimizing read-only transaction performance: <a href=/en/docs/core/gdb-transaction-readonly>ORM Transaction Processing - Read-Only Mode</a></li>
+<li>Added <code>WhereExists/WhereNotExists</code> method support, enhancing subquery capabilities: <a href=/en/docs/core/gdb-chaining-query-where>ORM Query - Where Conditions</a></li>
+<li>Added support for <code>unix socket</code> database connection configuration, providing more connection options.</li>
+<li>Fixed an issue where using <code>gdb.Counter</code> type in the <code>OnDuplicate</code> method was ineffective: <a href=/en/docs/core/gdb-chaining-insert-save>ORM Chain Operation - Write and Save</a></li>
+<li>Fixed an issue where when users add a <code>Select Hook</code> and modify the return structure, it causes abnormal query results in <code>Count/Value/Array</code> in some scenarios.</li>
+<li>Fixed an issue where the <code>orm</code> tag in the metadata tag of <code>embedded struct</code> in the data structure becomes ineffective when using the <code>with</code> feature.</li>
+<li>Fixed an incompatibility issue with older versions where <code>tinyint(1)/int(1)</code> types are identified as <code>bool</code> type.</li>
+<li>Fixed an incompatibility issue with older versions in the <code>Order("id", "dasc")</code> statement in the <code>database/gdb</code> component.</li>
+<li>Optimized <code>ORM</code> query performance and memory usage efficiency.</li>
+</ul>
+</li>
+<li>
+<p><code>net/ghttp</code></p>
+<ul>
+<li>Added common middleware <code>MiddlewareGzip</code> support for compressing return results using the <code>gzip</code> algorithm, improving transmission efficiency and performance.</li>
+<li>Added <code>HandlerItemParsed.GetMetaTag</code> method, which can be used to get the interface definition metadata information through the <code>GetMetaTag</code> method after getting the current route execution method through <code>GetServeHandler</code>, enhancing route metadata management capabilities.</li>
+<li>Removed the <code>*Req/*Res</code> naming rule restriction for input and output data structures when defining <code>api</code> in standard route registration, supporting more flexible naming methods.</li>
+<li>Fixed an issue where the default value setting for interface parameters also takes effect when submitting empty parameters (empty string or <code>0</code>), causing inconsistency with the document description.</li>
+<li>Fixed an issue where the logic of automatically generating <code>Origin</code> from <code>Referer</code> in cross-domain return <code>Header</code> is not rigorous, enhancing <code>CORS</code> security.</li>
+<li>Fixed an issue where the <code>json omitempty</code> tag is ineffective when the <code>BuildParams</code> method builds request parameters.</li>
+<li>Fixed a null pointer <code>panic</code> issue that would occur when <code>Logger</code> is set to <code>nil</code>, improving component stability.</li>
+</ul>
+</li>
+<li>
+<p><code>util/gconv</code></p>
+<ul>
+<li>Added <code>Converter</code> conversion interface feature, supporting more flexible and extensible type conversion capabilities, providing a custom type conversion registration mechanism: <a href=/en/docs/core/gconv-converter>Type Conversion - Converter</a></li>
+<li>Added custom type conversion support, allowing developers to register custom type conversion functions: <a href=/en/docs/core/gconv-register-converter-func>Type Conversion - Custom Type Conversion</a></li>
+<li>Improved the <code>Scan</code> method, adding support for <code>Scan</code> to basic data type conversion: <a href=/en/docs/core/gconv-scan>Type Conversion - Scan Conversion</a></li>
+<li>Optimized type conversion performance, improving large data volume conversion efficiency.</li>
+</ul>
+</li>
+<li>
+<p><code>net/goai</code></p>
+<ul>
+<li>Support for the latest <code>OpenAPIv3.1</code> protocol specification, maintaining compatibility with mainstream API documentation tools.</li>
+<li>Added return data structure extension capability, supporting more flexible response definitions: <a href=/en/docs/web/api-document-extendable-response>API Documentation - Extending Response</a></li>
+<li>Added automatic recognition of data validation rules <code>min/max/length/min-length/max-length/between</code> as corresponding validation data structures in <code>OpenAPIv3</code>, simplifying document generation: <a href=/en/docs/web/api-document-openapiv3>API Documentation - OpenAPIv3</a></li>
+<li>Fixed an issue where the <code>embedded struct</code> data structure in parameter data structures cannot be expanded into parameter structures, improving complex data structure support.</li>
+<li>Optimized document generation performance and memory usage.</li>
+</ul>
+</li>
+<li>
+<p><code>net/client</code></p>
+<ul>
+<li>When the global service registration and discovery component is enabled, the <code>HTTP Client</code> objects created by this component no longer enable service discovery by default and need to be manually enabled: <a href=/en/docs/micro-service/registry-discovery>Service Registration and Discovery</a></li>
+</ul>
+</li>
+<li>
+<p><code>os/gcache</code></p>
+<ul>
+<li>Fixed an issue where the data type returned by the <code>Remove</code> method in the component is incompatible with older versions.</li>
+</ul>
+</li>
+<li>
+<p><code>errors/gerror</code></p>
+<ul>
+<li>Added <code>As</code> method support, maintaining compatibility with the standard library: <a href=/en/docs/core/gerror-comparison>Error Handling - Error Comparison</a></li>
+</ul>
+</li>
+<li>
+<p><code>utils/gvalid</code></p>
+<ul>
+<li>Fixed an issue where <code>enums</code> validation becomes ineffective when using pointers with <code>enums</code> parameters.</li>
+<li>Fixed an issue of excessive memory usage caused by large binary content <code>[]byte</code> in parameter validation.</li>
+</ul>
+</li>
+<li>
+<p><code>os/glog</code></p>
+<ul>
+<li>The default time printing format for logs has been adjusted to the more rigorous <code>2006-01-02T15:04:05.000Z07:00</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>os/gsession</code></p>
+<ul>
+<li>Added <code>RegenerateId/MustRegenerateId</code> method support for manually regenerating <code>Session ID</code> to prevent session fixation attacks: <a href=/en/docs/web/session-regenerate-id>Session - RegenerateId</a></li>
+</ul>
+</li>
+<li>
+<p><code>os/gview</code></p>
+<ul>
+<li>Fixed an issue where template files could not be read from the resource manager in some scenarios.</li>
+</ul>
+</li>
+<li>
+<p><code>os/gcmd</code></p>
+<ul>
+<li>Command line parameter default values now support output to the command help interface.</li>
+</ul>
+</li>
+<li>
+<p><code>net/gipv4</code></p>
+<ul>
+<li>Improved the implementation logic for converting between <code>ip</code> addresses and <code>uint32</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>test/gtest</code></p>
+<ul>
+<li>Improved <code>AssertNI/AssertIN</code> methods, adding <code>map</code> type support: <a href=/en/docs/components/test-gtest>Unit Testing - gtest</a></li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id=community-components>Community Components<a href=#community-components class=hash-link aria-label="Direct link to Community Components" title="Direct link to Community Components">​</a></h2>
+<ol>
+<li>
+<p><code>contrib/drivers/pgsql</code></p>
+<ul>
+<li>Added conversion support for <code>pgsql</code> array field types <code>varchar[]/text[]</code>, automatically converting to Go <code>[]string</code> type.</li>
+<li>Improved array type conversion performance.</li>
+</ul>
+</li>
+<li>
+<p><code>contrib/config/polaris</code></p>
+<ul>
+<li>Added support for more data format contents, supporting formats such as <code>yaml/toml/json/xml/ini/properties</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>contrib/registry/consul</code></p>
+<ul>
+<li>Added <code>consul</code> service registration and discovery component support: <a href=https://github.com/gogf/gf/tree/master/contrib/registry/consul target=_blank rel="noopener noreferrer">https://github.com/gogf/gf/tree/master/contrib/registry/consul</a></li>
+</ul>
+</li>
+<li>
+<p><code>contrib/registry/etcd</code></p>
+<ul>
+<li>Added retry mechanism, solving the renewal problem when the <code>lease</code> lease expires.</li>
+<li>Removed the default <code>AutoSyncInterval</code> configuration item, solving the <code>etcd</code> blocking problem caused by this default configuration in some scenarios.</li>
+</ul>
+</li>
+<li>
+<p><code>contrib/registry/zookeeper</code></p>
+<ul>
+<li>Fixed an error in the component where service name paths with additional suffix <code>-</code> were incorrectly monitored.</li>
+</ul>
+</li>
+<li>
+<p><code>contrib/config/nacos</code></p>
+<ul>
+<li>Added <code>OnChange</code> callback configuration support.</li>
+</ul>
+</li>
+<li>
+<p><code>contrib/metric/otelmetric</code></p>
+<ul>
+<li>Added <code>WithExemplarFilter</code> option support.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id=development-tools>Development Tools<a href=#development-tools class=hash-link aria-label="Direct link to Development Tools" title="Direct link to Development Tools">​</a></h2>
+<ol>
+<li>Improved the <code>gf init</code> command, changing the template content for initializing projects, with no change in directory structure.</li>
+<li>Improved the <code>gf up</code> command, displaying a more elegant <code>cli</code> file download interface effect in the terminal, enhancing user experience.</li>
+<li>Improved the <code>gf gen ctrl</code> command, automatically synchronizing comments defined in <code>api</code> to the generated controller code, reducing duplicate work.</li>
+<li>Improved the <code>gf gen dao</code> command:<!-- -->
+<ul>
+<li>Added sharding option parameter <code>shardingPattern/sp</code> for defining table sharding rules, generating <code>dao</code> code that supports database sharding, working with ORM database sharding features: <a href=/en/docs/cli/gen-dao>Data Specification - gen dao</a></li>
+<li>Improved code generation templates, supporting <code>Golang Template</code> syntax, providing more flexible code generation capabilities.</li>
+<li>Optimized the quality and readability of generated code.</li>
+</ul>
+</li>
+<li>Improved the <code>gf gen enums</code> command:<!-- -->
+<ul>
+<li>Changed the default interface data structure definition directory to <code>api</code>, more in line with project specifications.</li>
+<li>Changed the default generated code file path to <code>internal/packed/packed_enums.go</code>, optimizing code organization.</li>
+</ul>
+</li>
+<li>Improved the <code>gf gen genpbentity</code> command:<!-- -->
+<ul>
+<li>Added <code>TypeMapping</code> and <code>FieldMapping</code> feature support, providing more flexible type mapping: <a href=/en/docs/cli/gen-pbentity>Database Table PB - gen pbentity</a></li>
+<li>Added <code>TablesEx</code> support, allowing specific tables to be ignored when generating <code>proto</code> files, increasing flexibility.</li>
+<li>Added the <code>GoPackage</code> option for specifying the <code>go_package</code> configuration item in generated <code>proto</code> files, better supporting modularization.</li>
+</ul>
+</li>
+<li>Fixed an issue with the <code>gf build</code> command where environment variables were not accurately printed; it should print the actual environment variables used when compiling files after modifying environment variables.</li>
+<li>Fixed an issue with the <code>gf gen pb</code> command where custom tags were repeatedly added after multiple executions of the command with the <code>-a</code> option in some scenarios.</li>
+<li>Fixed an issue in the <code>cmd/gf</code> component where commands in the <code>Makefile</code> file generated in the project template by the <code>make</code> command were incorrect.</li>
+<li>Overall improvement in command line tool usability and stability.</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href="https://github.com/gogf/gf-site/blob/main/docs/release/v2.9 2025-03-18.md" target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2025-03-17T06:51:45.000Z itemprop=dateModified>Mar 17, 2025</time></b> by <b>John Guo</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/en/release/note><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Version Release Notes</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/en/release/v2.8><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>v2.8 2024-11-18</div></a></nav><div class=docusaurus-mt-lg></div></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#main-content class="table-of-contents__link toc-highlight">Main Content</a><li><a href=#special-thanks class="table-of-contents__link toc-highlight">Special Thanks</a><li><a href=#compatibility-notes class="table-of-contents__link toc-highlight">Compatibility Notes</a><li><a href=#component-improvements class="table-of-contents__link toc-highlight">Component Improvements</a><li><a href=#community-components class="table-of-contents__link toc-highlight">Community Components</a><li><a href=#development-tools class="table-of-contents__link toc-highlight">Development Tools</a></ul></div></div></div></div></main></div></div></div><footer class=footer><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class=footer__title>Follow Us On WeChat</div><ul class="footer__items clean-list"><li class=footer__item><img src=/img/wechat.jpg width=110></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>Copyright ©2024 GoFrame OpenSource Team</div></div></div></footer></div>
