@@ -14,6 +14,7 @@ description: '使用GoFrame框架构建一个简单的Hello World Web Server。G
 
 我们先来开发一个简单的`Web Server`程序。
 
+- 新建main.go文件
 ```go title="main.go"
 package main
 
@@ -30,7 +31,15 @@ func main() {
     s.SetPort(8000)
     s.Run()
 }
+
+
 ```
+- 配置 go mod 并安装依赖
+```shell
+go mod init main
+go mod tidy
+```
+
 我们来看看这段代码：
 - 任何时候，您都可以通过 `g.Server()` 方法获得一个默认的 `Server` 对象，该方法采用**单例模式**设计，
   也就是说，多次调用该方法，返回的是同一个 `Server` 对象。其中的`g`组件是框架提供的一个耦合组件，封装和初始化一些常用的组件对象，为业务项目提供便捷化的使用方式。
