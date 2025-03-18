@@ -2,6 +2,7 @@
 slug: "/articles/rbac-permission-authentication-in-go"
 title: "为Go应用增加完整的权限认证能力"
 hide_title: true
+unlisted: true
 keywords: ["权限认证", "RBAC", "GoFrame", "中间件", "元数据", "接口鉴权", "Go权限管理", "权限控制", "用户角色", "接口权限"]
 description: "以GoFrame框架为例介绍如何使用Go设计和实现一个完整的RBAC权限认证系统，包括基于元数据的统一中间件实现和基于数据库的动态权限管理方案"
 ---
