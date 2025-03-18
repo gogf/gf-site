@@ -52,6 +52,12 @@ const config: Config = {
   future: {
     experimental_faster: true,
   },
+  // 启用 Markdown 中的 Mermaid 支持
+  markdown: {
+    mermaid: true,
+  },
+  // 配置 Mermaid 主题
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',

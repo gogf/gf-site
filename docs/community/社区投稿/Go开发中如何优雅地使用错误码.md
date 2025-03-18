@@ -6,8 +6,6 @@ keywords: ["goframe", "error code", "gerror", "error handling", "go", "best prac
 description: "本文详细探讨了错误码的发展历史、使用场景及最佳实践，并结合 GoFrame 框架的 gerror 组件进行实践指导"
 ---
 
-![](./assets/grace-error-code-in-go.png)
-
 ## 错误码的发展历史
 
 错误码的概念可以追溯到计算机系统的早期。在操作系统层面，错误码通常以整数形式存在，如 `Unix` 系统的返回值和 `errno`。

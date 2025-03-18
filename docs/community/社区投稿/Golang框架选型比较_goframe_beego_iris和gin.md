@@ -12,10 +12,6 @@ description: '深入对比GoFrame、Beego、Iris和Gin四大Golang Web框架的�
 迁移自旧版官网社区贡献文章：https://wiki.goframe.org/pages/viewpage.action?pageId=3673375
 
 
-
-![Solve problems? Bring problems?](golang-framework-choose.jpeg)
-Solve problems? Bring problems?
-
 由于工作需要，这些年来也接触了不少的开发框架，Golang的开发框架比较多，不过基本都是Web"框架"为主。这里稍微打了个引号，因为大部分"框架"从设计和功能定位上来讲，充其量都只能算是一个组件，需要项目使用的话得自己四处再去找找其他的组件，或者自己造轮子。如果用于Web开发，这些"框架"的Web开发能力均已完备，无太大差别，且均是自标准库net/http.Server的二次封装。由于框架众多，这里笔者只选择了几个曾做过技术选型评估、较为熟悉，且目前比较流行和典型的Golang"框架"，从适用于业务项目开发框架的角度，做一个简单的横向比较，以便大家在项目框架选型时做个参考。
 
 评估指标
