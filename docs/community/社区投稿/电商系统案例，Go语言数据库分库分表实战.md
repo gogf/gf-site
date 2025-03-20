@@ -2,7 +2,6 @@
 slug: '/articles/go-ecommerce-database-sharding-millions'
 title: '突破性能瓶颈：Go语言实现电商系统千万级数据分库分表实战'
 hide_title: true
-unlisted: true
 keywords: ['GoFrame', '分库分表', '数据库分片', '水平扩展', 'MySQL分库分表']
 description: '本文从电商系统业务实战场景出发，以Go语言和MySQL数据库为例，详细介绍针对业务数据库分库分表的设计思路和具体实现方法，帮助开发者轻松应对大数据量挑战。'
 ---
