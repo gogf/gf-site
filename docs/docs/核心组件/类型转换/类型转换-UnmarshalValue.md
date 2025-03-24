@@ -1,7 +1,7 @@
 ---
 slug: '/docs/core/gconv-unmarshal-value'
 title: '类型转换-UnmarshalValue'
-sidebar_position: 6
+sidebar_position: 8000
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gconv,UnmarshalValue,类型转换,自定义转换,结构体转换,接口定义,性能优化,反射]
 description: '使用GoFrame框架中的gconv模块实现类型转换，尤其是通过UnmarshalValue接口实现自定义转换。详细探讨了反射特性在复杂类型转换中的应用及其性能影响，并提供了多个代码示例，包括自定义结构体转换和TCP数据解包，帮助开发者优化转换效率。'

@@ -426,6 +426,14 @@ const Users: User[] = [
     source: 'https://gitee.com/lixianpei727/goframe-vue-element-admin',
     tags: ['opensource','adminui','v2'],
   },
+  {
+    title: 'devinggo',
+    description: '📱🚀 🧩devinggo 是一款基于 Vue 和 Goframe v2 的全栈开发平台，集成 JWT 鉴权、动态路由、消息队列等功能，提供丰富场景模板，助您快速构建企业级应用，专注业务开发。',
+    preview: require('./showcase/devinggo.png'),
+    website: 'https://devinggo.devinghub.com/',
+    source: 'https://github.com/huagelong/devinggo',
+    tags: ['opensource','adminui','v2'],
+  },
 ];
 
 export type User = {

@@ -9,7 +9,7 @@ description: '本次分享主题《GoFrame ORM组件设计》主要介绍GoFrame
 
 Hi，大家好啊，本周四晚8点GOCN开源说分享主题《GoFrame ORM组件设计》，主要介绍GoFrame框架中核心组件ORM的设计及其相关特性。
 
-GoFrame的ORM组件功能相当强大，由于准备及分享时间有限，本次分享主要对其一些突出的特性进行介绍，更多的细节欢迎大家参阅 [开发文档](https://wiki.goframe.org/pages/viewpage.action?pageId=1114686) 以及 [项目源码](https://github.com/gogf/gf/v2/tree/master/database/gdb)。
+GoFrame的ORM组件功能相当强大，由于准备及分享时间有限，本次分享主要对其一些突出的特性进行介绍，更多的细节欢迎大家参阅 [开发文档](https://wiki.goframe.org/pages/viewpage.action?pageId=1114686) 以及 [项目源码](https://github.com/gogf/gf/tree/master/database/gdb)。
 
 直播地址： [https://live.bilibili.com/21878276](https://live.bilibili.com/21878276)
 

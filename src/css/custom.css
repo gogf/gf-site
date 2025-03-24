@@ -222,3 +222,24 @@ table th, table td {
 
 
 @import "./ad.css";
+
+
+.footer__links {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer__title {
+  font: normal var(--ifm-h4-font-size) / var(--ifm-heading-line-height) var(--ifm-font-family-base);
+  margin-bottom: 0;
+}
+
+.footer__col {
+  margin-bottom: 0;
+}
+
+pre {
+  tab-size: 4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+}

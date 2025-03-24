@@ -1,7 +1,7 @@
 ---
 slug: '/docs/core/gconv-struct'
 title: '类型转换-Struct转换'
-sidebar_position: 2
+sidebar_position: 3000
 hide_title: true
 keywords: [GoFrame,gconv,结构体转换,数据映射,struct转换,自动创建对象,递归转换,映射规则,结构体,Go框架]
 description: '使用GoFrame的gconv模块进行结构体转换，包括从各种数据类型到结构体的映射、自动创建对象、递归转换以及映射规则等实用功能，帮助开发者提升编码效率和项目维护能力。'

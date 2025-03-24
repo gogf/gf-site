@@ -72,7 +72,7 @@ yarn start --locale en
 创建新版本
 
 ```bash
-yarn run docusaurus docs:version v2.7.x
+yarn run docusaurus docs:version 2.8.x
 ```
 
 ## 评论设置

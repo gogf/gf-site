@@ -11,7 +11,7 @@ description: '在GoFrame框架中使用gsession组件进行Session-Storage接口
 
 ## Storage定义
 
-[https://github.com/gogf/gf/v2/blob/master/os/gsession/gsession\_storage.go](https://github.com/gogf/gf/v2/blob/master/os/gsession/gsession_storage.go)
+[https://github.com/gogf/gf/blob/master/os/gsession/gsession\_storage.go](https://github.com/gogf/gf/blob/master/os/gsession/gsession_storage.go)
 
 ```go
 // Storage is the interface definition for session storage.

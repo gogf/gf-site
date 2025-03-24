@@ -7,3 +7,8 @@ build:
 .PHONY: examples
 examples:
 	./make-examples.sh
+
+
+.PHONY: check
+check:
+	bash .github/workflows/consistency-check.sh

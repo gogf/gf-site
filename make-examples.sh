@@ -39,7 +39,7 @@ find /tmp/gf-examples -mindepth 2 -type f -iname "readme*.md" | while read file;
             /^---$/ { if (front==0) {front=1; print; next} }
             /^#[^#]/ { if (first_heading==0) {
                 print;
-                printf "\nCode Source: https://github.com/gogf/examples/tree/main/%s\n\n", dir;
+                printf "\nGithub Source: https://github.com/gogf/examples/tree/main/%s\n\n", dir;
                 first_heading=1;
                 next
             } }

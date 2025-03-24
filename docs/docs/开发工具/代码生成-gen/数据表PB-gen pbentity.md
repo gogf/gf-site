@@ -99,6 +99,36 @@ CONFIGURATION SUPPORT
 | `typeMapping` |  | 用于自定义数据表字段类型到生成的Go文件中对应属性类型映射 |  |
 | `fieldMapping` |  | 用于自定义数据表具体字段到生成的Go文件中对应属性类型映射 |  |
 
+### 参数：`typeMapping`
+
+参数`typeMapping`支持配置数据库字段类型对应的`Go`数据类型，默认值为：
+```yaml
+decimal:
+  type: float64
+money:
+  type: float64
+numeric:
+  type: float64
+smallmoney:
+  type: float64
+```
+该配置支持通过`import`配置项引入第三方包，例如：
+```yaml
+decimal:
+  type:   decimal.Decimal
+  import: github.com/shopspring/decimal
+```
+
+### 参数：`fieldMapping`
+
+参数`fieldMapping`提供细粒度的字段类型映射配置，支持配置指定数据库字段生成的`Go`数据类型。除了配置名称不一样外，配置内容与`typeMapping`一致。配置示例：
+```yaml
+paid_orders.amount:
+  type:   decimal.Decimal
+  import: github.com/shopspring/decimal
+```
+示例中，`paid_orders`为表名称，`amount`为字段名称，`type`表示生成的`Go`代码中对应的数据类型名称，`import`表示生成的代码中需要引入第三方包。
+
 ## 与 `gen dao` 中的 `entity` 差别
 
 ### 相同之处

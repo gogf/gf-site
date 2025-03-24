@@ -1,4 +1,4 @@
-const LATEST_VERSION_LABEL = '2.8.x(Latest)';
+const LATEST_VERSION_LABEL = '2.9.x(Latest)';
 
 import type { Options as IdealImageOptions } from '@docusaurus/plugin-ideal-image';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -9,6 +9,13 @@ function geti18nTitle() {
   switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
     case "en": return "GoFrame - A powerful framework for faster, easier, and more efficient project development";
     default: return "GoFrame官网 - 类似PHP-Laravel,Java-SpringBoot的Go语言开发框架";
+  }
+}
+
+function getFooterFollowUs() {
+  switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
+    case "en": return "Follow Us On WeChat";
+    default: return "微信关注我们";
   }
 }
 
@@ -45,6 +52,12 @@ const config: Config = {
   future: {
     experimental_faster: true,
   },
+  // 启用 Markdown 中的 Mermaid 支持
+  markdown: {
+    mermaid: true,
+  },
+  // 配置 Mermaid 主题
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',
@@ -199,9 +212,19 @@ const config: Config = {
     // toc目录层级显示设置
     tableOfContents: {
       minHeadingLevel: 2,
-      maxHeadingLevel: 4,
+      maxHeadingLevel: 3,
     },
     footer: {
+      links: [
+        {
+          title: getFooterFollowUs(),
+          items: [
+            {
+              html: '<img src="/img/wechat.jpg" width="110" />'
+            },
+          ],
+        },
+      ],
       copyright: `Copyright ${new Date().getFullYear()} GoFrame OpenSource Team`,
     },
     // 代码块配置

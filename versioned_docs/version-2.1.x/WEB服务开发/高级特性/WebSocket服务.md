@@ -4,7 +4,7 @@ sidebar_position: 7
 hide_title: true
 ---
 
-使用 `goframe` 框架进行 `websocket` 开发相当简单。我们以下通过实现一个简单的 `echo服务器` 来演示 `goframe` 框架的 `websocket` 的使用（客户端使用HTML5实现）。示例代码： [https://github.com/gogf/gf/v2/tree/master/.example/net/ghttp/server/websocket](https://github.com/gogf/gf/v2/tree/master/.example/net/ghttp/server/websocket)
+使用 `goframe` 框架进行 `websocket` 开发相当简单。我们以下通过实现一个简单的 `echo服务器` 来演示 `goframe` 框架的 `websocket` 的使用（客户端使用HTML5实现）。示例代码： [https://github.com/gogf/gf/tree/master/.example/net/ghttp/server/websocket](https://github.com/gogf/gf/tree/master/.example/net/ghttp/server/websocket)
 
 ## HTML5客户端
 

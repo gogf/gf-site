@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="577" height="446.00006103515625" style="background-color: rgb(255, 255, 255);"><title>功能清单</title><g class="smm-container" transform="matrix(1,0,0,1,-1014,-289.6000061035156)"><g class="smm-line-container"><path d="M 1175,512.6000061035156L 1237.4,512.6000061035156L 1237.4,355.1000061035156Q 1237.4,350.1000061035156 1242.4,350.1000061035156L 1279,350.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1175,512.6000061035156L 1237.4,512.6000061035156L 1237.4,525.1000061035156Q 1237.4,530.1000061035156 1242.4,530.1000061035156L 1279,530.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1175,512.6000061035156L 1237.4,512.6000061035156L 1237.4,687.6000061035156Q 1237.4,692.6000061035156 1242.4,692.6000061035156L 1279,692.6000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,350.1000061035156L 1416.4,350.1000061035156L 1416.4,320.1000061035156Q 1416.4,315.1000061035156 1421.4,315.1000061035156L 1438,315.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,350.1000061035156L 1416.4,350.1000061035156L 1416.4,350.1000061035156L 1438,350.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,350.1000061035156L 1416.4,350.1000061035156L 1416.4,380.1000061035156Q 1416.4,385.1000061035156 1421.4,385.1000061035156L 1438,385.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,530.1000061035156L 1416.4,530.1000061035156L 1416.4,465.1000061035156Q 1416.4,460.1000061035156 1421.4,460.1000061035156L 1438,460.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,530.1000061035156L 1416.4,530.1000061035156L 1416.4,500.1000061035156Q 1416.4,495.1000061035156 1421.4,495.1000061035156L 1438,495.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,530.1000061035156L 1416.4,530.1000061035156L 1416.4,530.1000061035156L 1438,530.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,530.1000061035156L 1416.4,530.1000061035156L 1416.4,560.1000061035156Q 1416.4,565.1000061035156 1421.4,565.1000061035156L 1438,565.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,692.6000061035156L 1416.4,692.6000061035156L 1416.4,680.1000061035156Q 1416.4,675.1000061035156 1421.4,675.1000061035156L 1438,675.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,692.6000061035156L 1416.4,692.6000061035156L 1416.4,705.1000061035156Q 1416.4,710.1000061035156 1421.4,710.1000061035156L 1438,710.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path><path d="M 1384,530.1000061035156L 1416.4,530.1000061035156L 1416.4,595.1000061035156Q 1416.4,600.1000061035156 1421.4,600.1000061035156L 1438,600.1000061035156" stroke-dasharray="none" stroke-width="2" stroke="#f44e3b" fill="none"></path></g><g class="smm-outer-frame-container"></g><g class="smm-node-container"><g class="smm-node" transform="matrix(1,0,0,1,1024,491.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L146,0
+      C146,0 151,0 151,5
+      L151,37
+      C151,37 151,42 146,42
+      L5,42
+      C5,42 0,42 0,37
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="#21c384" stroke-dasharray="none" stroke-width="0" stroke=""></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="121" data-height="32" data-offsetx="0" opacity="1"><foreignObject width="121" height="32" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><strong style="color: rgb(255, 255, 255);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 24px;">星辰英语本</strong></p></div><style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style></foreignObject></g></g><rect width="155" height="46" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1279,332.1000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L98,0
+      C98,0 103,0 103,5
+      L103,29
+      C103,29 103,34 98,34
+      L5,34
+      C5,34 0,34 0,29
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#f5ffe6" stroke-dasharray="none" stroke-width="2" stroke="#35b398"></path><rect fill="transparent" width="20" height="36" x="105" y="0"></rect><g transform="matrix(1,0,0,1,16,6)"><g data-width="73" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="73" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(56, 100, 55);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 18px;">用户中心</span></p></div></foreignObject></g></g><rect width="109" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,299.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L54,0
+      C54,0 59,0 59,5
+      L59,26
+      C59,26 59,31 54,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="29" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="29" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50); font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 14px; font-weight: normal; font-style: normal; text-decoration: none;">注册</span></p></div></foreignObject></g></g><rect width="63" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,334.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L54,0
+      C54,0 59,0 59,5
+      L59,26
+      C59,26 59,31 54,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="29" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="29" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">登录</span></p></div></foreignObject></g></g><rect width="63" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,369.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L110,0
+      C110,0 115,0 115,5
+      L115,26
+      C115,26 115,31 110,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="85" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="85" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">获取用户信息</span></p></div></foreignObject></g></g><rect width="119" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1279,512.1000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L98,0
+      C98,0 103,0 103,5
+      L103,29
+      C103,29 103,34 98,34
+      L5,34
+      C5,34 0,34 0,29
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#f5ffe6" stroke-dasharray="none" stroke-width="2" stroke="#35b398"></path><rect fill="transparent" width="20" height="36" x="105" y="0"></rect><g transform="matrix(1,0,0,1,16,6)"><g data-width="73" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="73" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(56, 100, 55);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 18px;">单词管理</span></p></div></foreignObject></g></g><rect width="109" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,444.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L82,0
+      C82,0 87,0 87,5
+      L87,26
+      C87,26 87,31 82,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="57" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="57" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">添加单词</span></p></div></foreignObject></g></g><rect width="91" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,479.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L82,0
+      C82,0 87,0 87,5
+      L87,26
+      C87,26 87,31 82,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="57" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="57" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">编辑单词</span></p></div></foreignObject></g></g><rect width="91" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,514.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L82,0
+      C82,0 87,0 87,5
+      L87,26
+      C87,26 87,31 82,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="57" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="57" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">单词列表</span></p></div></foreignObject></g></g><rect width="91" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,549.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L82,0
+      C82,0 87,0 87,5
+      L87,26
+      C87,26 87,31 82,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="57" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="57" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">查看单词</span></p></div></foreignObject></g></g><rect width="91" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1279,674.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L98,0
+      C98,0 103,0 103,5
+      L103,29
+      C103,29 103,34 98,34
+      L5,34
+      C5,34 0,34 0,29
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#f5ffe6" stroke-dasharray="none" stroke-width="2" stroke="#35b398"></path><rect fill="transparent" width="20" height="36" x="105" y="0"></rect><g transform="matrix(1,0,0,1,16,6)"><g data-width="73" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="73" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(56, 100, 55);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 18px;">学习单词</span></p></div></foreignObject></g></g><rect width="109" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,659.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L138,0
+      C138,0 143,0 143,5
+      L143,26
+      C143,26 143,31 138,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="113" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="113" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">随机获取若干单词</span></p></div></foreignObject></g></g><rect width="147" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,694.6000061035156)" style="cursor: default;"><path d="
+      M5,0
+      L110,0
+      C110,0 115,0 115,5
+      L115,26
+      C115,26 115,31 110,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="85" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="85" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">设置掌握程度</span></p></div></foreignObject></g></g><rect width="119" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" transform="matrix(1,0,0,1,1438,584.6000061035156)" style="cursor: default;" opacity="1"><path d="
+      M5,0
+      L82,0
+      C82,0 87,0 87,5
+      L87,26
+      C87,26 87,31 82,31
+      L5,31
+      C5,31 0,31 0,26
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0,0)" fill="transparent" stroke-dasharray="none" stroke-width="0" stroke="transparent"></path><g transform="matrix(1,0,0,1,15,5)"><g data-width="57" data-height="21" data-offsetx="0" opacity="1"><foreignObject width="57" height="21" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(50, 96, 50);font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;font-size: 14px;">删除单词</span></p></div></foreignObject></g></g><rect width="91" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g></g><g class="smm-associative-line-container"></g><g class="smm-other-container"></g></g><defs><marker markerWidth="10" markerHeight="10" refX="12" refY="5" viewBox="0 0 20 20" orient="auto-start-reverse"><path d="M0,0 L2,5 L0,10 L10,5 Z"></path></marker></defs><style>
+  /* 鼠标hover和激活时渲染的矩形 */
+  .smm-hover-node{
+    display: none;
+    opacity: 0.6;
+    stroke-width: 1;
+  }
+
+  .smm-node:not(.smm-node-dragging):hover .smm-hover-node{
+    display: block;
+  }
+
+  .smm-node.active .smm-hover-node, .smm-node-highlight .smm-hover-node{
+    display: block;
+    opacity: 1;
+    stroke-width: 2;
+  }
+
+      .smm-richtext-node-wrap {
+        word-break: break-all;
+      }
+
+      .smm-richtext-node-wrap p {
+        font-family: auto;
+      }
+      </style></svg>

@@ -8,7 +8,7 @@ hide_title: true
 
 使用示例：
 
-[https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/v2/tree/master/.example/net/gtcp/tls)
+[https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls](https://github.com/gogf/gf/tree/master/.example/net/gtcp/tls)
 
 ```go
 package main
