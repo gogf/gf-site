@@ -15,19 +15,37 @@ hide_title: true
 
 ### 语言入门
 
-如果你是 `Go` 语言新手，我们建议你先学习 `Go` 语言的基础知识，这样会更容易理解 `GoFrame` 的使用。
+对于 `Go` 语言新手，我们建议先学习 `Go` 语言的基础知识，所谓万丈高楼平地起，只有打好基础，才能少走弯路，事半功倍。
 
-1. 这些都是学习基础的不错选择《[Go 官方教程](https://go.dev/learn/)》《[Go 语言圣经](http://books.studygolang.com/gopl-zh/)》
-2. 进阶学习《[Go 语言高级编程](https://chai2010.cn/advanced-go-programming-book/)》
-3. 我们也有开发环境的配置指南，你可以参考[准备开发环境](/docs/install-go)
+这里我们推荐一些学习资料，开发前可以参考[准备开发环境](/docs/install-go)：
 
-### 框架入门
-
-如果你已经熟悉 `Go` 语言，那么你可以直接阅读 `GoFrame` 的文档。
+- [Go官网](https://go.dev/)([国内镜像](https://golang.google.cn/))
+  - [《Go之旅》](https://tour.go-zh.org/)— 交互式教程，快手上手
+- 书籍推荐
+  - [《Go语言圣经》](http://books.studygolang.com/gopl-zh/)— 必读
+  - [《Go语言设计与实现》](https://draven.co/golang/)
+  - [《Go语言高性能编程》](https://geektutu.com/post/high-performance-go.html)
+  - [《Go 语言高级编程》](https://chai2010.cn/advanced-go-programming-book/)
+  - [《Go语言101》](https://gfw.go101.org/)
+  - [《Go语言标准库》](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
+- 其他
+  - [《数据结构与算法》](https://github.com/yezihack/algo)
+  - [《Go语言设计模式》](https://github.com/senghoo/golang-design-pattern)
+  - [《Go语言设计模式》](https://github.com/lee501/go-patterns)
 
 ### 技术选型
 
 如果你还在犹豫是否使用 `GoFrame`，我们建议你阅读[框架选型](/articles/framework-comparison-goframe-beego-iris-gin)。
+
+我们也收集了一些[社区案例](https://goframe.org/showcase)，你可以参考这些案例来决定是否使用 `GoFrame`。
+
+### 框架入门
+
+如果你已经上手 `Go` 语言，那么你可以直接阅读 `GoFrame` 的文档。
+
+#### 模块使用
+
+#### 
 
 ### 参与改进
 
@@ -35,12 +53,6 @@ hide_title: true
 
 ## 入门到精通
 
-
 ## TODO
-http://books.studygolang.com/gopl-zh/
-
-哪个能打开用哪个
-https://go.dev/dl/
-https://golang.google.cn/dl/
 
 如果网络不好，再配置个https://goproxy.cn/
