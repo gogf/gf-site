@@ -3,11 +3,11 @@ slug: "/articles/go-sse-implementation-guide"
 title: "打造高性能实时通信：Go语言SSE实现指南"
 hide_title: true
 keywords: ["Go", "SSE", "Server-Sent Events", "实时通信", "AI流式输出", "分布式消息", "Redis发布订阅", "客户端推送", "实时数据更新", "并发处理"]
-description: "本文揭秘Go语言实现高性能实时通信的最佳实践，详细剖析SSE（Server-Sent Events）技术的原理、应用场景及AI领域的实践。从基础实现到分布式架构，全面覆盖单客户端消息发送、广播消息、Redis集成以及多协程并发处理等核心技术，并提供完整代码示例和性能优化策略。"
+description: "使用Go语言实现高性能实时通信的最佳实践，详细剖析SSE技术的原理、应用场景及AI领域的实践。从基础实现到分布式架构，覆盖单客户端消息发送、广播消息、Redis集成以及多协程并发处理等核心技术，并提供完整代码示例和性能优化策略。"
 ---
 
 
-![](../../../static/markdown/sse.png)
+![](/markdown/go-sse-banner.webp)
 
 
 ## 1. 什么是SSE？
@@ -107,6 +107,8 @@ data: {"message": "Hello, World!"}\n\n
 
 ## 4. 使用Go实现SSE
 
+![](/markdown/go-sse.webp)
+
 使用`Go`来实现一个`SSE`服务非常简单。下面我们将详细介绍如何使用`GoFrame`框架来实现`SSE`服务。
 
 
@@ -118,25 +120,25 @@ data: {"message": "Hello, World!"}\n\n
 ```go
 // SseHandler 基础SSE处理器
 func SseHandler(r *ghttp.Request) {
-	// 设置SSE必要的HTTP头
-	r.Response.Header().Set("Content-Type", "text/event-stream")
-	r.Response.Header().Set("Cache-Control", "no-cache")
-	r.Response.Header().Set("Connection", "keep-alive")
-	r.Response.Header().Set("Access-Control-Allow-Origin", "*")
+    // 设置SSE必要的HTTP头
+    r.Response.Header().Set("Content-Type", "text/event-stream")
+    r.Response.Header().Set("Cache-Control", "no-cache")
+    r.Response.Header().Set("Connection", "keep-alive")
+    r.Response.Header().Set("Access-Control-Allow-Origin", "*")
 
-	// 模拟发送一些消息
-	for i := 1; i <= 5; i++ {
-		// 发送消息
-		r.Response.Writefln("data: %d", i)
-		r.Response.Writefln("id: %d", i)
-		r.Response.Writefln("event: message\n")
-		r.Response.Writefln("data: {\"message\": \"Hello SSE %d\"}\n", i)
-		// 立即刷新到客户端
-		r.Response.Flush() 
-		
-		// 模拟处理时间
-		time.Sleep(1 * time.Second)
-	}
+    // 模拟发送一些消息
+    for i := 1; i <= 5; i++ {
+        // 发送消息
+        r.Response.Writefln("data: %d", i)
+        r.Response.Writefln("id: %d", i)
+        r.Response.Writefln("event: message\n")
+        r.Response.Writefln("data: {\"message\": \"Hello SSE %d\"}\n", i)
+        // 立即刷新到客户端
+        r.Response.Flush() 
+        
+        // 模拟处理时间
+        time.Sleep(1 * time.Second)
+    }
 }
 ```
 > 其中`r.Response.Writefln`方法用于格式化写入数据到`HTTP`响应中，并在写入内容末尾增加换行符号输出。
@@ -146,7 +148,7 @@ func SseHandler(r *ghttp.Request) {
 ```go
 s := g.Server()
 s.Group("/", func(group *ghttp.RouterGroup) {
-	group.GET("/sse", SseHandler)
+    group.GET("/sse", SseHandler)
 })
 ```
 
@@ -226,120 +228,120 @@ eventSource.close();
 
 // Client 表示SSE客户端连接
 type Client struct {
-	Id      	string
-	Request 	*ghttp.Request
-	messageChan chan string
+    Id          string
+    Request     *ghttp.Request
+    messageChan chan string
 }
 
 // Service SSE服务
 type Service struct {
-	clients *gmap.StrAnyMap  // 存储所有客户端连接
+    clients *gmap.StrAnyMap  // 存储所有客户端连接
 }
 
 // New 创建SSE服务实例
 func New() *Service {
-	return &Service{
-		clients: gmap.NewStrAnyMap(true),
-	}
+    return &Service{
+        clients: gmap.NewStrAnyMap(true),
+    }
 }
 
 // Create 创建SSE连接
 func (s *Service) Create(r *ghttp.Request) {
-	// 设置SSE必要的HTTP头
-	r.Response.Header().Set("Content-Type", "text/event-stream")
-	r.Response.Header().Set("Cache-Control", "no-cache")
-	r.Response.Header().Set("Connection", "keep-alive")
-	r.Response.Header().Set("Access-Control-Allow-Origin", "*")
-	
-	// 创建新客户端
-	clientId := r.Get("client_id", guid.S()).String()
-	client := &Client{
-		Id:      clientId,
-		Request: r,
-		messageChan: make(chan string, 100),
-	}
-	
-	// 注册客户端
-	s.clients.Set(clientId, client)
-	
-	// 客户端断开连接时清理
-	defer func() {
-		s.clients.Remove(clientId)
-		close(client.messageChan)
-	}()
-	
-	// 发送连接成功消息
-	r.Response.Writefln("id: %s", clientId)
-	r.Response.Writefln("event: connected")
-	r.Response.Writefln("data: {\"status\": \"connected\", \"client_id\": \"%s\"}\n", clientId)
-	r.Response.Flush()
-	
-	// 处理消息发送
-	for {
-		select {
-		case msg, ok := <-client.messageChan:
-			if !ok {
-				return
-			}
-			// 向客户端发送消息
-			r.Response.Writefln(msg)
-			r.Response.Flush()
+    // 设置SSE必要的HTTP头
+    r.Response.Header().Set("Content-Type", "text/event-stream")
+    r.Response.Header().Set("Cache-Control", "no-cache")
+    r.Response.Header().Set("Connection", "keep-alive")
+    r.Response.Header().Set("Access-Control-Allow-Origin", "*")
+    
+    // 创建新客户端
+    clientId := r.Get("client_id", guid.S()).String()
+    client := &Client{
+        Id:      clientId,
+        Request: r,
+        messageChan: make(chan string, 100),
+    }
+    
+    // 注册客户端
+    s.clients.Set(clientId, client)
+    
+    // 客户端断开连接时清理
+    defer func() {
+        s.clients.Remove(clientId)
+        close(client.messageChan)
+    }()
+    
+    // 发送连接成功消息
+    r.Response.Writefln("id: %s", clientId)
+    r.Response.Writefln("event: connected")
+    r.Response.Writefln("data: {\"status\": \"connected\", \"client_id\": \"%s\"}\n", clientId)
+    r.Response.Flush()
+    
+    // 处理消息发送
+    for {
+        select {
+        case msg, ok := <-client.messageChan:
+            if !ok {
+                return
+            }
+            // 向客户端发送消息
+            r.Response.Writefln(msg)
+            r.Response.Flush()
 
-		case <-r.Context().Done():
-			// 客户端断开连接
-			return
-		}
-	}
+        case <-r.Context().Done():
+            // 客户端断开连接
+            return
+        }
+    }
 }
 
 // SendToClient 向指定客户端发送消息
 func (s *Service) SendToClient(clientId, eventType, data string) bool {
-	if client := s.clients.Get(clientId); client != nil {
-		c := client.(*Client)
-		msg := fmt.Sprintf(
-			"id: %d\nevent: %s\ndata: %s\n\n", 
-			time.Now().UnixNano(), eventType, data,
-		)
-		// 尝试发送消息，如果缓冲区满则跳过
-		select {
-		case c.messageChan <- msg:
-			return true
-		default:
-			return false
-		}
-	}
-	return false
+    if client := s.clients.Get(clientId); client != nil {
+        c := client.(*Client)
+        msg := fmt.Sprintf(
+            "id: %d\nevent: %s\ndata: %s\n\n", 
+            time.Now().UnixNano(), eventType, data,
+        )
+        // 尝试发送消息，如果缓冲区满则跳过
+        select {
+        case c.messageChan <- msg:
+            return true
+        default:
+            return false
+        }
+    }
+    return false
 }
 
 // BroadcastMessage 向所有客户端广播消息
 func (s *Service) BroadcastMessage(eventType, data string) int {
-	count := 0
-	s.clients.Iterator(func(k string, v interface{}) bool {
-		if s.SendToClient(k, eventType, data) {
-			count++
-		}
-		return true
-	})
-	return count
+    count := 0
+    s.clients.Iterator(func(k string, v interface{}) bool {
+        if s.SendToClient(k, eventType, data) {
+            count++
+        }
+        return true
+    })
+    return count
 }
 
 // heartbeatSender 定时发送心跳包
 func (s *Service) heartbeatSender() {
-	ticker := time.NewTicker(30 * time.Second)
-	defer ticker.Stop()
-	
-	for range ticker.C {
-		s.clients.Iterator(func(k string, v interface{}) bool {
-			client := v.(*Client)
-			select {
-			case client.messageChan <- ": heartbeat\n\n":
-				// 心跳包发送成功
-			default:
-				// 消息缓冲区满，可能客户端已断开
-			}
-			return true
-		})
-	}
+    ticker := time.NewTicker(30 * time.Second)
+    defer ticker.Stop()
+    
+    for range ticker.C {
+        s.clients.Iterator(func(k string, v interface{}) bool {
+            client := v.(*Client)
+            select {
+            case client.messageChan <- ": heartbeat\n\n":
+                // 心跳包发送成功
+            default:
+                // 消息缓冲区满，可能客户端已断开
+            }
+            return true
+        })
+    }
 }
 ```
 
@@ -350,13 +352,13 @@ func (s *Service) heartbeatSender() {
 // internal/controller/sse/sse.go
 
 type Controller struct {
-	service *sse.Service
+    service *sse.Service
 }
 
 func New() *Controller {
-	return &Controller{
-		service: sse.New(),
-	}
+    return &Controller{
+        service: sse.New(),
+    }
 }
 ```
 
@@ -364,14 +366,14 @@ func New() *Controller {
 
 ```go
 type SseReq struct {
-	g.Meta `path:"/sse/create" method:"post"`
+    g.Meta `path:"/sse/create" method:"post"`
 }
 type SseRes struct {}
 
 // Sse SSE连接
 func (c *Controller) Sse(ctx context.Context, req *SseReq)(res *SseRes, err error) {
-	c.service.Create(r.RequestFromCtx(ctx))
-	return &SseRes{}, nil
+    c.service.Create(r.RequestFromCtx(ctx))
+    return &SseRes{}, nil
 }
 ```
 
@@ -379,17 +381,17 @@ func (c *Controller) Sse(ctx context.Context, req *SseReq)(res *SseRes, err erro
 
 ```go
 type SendMessageReq struct {
-	g.Meta `path:"/sse/send" method:"post"`
-	ClientId  string 
-	EventType string 
-	Data      string 
+    g.Meta `path:"/sse/send" method:"post"`
+    ClientId  string 
+    EventType string 
+    Data      string 
 }
 type SendMessageRes struct {}
 
 // SendMessage 发送消息给指定客户端
 func (c *Controller) SendMessage(ctx context.Context, req *SendMessageReq)(res *SendMessageRes, err error) {
-	success := c.service.SendToClient(req.ClientId, req.EventType, req.Data)
-	return &SendMessageRes{}, nil
+    success := c.service.SendToClient(req.ClientId, req.EventType, req.Data)
+    return &SendMessageRes{}, nil
 }
 ```
 
@@ -397,16 +399,16 @@ func (c *Controller) SendMessage(ctx context.Context, req *SendMessageReq)(res *
 
 ```go
 type BroadcastMessageReq struct {
-	g.Meta `path:"/sse/broadcast" method:"post"`
-	EventType string 
-	Data      string 
+    g.Meta `path:"/sse/broadcast" method:"post"`
+    EventType string 
+    Data      string 
 }
 type BroadcastMessageRes struct {}
 
 // BroadcastMessage 广播消息给所有客户端
 func (c *Controller) BroadcastMessage(ctx context.Context, req *BroadcastMessageReq)(res *BroadcastMessageRes, err error) {
-	count := c.service.BroadcastMessage(req.EventType, req.Data)
-	return &BroadcastMessageRes{}, nil
+    count := c.service.BroadcastMessage(req.EventType, req.Data)
+    return &BroadcastMessageRes{}, nil
 }
 ```
 
@@ -415,7 +417,7 @@ func (c *Controller) BroadcastMessage(ctx context.Context, req *BroadcastMessage
 ```go
 s := g.Server()
 s.Group("/api", func(group *ghttp.RouterGroup) {
-	group.Bind("/", sse.New())
+    group.Bind("/", sse.New())
 })
 ```
 
@@ -500,7 +502,7 @@ clientId := r.Get("client_id", guid.S()).String()
 ```go
 // SseService SSE服务
 type SseService struct {
-	clients *gmap.StrAnyMap  // 存储所有客户端连接
+    clients *gmap.StrAnyMap  // 存储所有客户端连接
 }
 ```
 
@@ -516,8 +518,8 @@ s.clients.Set(clientId, client)
 ```go
 // 客户端断开连接时清理
 defer func() {
-	s.clients.Remove(clientId)
-	close(client.messageChan)
+    s.clients.Remove(clientId)
+    close(client.messageChan)
 }()
 ```
 
@@ -541,56 +543,56 @@ SSE（Server-Sent Events）是一种允许服务器向客户端推送数据的�
 
 // StreamChatRequest 流式聊天请求
 type StreamChatRequest struct {
-	g.Meta `path:"/ai/stream-chat" method:"post"`
-	Prompt   string `v:"required#请输入问题"`
-	ClientId string `v:"required#请输入client_id"`
+    g.Meta `path:"/ai/stream-chat" method:"post"`
+    Prompt   string `v:"required#请输入问题"`
+    ClientId string `v:"required#请输入client_id"`
 }
 
 // StreamChatResponse 流式聊天响应
 type StreamChatResponse struct {
-	Content string `json:"content"`
-	Done    bool   `json:"done"`
+    Content string `json:"content"`
+    Done    bool   `json:"done"`
 }
 
 // StreamChat 流式聊天API
 func (c *Controller) StreamChat(ctx context.Context, req *StreamChatRequest) (res *StreamChatResponse, err error){
-	// 获取或生成客户端Id
-	if req.ClientId == "" {
-		req.ClientId = guid.S()
-	}
-	
-	// 启动一个goroutine来模拟AI处理和流式响应
-	go func() {
-		// 将回答拆分为单个字符
-		words := gstr.SplitAndTrim(aiResponses, " ")
+    // 获取或生成客户端Id
+    if req.ClientId == "" {
+        req.ClientId = guid.S()
+    }
+    
+    // 启动一个goroutine来模拟AI处理和流式响应
+    go func() {
+        // 将回答拆分为单个字符
+        words := gstr.SplitAndTrim(aiResponses, " ")
 
-		// 模拟思考时间
-		time.Sleep(500 * time.Millisecond)
-		
-		// 逐字发送回答
-		for i, char := range words {
-			// 构建响应
-			resp := StreamChatResponse{
-				Content: char,
-				Done:    i == len(words)-1,
-			}
-			
-			// 转为JSON
-			data, _ := json.Marshal(resp)
-			
-			// 发送到客户端
-			c.service.SendToClient(req.ClientId, "ai_response", string(data))
-			
-			// 模拟打字延迟
-			time.Sleep(100 * time.Millisecond)
-		}
-	}()
-	
-	// 返回成功，实际内容会通过SSE发送
-	return &StreamChatResponse{
-		Content: "请求已接收，响应将通过SSE流式返回",
-		Done:    true,
-	}, nil
+        // 模拟思考时间
+        time.Sleep(500 * time.Millisecond)
+        
+        // 逐字发送回答
+        for i, char := range words {
+            // 构建响应
+            resp := StreamChatResponse{
+                Content: char,
+                Done:    i == len(words)-1,
+            }
+            
+            // 转为JSON
+            data, _ := json.Marshal(resp)
+            
+            // 发送到客户端
+            c.service.SendToClient(req.ClientId, "ai_response", string(data))
+            
+            // 模拟打字延迟
+            time.Sleep(100 * time.Millisecond)
+        }
+    }()
+    
+    // 返回成功，实际内容会通过SSE发送
+    return &StreamChatResponse{
+        Content: "请求已接收，响应将通过SSE流式返回",
+        Done:    true,
+    }, nil
 }
 ```
 
@@ -599,10 +601,10 @@ func (c *Controller) StreamChat(ctx context.Context, req *StreamChatRequest) (re
 ```go
 s := g.Server()
 s.Group("/api", func(group *ghttp.RouterGroup) {
-	// SSE API
-	group.Bind("/", sse.New())
-	// AI聊天API
-	group.Bind("/", ai.New())
+    // SSE API
+    group.Bind("/", sse.New())
+    // AI聊天API
+    group.Bind("/", ai.New())
 })
 ```
 
@@ -622,10 +624,10 @@ s.Group("/api", func(group *ghttp.RouterGroup) {
 ```go
 // 发布消息到Redis，包含client_id信息
 msg := RedisMessage{
-	ClientId:  clientId,  // 指定目标客户端
-	EventType: eventType,
-	Data:      data,
-	Broadcast: broadcast,
+    ClientId:  clientId,  // 指定目标客户端
+    EventType: eventType,
+    Data:      data,
+    Broadcast: broadcast,
 }
 ```
 
@@ -639,27 +641,27 @@ msg := RedisMessage{
 
 // Redis通道名
 const (
-	RedisSseChannel = "sse:messages"
+    RedisSseChannel = "sse:messages"
 )
 
 // PublishToRedis 发布消息到Redis
 func (s *Service) PublishToRedis(clientId, eventType, data string, broadcast bool) error {
-	msg := RedisMessage{
-		ClientId:  clientId,
-		EventType: eventType,
-		Data:      data,
-		Broadcast: broadcast,
-	}
-	
-	// 序列化消息
-	bytes, err := json.Marshal(msg)
-	if err != nil {
-		return err
-	}
-	
-	// 发布到Redis
-	_, err = s.redis.Publish(ctx, RedisSseChannel, string(bytes))
-	return err
+    msg := RedisMessage{
+        ClientId:  clientId,
+        EventType: eventType,
+        Data:      data,
+        Broadcast: broadcast,
+    }
+    
+    // 序列化消息
+    bytes, err := json.Marshal(msg)
+    if err != nil {
+        return err
+    }
+    
+    // 发布到Redis
+    _, err = s.redis.Publish(ctx, RedisSseChannel, string(bytes))
+    return err
 }
 ```
 
@@ -670,46 +672,46 @@ func (s *Service) PublishToRedis(clientId, eventType, data string, broadcast boo
 
 // StartRedisSubscriber 启动Redis订阅器
 func (s *Service) StartRedisSubscriber() error {
-	ctx := context.Background()
-	
-	// 创建redis订阅对象
-	pubsub := s.redis.Subscribe(ctx, RedisSseChannel)
-	defer pubsub.Close() 
-	
-	// 获取消息通道
-	msgChan := pubsub.Channel()
-	
-	go func() {
-		// 处理接收到的消息
-		for msg := range msgChan {
-			var redisMsg RedisMessage
-			if err := json.Unmarshal([]byte(msg.Payload), &redisMsg); err != nil {
-				g.Log().Error(ctx, "Parse redis message error:", err)
-				continue
-			}
-			
-			// 处理消息
-			if redisMsg.Broadcast {
-				// 广播消息
-				s.BroadcastMessage(redisMsg.EventType, redisMsg.Data)
-			} else if redisMsg.ClientId != "" {
-				// 发送给指定客户端
-				s.SendToClient(redisMsg.ClientId, redisMsg.EventType, redisMsg.Data)
-			}
-		}
-	}()
-	
-	return nil
+    ctx := context.Background()
+    
+    // 创建redis订阅对象
+    pubsub := s.redis.Subscribe(ctx, RedisSseChannel)
+    defer pubsub.Close() 
+    
+    // 获取消息通道
+    msgChan := pubsub.Channel()
+    
+    go func() {
+        // 处理接收到的消息
+        for msg := range msgChan {
+            var redisMsg RedisMessage
+            if err := json.Unmarshal([]byte(msg.Payload), &redisMsg); err != nil {
+                g.Log().Error(ctx, "Parse redis message error:", err)
+                continue
+            }
+            
+            // 处理消息
+            if redisMsg.Broadcast {
+                // 广播消息
+                s.BroadcastMessage(redisMsg.EventType, redisMsg.Data)
+            } else if redisMsg.ClientId != "" {
+                // 发送给指定客户端
+                s.SendToClient(redisMsg.ClientId, redisMsg.EventType, redisMsg.Data)
+            }
+        }
+    }()
+    
+    return nil
 }
 
 // SendMessage 发送消息给指定客户端
 func (s *Service) SendMessage(clientId, eventType, data string) error {
-	return s.PublishToRedis(clientId, eventType, data, false)
+    return s.PublishToRedis(clientId, eventType, data, false)
 }
 
 // BroadcastMessage 广播消息给所有客户端
 func (s *Service) BroadcastMessage(eventType, data string) error {
-	return s.PublishToRedis("", eventType, data, true)
+    return s.PublishToRedis("", eventType, data, true)
 }
 ```
 
@@ -720,11 +722,11 @@ func (s *Service) BroadcastMessage(eventType, data string) error {
 ```go
 // main.go
 func main() {
-	// 启动Redis订阅器
-	sseService.StartRedisSubscriber()
-	
-	// 启动HTTP服务
-	// ...
+    // 启动Redis订阅器
+    sseService.StartRedisSubscriber()
+    
+    // 启动HTTP服务
+    // ...
 }
 ```
 
@@ -806,30 +808,30 @@ function connectSSE() {
 ```go
 // 添加最后活动时间字段
 type Client struct {
-	Id            string
-	messageChan   chan string
-	lastActiveTime time.Time
+    Id            string
+    messageChan   chan string
+    lastActiveTime time.Time
 }
 
 // 定期清理空闲连接
 func (s *Service) startIdleConnectionCleaner() {
-	ticker := time.NewTicker(5 * time.Minute)
-	defer ticker.Stop()
-	
-	for range ticker.C {
-		now := time.Now()
-		// 使用LockFunc安全地执行删除操作
-		s.clients.LockFunc(func(m map[string]interface{}) {
-			for k, v := range m {
-				client := v.(*Client)
-				// 如果超过30分钟没有活动，关闭连接
-				if now.Sub(client.lastActiveTime) > 30*time.Minute {
-					close(client.messageChan)
-					delete(m, k)
-				}
-			}
-		})
-	}
+    ticker := time.NewTicker(5 * time.Minute)
+    defer ticker.Stop()
+    
+    for range ticker.C {
+        now := time.Now()
+        // 使用LockFunc安全地执行删除操作
+        s.clients.LockFunc(func(m map[string]interface{}) {
+            for k, v := range m {
+                client := v.(*Client)
+                // 如果超过30分钟没有活动，关闭连接
+                if now.Sub(client.lastActiveTime) > 30*time.Minute {
+                    close(client.messageChan)
+                    delete(m, k)
+                }
+            }
+        })
+    }
 }
 ```
 
@@ -842,22 +844,22 @@ func (s *Service) startIdleConnectionCleaner() {
 var ipConnections = gmap.NewStrIntMap(true)
 
 func (s *Service) Create(r *ghttp.Request) {
-	// 获取客户端Ip
-	clientIp := r.GetClientIp()
-	
-	// 在创建SSE新连接前检查连接数限制
-	if count := ipConnections.GetOrSet(clientIp, 0); count >= 5 {
-		r.Response.WriteStatus(429, "Too many connections")
-		return
-	}
-	
-	// 增加连接计数
-	ipConnections.Add(clientIp, 1)
-	
-	// 连接关闭时减少计数
-	defer ipConnections.Add(clientIp, -1)
-	
-	// 继续处理SSE连接...
+    // 获取客户端Ip
+    clientIp := r.GetClientIp()
+    
+    // 在创建SSE新连接前检查连接数限制
+    if count := ipConnections.GetOrSet(clientIp, 0); count >= 5 {
+        r.Response.WriteStatus(429, "Too many connections")
+        return
+    }
+    
+    // 增加连接计数
+    ipConnections.Add(clientIp, 1)
+    
+    // 连接关闭时减少计数
+    defer ipConnections.Add(clientIp, -1)
+    
+    // 继续处理SSE连接...
 }
 ```
 
@@ -871,48 +873,48 @@ var messageQueue = make(chan RedisMessage, 1000)
 
 // 启动Redis订阅器并分发消息到工作协程
 func (s *Service) StartRedisSubscriber(ctx context.Context, workerCount int) error {
-	// 创建redis订阅对象
-	pubsub := s.redis.Subscribe(ctx, RedisSseChannel)
-	
-	// 获取消息通道
-	msgChan := pubsub.Channel()
-	
-	// 启动消息分发协程
-	go func() {
-		defer pubsub.Close()
-		
-		for msg := range msgChan {
-			// 解析消息
-			var redisMsg RedisMessage
-			if err := json.Unmarshal([]byte(msg.Payload), &redisMsg); err != nil {
-				continue
-			}
-			
-			// 将消息发送到工作队列
-			select {
-			case messageQueue <- redisMsg:
-				// 消息成功发送到队列
-			default:
-				// 队列已满，丢弃消息
-			}
-		}
-	}()
-	
-	// 启动工作协程池
-	for i := 0; i < workerCount; i++ {
-		go func() {
-			for msg := range messageQueue {
-				// 处理消息
-				if msg.Broadcast {
-					s.BroadcastMessage(msg.EventType, msg.Data)
-				} else {
-					s.SendToClient(msg.ClientId, msg.EventType, msg.Data)
-				}
-			}
-		}()
-	}
-	
-	return nil
+    // 创建redis订阅对象
+    pubsub := s.redis.Subscribe(ctx, RedisSseChannel)
+    
+    // 获取消息通道
+    msgChan := pubsub.Channel()
+    
+    // 启动消息分发协程
+    go func() {
+        defer pubsub.Close()
+        
+        for msg := range msgChan {
+            // 解析消息
+            var redisMsg RedisMessage
+            if err := json.Unmarshal([]byte(msg.Payload), &redisMsg); err != nil {
+                continue
+            }
+            
+            // 将消息发送到工作队列
+            select {
+            case messageQueue <- redisMsg:
+                // 消息成功发送到队列
+            default:
+                // 队列已满，丢弃消息
+            }
+        }
+    }()
+    
+    // 启动工作协程池
+    for i := 0; i < workerCount; i++ {
+        go func() {
+            for msg := range messageQueue {
+                // 处理消息
+                if msg.Broadcast {
+                    s.BroadcastMessage(msg.EventType, msg.Data)
+                } else {
+                    s.SendToClient(msg.ClientId, msg.EventType, msg.Data)
+                }
+            }
+        }()
+    }
+    
+    return nil
 }
 ```
 
@@ -923,11 +925,11 @@ func (s *Service) StartRedisSubscriber(ctx context.Context, workerCount int) err
 实现监控指标收集，以便及时发现问题，至少包含以下关键指标：
 ```go
 type SseMetrics struct {
-	ActiveConnections    int64 // 当前活跃连接数
-	TotalConnections     int64 // 总连接数
-	MessagesSent         int64 // 发送的消息数
-	MessagesDropped      int64 // 丢弃的消息数
-	ReconnectCount       int64 // 重连次数
+    ActiveConnections    int64 // 当前活跃连接数
+    TotalConnections     int64 // 总连接数
+    MessagesSent         int64 // 发送的消息数
+    MessagesDropped      int64 // 丢弃的消息数
+    ReconnectCount       int64 // 重连次数
 }
 // ...
 ```
