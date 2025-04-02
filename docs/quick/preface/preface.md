@@ -5,54 +5,86 @@ sidebar_position: 0
 hide_title: true
 ---
 
-朋友，你来晚了，不过没关系，我们的故事从现在开始，我们准备了一些使用指南，助你快速上手 `GoFrame`。
+朋友，你来晚了，不过没关系，我们的故事从现在开始，我们准备了一些使用指南，助你快速了解 `GoFrame`。
 
-下面让我们开始 `GoFrame` 的开发之旅吧！
+- [初次见面](#初次见面)
+  - [语言入门](#语言入门)
+  - [技术选型](#技术选型)
+- [开始使用](#开始使用)
+  - [入门](#入门)
+  - [模块使用](#模块使用)
+  - [工具](#工具)
+  - [进阶](#进阶)
+- [参与改进](#参与改进)
+  - [功能建议和 bug 提交](#功能建议和-bug-提交)
+  - [共同开发](#共同开发)
 
-## 文档引导
-
-请你根据自身的情况，选择性地阅读下面的文档。
+## 初次见面
 
 ### 语言入门
 
-对于 `Go` 语言新手，我们建议先学习 `Go` 语言的基础知识，所谓万丈高楼平地起，只有打好基础，才能少走弯路，事半功倍。
+对于 `Go` 语言新手，我们强烈建议先学习 `Go` 语言的基础知识，所谓万丈高楼平地起，只有打好基础，才能少走弯路，事半功倍。
 
 这里我们推荐一些学习资料，开发前可以参考[准备开发环境](/docs/install-go)：
 
-- [Go官网](https://go.dev/)([国内镜像](https://golang.google.cn/))
-  - [《Go之旅》](https://tour.go-zh.org/)— 交互式教程，快手上手
+- [Go 官网](https://go.dev/)([国内镜像](https://golang.google.cn/))
+  - [《Go 之旅》](https://tour.go-zh.org/)— 交互式教程，快手上手
 - 书籍推荐
-  - [《Go语言圣经》](http://books.studygolang.com/gopl-zh/)— 必读
-  - [《Go语言设计与实现》](https://draven.co/golang/)
-  - [《Go语言高性能编程》](https://geektutu.com/post/high-performance-go.html)
+  - [《Go 语言圣经》](http://books.studygolang.com/gopl-zh/)— 必读
+  - [《Go 语言设计与实现》](https://draven.co/golang/)
+  - [《Go 语言高性能编程》](https://geektutu.com/post/high-performance-go.html)
   - [《Go 语言高级编程》](https://chai2010.cn/advanced-go-programming-book/)
-  - [《Go语言101》](https://gfw.go101.org/)
-  - [《Go语言标准库》](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
-- 其他
+  - [《Go 语言 101》](https://gfw.go101.org/)
+  - [《Go 语言标准库》](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
   - [《数据结构与算法》](https://github.com/yezihack/algo)
-  - [《Go语言设计模式》](https://github.com/senghoo/golang-design-pattern)
-  - [《Go语言设计模式》](https://github.com/lee501/go-patterns)
+  - [《Go 语言设计模式》- senghoo](https://github.com/senghoo/golang-design-pattern)
+  - [《Go 语言设计模式》- lee501](https://github.com/lee501/go-patterns)
 
 ### 技术选型
 
-如果你还在犹豫是否使用 `GoFrame`，我们建议你阅读[框架选型](/articles/framework-comparison-goframe-beego-iris-gin)。
+还在犹豫？推荐阅读来自用户投稿的[框架比较选型](/articles/framework-comparison-goframe-beego-iris-gin)，我们也收集了一些[社区案例](/showcase)。
 
-我们也收集了一些[社区案例](https://goframe.org/showcase)，你可以参考这些案例来决定是否使用 `GoFrame`。
+## 开始使用
 
-### 框架入门
+从这里开始我们默认你已经掌握 `Go` 语言基础，虽然上手 `GoFrame` 简直易如反掌，但说实话我们的文档太多太详细了，直接阅读估计头大。
 
-如果你已经上手 `Go` 语言，那么你可以直接阅读 `GoFrame` 的文档。
+所以我们建议你先阅读下面的文档，然后再根据自己的需求选择性地阅读对应的文档，下面让我们开始 `GoFrame` 的开发之旅！
 
-#### 模块使用
+### 入门
 
-#### 
+大家学习编程都是从 `Hello World` 开始的，`GoFrame` 也不例外，我们先从[Hello World](/quick/install)开始。
 
-### 参与改进
+接下来通过一个[web 服务](/quick/hello-world)的例子，进一步了解 `GoFrame` 的使用。
 
-如果你想参与 `GoFrame` 的开发，我们建议你先阅读[贡献指南](/supportus/pr)。
+### 模块使用
 
-## 入门到精通
+`GoFrame` 提供了很多独立的模块，在不使用框架的情况下也是可以单独使用，可以通过[模块列表](/docs/components)了解。
 
-## TODO
+:::info 注意
+`Go` 语言是按需编译的，没有使用的模块不会被编译进去目标文件。
+:::
 
-如果网络不好，再配置个https://goproxy.cn/
+### 工具
+
+为了提高开发效率，我们也开发了一个[脚手架工具](/quick/scaffold)，可以帮助你快速生成项目模板。
+
+### 进阶
+
+在入门之后，根据你的开发需求选择性地阅读下面的文档：
+
+- [WEB 服务开发](/docs/web)
+- [微服务开发](/docs/micro-service)
+- [数据库 ORM](/docs/core/gdb)
+- [功能示例](/examples/grpc)
+
+同时社区也贡献了一些完整项目的[社区教程](/course)，另外我们收集了一些[社区案例](https://goframe.org/showcase)。
+
+## 参与改进
+
+### 功能建议和 bug 提交
+
+在使用过程中遇到问题或是有更好的建议欢迎[提交](https://github.com/gogf/gf/issues)。
+
+### 共同开发
+
+想跟我们一起开发 `GoFrame` 框架吗？欢迎你的加入！在你开始之前，先阅读[贡献指南](/supportus/pr)。
