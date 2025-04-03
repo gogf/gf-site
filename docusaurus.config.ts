@@ -6,16 +6,20 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 function geti18nTitle() {
-  switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
-    case "en": return "GoFrame - A powerful framework for faster, easier, and more efficient project development";
-    default: return "GoFrame官网 - 类似PHP-Laravel,Java-SpringBoot的Go语言开发框架";
+  switch (process.env.DOCUSAURUS_CURRENT_LOCALE) {
+    case 'en':
+      return 'GoFrame - A powerful framework for faster, easier, and more efficient project development';
+    default:
+      return 'GoFrame官网 - 类似PHP-Laravel,Java-SpringBoot的Go语言开发框架';
   }
 }
 
 function getFooterFollowUs() {
-  switch(process.env.DOCUSAURUS_CURRENT_LOCALE) {
-    case "en": return "Follow Us On WeChat";
-    default: return "微信关注我们";
+  switch (process.env.DOCUSAURUS_CURRENT_LOCALE) {
+    case 'en':
+      return 'Follow Us On WeChat';
+    default:
+      return '微信关注我们';
   }
 }
 
@@ -152,6 +156,18 @@ const config: Config = {
           to: '/docs/core',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'examplesSidebar',
+          position: 'left',
+          label: '功能示例',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'releaseSidebar',
+          position: 'left',
+          label: '发布记录',
+        },
+        {
           sidebarId: 'courseSidebar',
           position: 'left',
           label: '社区教程',
@@ -175,22 +191,14 @@ const config: Config = {
           ],
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'examplesSidebar',
+          to: 'showcase',
+          label: '社区案例',
           position: 'left',
-          label: '代码示例',
-        },
-        {to: 'showcase', label: '案例展示', position: 'left'},
-        {
-          type: 'docSidebar',
-          sidebarId: 'releaseSidebar',
-          position: 'left',
-          label: '发布记录',
         },
         {
           sidebarId: 'communitySidebar',
           position: 'left',
-          label: '开源社区',
+          label: '社区交流',
           to: '/share/group',
         },
         {
@@ -220,7 +228,7 @@ const config: Config = {
           title: getFooterFollowUs(),
           items: [
             {
-              html: '<img src="/img/wechat.jpg" width="110" />'
+              html: '<img src="/img/wechat.jpg" width="110" />',
             },
           ],
         },
