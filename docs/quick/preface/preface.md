@@ -28,7 +28,7 @@ hide_title: true
 这里我们推荐一些学习资料，开发前可以参考[准备开发环境](/docs/install-go)：
 
 - [Go 官网](https://go.dev/)([国内镜像](https://golang.google.cn/))
-  - [《Go 之旅》](https://tour.go-zh.org/)— 交互式教程，快手上手
+  - [《Go 之旅》](https://tour.go-zh.org/)— 交互式教程，快速上手
 - 书籍推荐
   - [《Go 语言圣经》](http://books.studygolang.com/gopl-zh/)— 必读
   - [《Go 语言设计与实现》](https://draven.co/golang/)
