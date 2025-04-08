@@ -1,0 +1,19 @@
+.adContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.adBanner {
+  /* padding: 1rem; */
+  /* border: 1px solid #e0e0e0; */
+  /* border-radius: 8px; */
+  /* background-color: #f9f9f9; */
+  /* text-align: center; */
+}
+
+.adText {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
