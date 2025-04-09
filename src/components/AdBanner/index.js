@@ -11,7 +11,7 @@ export default function AdBanner() {
       if (typeof window !== 'undefined') {
         const hostname = window.location.hostname;
         // 检查是否为 goframe.org 或其子域名
-        const isGoframeDomain = hostname.endsWith('goframe.org');
+        const isGoframeDomain = hostname.endsWith('goframe.org') || hostname === 'localhost';
         setShouldShowAd(isGoframeDomain);
       }
     };
@@ -25,6 +25,7 @@ export default function AdBanner() {
   }
   
   // 如果是 goframe.org 域名，正常显示广告
+  // 展示万维广告
   return (
     <div className={styles.adContainer}>
       <div className={styles.adBanner}>
