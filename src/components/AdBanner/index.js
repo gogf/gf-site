@@ -11,7 +11,7 @@ export default function AdBanner() {
       if (typeof window !== 'undefined') {
         const hostname = window.location.hostname;
         // 检查是否为 goframe.org 或其子域名
-        const isGoframeDomain = hostname.endsWith('.goframe.org');
+        const isGoframeDomain = hostname.endsWith('goframe.org');
         setShouldShowAd(isGoframeDomain);
       }
     };
