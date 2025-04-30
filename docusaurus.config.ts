@@ -274,10 +274,10 @@ const config: Config = {
       src: 'https://hm.baidu.com/hm.js?38f38a0626fd7805722db06243cd0fa7',
       async: true,
     },
-    // {
-    //   src: '/ad.js',
-    //   async: true,
-    // },
+    {
+      src: 'https://cdn.wwads.cn/js/makemoney.js',
+      async: true,
+    },
   ],
 };
 

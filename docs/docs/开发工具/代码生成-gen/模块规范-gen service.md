@@ -3,6 +3,7 @@ slug: '/docs/cli/gen-service'
 title: '模块规范-gen service'
 sidebar_position: 2
 hide_title: true
+unlisted: true
 keywords: [GoFrame,Golang,业务逻辑,模块管理,接口定义,代码生成,循环依赖,服务注册,编译器,微服务]
 description: '在GoFrame框架中对业务逻辑进行封装管理，通过生成模块接口定义和注册代码来简化业务逻辑与接口分离的实现过程。通过逻辑与接口的结构化编码提高模块透明性，并避免循环依赖。提供手动与自动两种实现模式，适用于不同开发环境。'
 ---
