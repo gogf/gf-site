@@ -31,7 +31,7 @@ m  = m.DB(g.DB("order"))
 其效果与以下操作是一样的：
 
 ```go
-m := g.DB("user").Model("user")
+m := g.DB("order").Model("user")
 ```
 
 ### `Raw`
