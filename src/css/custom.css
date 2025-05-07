@@ -57,6 +57,11 @@
   background: var(--ifm-navbar-background-color);
 }
 
+[data-theme='dark'] code {
+  background-color: rgba(94, 108, 122, 0.15);
+  color: #c75975;
+}
+
 body .button {
   display: inline-block;
   border-radius: 5px;
