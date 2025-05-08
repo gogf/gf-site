@@ -9,7 +9,7 @@ description: '使用GoFrame框架开发WebSocket服务，包括HTML5客户端、
 
 使用 `goframe` 框架进行 `websocket` 开发相当简单。我们以下通过实现一个简单的 `echo服务器` 来演示 `goframe` 框架的 `websocket` 的使用（客户端使用`HTML5`实现）。
 
-示例代码：[Websocket Example](../../../examples/httpserver/websocket/websocket.md)
+示例代码：[Websocket Example](/examples/httpserver/websocket)
 
 ## HTML5客户端
 
