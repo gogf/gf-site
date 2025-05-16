@@ -137,7 +137,7 @@ gfcli:
 | `gJsonSupport` | `false` | 当数据表字段类型为 `JSON` 类型时，代码生成的属性类型使用 `*gjson.Json` 类型。 | `true` |
 | `overwriteDao` | `false` | 每次生成 `dao` 代码时是否重新生成覆盖 `dao/internal` 目录外层的文件。注意 `dao/internal` 目录外层的文件可能由开发者自定义扩展了功能，覆盖可能会产生风险。 | `true` |
 | `importPrefix` | 通过 `go.mod` 自动检测 | 用于指定生成 `Go` 文件的 `import` 路径前缀。特别是针对于不是在项目根目录下使用 `gen dao` 命令，或者想要将代码文件生成到自定义的其他目录，这个时候配置该参数十分必要。 | `github.com/gogf/gf` |
-| `descriptionTag` | `false` | 用于指定是否为数据模型结构体属性增加 `desription` 的标签，内容为对应的数据表字段注释。 | `true` |
+| `descriptionTag` | `false` | 用于指定是否为数据模型结构体属性增加 `description` 的标签，内容为对应的数据表字段注释。 | `true` |
 | `noJsonTag` | `false` | 生成的数据模型中，字段不带有json标签 |  |
 | `noModelComment` | `false` | 用于指定是否关闭数据模型结构体属性的注释自动生成，内容为数据表对应字段的注释。 | `true` |
 | `clear` | `false` | 自动删除数据库中不存在对应数据表的本地 `dao/do/entity` 代码文件。请谨慎使用该参数！ |  |
