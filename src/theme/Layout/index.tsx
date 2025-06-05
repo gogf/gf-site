@@ -1,5 +1,4 @@
 import type { WrapperProps } from '@docusaurus/types';
-import AIAssistant from "@site/src/components/AIAssistant";
 import Layout from '@theme-original/Layout';
 import type LayoutType from '@theme/Layout';
 
@@ -10,7 +9,6 @@ export default function LayoutWrapper(props: Props): JSX.Element {
   return (
     <>
       <Layout {...props} />
-      <AIAssistant />
     </>
   );
 }
