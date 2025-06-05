@@ -123,7 +123,7 @@ const config: Config = {
     ],
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     zoom: {
@@ -238,7 +238,7 @@ const config: Config = {
     // 代码块配置
     prism: {
       theme: prismThemes.okaidia,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
       defaultLanguage: 'go',
       additionalLanguages: ['bash', 'javascript', 'toml', 'ini'], // 添加语言
       // 默认支持的语言 https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23
