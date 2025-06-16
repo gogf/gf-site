@@ -15,4 +15,4 @@ import DocCardList from '@theme/DocCardList';
 
 ## 延伸阅读
 
-- [电商系统案例，Go语言数据库分库分表实战](/articles/go-ecommerce-database-sharding-millions)
+- [电商系统案例，Go语言数据库分库分表实战](../../../../community/社区投稿/电商系统案例，Go语言数据库分库分表实战.md)

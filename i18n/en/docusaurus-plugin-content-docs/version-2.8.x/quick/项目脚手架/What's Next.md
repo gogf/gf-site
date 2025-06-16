@@ -23,7 +23,7 @@ Let's explore your options for diving deeper into GoFrame.
 
 ### Community Resources
 
-Our community members have created excellent learning materials to help you succeed. Check out our [Community Tutorials](/course) for practical insights and tips.
+Our community members have created excellent learning materials to help you succeed. Check out our [Community Tutorials](../../course/社区教程.md) for practical insights and tips.
 
 ### Mastering Service Development
 

@@ -94,7 +94,7 @@ func main() {
 
 ## 延伸阅读
 
-- [打造高性能实时通信：Go语言SSE实现指南](/articles/go-sse-implementation-guide)
+- [打造高性能实时通信：Go语言SSE实现指南](../../../community/社区投稿/打造高性能实时通信：Go语言SSE实现指南.md)
 
 ## 注意事项
 
