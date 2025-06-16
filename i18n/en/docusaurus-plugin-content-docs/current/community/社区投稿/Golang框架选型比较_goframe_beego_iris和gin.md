@@ -3,21 +3,28 @@ slug: '/articles/framework-comparison-goframe-beego-iris-gin'
 title: 'Golang Framework Comparison: GoFrame, Beego, Iris and Gin'
 sidebar_position: 0
 hide_title: true
-keywords: [GoFrame, Beego, Iris, Gin, Framework Comparison, Go Web Framework, Web Development, Performance Comparison]
+keywords:
+  [
+    GoFrame,
+    Beego,
+    Iris,
+    Gin,
+    Framework Comparison,
+    Go Web Framework,
+    Web Development,
+    Performance Comparison,
+  ]
 description: 'A comprehensive comparison of popular Golang frameworks including GoFrame, Beego, Iris and Gin, analyzing their features, performance, and use cases'
 ---
 
 Migrated from the old official website community contribution article: https://wiki.goframe.org/pages/viewpage.action?pageId=3673375
-
-
 
 ![Solve problems? Bring problems?](golang-framework-choose.jpeg)
 Solve problems? Bring problems?
 
 Due to work requirements, I have encountered many development frameworks over the years. While there are numerous Golang development frameworks, they are primarily Web "frameworks". The quotation marks are used here because most "frameworks", from their design and functional positioning, can at best be considered as components. When projects need to use them, developers often have to search for other components elsewhere or build their own. For Web development, these "frameworks" all have complete Web development capabilities with little difference, and they are all secondary encapsulations of the standard library net/http.Server. Due to the large number of frameworks available, I have selected only a few that I have previously evaluated for technical selection, am familiar with, and are currently popular and typical Golang "frameworks". I will make a simple horizontal comparison from the perspective of business project development frameworks, to provide a reference for everyone when selecting a project framework."
 
-Evaluation Criteria
-====
+## Evaluation Criteria
 
 <table class="relative-table wrapped confluenceTable">
     <tbody>
@@ -139,14 +146,12 @@ Evaluation Criteria
     </tbody>
 </table>
 
-Horizontal Comparison
-====
+## Horizontal Comparison
 
-*   For the comparison parameters below that involve scoring, the maximum score is based on a 10-point scale.
-*   Items marked with "-" indicate that the feature is not supported or requires third-party plugin support.
-*   For the features below, if official documentation is available, direct links will be provided. If documentation cannot be found but the author knows the feature exists, it will be briefly noted.
-*   Different "frameworks" implement features differently, with significant variations in documentation, functionality, and usability. Readers can refer to the links for more details.
-
+- For the comparison parameters below that involve scoring, the maximum score is based on a 10-point scale.
+- Items marked with "-" indicate that the feature is not supported or requires third-party plugin support.
+- For the features below, if official documentation is available, direct links will be provided. If documentation cannot be found but the author knows the feature exists, it will be briefly noted.
+- Different "frameworks" implement features differently, with significant variations in documentation, functionality, and usability. Readers can refer to the links for more details.
 
 <table class="relative-table wrapped confluenceTable">
     <tbody>
@@ -522,8 +527,7 @@ Horizontal Comparison
     </tbody>
 </table>
 
-Experience Sharing
-====
+## Experience Sharing
 
 Different scenarios require different choices. Choose the right tool to solve the right problem.
 
@@ -531,8 +535,7 @@ In open source, there's no absolute better or worse. Open source authors sharing
 
 Finally, I'd like to share my team's experience and the challenges we faced during our transition to the `Golang` technology stack, hoping it can provide some reference for others in their framework selection process.
 
-Initial Pain Points
-------
+## Initial Pain Points
 
 Here's some background on our team's transition to the `Golang` technology stack. The main points are:
 
@@ -545,8 +548,7 @@ Here's some background on our team's transition to the `Golang` technology stack
     4.  The `JsonRpc` communication protocol, essentially based on `HTTP1.x` + `Json`, had low execution efficiency and couldn't be considered a true microservice communication protocol, making it difficult to integrate with mainstream service governance frameworks. In contrast, the `HTTP2.x`-based `gRPC` protocol comes with mature microservice development frameworks and service governance solutions.
     5.  From a business perspective, the migration from `PHP` to `Golang` stack presented an opportunity for technical reconstruction, allowing us to review business system design and pay off technical debt during the process.
 
-Further Pain Points
-------
+## Further Pain Points
 
 `Golang` is indeed simple enough, and compared to other interpreted languages, it doesn't have excessive syntactic sugar and language features, which allowed our team to quickly get started and complete the technical reconstruction of some business systems. However, this was followed by more serious pain points. Here are the main ones:
 
@@ -565,8 +567,7 @@ After reflection and analysis, we concluded the following points:
 3.  Framework components must be modular and loosely coupled, ensuring internal components can also be used independently.
 4.  Core components must strictly prohibit single repository package design and must be maintained uniformly by the framework.
 
-The Final Choice
------
+## The Final Choice
 
 After taking so many detours, we were determined to establish a systematic `Golang` development framework. Beyond requiring quick team learning and low maintenance costs, our primary demand was that core components couldn't be half-finished products - the framework had to be stable, mature, and validated in large-scale production environments. Subsequently, we re-evaluated popular technical frameworks in the industry, including those mentioned above. Our original intention was to unify our internal wheels into a systematic framework while looking for valuable references from open-source projects.
 
@@ -579,11 +580,3 @@ This time, after a period of careful research and source code study, we reached 
 After internal team research and discussion, we decided to gradually refactor our business projects using `goframe`. Since `goframe` is modularly designed, we could also make necessary replacements for some modules. The refactoring process went smoothly - restructuring the basic technical framework didn't affect business logic. Instead, through `goframe`'s engineering philosophy and excellent development toolchain, after unifying our technical framework, we greatly improved project development and maintenance efficiency, allowing the team to focus on business development. The department has also subsequently achieved more output. Currently, we have migrated most of our business projects to `goframe`. Our platform handles tens of millions of daily traffic.
 
 Finally, we thank the open-source authors for their quiet contributions! We are also working to encourage our team to embrace the spirit of sourcing from and giving back to the community, and we will participate more in community contributions in the future.
-
-  
-
-  
-
-  
-
-  

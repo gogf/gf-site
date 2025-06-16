@@ -11,29 +11,4 @@ description: "Implement database account password encryption in configuration fi
 
 In certain scenarios, database account passwords cannot be configured in plaintext within configuration files and must be encrypted. During the database connection, the encrypted fields in the configuration file need to be decrypted. This requirement can be achieved by customizing a `Driver` (for detailed information about `Driver`, please refer to the chapter: [ORM - Interface](../ORM接口开发/ORM接口开发.md)). Taking `mysql` as an example, we can write our own `Driver`, wrap the `mysql driver` from the framework community components, and override its `Open` method. Code example:
 
-```go
-import (
-    "database/sql"
-
-    "github.com/gogf/gf/contrib/drivers/mysql/v2"
-    "github.com/gogf/gf/v2/database/gdb"
-)
-
-type MyBizDriver struct {
-    mysql.Driver
-}
-
-// Open creates and returns an underlying sql.DB object for mysql.
-// Note that it converts time.Time argument to local timezone in default.
-func (d *MyBizDriver) Open(config *gdb.ConfigNode) (db *sql.DB, err error) {
-    config.User = d.decode(config.User)
-    config.Pass = d.decode(config.Pass)
-    return d.Driver.Open(config)
-}
-
-func (d *MyBizDriver) decode(s string) string {
-    // Execute field decryption logic
-    // ...
-    return s
-}
-```
+https://goframe.org/en/examples/database/encoded-pass

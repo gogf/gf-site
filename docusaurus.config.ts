@@ -123,7 +123,7 @@ const config: Config = {
     ],
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     zoom: {
@@ -144,63 +144,64 @@ const config: Config = {
       },
       items: [
         {
-          sidebarId: 'quickSidebar',
-          position: 'left',
           label: '快速开始',
-          to: '/quick/install',
-        },
-        {
           position: 'left',
-          label: '开发手册',
-          sidebarId: 'mainSidebar',
-          to: '/docs/core',
+          type: 'docSidebar',
+          sidebarId: 'quickSidebar',
         },
         {
+          label: '开发手册',
+          position: 'left',
+          type: 'docSidebar',
+          sidebarId: 'mainSidebar',
+        },
+        {
+          label: '功能示例',
+          position: 'left',
           type: 'docSidebar',
           sidebarId: 'examplesSidebar',
-          position: 'left',
-          label: '功能示例',
         },
         {
+          label: '发布记录',
+          position: 'left',
           type: 'docSidebar',
           sidebarId: 'releaseSidebar',
-          position: 'left',
-          label: '发布记录',
         },
         {
-          sidebarId: 'courseSidebar',
-          position: 'left',
           label: '社区教程',
+          position: 'left',
           to: '/course',
           items: [
             {
-              sidebarId: 'courseSidebar',
               label: '视频入门教程',
+              // sidebarId: 'courseSidebar',
               to: '/course/bilibili-video',
             },
             {
-              sidebarId: 'courseStarBookSidebar',
               label: '入门实战教程-星辰英语本',
+              // sidebarId: 'courseStarBookSidebar',
               to: '/course/starbook',
             },
             {
-              sidebarId: 'courseProximaBookSidebar',
               label: '微服务实战教程-比邻英语本',
+              // sidebarId: 'courseProximaBookSidebar',
               to: '/course/proxima-book',
             },
           ],
         },
         {
-          to: 'showcase',
           label: '社区案例',
           position: 'left',
+          to: '/showcase',
         },
         {
-          sidebarId: 'communitySidebar',
-          position: 'left',
           label: '社区交流',
+          position: 'left',
           to: '/share/group',
+          activeBaseRegex: `share|articles|supportus`,
         },
+
+        // 右边导航栏
         {
           type: 'docsVersionDropdown',
           position: 'right',
@@ -238,7 +239,7 @@ const config: Config = {
     // 代码块配置
     prism: {
       theme: prismThemes.okaidia,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
       defaultLanguage: 'go',
       additionalLanguages: ['bash', 'javascript', 'toml', 'ini'], // 添加语言
       // 默认支持的语言 https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23
