@@ -70,6 +70,23 @@ D:\Program Files\Go\bin\pkg\mod\github.com\gogf\gf@v1.16.6\net\ghttp\internal\cl
 
 解决办法，升级 `gf` 依赖到 `v1.16.9` 再 `go mod tidy`
 
+### 3、..\..\net\ghttp\ghttp_server.go:300:9: table.SetHeader undefined (type *tablewriter.Table has no field or method SetHeader)
+
+意外使用`go get -u`使间接依赖版本提升，导致不兼容报错。
+>..\..\net\ghttp\ghttp_server.go:300:9: table.SetHeader undefined (type *tablewriter.Table has no field or method SetHeader)
+..\..\net\ghttp\ghttp_server.go:301:9: table.SetRowLine undefined (type *tablewriter.Table has no field or method SetRowLine)
+..\..\net\ghttp\ghttp_server.go:302:9: table.SetBorder undefined (type *tablewriter.Table has no field or method SetBorder)
+..\..\net\ghttp\ghttp_server.go:303:9: table.SetCenterSeparator undefined (type *tablewriter.Table has no field or method SetCenterSeparator)
+
+解决方式：
+```bash
+// linux
+go list -m -f '{{if and .Indirect (not .Main)}}{{.Path}}{{end}}' all | xargs -I {} go mod edit -droprequire={} && go mod tidy
+
+// windows cmd
+(FOR /F "tokens=*" %G IN ('go list -m -f "{{if and .Indirect (not .Main)}}{{.Path}}{{end}}" all') DO @go mod edit -droprequire=%G) & go mod tidy
+```
+
 ## 三、数据库相关
 
 请参考章节： [ORM常见问题](核心组件/数据库ORM/ORM常见问题.md)
