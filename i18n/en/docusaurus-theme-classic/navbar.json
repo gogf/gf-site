@@ -15,21 +15,21 @@
     "message": "Courses",
     "description": "Navbar item with label 社区教程"
   },
-  "item.label.案例展示": {
+  "item.label.社区案例": {
     "message": "Show Case",
-    "description": "Navbar item with label 案例展示"
+    "description": "Navbar item with label 社区案例"
   },
-  "item.label.代码示例": {
+  "item.label.功能示例": {
     "message": "Examples",
-    "description": "Navbar item with label 代码示例"
+    "description": "Navbar item with label 功能示例"
   },
   "item.label.发布记录": {
     "message": "Release",
     "description": "Navbar item with label 发布记录"
   },
-  "item.label.开源社区": {
+  "item.label.社区交流": {
     "message": "Community",
-    "description": "Navbar item with label 开源社区"
+    "description": "Navbar item with label 社区交流"
   },
   "item.label.视频入门教程": {
     "message": "Video Tutorial(Chinese)",
