@@ -5,6 +5,7 @@ const sharp = require('sharp')
 const githubUrl = [
     "https://api.github.com/repos/gogf/gf/contributors",
     "https://api.github.com/repos/gogf/gf-site/contributors",
+    "https://api.github.com/repos/gogf/examples/contributors",
 ]
 
 // 生成 svg 的位置
