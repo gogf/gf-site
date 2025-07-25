@@ -44,7 +44,7 @@ func main() {
 
 ## 结合 `gjson.MustEncode`
 
-此外，也可以结合 `gjson.MustEncode来` 实现 `Json` 内容输出，例如：
+此外，也可以结合 `gjson.MustEncode` 来实现 `Json` 内容输出，例如：
 
 ```go
 package main
