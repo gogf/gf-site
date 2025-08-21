@@ -80,8 +80,9 @@ D:\Program Files\Go\bin\pkg\mod\github.com\gogf\gf@v1.16.6\net\ghttp\internal\cl
 
 原因：
 
-使用`go get -u`命令升级了如"github.com/gogf/gf/contrib/drivers/mysql/v2"这样的那些依赖了"github.com/gogf/gf/v2"主库的组件，就会导致间接依赖被同时升级到最新版本。
-当间接依赖不兼容的时候就会报错。
+使用`go get -u`命令升级了，如"github.com/gogf/gf/contrib/drivers/mysql/v2"这样的依赖了"github.com/gogf/gf/v2"主库的组件，会导致间接依赖被同时升级到最新版本。
+
+间接依赖被升级到最新版本后，如果间接依赖不兼容的旧版就会报错。
 
 解决方式：
 ```bash
@@ -91,12 +92,13 @@ go list -m -f '{{if and .Indirect (not .Main)}}{{.Path}}{{end}}' all | xargs -I 
 // windows cmd
 (FOR /F "tokens=*" %G IN ('go list -m -f "{{if and .Indirect (not .Main)}}{{.Path}}{{end}}" all') DO @go mod edit -droprequire=%G) & go mod tidy
 
-// 手动修改 go.mod 的版本号降级，然后执行 go mod tidy
-// 例如，将 go.mod 文件中的 tablewriter 依赖版本从较高版本降级为 v0.0.5：
+// 以上方式还不能解决的时候，手动修改 go.mod 的版本号降级，然后执行 go mod tidy
+// 例如
+// 将 go.mod 文件中的 tablewriter 依赖版本从较高版本降级为 v0.0.5：
 // 修改前（go.mod 部分）:
-// github.com/olekukonko/tablewriter v0.0.6 // indirect
+// github.com/olekukonko/tablewriter v1.0.9 // indirect
 // 修改后（go.mod 部分）:
-github.com/olekukonko/tablewriter v0.0.5 // indirect
+// github.com/olekukonko/tablewriter v0.0.5 // indirect
 // 保存 go.mod 后，执行 go mod tidy 以更新依赖。
 ```
 
