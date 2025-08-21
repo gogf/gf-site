@@ -91,7 +91,7 @@ go list -m -f '{{if and .Indirect (not .Main)}}{{.Path}}{{end}}' all | xargs -I 
 // windows cmd
 (FOR /F "tokens=*" %G IN ('go list -m -f "{{if and .Indirect (not .Main)}}{{.Path}}{{end}}" all') DO @go mod edit -droprequire=%G) & go mod tidy
 
-// 手动修改go.mod的版本号降级，然后执行go mod tidy
+// 手动修改 go.mod 的版本号降级，然后执行 go mod tidy
 // 例如，将 go.mod 文件中的 tablewriter 依赖版本从较高版本降级为 v0.0.5：
 // 修改前（go.mod 部分）:
 // github.com/olekukonko/tablewriter v0.0.6 // indirect
