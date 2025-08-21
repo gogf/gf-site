@@ -72,7 +72,7 @@ D:\Program Files\Go\bin\pkg\mod\github.com\gogf\gf@v1.16.6\net\ghttp\internal\cl
 
 ### 3、升级引起兼容性报错 ..\..\net\ghttp\ghttp_server.go:300:9: table.SetHeader undefined (type *tablewriter.Table has no field or method SetHeader)
 
-使用`go get -u`导致接依赖版本提升，出现如下的报错。
+使用`go get -u`导致间接依赖版本提升，出现如下的报错。
 >..\..\net\ghttp\ghttp_server.go:300:9: table.SetHeader undefined (type *tablewriter.Table has no field or method SetHeader)
 ..\..\net\ghttp\ghttp_server.go:301:9: table.SetRowLine undefined (type *tablewriter.Table has no field or method SetRowLine)
 ..\..\net\ghttp\ghttp_server.go:302:9: table.SetBorder undefined (type *tablewriter.Table has no field or method SetBorder)
