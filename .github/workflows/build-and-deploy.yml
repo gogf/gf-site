@@ -62,3 +62,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           cname: pages.goframe.org
+      - name: Update goframe.org-pdf
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.HAILAZTOKEN }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'gogf',
+              repo: 'goframe.org-pdf',
+              event_type: 'docs_update_trigger'
+            })
