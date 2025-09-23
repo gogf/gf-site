@@ -95,4 +95,4 @@ logger:
 也可以通过：
 
 1. 通过 `g.Log("order").Print(xxx)` 输出订单日志。生成的日志文件例如： `/var/log/order.log`。
-2. 通过 `g.Log("order").Print(xxx)` 输出促销日志。生成的日志文件例如： `/var/log/promo.log`。
+2. 通过 `g.Log("promo").Print(xxx)` 输出促销日志。生成的日志文件例如： `/var/log/promo.log`。
