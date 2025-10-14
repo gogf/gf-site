@@ -150,12 +150,12 @@ err := g.Model("user").ScanList(&users, "User")
 // 查询用户详情数据
 // SELECT * FROM `user_detail` WHERE `uid` IN(1,2)
 err := g.Model("user_detail").
-       Where("uid", gdb.ListItemValuesUnique(users, "User", "Uid")).
+       WhereIn("uid", gdb.ListItemValuesUnique(users, "User", "Uid")).
        ScanList(&users, "UserDetail", "User", "uid:Uid")
 // 查询用户学分数据
 // SELECT * FROM `user_scores` WHERE `uid` IN(1,2)
 err := g.Model("user_scores").
-       Where("uid", gdb.ListItemValuesUnique(users, "User", "Uid")).
+       WhereIn("uid", gdb.ListItemValuesUnique(users, "User", "Uid")).
        ScanList(&users, "UserScores", "User", "uid:Uid")
 ```
 
