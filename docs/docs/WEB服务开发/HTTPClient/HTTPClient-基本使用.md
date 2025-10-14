@@ -14,7 +14,8 @@ description: '使用GoFrame框架通过基本的HTTP客户端操作来发送GET�
 ### 发送 `GET` 请求，打印出返回值
 
 ```go
-if r, err := g.Client().Get(ctx, "https://goframe.org"); err != nil {
+r, err := g.Client().Get(ctx, "https://goframe.org")
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -24,7 +25,8 @@ fmt.Println(r.ReadAllString())
 ### 发送 `GET` 请求，下载远程文件
 
 ```go
-if r, err := g.Client().Get(ctx, "https://goframe.org/cover.png"); err != nil {
+r, err := g.Client().Get(ctx, "https://goframe.org/cover.png")
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -36,7 +38,8 @@ gfile.PutBytes("/Users/john/Temp/cover.png", r.ReadAll())
 ### 发送 `POST` 请求，打印出返回值
 
 ```go
-if r, err := g.Client().Post(ctx, "http://127.0.0.1:8199/form", "name=john&age=18"); err != nil {
+r, err := g.Client().Post(ctx, "http://127.0.0.1:8199/form", "name=john&age=18")
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -48,14 +51,15 @@ fmt.Println(r.ReadAllString())
 ### 发送 `POST` 请求，参数为 `map` 类型，打印出返回值
 
 ```go
-if r, err := g.Client().Post(
+r, err := g.Client().Post(
     ctx,
     "http://127.0.0.1:8199/form",
     g.Map{
         "submit"   : "1",
         "callback" : "http://127.0.0.1/callback?url=http://baidu.com",
-    }
-)); err != nil {
+    },
+)
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -67,11 +71,12 @@ fmt.Println(r.ReadAllString())
 ### 发送 `POST` 请求，参数为 `JSON` 数据，打印出返回值
 
 ```go
-if r, err := g.Client().Post(
+r, err := g.Client().Post(
     ctx,
     "http://user.svc/v1/user/create",
     `{"passport":"john","password":"123456","password-confirm":"123456"}`,
-); err != nil {
+)
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -83,7 +88,8 @@ fmt.Println(r.ReadAllString())
 ### 发送 `DELETE` 请求，打印出返回值
 
 ```go
-if r, err := g.Client().Delete(ctx, "http://user.svc/v1/user/delete/1", "10000"); err != nil {
+r, err := g.Client().Delete(ctx, "http://user.svc/v1/user/delete/1", "10000")
+if err != nil {
     panic(err)
 }
 defer r.Close()
@@ -94,16 +100,16 @@ fmt.Println(r.ReadAllString())
 
 以 `Bytes` 及 `Content` 后缀结尾的请求方法为直接获取返回内容的 **快捷方法**，这些方法将会自动读取服务端返回内容 **并自动关闭请求连接**。 `*Bytes` 方法用于获取 `[]byte` 类型结果， `*Content` 方法用于获取 `string` 类型结果。 **需要注意的是，如果请求执行失败，返回内容将会为空。**
 
-### 发送 `GET` 请求，打印出返回值
+### 发送 `GET` 请求,打印出返回值
 
 ```go
- // 返回content为[]bytes类型
- content := g.Client().GetBytes(ctx, "https://goframe.org")
+// 返回content为[]bytes类型
+content := g.Client().GetBytes(ctx, "https://goframe.org")
 ```
 
 ```go
- // 返回content为string类型
- content := g.Client().GetContent(ctx, "https://goframe.org")
+// 返回content为string类型
+content := g.Client().GetContent(ctx, "https://goframe.org")
 ```
 
 ### 发送 `POST` 请求，打印出返回值
