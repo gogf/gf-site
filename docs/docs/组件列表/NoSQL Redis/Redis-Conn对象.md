@@ -1,6 +1,6 @@
 ---
 slug: '/docs/components/contrib-nosql-redis-conn'
-title: 'Redis-Conn对象'
+title: 'Redis-高级特性'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,Redis,Conn对象,订阅发布,连接池,长链接,连接超时,订阅模式,发布模式]
@@ -13,7 +13,8 @@ description: '在GoFrame框架中使用Redis的Conn对象进行长链接操作�
 :::warning
 由于该 `Conn` 是个连接对象，注意该对象存在连接超时的限制，超时和服务端配置有关。
 :::
-## 订阅/发布
+
+### 订阅/发布
 
 我们可以通过 `Redis` 的 `Conn` 实现订阅/发布模式。
 
@@ -63,5 +64,71 @@ $ redis-cli
 
 随后程序终端立即打印出从 `Redis Server` 获取的数据：
 
-```test
+```bash
+test
 ```
+
+## 原始客户端
+
+`Client` 方法返回底层的 `Redis` 客户端实例，提供对原始 `Redis` 客户端的访问，用于执行标准 `Redis` 接口未覆盖的高级操作。
+
+### 方法说明
+
+```go
+func (r *Redis) Client() gredis.RedisRawClient
+```
+
+该方法返回原始的 `Redis` 客户端，通过类型断言可以将其转换为 `goredis.UniversalClient`，从而访问更多高级功能，如管道（Pipeline）操作、事务等。
+
+### 使用示例
+
+以下示例展示如何使用原始客户端进行管道操作：
+
+```go
+import (
+    "context"
+    "errors"
+    goredis "github.com/redis/go-redis/v9"
+)
+
+func ExampleUsage(ctx context.Context, redis *gredis.Redis) error {
+    // 获取原始客户端
+    client := redis.Client()
+    
+    // 类型断言为 UniversalClient
+    universalClient, ok := client.(goredis.UniversalClient)
+    if !ok {
+        return errors.New("failed to assert to UniversalClient")
+    }
+
+    // 使用管道进行批量操作
+    pipe := universalClient.Pipeline()
+    pipe.Set(ctx, "key1", "value1", 0)
+    pipe.Set(ctx, "key2", "value2", 0)
+    pipe.Get(ctx, "key1")
+    
+    // 执行管道中的所有命令
+    results, err := pipe.Exec(ctx)
+    if err != nil {
+        return err
+    }
+    
+    // 处理结果
+    for _, result := range results {
+        fmt.Println(result.Val())
+    }
+    
+    return nil
+}
+```
+
+### 适用场景
+
+- **批量操作**：使用管道（Pipeline）提高批量操作的性能
+- **事务操作**：执行需要原子性保证的多个命令
+- **Lua脚本**：执行自定义的 Lua 脚本
+- **高级特性**：访问 go-redis 库的其他高级功能
+
+:::tip
+原始客户端的使用需要了解 `github.com/redis/go-redis/v9` 库的相关 API，建议在需要进行高级操作时才使用此方法。
+:::
