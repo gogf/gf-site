@@ -21,12 +21,14 @@ USAGE
     gf gen dao [OPTION]
 
 OPTION
-    -p, --path                  directory path for generated files
+    -p, --path                  directory path for generated files (default: "internal")
     -l, --link                  database configuration, the same as the ORM configuration of GoFrame
-    -t, --tables                generate models only for given tables, multiple table names separated with ','
-    -x, --tablesEx              generate models excluding given tables, multiple table names separated with ','
-    -g, --group                 specifying the configuration group name of database for generated ORM instance,
-                                it's not necessary and the default value is "default"
+    -t, --tables                generate models only for given tables, multiple table names separated with ','        
+    -x, --tablesEx              generate models excluding given tables, multiple table names separated with ','       
+    -sp, --shardingPattern      sharding pattern for table name, e.g. "users_?" will be replace tables "users_001,    
+                                users_002,..." to "users" dao
+    -g, --group                 specifying the configuration group name of database for generated ORM instance,       
+                                it's not necessary and the default value is "default" (default: "default")
     -f, --prefix                add prefix for all table of specified link/database tables
     -r, --removePrefix          remove specified prefix of the table, multiple prefix separated with ','
     -rf, --removeFieldPrefix    remove specified prefix of the field, multiple prefix separated with ','
@@ -39,28 +41,31 @@ OPTION
                                 | SnakeScreaming  | ANY_KIND_OF_STRING |
                                 | SnakeFirstUpper | rgb_code_md5       |
                                 | Kebab           | any-kind-of-string |
-                                | KebabScreaming  | ANY-KIND-OF-STRING |
+                                | KebabScreaming  | ANY-KIND-OF-STRING | (default: "CamelLower")
     -i, --importPrefix          custom import prefix for generated go files
-    -d, --daoPath               directory path for storing generated dao files under path
-    -o, --doPath                directory path for storing generated do files under path
-    -e, --entityPath            directory path for storing generated entity files under path
+    -d, --daoPath               directory path for storing generated dao files under path (default: "dao")
+    -tp, --tablePath            directory path for storing generated table files under path (default: "table")        
+    -o, --doPath                directory path for storing generated do files under path (default: "model/do")        
+    -e, --entityPath            directory path for storing generated entity files under path (default: "model/entity")
+    -t0, --tplDaoTablePath      {CGenDaoBriefTplDaoTablePath}
     -t1, --tplDaoIndexPath      template file path for dao index file
     -t2, --tplDaoInternalPath   template file path for dao internal file
     -t3, --tplDaoDoPath         template file path for dao do file
     -t4, --tplDaoEntityPath     template file path for dao entity file
     -s, --stdTime               use time.Time from stdlib instead of gtime.Time for generated time/date fields of tables
     -w, --withTime              add created time for auto produced go files
-    -n, --gJsonSupport          use gJsonSupport to use *gjson.Json instead of string for generated json fields of
+    -n, --gJsonSupport          use gJsonSupport to use *gjson.Json instead of string for generated json fields of    
                                 tables
     -v, --overwriteDao          overwrite all dao files both inside/outside internal folder
     -c, --descriptionTag        add comment to description tag for each field
     -k, --noJsonTag             no json tag will be added for each field
     -m, --noModelComment        no model comment will be added for each field
     -a, --clear                 delete all generated go files that do not exist in database
-    -y, --typeMapping           custom local type mapping for generated struct attributes relevant to fields of table
+    -gt, --genTable             generate table files
+    -y, --typeMapping           custom local type mapping for generated struct attributes relevant to fields of table 
     -fm, --fieldMapping         custom local type mapping for generated struct attributes relevant to specific fields of
                                 table
-    -/--genItems                
+    -/--genItems
     -h, --help                  more information about this command
 
 EXAMPLE
@@ -72,7 +77,7 @@ EXAMPLE
 CONFIGURATION SUPPORT
     Options are also supported by configuration file.
     It's suggested using configuration file instead of command line arguments making producing.
-    The configuration node name is "gfcli.gen.dao", which also supports multiple databases, for example(config.yaml):
+    The configuration node name is "gfcli.gen.dao", which also supports multiple databases, for example(config.yaml): 
     gfcli:
       gen:
         dao:
@@ -144,14 +149,16 @@ gfcli:
 | `daoPath` | `dao` | 代码生成的 `DAO` 文件存放目录 |  |
 | `doPath` | `model/do` | 代码生成 `DO` 文件存放目录 |  |
 | `entityPath` | `model/entity` | 代码生成的 `Entity` 文件存放目录 |  |
+| `tablePath` | `table` | 代码生成的 `Table` 文件存放目录 |  |
 | `tplDaoIndexPath` |  | 自定义 `DAO Index` 代码生成模板文件路径，使用该参数请参考源码 |  |
 | `tplDaoInternalPath` |  | 自定义 `DAO Internal` 代码生成模板文件路径，使用该参数请参考源码 |  |
 | `tplDaoDoPath` |  | 自定义 `DO` 代码生成模板文件路径，使用该参数请参考源码 |  |
 | `tplDaoEntityPath` |  | 自定义 `Entity` 代码生成模板文件路径，使用该参数请参考源码 |  |
+| `tplDaoTablePath` |  | 自定义 `Table` 代码生成模板文件路径，使用该参数请参考源码 |  |
 | `typeMapping` |  | **从版本v2.5开始支持**。用于自定义数据表字段类型到生成的Go文件中对应属性类型映射。 |  |
 | `fieldMapping` |   | **从版本v2.8开始支持**。用于自定义数据表具体字段到生成的Go文件中对应属性类型映射。|    | 
 | `shardingPattern` |   | **从版本v2.9开始支持**。用于自定义数据表分表规则。|    | 
-
+| `genTable` | `false` | **从版本v2.9.5开始支持**。用于控制是否生成数据库表字段定义文件。 每个表会生成一个对应的 Go 文件，文件中包含了该表所有字段的详细定义，如字段名、类型、索引、是否为空等信息。这些生成的文件主要用于 gdb 内部理解表结构，其中包含了一个 SetXxxTableFields 函数，可以将表字段定义注册到数据库实例中| `true` |
 
 ### 参数：`typeMapping`
 
