@@ -1,6 +1,6 @@
 
-import {translate} from '@docusaurus/Translate';
-import {sortBy} from '@site/src/utils/jsUtils';
+import { translate } from '@docusaurus/Translate';
+import { sortBy } from '@site/src/utils/jsUtils';
 
 export type TagType =
   | 'favorite'
@@ -24,7 +24,7 @@ const Users: User[] = [
     preview: require('./showcase/gfast.png'),
     website: 'https://www.g-fast.cn/',
     source: 'https://github.com/tiger1103/gfast',
-    tags: ['opensource','favorite','adminui','product','v2'],
+    tags: ['opensource', 'favorite', 'adminui', 'product', 'v2'],
   },
   {
     title: 'Letga',
@@ -32,7 +32,7 @@ const Users: User[] = [
     preview: require('./showcase/letga.png'),
     website: 'https://github.com/lgcgo/letga-server',
     source: 'https://github.com/lgcgo/letga-server',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'DMicro',
@@ -40,7 +40,7 @@ const Users: User[] = [
     preview: require('./showcase/dmicro.png'),
     website: 'https://dmicro.vprix.com/#/',
     source: 'https://github.com/osgochina/dmicro',
-    tags: ['opensource','micro','v2'],
+    tags: ['opensource', 'micro', 'v2'],
   },
   {
     title: 'Jupiter',
@@ -48,7 +48,7 @@ const Users: User[] = [
     preview: require('./showcase/jupiter.png'),
     website: 'https://jupiter.douyu.com/',
     source: 'https://github.com/douyu/jupiter',
-    tags: ['opensource','micro','v1'],
+    tags: ['opensource', 'micro', 'v1'],
   },
   {
     title: 'HotGo',
@@ -56,7 +56,7 @@ const Users: User[] = [
     preview: require('./showcase/hotgo.png'),
     website: 'https://hotgo.facms.cn/admin',
     source: 'https://github.com/bufanyun/hotgo',
-    tags: ['opensource','favorite','adminui','product','v2'],
+    tags: ['opensource', 'favorite', 'adminui', 'product', 'v2'],
   },
   {
     title: 'DNSLog-GO',
@@ -64,7 +64,7 @@ const Users: User[] = [
     preview: require('./showcase/dnslog-go.png'),
     website: 'https://github.com/lanyi1998/DNSlog-GO',
     source: 'https://github.com/lanyi1998/DNSlog-GO',
-    tags: ['opensource','frontui','v1'],
+    tags: ['opensource', 'frontui', 'v1'],
   },
   {
     title: 'Nemo',
@@ -72,7 +72,7 @@ const Users: User[] = [
     preview: require('./showcase/nemo.png'),
     website: 'https://github.com/hanc00l/nemo_go',
     source: 'https://github.com/hanc00l/nemo_go',
-    tags: ['opensource','adminui','v1'],
+    tags: ['opensource', 'adminui', 'v1'],
   },
   {
     title: 'OpenSCRM',
@@ -80,7 +80,7 @@ const Users: User[] = [
     preview: require('./showcase/openscrm.png'),
     website: 'https://github.com/openscrm/api-server',
     source: 'https://github.com/openscrm/api-server',
-    tags: ['opensource','adminui','v1'],
+    tags: ['opensource', 'adminui', 'v1'],
   },
   {
     title: 'Magma',
@@ -88,7 +88,7 @@ const Users: User[] = [
     preview: require('./showcase/magma.png'),
     website: 'https://magmacore.org/',
     source: 'https://github.com/magma/magma',
-    tags: ['opensource','adminui','v1'],
+    tags: ['opensource', 'adminui', 'v1'],
   },
   {
     title: 'Hybridnet',
@@ -96,7 +96,7 @@ const Users: User[] = [
     preview: require('./showcase/hybridnet.png'),
     website: 'https://github.com/alibaba/hybridnet',
     source: 'https://github.com/alibaba/hybridnet',
-    tags: ['opensource','cloudnative','v1'],
+    tags: ['opensource', 'cloudnative', 'v1'],
   },
   {
     title: 'EasyGoAdmin',
@@ -104,7 +104,7 @@ const Users: User[] = [
     preview: require('./showcase/easy-go-admin.png'),
     website: 'https://www.easygoadmin.vip/',
     source: 'https://gitee.com/easygoadmin/EasyGoAdmin_GoFrame_EleVue',
-    tags: ['opensource','favorite','adminui','product','v1'],
+    tags: ['opensource', 'favorite', 'adminui', 'product', 'v1'],
   },
   {
     title: 'SagooIOT',
@@ -112,7 +112,7 @@ const Users: User[] = [
     preview: require('./showcase/sagooiot.png'),
     website: 'https://iotdoc.sagoo.cn/',
     source: 'https://github.com/sagoo-cloud/sagooiot',
-    tags: ['opensource','favorite','adminui','product','v2'],
+    tags: ['opensource', 'favorite', 'adminui', 'product', 'v2'],
   },
   {
     title: 'GF2-Demo',
@@ -120,7 +120,7 @@ const Users: User[] = [
     preview: require('./showcase/gf2-demo.png'),
     website: 'https://github.com/windvalley/gf2-demo',
     source: 'https://github.com/windvalley/gf2-demo',
-    tags: ['opensource','v2'],
+    tags: ['opensource', 'v2'],
   },
   {
     title: 'Oldme-API',
@@ -128,7 +128,7 @@ const Users: User[] = [
     preview: require('./showcase/oldme-api.png'),
     website: 'https://github.com/oldme-git/oldme-api',
     source: 'https://github.com/oldme-git/oldme-api',
-    tags: ['opensource','frontui','v2'],
+    tags: ['opensource', 'frontui', 'v2'],
   },
   {
     title: 'ZzeAdminGo',
@@ -136,7 +136,7 @@ const Users: User[] = [
     preview: require('./showcase/zze-admin-go.png'),
     website: 'http://admin.zze.xyz/#/login',
     source: 'https://github.com/zze326/zze-admin-go',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'GF-CMS',
@@ -144,7 +144,7 @@ const Users: User[] = [
     preview: require('./showcase/gf-cms.jpg'),
     website: 'https://github.com/demozx/gf_cms',
     source: 'https://github.com/demozx/gf_cms',
-    tags: ['opensource','adminui','frontui','v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'UniTranslate',
@@ -152,7 +152,7 @@ const Users: User[] = [
     preview: require('./showcase/uni-translate.png'),
     website: 'https://github.com/xgd16/UniTranslate',
     source: 'https://github.com/xgd16/UniTranslate',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: 'kkdl-go',
@@ -160,7 +160,7 @@ const Users: User[] = [
     preview: require('./showcase/kkdl-go.png'),
     website: 'https://github.com/vaebe/kkdl-go',
     source: 'https://github.com/vaebe/kkdl-go',
-    tags: ['opensource','v2'],
+    tags: ['opensource', 'v2'],
   },
   {
     title: 'VncProxy',
@@ -168,7 +168,7 @@ const Users: User[] = [
     preview: require('./showcase/vncproxy.png'),
     website: 'https://github.com/vprix/vncproxy',
     source: 'https://github.com/vprix/vncproxy',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: 'gdb-adapter',
@@ -176,7 +176,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/vance-liu/gdb-adapter',
     source: 'https://github.com/vance-liu/gdb-adapter',
-    tags: ['opensource','library','v1'],
+    tags: ['opensource', 'library', 'v1'],
   },
   {
     title: 'gf-casbin-adapter',
@@ -184,7 +184,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/hailaz/gf-casbin-adapter',
     source: 'https://github.com/hailaz/gf-casbin-adapter',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'csrf',
@@ -192,7 +192,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/gogf/csrf',
     source: 'https://github.com/gogf/csrf',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'goframe-jsonrpc',
@@ -200,7 +200,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/zhouyaozhouyao/goframe-jsonrpc',
     source: 'https://github.com/zhouyaozhouyao/goframe-jsonrpc',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'gf-x-tool',
@@ -208,7 +208,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/xgd16/gf-x-tool',
     source: 'https://github.com/xgd16/gf-x-tool',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'gf-x-mqtt',
@@ -216,7 +216,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/xgd16/gf-x-mqtt',
     source: 'https://github.com/xgd16/gf-x-mqtt',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'go-orm-helper',
@@ -224,7 +224,7 @@ const Users: User[] = [
     preview: require('./showcase/go-orm-helper.png'),
     website: 'https://github.com/johnmai-dev/go-orm-helper',
     source: 'https://github.com/johnmai-dev/go-orm-helper',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: 'GoFrame-Helper',
@@ -232,7 +232,7 @@ const Users: User[] = [
     preview: require('./showcase/goframe-helper.png'),
     website: 'https://github.com/oldme-git/GoFrame-Helper',
     source: 'https://github.com/oldme-git/GoFrame-Helper',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: '50CMSgo',
@@ -240,7 +240,7 @@ const Users: User[] = [
     preview: require('./showcase/50CMSgo.jpg'),
     website: 'https://gitee.com/dexters/50CMSgo',
     source: 'https://gitee.com/dexters/50CMSgo',
-    tags: ['opensource','adminui','frontui','v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'TEN-Agent',
@@ -248,7 +248,7 @@ const Users: User[] = [
     preview: require('./showcase/TEN-Agent.png'),
     website: 'https://github.com/TEN-framework/TEN-Agent',
     source: 'https://github.com/TEN-framework/TEN-Agent',
-    tags: ['opensource','ai','frontui','v1'],
+    tags: ['opensource', 'ai', 'frontui', 'v1'],
   },
   {
     title: 'Go-Admin',
@@ -256,7 +256,7 @@ const Users: User[] = [
     preview: require('./showcase/go-admin.png'),
     website: 'https://www.go-admin.com/',
     source: 'https://github.com/GoAdminGroup/go-admin',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'Cool-Go-Admin',
@@ -264,7 +264,7 @@ const Users: User[] = [
     preview: require('./showcase/cool-go-admin.png'),
     website: 'https://github.com/cool-team-official/cool-admin-go',
     source: 'https://github.com/cool-team-official/cool-admin-go',
-    tags: ['opensource','product','adminui','v2'],
+    tags: ['opensource', 'product', 'adminui', 'v2'],
   },
   {
     title: 'Jie',
@@ -272,7 +272,7 @@ const Users: User[] = [
     preview: require('./showcase/jie.png'),
     website: 'https://jie.fireline.fun/',
     source: 'https://github.com/yhy0/Jie',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: 'Venom-Crawler',
@@ -280,7 +280,7 @@ const Users: User[] = [
     preview: require('./showcase/Venom-Crawler.png'),
     website: 'https://github.com/z-bool/Venom-Crawler',
     source: 'https://github.com/z-bool/Venom-Crawler',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: 'gvc',
@@ -288,7 +288,7 @@ const Users: User[] = [
     preview: require('./showcase/gvc.png'),
     website: 'https://github.com/gvcgo/gvc',
     source: 'https://github.com/gvcgo/gvc',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: 'veinmind-tools',
@@ -296,7 +296,7 @@ const Users: User[] = [
     preview: require('./showcase/veinmind-tools.png'),
     website: 'https://github.com/chaitin/veinmind-tools',
     source: 'https://github.com/chaitin/veinmind-tools',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: 'gogs',
@@ -304,7 +304,7 @@ const Users: User[] = [
     preview: require('./showcase/gogs.png'),
     website: 'https://github.com/metagogs/gogs',
     source: 'https://github.com/metagogs/gogs',
-    tags: ['opensource','v1'],
+    tags: ['opensource', 'v1'],
   },
   {
     title: 'wscan',
@@ -312,7 +312,7 @@ const Users: User[] = [
     preview: require('./showcase/wscan.png'),
     website: 'https://github.com/chushuai/wscan',
     source: 'https://github.com/chushuai/wscan',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: 'scan4all',
@@ -320,7 +320,7 @@ const Users: User[] = [
     preview: require('./showcase/scan4all.png'),
     website: 'https://github.com/GhostTroops/scan4all',
     source: 'https://github.com/GhostTroops/scan4all',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: 'crawlergo',
@@ -328,7 +328,7 @@ const Users: User[] = [
     preview: require('./showcase/crawlergo.png'),
     website: 'https://github.com/Qianlitp/crawlergo',
     source: 'https://github.com/Qianlitp/crawlergo',
-    tags: ['opensource','tool','v1'],
+    tags: ['opensource', 'tool', 'v1'],
   },
   {
     title: '智元 Fast API SDK',
@@ -336,7 +336,7 @@ const Users: User[] = [
     preview: require('./showcase/fastapi-sdk.png'),
     website: 'https://github.com/iimeta/fastapi-sdk',
     source: 'https://github.com/iimeta/fastapi-sdk',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'skywalking-go',
@@ -344,7 +344,7 @@ const Users: User[] = [
     preview: require('./showcase/library.png'),
     website: 'https://github.com/apache/skywalking-go',
     source: 'https://github.com/apache/skywalking-go',
-    tags: ['opensource','library','v2'],
+    tags: ['opensource', 'library', 'v2'],
   },
   {
     title: 'web-firewall',
@@ -352,7 +352,7 @@ const Users: User[] = [
     preview: require('./showcase/web-firewall.jpg'),
     website: 'https://github.com/moreKing/web-firewall',
     source: 'https://github.com/moreKing/web-firewall',
-    tags: ['opensource','adminui','tool','v2'],
+    tags: ['opensource', 'adminui', 'tool', 'v2'],
   },
   {
     title: '蜂鸟(HummingBird)',
@@ -360,7 +360,7 @@ const Users: User[] = [
     preview: require('./showcase/hummingbird.png'),
     website: 'https://doc.hummingbird.winc-link.com/',
     source: 'https://github.com/winc-link/hummingbird',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'Shopsuite Go商城系统',
@@ -368,7 +368,7 @@ const Users: User[] = [
     preview: require('./showcase/golershop.png'),
     website: 'https://www.shopsuite.cn/',
     source: 'https://github.com/shsuishang/golershop',
-    tags: ['opensource','adminui','frontui','v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'asciinema',
@@ -376,7 +376,7 @@ const Users: User[] = [
     preview: require('./showcase/asciinema.png'),
     website: 'https://asciinema.org/',
     source: 'https://github.com/gvcgo/asciinema',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: 'version-manager',
@@ -384,7 +384,7 @@ const Users: User[] = [
     preview: require('./showcase/version-manager.png'),
     website: 'https://vdocs.vmr.us.kg/',
     source: 'https://github.com/gvcgo/version-manager',
-    tags: ['opensource','tool','v2'],
+    tags: ['opensource', 'tool', 'v2'],
   },
   {
     title: '土拨鼠开源充电系统',
@@ -392,7 +392,7 @@ const Users: User[] = [
     preview: require('./showcase/HarmonyOS-groundhog-charging-system.png'),
     website: 'https://github.com/cheinlu/HarmonyOS-groundhog-charging-system',
     source: 'https://github.com/cheinlu/HarmonyOS-groundhog-charging-system',
-    tags: ['opensource','adminui','frontui','v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: '智元 IIM',
@@ -400,7 +400,7 @@ const Users: User[] = [
     preview: require('./showcase/iim-client.png'),
     website: 'https://github.com/iimeta/iim-client',
     source: 'https://github.com/iimeta/iim-client',
-    tags: ['opensource','adminui','frontui','v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'Chatcat',
@@ -408,7 +408,7 @@ const Users: User[] = [
     preview: require('./showcase/chatcat.png'),
     website: 'https://chat.yippai.com/',
     source: 'https://github.com/MQEnergy/chatcat',
-    tags: ['opensource','tool','ai','v2'],
+    tags: ['opensource', 'tool', 'ai', 'v2'],
   },
   {
     title: 'KubeCube',
@@ -416,7 +416,7 @@ const Users: User[] = [
     preview: require('./showcase/kubecube.png'),
     website: 'https://www.kubecube.io/',
     source: 'https://github.com/kubecube-io/KubeCube',
-    tags: ['opensource','adminui','cloudnative','v2'],
+    tags: ['opensource', 'adminui', 'cloudnative', 'v2'],
   },
   {
     title: 'GoFrame-Vue-Element-Admin',
@@ -424,7 +424,7 @@ const Users: User[] = [
     preview: require('./showcase/goframe-vue-element-admin.png'),
     website: 'https://gitee.com/lixianpei727/goframe-vue-element-admin',
     source: 'https://gitee.com/lixianpei727/goframe-vue-element-admin',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
   },
   {
     title: 'devinggo',
@@ -432,7 +432,39 @@ const Users: User[] = [
     preview: require('./showcase/devinggo.png'),
     website: 'https://devinggo.devinghub.com/',
     source: 'https://github.com/huagelong/devinggo',
-    tags: ['opensource','adminui','v2'],
+    tags: ['opensource', 'adminui', 'v2'],
+  },
+  {
+    title: 'GoframePro',
+    description: '基于GoFrame V2框架和字节跳动ArcoDesign前端框架创建开发框架，为开发者快速开发项目。完整开发体系：Auth权限控制管理、数据字典、附件管理（集成本地、阿里云、腾讯云、七牛云的对象存储）、详细操作日志、完善配置管理（系统邮箱、应用配置、插件动态配）、开发工具（代码生成、代码插件市场一键安装和卸载）、支持单点登录等，框架有完整使用文档和GoFly社区全力支持，将推出使用视频教程，社区有众多开发者支持可以提供使用经验和丰富的市场插件支持。',
+    preview: require('./showcase/goframepro.png'),
+    website: 'https://goflys.cn/',
+    source: 'https://github.com/huanglishi/GoFlyAdmin',
+    tags: ['opensource', 'adminui', 'v2'],
+  },
+  {
+    title: 'ai-mcp',
+    description: '基于 Go 的 MCP 服务端，支持 SSE、受控命令执行、SQL/查询工具、时间工具，集成 GoFrame/MySQL，适配 IDE/Agent 即用。',
+    preview: require('./showcase/ai-mcp.png'),
+    website: 'https://github.com/xgd16/ai-mcp',
+    source: 'https://github.com/xgd16/ai-mcp',
+    tags: ['opensource', 'ai', 'tool', 'v2'],
+  },
+  {
+    title: 'gmanager',
+    description: '基于GoFrame V2框架的后台管理系统。支持登录、认证、组织机构、用户帐号、角色权限、菜单、配置、操作日志等模块。',
+    preview: require('./showcase/gmanager.png'),
+    website: 'https://gmanager.jflyfox.com',
+    source: 'https://github.com/goflyfox/gmanager',
+    tags: ['opensource', 'adminui', 'v2'],
+  },
+  {
+    title: 'gtoken',
+    description: '基于GoFrame框架的token插件，通过服务端验证方式实现token认证；已完全可以支撑线上token认证，通过Redis支持集群模式；使用简单，大家可以放心使用。',
+    preview: require('./showcase/library.png'),
+    website: 'https://github.com/goflyfox/gtoken',
+    source: 'https://github.com/goflyfox/gtoken',
+    tags: ['opensource', 'library', 'v2'],
   },
 ];
 
@@ -451,9 +483,9 @@ export type Tag = {
   color: string;
 };
 
-export const Tags: {[type in TagType]: Tag} = {
+export const Tags: { [type in TagType]: Tag } = {
   favorite: {
-    label: translate({message: 'Favorite'}),
+    label: translate({ message: 'Favorite' }),
     description: translate({
       message:
         '我们喜欢并推荐给大家的案例，感兴趣可以瞧瞧。',
@@ -462,7 +494,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#e9669e',
   },
   v1: {
-    label: translate({message: 'V1'}),
+    label: translate({ message: 'V1' }),
     description: translate({
       message:
         '该案例使用GoFrame V1版本。',
@@ -471,7 +503,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#BFDADC',
   },
   v2: {
-    label: translate({message: 'V2'}),
+    label: translate({ message: 'V2' }),
     description: translate({
       message:
         '该案例使用GoFrame V2版本。',
@@ -480,7 +512,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#D4C5F9',
   },
   opensource: {
-    label: translate({message: 'OpenSource'}),
+    label: translate({ message: 'OpenSource' }),
     description: translate({
       message: '开源项目案例，通常是开源站点或组件，带有参考的源码案例。',
       id: 'showcase.tag.opensource.description',
@@ -488,7 +520,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#39ca30',
   },
   product: {
-    label: translate({message: 'Product'}),
+    label: translate({ message: 'Product' }),
     description: translate({
       message: '带有商业授权案例，该案例可能同时具有源码和商业授权。',
       id: 'showcase.tag.product.description',
@@ -496,7 +528,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#dfd545',
   },
   frontui: {
-    label: translate({message: 'FrontUI'}),
+    label: translate({ message: 'FrontUI' }),
     description: translate({
       message:
         '带有前台UI的使用案例。',
@@ -505,7 +537,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#0E8A16',
   },
   adminui: {
-    label: translate({message: 'AdminUI'}),
+    label: translate({ message: 'AdminUI' }),
     description: translate({
       message:
         '带有管理后台UI的使用案例。',
@@ -514,7 +546,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#14cfc3',
   },
   library: {
-    label: translate({message: 'Library'}),
+    label: translate({ message: 'Library' }),
     description: translate({
       message:
         'Go源码组件，供import使用。',
@@ -523,7 +555,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#1D76DB',
   },
   micro: {
-    label: translate({message: 'MicroService'}),
+    label: translate({ message: 'MicroService' }),
     description: translate({
       message:
         '该案例支持微服务开发架构。',
@@ -532,7 +564,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#E99695',
   },
   cloudnative: {
-    label: translate({message: 'CloudNative'}),
+    label: translate({ message: 'CloudNative' }),
     description: translate({
       message:
         '该案例支持云原生开发架构。',
@@ -541,7 +573,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#C5DEF5',
   },
   tool: {
-    label: translate({message: 'Tool'}),
+    label: translate({ message: 'Tool' }),
     description: translate({
       message:
         '系统或开发工具类的案例。',
@@ -550,7 +582,7 @@ export const Tags: {[type in TagType]: Tag} = {
     color: '#000000',
   },
   ai: {
-    label: translate({message: 'AI'}),
+    label: translate({ message: 'AI' }),
     description: translate({
       message:
         '该案例与AI技术相关。',
