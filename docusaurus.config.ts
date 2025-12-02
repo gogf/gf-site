@@ -146,26 +146,32 @@ const config: Config = {
         {
           label: '快速开始',
           position: 'left',
-          type: 'docSidebar',
-          sidebarId: 'quickSidebar',
+          // type: 'docSidebar',
+          // sidebarId: 'quickSidebar',
+          to: '/preface',
+          items: [
+            {
+              label: '快速开始',
+              type: 'docSidebar',
+              sidebarId: 'quickSidebar',
+            },
+            {
+              label: '功能示例',
+              type: 'docSidebar',
+              sidebarId: 'examplesSidebar',
+            },
+            {
+              label: '发布记录',
+              type: 'docSidebar',
+              sidebarId: 'releaseSidebar',
+            },
+          ],
         },
         {
           label: '开发手册',
           position: 'left',
           type: 'docSidebar',
           sidebarId: 'mainSidebar',
-        },
-        {
-          label: '功能示例',
-          position: 'left',
-          type: 'docSidebar',
-          sidebarId: 'examplesSidebar',
-        },
-        {
-          label: '发布记录',
-          position: 'left',
-          type: 'docSidebar',
-          sidebarId: 'releaseSidebar',
         },
         {
           label: '社区教程',
@@ -199,6 +205,12 @@ const config: Config = {
           position: 'left',
           to: '/share/group',
           activeBaseRegex: `share|articles|supportus`,
+        },
+        {
+          label: '招聘/求职',
+          href: 'https://github.com/gogf/jobs',
+          position: 'left',
+          className: 'navbar-jobs-link',
         },
 
         // 右边导航栏
