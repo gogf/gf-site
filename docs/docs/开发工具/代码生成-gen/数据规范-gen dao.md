@@ -36,7 +36,7 @@ OPTION
                                 | Case            | Example            |
                                 |---------------- |--------------------|
                                 | Camel           | AnyKindOfString    |
-                                | CamelLower      | anyKindOfString    | default
+                                | CamelLower      | anyKindOfString    |
                                 | Snake           | any_kind_of_string |
                                 | SnakeScreaming  | ANY_KIND_OF_STRING |
                                 | SnakeFirstUpper | rgb_code_md5       |
@@ -47,7 +47,7 @@ OPTION
     -tp, --tablePath            directory path for storing generated table files under path (default: "table")        
     -o, --doPath                directory path for storing generated do files under path (default: "model/do")        
     -e, --entityPath            directory path for storing generated entity files under path (default: "model/entity")
-    -t0, --tplDaoTablePath      {CGenDaoBriefTplDaoTablePath}
+    -t0, --tplDaoTablePath      template file path for dao table file
     -t1, --tplDaoIndexPath      template file path for dao index file
     -t2, --tplDaoInternalPath   template file path for dao internal file
     -t3, --tplDaoDoPath         template file path for dao do file
@@ -158,7 +158,7 @@ gfcli:
 | `typeMapping` |  | **从版本v2.5开始支持**。用于自定义数据表字段类型到生成的Go文件中对应属性类型映射。 |  |
 | `fieldMapping` |   | **从版本v2.8开始支持**。用于自定义数据表具体字段到生成的Go文件中对应属性类型映射。|    | 
 | `shardingPattern` |   | **从版本v2.9开始支持**。用于自定义数据表分表规则。|    | 
-| `genTable` | `false` | **从版本v2.9.5开始支持**。用于控制是否生成数据库表字段定义文件。 每个表会生成一个对应的 Go 文件，文件中包含了该表所有字段的详细定义，如字段名、类型、索引、是否为空等信息。这些生成的文件主要用于 gdb 内部理解表结构，其中包含了一个 SetXxxTableFields 函数，可以将表字段定义注册到数据库实例中| `true` |
+| `genTable` | `false` | **从版本v2.9.5开始支持**。用于控制是否生成数据库表字段定义文件。 每个表会生成一个对应的 `Go` 文件，文件中包含了该表所有字段的详细定义，如字段名、类型、索引、是否为空等信息。这些生成的文件主要用于 `gdb` 内部理解表结构，其中包含了一个 `SetXxxTableFields` 函数，可以将表字段定义注册到数据库实例中| `true` |
 
 ### 参数：`typeMapping`
 
