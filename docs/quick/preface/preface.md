@@ -71,9 +71,12 @@ hide_title: true
 
 在使用的过程中遇到问题，可以通过以下方式获取帮助：
 
-1. 查看文档，在文档右上方进行搜索，每页文档的底部有留言板。
-2. [社区交流](/share/group)
-3. [查看源码](https://github.com/gogf/gf)
+1. 问问AI
+   1. [腾讯元器](https://yuanqi.tencent.com/webim/#/chat/jfHhOV?appid=1961322209885207296)
+   2. [codewiki.google](https://codewiki.google/github.com/gogf/gf)
+2. 查看文档，在文档右上方进行搜索，每页文档的底部有留言板。
+3. [社区交流](/share/group)
+4. [查看源码](https://github.com/gogf/gf)
 
 ## 参与改进
 
