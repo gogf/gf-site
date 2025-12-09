@@ -36,6 +36,7 @@ const config: Config = {
   organizationName: 'gogf',
   projectName: 'gf',
   onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   // 多语言配置
   i18n: {
     defaultLocale: 'zh-Hans',
@@ -53,19 +54,11 @@ const config: Config = {
   },
   // https://www.docusaurus.cn/blog/releases/3.6#docusaurus-faster
   future: {
-    experimental_faster: {
-      ssgWorkerThreads: true,
-    },
-    v4: {
-      removeLegacyPostBuildHeadAttribute: true,
-    },
+    experimental_faster: true,
   },
   // 启用 Markdown 中的 Mermaid 支持
   markdown: {
     mermaid: true,
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-    },
   },
   // 配置 Mermaid 主题
   themes: ['@docusaurus/theme-mermaid'],
