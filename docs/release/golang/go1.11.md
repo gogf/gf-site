@@ -3,7 +3,6 @@ title: Go 1.11 (2018-08-24)
 sidebar_position: 189
 ---
 
-
 Go 1.11 于 2018 年 8 月发布，这是一个重要的版本，引入了两个重大的实验性功能：**Go Modules**（模块支持）和 **WebAssembly** 支持。
 
 ## 主要变化

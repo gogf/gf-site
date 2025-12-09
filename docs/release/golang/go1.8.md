@@ -7,7 +7,36 @@ Go 1.8 于 2017 年 2 月 16 日发布。此版本在保持 Go 1 兼容性承诺
 
 ## 主要变化
 
-### 运行时与性能
+### 语言
+
+- **结构体转换忽略 Tag**: 当显式转换一个结构体类型到另一个结构体类型时，如果两者仅在字段 Tag 上不同，现在允许直接转换，而不再需要字段 Tag 完全一致。
+
+  ```go
+  type T1 struct {
+      X int `json:"foo"`
+  }
+  type T2 struct {
+      X int `json:"bar"`
+  }
+  var v1 T1
+  var v2 T2
+  v1 = T1(v2) // Go 1.8 之前是非法的，现在合法
+  ```
+
+### 工具链
+
+- **插件系统 (Plugins)**: Go 1.8 引入了对动态加载共享库的初步支持（目前仅限 Linux）。`plugin` 包允许 Go 程序在运行时加载编译为插件的 Go 包（`.so` 文件），并查找导出的符号（变量或函数）。
+
+  ```go
+  p, err := plugin.Open("myplugin.so")
+  f, err := p.Lookup("MyFunction")
+  ```
+
+- **默认 GOPATH**: 如果未设置 `GOPATH` 环境变量，Go 现在会使用默认值：
+  - Unix: `$HOME/go`
+  - Windows: `%USERPROFILE%\go`
+
+### 运行时
 
 - **垃圾回收 (GC)**：GC 停顿时间进一步缩短，通常低于 **100 微秒**，甚至低至 10 微秒。这得益于消除了 "stop-the-world" 栈重新扫描。
 - **Defer 开销**：`defer` 函数调用的开销减少了约一半。
@@ -50,35 +79,6 @@ Go 1.8 于 2017 年 2 月 16 日发布。此版本在保持 Go 1 兼容性承诺
   - **`net.Resolver`**：DNS 查询方法现在接受 Context。
 - **`encoding/base64`**：新增 `Strict` 模式，严格检查填充位。
 - **`encoding/json`**：`Marshal` 现在支持浮点数格式与 ES6 保持一致。
-
-### 工具链
-
-- **插件系统 (Plugins)**: Go 1.8 引入了对动态加载共享库的初步支持（目前仅限 Linux）。`plugin` 包允许 Go 程序在运行时加载编译为插件的 Go 包（`.so` 文件），并查找导出的符号（变量或函数）。
-
-  ```go
-  p, err := plugin.Open("myplugin.so")
-  f, err := p.Lookup("MyFunction")
-  ```
-
-- **默认 GOPATH**: 如果未设置 `GOPATH` 环境变量，Go 现在会使用默认值：
-  - Unix: `$HOME/go`
-  - Windows: `%USERPROFILE%\go`
-
-### 语言变化
-
-- **结构体转换忽略 Tag**: 当显式转换一个结构体类型到另一个结构体类型时，如果两者仅在字段 Tag 上不同，现在允许直接转换，而不再需要字段 Tag 完全一致。
-
-  ```go
-  type T1 struct {
-      X int `json:"foo"`
-  }
-  type T2 struct {
-      X int `json:"bar"`
-  }
-  var v1 T1
-  var v2 T2
-  v1 = T1(v2) // Go 1.8 之前是非法的，现在合法
-  ```
 
 ## 参考资源
 
