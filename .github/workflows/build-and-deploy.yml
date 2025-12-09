@@ -3,7 +3,7 @@ name: Build And Deploy
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -22,9 +22,9 @@ jobs:
           bash .github/workflows/consistency-check.sh
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
           cache: yarn
 
       - name: Install dependencies
