@@ -1,13 +1,13 @@
 .PHONY: build
 build:
-	rm versions.json
+	cp versions.json versions.json.bak
 	cp versions.build.json versions.json
 	yarn run build
+	mv versions.json.bak versions.json
 
 .PHONY: examples
 examples:
 	./make-examples.sh
-
 
 .PHONY: check
 check:
