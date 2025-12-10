@@ -29,7 +29,7 @@ const config: Config = {
   title: geti18nTitle(),
   tagline:
     'A powerful framework for faster, easier, and more efficient project development',
-  favicon: '/img/favicon.ico',
+  favicon: '/favicon.ico',
   url: 'https://goframe.org/',
   baseUrl: '/',
   trailingSlash: false,
