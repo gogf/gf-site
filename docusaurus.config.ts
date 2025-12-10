@@ -206,26 +206,26 @@ const config: Config = {
           to: '/share/group',
           activeBaseRegex: `share|articles|supportus`,
         },
-        {
+        ...(process.env.DOCUSAURUS_CURRENT_LOCALE === 'en' ? [] : [{
           label: '招聘/求职',
           href: 'https://github.com/gogf/jobs',
-          position: 'left',
+          position: 'left' as const,
           className: 'navbar-jobs-link',
-        },
+        }]),
 
         // 右边导航栏
         {
           type: 'docsVersionDropdown',
-          position: 'right',
+          position: 'right' as const,
           dropdownActiveClassDisabled: true,
         },
         {
           type: 'localeDropdown',
-          position: 'right',
+          position: 'right' as const,
         },
         {
           href: 'https://github.com/gogf/gf',
-          position: 'right',
+          position: 'right' as const,
           className: 'header-github-link',
         },
       ],
