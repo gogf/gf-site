@@ -244,3 +244,26 @@ pre {
   -moz-tab-size: 4;
   -o-tab-size: 4;
 }
+
+/* 招聘/求职导航栏标签样式 - 添加显眼的 NEW 标签 */
+.navbar-jobs-link {
+  position: relative;
+}
+
+.navbar-jobs-link::after {
+  content: 'NEW';
+  position: absolute;
+  top: 0px;
+  right: -8px;
+  padding: 0.5px 5px;
+  font-size: 10px;
+  color: #fff;
+  background-color: #f32213b4;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* 隐藏招聘/求职链接的外链箭头图标 */
+.navbar-jobs-link svg {
+  display: none;
+}

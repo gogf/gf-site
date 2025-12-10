@@ -13,7 +13,7 @@ For an introduction to the framework's project engineering specifications, pleas
 :::
 ## Usage
 
-In most scenarios, execute `gf gen dao` in the project's root directory. Below is the command line help information.
+In most scenarios, execute `gf gen dao` in the project's root directory. Below is the command line help information. The following command line output is for reference only:
 
 ```text
 $ gf gen dao -h
@@ -21,12 +21,14 @@ USAGE
     gf gen dao [OPTION]
 
 OPTION
-    -p, --path                  directory path for generated files
+    -p, --path                  directory path for generated files (default: "internal")
     -l, --link                  database configuration, the same as the ORM configuration of GoFrame
-    -t, --tables                generate models only for given tables, multiple table names separated with ','
-    -x, --tablesEx              generate models excluding given tables, multiple table names separated with ','
-    -g, --group                 specifying the configuration group name of database for generated ORM instance,
-                                it's not necessary and the default value is "default"
+    -t, --tables                generate models only for given tables, multiple table names separated with ','        
+    -x, --tablesEx              generate models excluding given tables, multiple table names separated with ','       
+    -sp, --shardingPattern      sharding pattern for table name, e.g. "users_?" will be replace tables "users_001,    
+                                users_002,..." to "users" dao
+    -g, --group                 specifying the configuration group name of database for generated ORM instance,       
+                                it's not necessary and the default value is "default" (default: "default")
     -f, --prefix                add prefix for all table of specified link/database tables
     -r, --removePrefix          remove specified prefix of the table, multiple prefix separated with ','
     -rf, --removeFieldPrefix    remove specified prefix of the field, multiple prefix separated with ','
@@ -34,33 +36,36 @@ OPTION
                                 | Case            | Example            |
                                 |---------------- |--------------------|
                                 | Camel           | AnyKindOfString    |
-                                | CamelLower      | anyKindOfString    | default
+                                | CamelLower      | anyKindOfString    |
                                 | Snake           | any_kind_of_string |
                                 | SnakeScreaming  | ANY_KIND_OF_STRING |
                                 | SnakeFirstUpper | rgb_code_md5       |
                                 | Kebab           | any-kind-of-string |
-                                | KebabScreaming  | ANY-KIND-OF-STRING |
+                                | KebabScreaming  | ANY-KIND-OF-STRING | (default: "CamelLower")
     -i, --importPrefix          custom import prefix for generated go files
-    -d, --daoPath               directory path for storing generated dao files under path
-    -o, --doPath                directory path for storing generated do files under path
-    -e, --entityPath            directory path for storing generated entity files under path
+    -d, --daoPath               directory path for storing generated dao files under path (default: "dao")
+    -tp, --tablePath            directory path for storing generated table files under path (default: "table")        
+    -o, --doPath                directory path for storing generated do files under path (default: "model/do")        
+    -e, --entityPath            directory path for storing generated entity files under path (default: "model/entity")
+    -t0, --tplDaoTablePath      template file path for dao table file
     -t1, --tplDaoIndexPath      template file path for dao index file
     -t2, --tplDaoInternalPath   template file path for dao internal file
     -t3, --tplDaoDoPath         template file path for dao do file
     -t4, --tplDaoEntityPath     template file path for dao entity file
     -s, --stdTime               use time.Time from stdlib instead of gtime.Time for generated time/date fields of tables
     -w, --withTime              add created time for auto produced go files
-    -n, --gJsonSupport          use gJsonSupport to use *gjson.Json instead of string for generated json fields of
+    -n, --gJsonSupport          use gJsonSupport to use *gjson.Json instead of string for generated json fields of    
                                 tables
     -v, --overwriteDao          overwrite all dao files both inside/outside internal folder
     -c, --descriptionTag        add comment to description tag for each field
     -k, --noJsonTag             no json tag will be added for each field
     -m, --noModelComment        no model comment will be added for each field
     -a, --clear                 delete all generated go files that do not exist in database
-    -y, --typeMapping           custom local type mapping for generated struct attributes relevant to fields of table
+    -gt, --genTable             generate table files
+    -y, --typeMapping           custom local type mapping for generated struct attributes relevant to fields of table 
     -fm, --fieldMapping         custom local type mapping for generated struct attributes relevant to specific fields of
                                 table
-    -/--genItems                
+    -/--genItems
     -h, --help                  more information about this command
 
 EXAMPLE
@@ -144,12 +149,16 @@ gfcli:
 | `daoPath` | `dao` | Directory for storing generated `DAO` files |  |
 | `doPath` | `model/do` | Directory for storing generated `DO` files |  |
 | `entityPath` | `model/entity` | Directory for storing generated `Entity` files |  |
+| `tablePath` | `table` | Directory for storing generated `Table` files |  |
 | `tplDaoIndexPath` |  | Custom `DAO Index` code generation template file path, please refer to the source code for use |  |
 | `tplDaoInternalPath` |  | Custom `DAO Internal` code generation template file path, please refer to the source code for use |  |
 | `tplDaoDoPath` |  | Custom `DO` code generation template file path, please refer to the source code for use |  |
 | `tplDaoEntityPath` |  | Custom `Entity` code generation template file path, please refer to the source code for use |  |
+| `tplDaoTablePath` |  | Custom `Table` code generation template file path, please refer to the source code for use |  |
 | `typeMapping` |  | **Supported from version v2.5**. Used to customize the mapping of data table fields types to corresponding types in generated Go files. |  |
 | `fieldMapping` |   | **Supported from version v2.8**. Used to customize the mapping of specific data table fields to corresponding field types in generated Go files.|    | 
+| `shardingPattern` |   | **Supported from version v2.9**. Used to customize data table sharding rules.|    | 
+| `genTable` | `false` | **Supported from version v2.9.5**. Used to control whether to generate database table field definition files. Each table will generate a corresponding `Go` file containing detailed definitions of all fields in that table, such as field name, type, index, whether nullable, etc. These generated files are mainly used for `gdb` to internally understand table structure. Each table has a `SetXxxTableFields` function that can register table field definitions to the database instance.| `true` | 
 
 ### Parameter: `typeMapping`
 
@@ -180,6 +189,210 @@ paid_orders.amount:
   import: github.com/shopspring/decimal
 ```
 In the example, `paid_orders` is the table name, `amount` is the field name, `type` represents the data type name in the generated `Go` code, and `import` represents third-party packages that need to be imported in the generated code.
+
+### Parameter: `shardingPattern`
+
+The `shardingPattern` parameter is used to configure sharding rules. This parameter was added in version `v2.9` to identify and handle sharding tables. Sharding tables are multiple tables with the same structure that are split according to certain rules, such as time-based sharding tables like `orders_202301`, `orders_202302`, or user ID-based sharding tables like `users_0001`, `users_0002`.
+
+#### Parameter Description
+
+- Type: String array
+- Format: Use `?` as a wildcard to match the sharding part in table names
+- Purpose: Identify multiple tables matching the same pattern as a single logical table and generate sharding-enabled `DAO` code
+
+#### How It Works
+
+When using the `shardingPattern` parameter, the `gen dao` command will:
+
+1. Match table names in the database according to the provided pattern
+2. Identify multiple tables matching the same pattern as a single logical table
+3. Remove the sharding identifier part from the table name
+4. Generate sharding-enabled `DAO` code for that logical table
+
+#### Parameter Example
+
+Suppose the database has the following tables:
+
+```text
+users_0001
+users_0002
+users_0003
+products
+```
+
+Using the following `shardingPattern` configuration:
+
+```yaml
+gendao:
+  - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    shardingPattern:
+      - "users_?"
+```
+
+The generated result will include:
+
+1. A `DAO` file named `users.go`, instead of generating separate `DAO` files for each sharding table
+2. The `DAO` file will contain sharding configuration code to automatically handle operations on different sharding tables
+3. The products table will generate a normal `products.go` `DAO` file
+
+Generated `DAO` file example:
+```go
+// ...
+
+type usersDao struct {
+    *internal.UsersDao
+}
+
+var (
+    // Users is a globally accessible object for table users_0001 operations.
+    Users = usersDao{internal.NewUsersDao(userShardingHandler)}
+)
+
+// userShardingHandler is the handler for sharding operations.
+// You can fill this sharding handler with your custom implementation.
+func userShardingHandler(m *gdb.Model) *gdb.Model {
+    m = m.Sharding(gdb.ShardingConfig{
+        Table: gdb.ShardingTableConfig{
+            Enable: true,
+            Prefix: "",
+            // Replace Rule field with your custom sharding rule.
+            // Or you can use "&gdb.DefaultShardingRule{}" for default sharding rule.
+            Rule: nil,
+        },
+        Schema: gdb.ShardingSchemaConfig{},
+    })
+    return m
+}
+
+// ...
+```
+You need to set the sharding rules in the `Sharding` function within the `userShardingHandler` function in the `DAO` file, and you can also set database sharding rules. If you generate sharding `DAO` files but do not manually set the sharding rules, calling the `DAO` object directly will result in an error.
+
+
+#### Multiple Sharding Patterns
+
+Configuration example for specifying multiple sharding patterns simultaneously:
+
+```yaml
+gendao:
+  - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    shardingPattern:
+      - "users_?"
+      - "orders_?"
+```
+
+This will process sharding tables with both `users_` and `orders_` prefixes, generating `users.go` and `orders.go` `DAO` files.
+
+#### Notes
+
+1. Sharding tables must have the same table structure.
+2. The sharding identifier can be numbers, dates, or other formats, as long as it can be matched with the `?` wildcard.
+3. The generated `DAO` code will automatically include all matching sharding tables. If new sharding tables are added later, you need to regenerate the `DAO` code.
+4. You need to add a `Sharding` method for each sharding table in the generated `DAO` file to specify the sharding rules. Please refer to the section: [ORM Sharding - Table Sharding Feature](../../核心组件/数据库ORM/ORM分库分表/ORM分库分表-分表特性.md).
+
+### Parameter: `genTable`
+
+The `genTable` parameter is used to control whether to generate database table field definition files. This parameter was added in version `v2.9.5`. Each table will generate a corresponding `Go` file containing detailed definitions of all fields in that table, such as field name, type, index, whether nullable, etc. These generated files are mainly used for `gdb` to internally understand table structure, and include a `SetXxxTableFields` function.
+
+Registering table field information to the database instance allows `gdb` to build SQL without relying on the actual database connection, making it convenient for users to use `ToSQL` and `CatchSQL` to directly obtain the final SQL.
+
+Generated `Table` file example:
+```go
+// =================================================================================
+// This file is auto-generated by the GoFrame CLI tool. You may modify it as needed.
+// =================================================================================
+
+package table
+
+import (
+	"context"
+
+	"github.com/gogf/gf/v2/database/gdb"
+)
+
+// User defines the fields of table "user" with their properties.
+// This map is used internally by GoFrame ORM to understand table structure.
+var User = map[string]*gdb.TableField{
+	"id": {
+		Index:   0,
+		Name:    "id",
+		Type:    "bigint",
+		Null:    false,
+		Key:     "PRI",
+		Default: nil,
+		Extra:   "auto_increment",
+		Comment: "",
+	},
+	"tenant_id": {
+		Index:   1,
+		Name:    "tenant_id",
+		Type:    "varchar(64)",
+		Null:    false,
+		Key:     "MUL",
+		Default: nil,
+		Extra:   "",
+		Comment: "",
+	},
+	"username": {
+		Index:   2,
+		Name:    "username",
+		Type:    "varchar(100)",
+		Null:    false,
+		Key:     "",
+		Default: nil,
+		Extra:   "",
+		Comment: "",
+	},
+	"email": {
+		Index:   3,
+		Name:    "email",
+		Type:    "varchar(150)",
+		Null:    true,
+		Key:     "",
+		Default: nil,
+		Extra:   "",
+		Comment: "",
+	},
+	"created_at": {
+		Index:   4,
+		Name:    "created_at",
+		Type:    "datetime(3)",
+		Null:    false,
+		Key:     "",
+		Default: "CURRENT_TIMESTAMP(3)",
+		Extra:   "DEFAULT_GENERATED",
+		Comment: "",
+	},
+	"updated_at": {
+		Index:   5,
+		Name:    "updated_at",
+		Type:    "datetime(3)",
+		Null:    false,
+		Key:     "",
+		Default: "CURRENT_TIMESTAMP(3)",
+		Extra:   "DEFAULT_GENERATED on update CURRENT_TIMESTAMP(3)",
+		Comment: "",
+	},
+	"deleted_at": {
+		Index:   6,
+		Name:    "deleted_at",
+		Type:    "datetime(3)",
+		Null:    true,
+		Key:     "MUL",
+		Default: nil,
+		Extra:   "",
+		Comment: "",
+	},
+}
+
+// SetUserTableFields registers the table fields definition to the database instance.
+// db: database instance that implements gdb.DB interface.
+// schema: optional schema/namespace name, especially for databases that support schemas.
+func SetUserTableFields(ctx context.Context, db gdb.DB, schema ...string) error {
+	return db.GetCore().SetTableFields(ctx, "user", User, schema...)
+}
+
+```
 
 ## Usage Example
 
