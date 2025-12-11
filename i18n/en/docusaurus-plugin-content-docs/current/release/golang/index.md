@@ -10,6 +10,7 @@ Go maintains a release cadence of a major version every six months, typically in
 
 ## Version List
 
+- [Go 1.25 (2025-08-12)](go1.25.md)
 - [Go 1.24 (2025-02-11)](go1.24.md)
 - [Go 1.23 (2024-08-13)](go1.23.md)
 - [Go 1.22 (2024-02-06)](go1.22.md)
@@ -35,20 +36,3 @@ Go maintains a release cadence of a major version every six months, typically in
 - [Go 1.2 (2013-12-01)](go1.2.md)
 - [Go 1.1 (2013-05-13)](go1.1.md)
 - [Go 1 (2012-03-28)](go1.0.md)
-
-## Release Note Guidelines
-
-To maintain consistency across version descriptions, it is recommended that new release notes follow the guidelines and paragraph order below:
-
-1. **Introductory Summary**: In the body text before `## Major Changes`, summarize the key improvements of this version in one or two sentences.
-2. **`## Major Changes`**: Contains unified subheadings, allowing detailed content to be added in order.
-   - `### Language`: New language features, key syntax changes, type system updates, etc.
-   - `### Toolchain`: Changes to the `go` command, build/install/module tools, or diagnostic and quality tools.
-   - `### Runtime`: Improvements to the scheduler, GC, compiler collaboration, debugging capabilities, and runtime performance.
-   - `### Performance`: If there are independent performance optimizations or compiler performance adjustments, this section can be listed separately.
-   - `### Standard Library`: List new/modified standard library packages and APIs.
-   - `### Platform Support`: New descriptions related to platform, architecture, and system compatibility.
-3. **Supplementary Subsections**: If you need to introduce content such as testing or compatibility, you can add subsections like `### Testing Framework`, `### Compatibility Promise`, etc., after the above sections.
-4. **`## References`**: Uniformly placed at the end of each document, used to link to official release notes or related Issues/Proposals.
-
-The above structure has been uniformly applied in existing historical documents. Please refer to this template for subsequent manually written or automatically generated release notes to ensure consistency in reading experience and comparative analysis.

@@ -7,6 +7,8 @@
 ```shell
 # 安装依赖
 yarn
+# windows
+yarn install --ignore-scripts
 
 # 添加依赖（举例）
 yarn add @docusaurus/theme-classic
@@ -16,6 +18,9 @@ yarn remove @docusaurus/theme-classic
 
 # 运行
 yarn start
+
+# 指定i18n语言运行
+yarn start --locale en
 
 # 构建
 yarn build
