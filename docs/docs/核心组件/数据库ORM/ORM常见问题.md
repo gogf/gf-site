@@ -60,3 +60,29 @@ dryRun = "(可选)ORM空跑(只读不写)"
 - 数据库编码 `utf8mb4`
 - 表的编码是 `utf8mb4`
 - 表中内容字段是 `utf8mb4`
+
+## 怎么让有UUID类型的数据库支持UUID处理
+
+由于ORM类型转换在底层是使用的gconv实现的，所以我们可以自己添加新的converter就可以了。如以下示例，在你的程序初始化时调用就可以了。
+```golang
+    gconv.RegisterTypeConverterFunc(func(src uuid.UUID) (val *string, err error) {
+		v := src.String()
+		return &v, nil
+	})
+
+	gconv.RegisterTypeConverterFunc(func(src uuid.UUIDs) (val *[]string, err error) {
+		v := src.Strings()
+		return &v, nil
+	})
+
+	gconv.RegisterTypeConverterFunc(func(src string) (val *uuid.UUID, err error) {
+		var v uuid.UUID
+		val = &v
+		src = gstr.Trim(src)
+		if src == "" {
+			return
+		}
+		v, err = uuid.Parse(src)
+		return
+	})
+```
