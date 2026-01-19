@@ -33,6 +33,31 @@ import "github.com/gogf/gf/v2/container/gmap"
 
 [https://pkg.go.dev/github.com/gogf/gf/v2/container/gmap](https://pkg.go.dev/github.com/gogf/gf/v2/container/gmap)
 
+## NilChecker and Typed Nil Support
+
+- **Feature Overview**: Starting from the generic version, `gmap` provides `NilChecker` functions for generic map types (such as `KVMap[K, V]`, `ListKVMap[K, V]`) to customize "which values should be considered nil", primarily used to solve typed nil determination issues when containing pointers, interfaces, and other types.
+- **Usage**: You can specify via constructors like `NewKVMapWithChecker`, `NewListKVMapWithChecker`, or register at runtime by calling `RegisterNilChecker` with a `func(V) bool` determination function. Lazy loading/conditional write methods (such as `GetOrSet*` series) will call this function before actually writing, and usually won't write the key-value pair when it returns `true`.
+- **Compatibility**: If `NilChecker` is not set, it maintains consistency with historical versions, defaulting to `any(v) == nil` for determination, and typed nil behavior won't change.
+
+**Example**:
+
+```go
+type Student struct {
+    Name string
+}
+
+// Treat *Student(nil) as "no value", won't write to map
+m := gmap.NewListKVMapWithChecker[int, *Student](func(s *Student) bool {
+    return s == nil
+}, true)
+
+v := m.GetOrSetFuncLock(1, func() *Student {
+    return nil
+})
+fmt.Println(v == nil)       // true
+fmt.Println(m.Contains(1)) // false, key not written
+```
+
 ## Documentation
 
 import DocCardList from '@theme/DocCardList';
