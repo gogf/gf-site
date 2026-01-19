@@ -37,6 +37,8 @@ func (m *Model) AllAndCount(useFieldForCount bool) (result Result, totalCount in
 
 ## 使用示例
 
+**基础查询**
+
 ```go
 // SELECT `uid`,`name` FROM `user` WHERE `status`='deleted' LIMIT 0,10
 // SELECT COUNT(`uid`,`name`) FROM `user` WHERE `status`='deleted'
@@ -46,3 +48,31 @@ all, count, err := Model("user").Fields("uid", "name").Where("status", "deleted"
 // SELECT COUNT(1) FROM `user` WHERE `status`='deleted'
 all, count, err := Model("user").Fields("uid", "name").Where("status", "deleted").Limit(0, 10).AllAndCount(false)
 ```
+
+**配合 PageCache 使用**
+
+从 `v2.9.8` 版本开始，`AllAndCount` 支持通过 `PageCache` 方法为 count 查询和 data 查询配置不同的缓存策略：
+
+```go
+import (
+    "time"
+    "github.com/gogf/gf/v2/database/gdb"
+    "github.com/gogf/gf/v2/frame/g"
+)
+
+// 为 count 查询和 data 查询设置不同的缓存时间
+result, total, err := g.Model("user").Ctx(ctx).PageCache(
+    gdb.CacheOption{
+        Duration: time.Hour,        // count 查询缓存 1 小时
+        Name:     "user-count",
+        Force:    false,
+    },
+    gdb.CacheOption{
+        Duration: 5 * time.Minute,  // data 查询缓存 5 分钟
+        Name:     "user-data",
+        Force:    false,
+    },
+).Where("status", "active").Limit(0, 10).AllAndCount(false)
+```
+
+更多缓存配置说明请参考：[ORM链式操作-查询缓存](../ORM链式操作-查询缓存.md)

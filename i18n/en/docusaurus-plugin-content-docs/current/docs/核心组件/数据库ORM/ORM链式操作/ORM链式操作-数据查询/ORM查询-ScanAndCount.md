@@ -55,3 +55,49 @@ func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (
 
 - It is only used in scenarios where both data and total count need to be queried, generally in pagination scenarios.
 - The third parameter of `ScanAndCount`, `useFieldForCount`, indicates whether to use `Fields` as the parameter for `Count` operation. Generally, it should be `false`, meaning that the `COUNT(1)` query is performed for the total count. Passing `true` means using the fields of the query as the parameter for the `COUNT` method.
+
+## With PageCache
+
+Starting from version `v2.9.8`, `ScanAndCount` supports configuring different caching strategies for count queries and data queries through the `PageCache` method:
+
+**Example Code**
+
+```go
+import (
+    "time"
+    "github.com/gogf/gf/v2/database/gdb"
+)
+
+// GetList retrieves the user list of the instance with separate caching strategies
+func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (items []entity.UserInfo, total int, err error) {
+    items = make([]entity.UserInfo, 0)
+    err = dao.UserInfo.Ctx(ctx).PageCache(
+        gdb.CacheOption{
+            Duration: 30 * time.Minute, // count query cached for 30 minutes
+            Name:     "user-count",
+            Force:    false,
+        },
+        gdb.CacheOption{
+            Duration: 5 * time.Minute,  // data query cached for 5 minutes
+            Name:     "user-data",
+            Force:    false,
+        },
+    ).Where(do.UserInfo{
+        ResourceId: in.ResourceId,
+        Status:     in.Statuses,
+    }).
+    Order(in.OrderBy, in.OrderDirection).
+    Limit(in.Offset, in.Limit).
+    ScanAndCount(&items, &total, false)
+    return
+}
+```
+
+**Usage Notes**
+
+- The first parameter of `PageCache` is used to configure cache options for the count query.
+- The second parameter of `PageCache` is used to configure cache options for the data query.
+- In pagination scenarios, count queries can typically have longer cache times, while data queries have shorter cache times.
+- Cache functionality is not available in transaction operations.
+
+For more cache configuration information, please refer to: [ORM Model - Query Cache](../ORM链式操作-查询缓存.md)

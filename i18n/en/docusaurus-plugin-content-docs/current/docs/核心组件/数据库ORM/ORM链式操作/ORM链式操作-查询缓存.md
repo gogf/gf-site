@@ -38,7 +38,103 @@ type CacheOption struct {
 // Note that, the cache feature is disabled if the model is performing select statement
 // on a transaction.
 func (m *Model) Cache(option CacheOption) *Model
+
+// PageCache sets the cache feature for pagination queries. It allows to configure
+// separate cache options for count query and data query in pagination.
+//
+// Note that, the cache feature is disabled if the model is performing select statement
+// on a transaction.
+func (m *Model) PageCache(countOption CacheOption, dataOption CacheOption) *Model
 ```
+
+## Pagination Query Cache
+
+Starting from version `v2.9.8`, the framework provides the `PageCache` method to configure separate caching strategies for pagination query scenarios. This method allows configuring different cache options for count queries and data queries, and is used in conjunction with the `AllAndCount`/`ScanAndCount` methods.
+
+### Use Cases
+
+In pagination queries, the caching strategies for count queries and data queries are often different:
+
+- **Count Query**: The total count changes less frequently and can have a longer cache time
+- **Data Query**: The data list may need more frequent updates, so the cache time is relatively shorter
+
+### Example Code
+
+**Basic Usage**
+
+```go
+package main
+
+import (
+    "time"
+    "github.com/gogf/gf/v2/database/gdb"
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/os/gctx"
+)
+
+func main() {
+    var (
+        ctx = gctx.New()
+    )
+
+    // Use PageCache to set different caching strategies for count and data queries
+    result, total, err := g.Model("user").Ctx(ctx).PageCache(
+        gdb.CacheOption{
+            Duration: time.Hour,        // count query cached for 1 hour
+            Name:     "user-count",
+            Force:    false,
+        },
+        gdb.CacheOption{
+            Duration: 5 * time.Minute,  // data query cached for 5 minutes
+            Name:     "user-data",
+            Force:    false,
+        },
+    ).Where("status", "active").Limit(0, 10).AllAndCount(false)
+
+    if err != nil {
+        g.Log().Fatal(ctx, err)
+    }
+
+    g.Log().Debug(ctx, "total:", total)
+    g.Log().Debug(ctx, "result:", result)
+}
+```
+
+**Business Scenario Example**
+
+```go
+// GetList retrieves the user list with separate caching strategies
+func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (items []entity.UserInfo, total int, err error) {
+    items = make([]entity.UserInfo, 0)
+    err = dao.UserInfo.Ctx(ctx).PageCache(
+        gdb.CacheOption{
+            Duration: 30 * time.Minute, // total count cached for 30 minutes
+            Name:     "user-count",
+            Force:    false,
+        },
+        gdb.CacheOption{
+            Duration: 5 * time.Minute,  // data list cached for 5 minutes
+            Name:     "user-data",
+            Force:    false,
+        },
+    ).Where(do.UserInfo{
+        ResourceId: in.ResourceId,
+        Status:     in.Statuses,
+    }).
+    Order(in.OrderBy, in.OrderDirection).
+    Limit(in.Offset, in.Limit).
+    ScanAndCount(&items, &total, false)
+    return
+}
+```
+
+### Notes
+
+- The `PageCache` method must be used in conjunction with `AllAndCount` or `ScanAndCount` methods.
+- The first parameter `countOption` is used for cache configuration of the count query.
+- The second parameter `dataOption` is used for cache configuration of the data query.
+- Cache functionality is not available in transaction operations.
+- You can clear the cache with a specified name by setting `Duration < 0`.
 
 ## Cache Management
 

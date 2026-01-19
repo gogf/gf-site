@@ -55,3 +55,49 @@ func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (
 
 - 仅用于需要同时查询数据和总数量的场景，一般为分页场景。
 - `ScanAndCount` 的第 `3` 个参数 `useFieldForCount` 表示是否在执行 `Count` 操作的时候将 `Fields` 作为 `Count` 参数，一般为 `false` 即可，表示执行 `COUNT(1)` 查询总数量。传递 `true` 表示执行使用查询的字段作为 `COUNT` 方法的参数。
+
+## 配合 PageCache 使用
+
+从 `v2.9.8` 版本开始，`ScanAndCount` 支持通过 `PageCache` 方法为 count 查询和 data 查询配置不同的缓存策略：
+
+**示例代码**
+
+```go
+import (
+    "time"
+    "github.com/gogf/gf/v2/database/gdb"
+)
+
+// GetList 获取实例的用户列表，使用分离的缓存策略
+func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (items []entity.UserInfo, total int, err error) {
+    items = make([]entity.UserInfo, 0)
+    err = dao.UserInfo.Ctx(ctx).PageCache(
+        gdb.CacheOption{
+            Duration: 30 * time.Minute, // count 查询缓存 30 分钟
+            Name:     "user-count",
+            Force:    false,
+        },
+        gdb.CacheOption{
+            Duration: 5 * time.Minute,  // data 查询缓存 5 分钟
+            Name:     "user-data",
+            Force:    false,
+        },
+    ).Where(do.UserInfo{
+        ResourceId: in.ResourceId,
+        Status:     in.Statuses,
+    }).
+    Order(in.OrderBy, in.OrderDirection).
+    Limit(in.Offset, in.Limit).
+    ScanAndCount(&items, &total, false)
+    return
+}
+```
+
+**使用说明**
+
+- `PageCache` 的第一个参数用于配置 count 查询的缓存选项。
+- `PageCache` 的第二个参数用于配置 data 查询的缓存选项。
+- 在分页场景中，通常 count 查询可以设置较长的缓存时间，data 查询设置较短的缓存时间。
+- 在事务操作下缓存功能不可用。
+
+更多缓存配置说明请参考：[ORM链式操作-查询缓存](../ORM链式操作-查询缓存.md)

@@ -37,6 +37,8 @@ When querying the total count inside the method, the `Limit/Page` operations in 
 
 ## Usage Example
 
+**Basic Query**
+
 ```go
 // SELECT `uid`,`name` FROM `user` WHERE `status`='deleted' LIMIT 0,10
 // SELECT COUNT(`uid`,`name`) FROM `user` WHERE `status`='deleted'
@@ -46,3 +48,31 @@ all, count, err := Model("user").Fields("uid", "name").Where("status", "deleted"
 // SELECT COUNT(1) FROM `user` WHERE `status`='deleted'
 all, count, err := Model("user").Fields("uid", "name").Where("status", "deleted").Limit(0, 10).AllAndCount(false)
 ```
+
+**With PageCache**
+
+Starting from version `v2.9.8`, `AllAndCount` supports configuring different caching strategies for count queries and data queries through the `PageCache` method:
+
+```go
+import (
+    "time"
+    "github.com/gogf/gf/v2/database/gdb"
+    "github.com/gogf/gf/v2/frame/g"
+)
+
+// Set different cache durations for count and data queries
+result, total, err := g.Model("user").Ctx(ctx).PageCache(
+    gdb.CacheOption{
+        Duration: time.Hour,        // count query cached for 1 hour
+        Name:     "user-count",
+        Force:    false,
+    },
+    gdb.CacheOption{
+        Duration: 5 * time.Minute,  // data query cached for 5 minutes
+        Name:     "user-data",
+        Force:    false,
+    },
+).Where("status", "active").Limit(0, 10).AllAndCount(false)
+```
+
+For more cache configuration information, please refer to: [ORM Model - Query Cache](../ORM链式操作-查询缓存.md)
