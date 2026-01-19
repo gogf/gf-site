@@ -56,6 +56,32 @@ func ComparatorUint64(a, b interface{}) int
 func ComparatorUint8(a, b interface{}) int
 ```
 
+## NilChecker 与 typed nil 支持
+
+- **功能简介**：在泛型版本中，`gtree` 为多种泛型树形容器（如 `AVLKVTree[K, V]`、`BKVTree[K, V]`、`RedBlackKVTree[K, V]`）提供了 `NilChecker` 函数，用于自定义“哪些值应当被视为 nil”，从而在包含指针、接口等类型时更好地控制 typed nil 的写入语义。
+- **使用方式**：可以通过 `NewXXXWithChecker`、`NewXXXWithCheckerFrom` 等构造函数，或在运行时调用 `RegisterNilChecker` 注册一个 `func(V) bool` 判定函数，懒加载/条件写入方法（如 `GetOrSet*`、`SetIfNotExist*` 系列）在真正写入前会先调用该函数，当判定为 nil 时通常不会写入该键值对。
+- **兼容性**：如果未设置 `NilChecker`，则保持与历史版本一致，默认使用 `any(v) == nil` 进行判定，typed nil 的行为不会发生变化。
+
+**示例**：
+
+```go
+type Student struct {
+    Name string
+}
+
+// 将 *Student(nil) 视为“无值”，不会写入树
+// 这里以 RedBlackKVTree 为例
+tr := gtree.NewRedBlackKVTreeWithChecker[int, *Student](gutil.ComparatorInt, func(s *Student) bool {
+    return s == nil
+}, true)
+
+v := tr.GetOrSetFunc(1, func() *Student {
+    return nil
+})
+fmt.Println(v == nil)       // true
+fmt.Println(tr.Contains(1)) // false，key 未写入
+```
+
 ## 相关文档
 import DocCardList from '@theme/DocCardList';
 

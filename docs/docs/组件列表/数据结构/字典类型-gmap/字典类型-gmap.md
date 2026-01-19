@@ -33,6 +33,31 @@ import "github.com/gogf/gf/v2/container/gmap"
 
 [https://pkg.go.dev/github.com/gogf/gf/v2/container/gmap](https://pkg.go.dev/github.com/gogf/gf/v2/container/gmap)
 
+## NilChecker 与 typed nil 支持
+
+- **功能简介**：从泛型版本开始，`gmap` 为泛型字典类型（如 `KVMap[K, V]`、`ListKVMap[K, V]`）提供了 `NilChecker` 函数，用于自定义“哪些值应当被视为 nil”，主要用于解决包含指针、接口等类型时的 typed nil 判定问题。
+- **使用方式**：可以通过 `NewKVMapWithChecker`、`NewListKVMapWithChecker` 等构造函数，或在运行时调用 `RegisterNilChecker` 注册一个 `func(V) bool` 判定函数，懒加载/条件写入方法（如 `GetOrSet*` 系列）在真正写入前会先调用该函数，当返回 `true` 时通常不会写入该键值对。
+- **兼容性**：如果未设置 `NilChecker`，则保持与历史版本一致，默认使用 `any(v) == nil` 进行判定，typed nil 的行为不会发生变化。
+
+**示例**：
+
+```go
+type Student struct {
+    Name string
+}
+
+// 将 *Student(nil) 视为“无值”，不会写入 map
+m := gmap.NewListKVMapWithChecker[int, *Student](func(s *Student) bool {
+    return s == nil
+}, true)
+
+v := m.GetOrSetFuncLock(1, func() *Student {
+    return nil
+})
+fmt.Println(v == nil)       // true
+fmt.Println(m.Contains(1)) // false，key 未写入
+```
+
 ## 相关文档
 
 import DocCardList from '@theme/DocCardList';
