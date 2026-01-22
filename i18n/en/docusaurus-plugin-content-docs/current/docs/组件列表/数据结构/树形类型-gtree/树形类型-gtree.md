@@ -56,31 +56,6 @@ func ComparatorUint64(a, b interface{}) int
 func ComparatorUint8(a, b interface{}) int
 ```
 
-## NilChecker and Typed Nil Support
-
-- **Feature Overview**: Starting from the generic version, `gtree` provides `NilChecker` functions for generic tree types (such as `AVLKVTree[K, V]`, `BKVTree[K, V]`, `RedBlackKVTree[K, V]`) to customize "which values should be considered nil", for more precise handling of typed nil scenarios when containing pointers, interfaces, and other types.
-- **Usage**: You can specify via constructors like `NewAVLKVTreeWithChecker`, `NewBKVTreeWithChecker`, `NewRedBlackKVTreeWithChecker`, or register at runtime by calling `RegisterNilChecker` with a `func(V) bool` determination function. Lazy loading/conditional write methods (such as `GetOrSet*`, `SetIfNotExist*` series) will call this function before actually writing, and usually won't write the key-value pair when determined as nil.
-- **Compatibility**: If `NilChecker` is not set, it maintains consistency with historical versions, defaulting to `any(v) == nil` for determination, and typed nil behavior won't change.
-
-**Example**:
-
-```go
-type Student struct {
-    Name string
-}
-
-// Treat *Student(nil) as "no value", won't write to tree
-tr := gtree.NewRedBlackKVTreeWithChecker[int, *Student](gutil.ComparatorInt, func(s *Student) bool {
-    return s == nil
-}, true)
-
-v := tr.GetOrSetFunc(1, func() *Student {
-    return nil
-})
-fmt.Println(v == nil)       // true
-fmt.Println(tr.Contains(1)) // false, key not written
-```
-
 ## Documentation
 import DocCardList from '@theme/DocCardList';
 

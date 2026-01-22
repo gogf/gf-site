@@ -38,13 +38,6 @@ type CacheOption struct {
 // Note that, the cache feature is disabled if the model is performing select statement
 // on a transaction.
 func (m *Model) Cache(option CacheOption) *Model
-
-// PageCache sets the cache feature for pagination queries. It allows to configure
-// separate cache options for count query and data query in pagination.
-//
-// Note that, the cache feature is disabled if the model is performing select statement
-// on a transaction.
-func (m *Model) PageCache(countOption CacheOption, dataOption CacheOption) *Model
 ```
 
 ## 缓存管理
@@ -81,95 +74,6 @@ func (c *Core) ClearCacheAll(ctx context.Context) (err error)
 ```go
 g.DB().GetCore()
 ```
-
-## 分页查询缓存
-
-从 `v2.9.8` 版本开始，框架提供了 `PageCache` 方法，用于为分页查询场景配置分离的缓存策略。该方法允许为 count 查询和 data 查询分别配置不同的缓存选项，与 `AllAndCount`/`ScanAndCount` 方法配合使用。
-
-### 使用场景
-
-在分页查询中，count 查询和 data 查询的缓存策略往往不同：
-
-- **Count 查询**：总数量变化频率相对较低，可以设置较长的缓存时间
-- **Data 查询**：数据列表可能需要更频繁的更新，缓存时间相对较短
-
-### 示例代码
-
-**基础使用**
-
-```go
-package main
-
-import (
-    "time"
-    "github.com/gogf/gf/v2/database/gdb"
-    "github.com/gogf/gf/v2/frame/g"
-    "github.com/gogf/gf/v2/os/gctx"
-)
-
-func main() {
-    var (
-        ctx = gctx.New()
-    )
-
-    // 使用 PageCache 为 count 查询和 data 查询设置不同的缓存策略
-    result, total, err := g.Model("user").Ctx(ctx).PageCache(
-        gdb.CacheOption{
-            Duration: time.Hour,     // count 查询缓存 1 小时
-            Name:     "user-count",
-            Force:    false,
-        },
-        gdb.CacheOption{
-            Duration: 5 * time.Minute, // data 查询缓存 5 分钟
-            Name:     "user-data",
-            Force:    false,
-        },
-    ).Where("status", "active").Limit(0, 10).AllAndCount(false)
-
-    if err != nil {
-        g.Log().Fatal(ctx, err)
-    }
-
-    g.Log().Debug(ctx, "total:", total)
-    g.Log().Debug(ctx, "result:", result)
-}
-```
-
-**业务场景示例**
-
-```go
-// GetList 获取用户列表，使用分离的缓存策略
-func (s sUserInfo) GetList(ctx context.Context, in model.UserInfoGetListInput) (items []entity.UserInfo, total int, err error) {
-    items = make([]entity.UserInfo, 0)
-    err = dao.UserInfo.Ctx(ctx).PageCache(
-        gdb.CacheOption{
-            Duration: 30 * time.Minute, // 总数量缓存 30 分钟
-            Name:     "user-count",
-            Force:    false,
-        },
-        gdb.CacheOption{
-            Duration: 5 * time.Minute,  // 数据列表缓存 5 分钟
-            Name:     "user-data",
-            Force:    false,
-        },
-    ).Where(do.UserInfo{
-        ResourceId: in.ResourceId,
-        Status:     in.Statuses,
-    }).
-    Order(in.OrderBy, in.OrderDirection).
-    Limit(in.Offset, in.Limit).
-    ScanAndCount(&items, &total, false)
-    return
-}
-```
-
-### 注意事项
-
-- `PageCache` 方法必须与 `AllAndCount` 或 `ScanAndCount` 方法配合使用。
-- 第一个参数 `countOption` 用于 count 查询的缓存配置。
-- 第二个参数 `dataOption` 用于 data 查询的缓存配置。
-- 在事务操作下缓存功能不可用。
-- 可以通过设置 `Duration < 0` 来清理指定名称的缓存。
 
 ## 使用示例
 
