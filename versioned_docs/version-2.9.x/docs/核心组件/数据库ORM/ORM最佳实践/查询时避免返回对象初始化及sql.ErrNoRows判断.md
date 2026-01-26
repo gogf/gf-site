@@ -1,0 +1,49 @@
+---
+slug: '/docs/core/gdb-practice-avoid-object-initialization-and-sql-errnorows-error'
+title: '查询时避免返回对象初始化及sql.ErrNoRows判断'
+sidebar_position: 2
+hide_title: true
+keywords: [GoFrame,GoFrame框架,SQL查询,对象初始化,sql.ErrNoRows,错误处理,指针判断,ORM结果处理,对象内存,代码复杂度]
+description: '在使用GoFrame框架进行SQL查询时，避免对象初始化以及sql.ErrNoRows错误判断问题。通过不初始化查询结果对象，使用指针为nil判断的方法，统一项目中对空查询结果的处理逻辑，从而降低代码对错误处理的复杂度。'
+---
+
+## 查询时避免返回对象初始化及 `sql.ErrNoRows` 判断
+
+执行SQL查询时，请避免提前将查询结果初始化，以避免结构对象默认值的影响，避免创建不必要的对象内存。通过返回对象指针 `nil` 判断避免 `sql.ErrNoRows` 使用，降低代码对 `error` 处理的复杂度、统一项目中对空查询结果处理逻辑。
+
+一个反面例子：
+
+```go
+func (s *sTask) GetOne(ctx context.Context, id uint64) (out *entity.ResourceTask, err error) {
+    out = new(model.TaskDetail)
+    err = dao.ResourceTask.Ctx(ctx).WherePri(id).Scan(out)
+    if err != nil {
+        if err == sql.ErrNoRows {
+            err = gerror.Newf(`record not found for "%d"`, id)
+        }
+        return
+    }
+    return
+}
+```
+
+在该例子中，实际返回的 `out` 对象由于对象初始化的缘故有了默认值（无论SQL是否查询到数据），并且 `sql.ErrNoRows` 的判断增加了代码逻辑中对 `error` 处理的复杂度。
+
+建议改进如下：
+
+```go
+func (s *sTask) GetOne(ctx context.Context, id uint64) (out *entity.ResourceTask, err error) {
+    err = dao.ResourceTask.Ctx(ctx).WherePri(id).Scan(&out)
+    if err != nil {
+        return
+    }
+    if out == nil {
+        err = gerror.Newf(`record not found for "%d"`, id)
+    }
+    return
+}
+```
+:::warning
+注意代码中 `&out` 的使用。
+:::
+更多的介绍请参考： [ORM结果处理-为空判断](../ORM结果处理/ORM结果处理-为空判断.md)
