@@ -87,6 +87,7 @@ database:
     maxIdle: 10                 # (可选)连接池最大闲置的连接数(默认10)
     maxOpen: 100                # (可选)连接池最大打开的连接数(默认无限制)
     maxLifetime: "30s"          # (可选)连接对象可重复使用的时间长度(默认30秒)
+    maxIdleConnTime: "30s"      # (可选，v2.10新增)连接池中空闲连接的最大生存时间(默认30秒)。可以通过配置文件或SetConnMaxIdleTime方法设置，避免长时间空闲连接占用资源。
     queryTimeout: "0"           # (可选)查询语句超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。
     execTimeout: "0"            # (可选)写入语句超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。
     tranTimeout: "0"            # (可选)事务处理超时时长(默认无限制，同时受ctx超时时间影响)。值为time.Parse支持的格式，如30s, 1m。

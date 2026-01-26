@@ -3,8 +3,8 @@ slug: '/docs/components/container-gset'
 title: '集合类型-gset'
 sidebar_position: 2
 hide_title: true
-keywords: [GoFrame,GoFrame框架,gset,集合类型,并发安全,元素集合,Go语言,集合操作,GoFrame框架,集合接口]
-description: 'GoFrame框架中的集合类型gset，其特点是不重复元素集合，支持任意类型的元素。gset提供了并发安全的选项，是一种高效的集合操作工具，适合在Go语言中应用。提供了详细的使用方式及接口文档链接，便于开发者查阅。'
+keywords: [GoFrame,GoFrame框架,gset,集合类型,并发安全,元素集合,Go语言,集合操作,GoFrame框架,集合接口,泛型集合,TSet]
+description: 'GoFrame框架中的集合类型gset，其特点是不重复元素集合，支持任意类型的元素。gset提供了并发安全的选项，是一种高效的集合操作工具，适合在Go语言中应用。v2.10版本新增泛型集合TSet，提供类型安全的集合操作。提供了详细的使用方式及接口文档链接，便于开发者查阅。'
 ---
 
 ## 基本介绍
@@ -24,6 +24,13 @@ import "github.com/gogf/gf/v2/container/gset"
 ```
 
 **接口文档**： [https://pkg.go.dev/github.com/gogf/gf/v2/container/gset](https://pkg.go.dev/github.com/gogf/gf/v2/container/gset)
+
+**泛型支持**：
+
+从 `v2.10` 版本开始，`gset` 提供了泛型集合类型：
+- `TSet[T]`：泛型集合，提供类型安全的集合操作
+- 支持 `NewTSetWithChecker` 系列函数，可自定义 `nil` 值检查器
+- 推荐在新项目中使用泛型集合，享受编译时类型检查带来的安全性
 
 ## 相关文档
 import DocCardList from '@theme/DocCardList';

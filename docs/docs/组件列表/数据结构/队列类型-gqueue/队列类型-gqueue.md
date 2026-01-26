@@ -3,8 +3,8 @@ slug: '/docs/components/container-gqueue'
 title: '队列类型-gqueue'
 sidebar_position: 6
 hide_title: true
-keywords: [GoFrame,GoFrame框架,gqueue,队列,并发安全,动态队列,固定队列,goroutine,数据通信,Go语言]
-description: 'GoFrame框架中的动态大小并发安全队列gqueue，其支持固定和动态大小队列的功能，与标准库的channel效率相当。gqueue特别适合于多goroutine之间的数据通信，并为开发者提供了简便且强大的并发处理能力。'
+keywords: [GoFrame,GoFrame框架,gqueue,队列,并发安全,动态队列,固定队列,goroutine,数据通信,Go语言,泛型队列,TQueue]
+description: 'GoFrame框架中的动态大小并发安全队列gqueue，其支持固定和动态大小队列的功能，与标准库的channel效率相当。v2.10版本新增泛型队列TQueue，提供类型安全的队列操作。gqueue特别适合于多goroutine之间的数据通信，并为开发者提供了简便且强大的并发处理能力。'
 ---
 
 ## 基本介绍
@@ -24,6 +24,14 @@ import "github.com/gogf/gf/v2/container/gqueue"
 **接口文档**：
 
 [https://pkg.go.dev/github.com/gogf/gf/v2/container/gqueue](https://pkg.go.dev/github.com/gogf/gf/v2/container/gqueue)
+
+**泛型支持**：
+
+从 `v2.10` 版本开始，`gqueue` 提供了泛型队列类型：
+- `TQueue[T]`：泛型队列，提供类型安全的队列操作
+- 支持先进先出的数据结构操作
+- 优化了队列长度计算逻辑，修复了测试用例中的循环结构问题
+- 推荐在新项目中使用泛型队列
 
 ## 相关文档
 
