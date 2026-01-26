@@ -2146,6 +2146,104 @@ func ExampleGlob() {
 ```
 
 
+### `MatchGlob`
+
+:::tip
+版本要求：`v2.10.0`
+:::
+
+- 说明：`MatchGlob` 方法用于判断给定的文件名是否匹配指定的`shell`模式。它扩展了标准库的 `filepath.Match` 功能，支持 `**`（`globstar`）通配符模式，类似于`bash`的`globstar`和 `gitignore`的模式规则。
+
+- 格式：
+
+```go
+func MatchGlob(pattern, name string) (bool, error)
+```
+
+- 参数说明：
+  - `pattern`：匹配模式字符串，支持通配符。
+  - `name`：要匹配的文件名或路径。
+  - 返回值：第一个返回值表示是否匹配，第二个返回值表示可能的错误（例如模式格式错误）。
+
+- 模式语法：
+  - `*` 匹配任意非分隔符字符序列
+  - `**` 匹配任意字符序列，包括路径分隔符（`globstar`）
+  - `?` 匹配任意单个非分隔符字符
+  - `[abc]` 匹配括号内的任意一个字符
+  - `[a-z]` 匹配指定范围内的任意字符
+  - `[^abc]` 匹配不在括号内的任意字符（取反）
+  - `[^a-z]` 匹配不在指定范围内的任意字符（取反）
+
+- `Globstar`规则：
+  - `**` 仅当作为完整路径组件出现时才具有 `globstar` 语义（例如：`a/**/b`、`**/a`、`a/**`、`**`）
+  - 像 `a**b` 或 `**a` 这样的模式中，`**` 被视为两个普通的 `*` 通配符，只匹配单个路径组件内的字符
+  - `/` 和 `\` 都被视为路径分隔符（支持跨平台）
+
+- 错误处理：
+  - 对于格式错误的模式（例如未闭合的括号 `[abc`）会返回错误
+  - 来自 `filepath.Match` 的错误会被传播
+
+- 示例：
+
+```go
+func ExampleMatchGlob() {
+      var pattern, name string
+      var matched bool
+      var err error
+
+      // 基本通配符匹配
+      pattern = "*.go"
+      name = "main.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // 使用 ? 通配符
+      pattern = "test_?.go"
+      name = "test_1.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // 使用 ** 匹配任意深度的目录
+      pattern = "**/*.go"
+      name = "src/foo/bar/main.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // 使用 ** 匹配所有内容
+      pattern = "**"
+      name = "any/path/to/file.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // 使用中间的 ** 通配符
+      pattern = "src/**/test/*.go"
+      name = "src/foo/bar/test/main.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // 字符范围匹配
+      pattern = "[a-z].go"
+      name = "x.go"
+      matched, err = gfile.MatchGlob(pattern, name)
+      fmt.Printf("Pattern: %s, Name: %s, Matched: %v, Error: %v\n", pattern, name, matched, err)
+
+      // Output:
+      // Pattern: *.go, Name: main.go, Matched: true, Error: <nil>
+      // Pattern: test_?.go, Name: test_1.go, Matched: true, Error: <nil>
+      // Pattern: **/*.go, Name: src/foo/bar/main.go, Matched: true, Error: <nil>
+      // Pattern: **, Name: any/path/to/file.go, Matched: true, Error: <nil>
+      // Pattern: src/**/test/*.go, Name: src/foo/bar/test/main.go, Matched: true, Error: <nil>
+      // Pattern: [a-z].go, Name: x.go, Matched: true, Error: <nil>
+}
+```
+
+:::tip
+- `**` 通配符特别适合在构建工具、文件搜索等场景中使用，可以灵活匹配任意深度的目录结构。
+- 该方法与 `.gitignore` 文件的模式规则兼容，便于实现文件过滤功能。
+- 如果只需要标准的通配符匹配（不包含 `**`），可以直接使用标准库的 `filepath.Match`，性能更优。
+:::
+
+
 ### `Exists`
 
 - 说明：检查给定的路径是否存在 。

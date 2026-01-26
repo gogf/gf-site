@@ -324,3 +324,205 @@ func main() {
 ]
 ```
 
+## Scan 高级选项（v2.10+）
+
+从 `v2.10.0` 版本开始，`gconv` 包新增了 `ScanWithOptions` 函数，支持更灵活的转换控制选项，特别是 `OmitEmpty` 和 `OmitNil` 选项。
+
+### 方法定义
+
+```go
+// ScanWithOptions 自动检查 dstPointer 的类型并将 srcValue 转换为 dstPointer。
+// 它与 Scan 函数相同，但接受一个或多个 ScanOption 值以进行额外的转换控制。
+//
+// 使用 ScanWithOptions 时，"忽略"（omit）意味着跳过从源到目标的赋值，
+// 从而保留目标字段中的现有值。
+//
+//   - option.OmitEmpty，当设置为 true 时，跳过空源值的赋值（例如：空字符串、
+//     零数值、零时间值、空切片或映射），保留目标中任何现有的非空值。
+//
+//   - option.OmitNil，当设置为 true 时，跳过 nil 源值的赋值，
+//     当源包含 nil 时保留目标中的现有值。
+//
+func ScanWithOptions(srcValue any, dstPointer any, option ...ScanOption) (err error)
+```
+
+### OmitEmpty 选项
+
+`OmitEmpty` 选项用于在转换时跳过空值字段的赋值，保留目标结构体中已有的非空值。
+
+**什么是空值？**
+
+- 空字符串（`""`）
+- 零数值（`0`、`0.0`）
+- 零时间值
+- 空切片或空映射（`nil` 或长度为`0`）
+
+**使用场景：** 当你需要将源数据合并到目标数据中，但不希望源数据中的空值覆盖目标数据中已有的值时，可以使用此选项。
+
+**示例：**
+
+```go
+package main
+
+import (
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/util/gconv"
+)
+
+func main() {
+    type User struct {
+        Name  string
+        Age   int
+        Email string
+    }
+
+    // 目标结构体包含初始值
+    person := User{
+        Name:  "张三",
+        Age:   30,
+        Email: "zhangsan@example.com",
+    }
+
+    // 源数据包含一些空值
+    sourceData := g.Map{
+        "Name":  "",     // 空字符串
+        "Age":   25,     // 非空值
+        "Email": "",     // 空字符串
+    }
+
+    // 使用 OmitEmpty 选项进行转换
+    err := gconv.ScanWithOptions(sourceData, &person, gconv.ScanOption{
+        OmitEmpty: true,
+    })
+    if err != nil {
+        panic(err)
+    }
+
+    g.Dump(person)
+}
+```
+
+执行后，输出结果为：
+
+```js
+{
+    Name:  "张三",      // 保持原值，因为源值为空字符串
+    Age:   25,          // 更新为源值
+    Email: "zhangsan@example.com", // 保持原值，因为源值为空字符串
+}
+```
+
+### OmitNil 选项
+
+`OmitNil` 选项用于在转换时跳过 `nil` 值字段的赋值，保留目标结构体中已有的值。
+
+**使用场景：** 当你的源数据是 `map[string]any` 类型，其中可能包含 `nil` 值，而你不希望这些 `nil` 值覆盖目标结构体中已有的值时，可以使用此选项。
+
+**示例：**
+
+```go
+package main
+
+import (
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/util/gconv"
+)
+
+func main() {
+    type Person struct {
+        Name  string
+        Age   int
+        Email string
+    }
+
+    // 目标结构体包含初始值
+    person := Person{
+        Name:  "李四",
+        Age:   0,
+        Email: "lisi@example.com",
+    }
+
+    // 源数据包含 nil 值
+    sourceData := map[string]any{
+        "Name":  nil,  // nil 值
+        "Age":   30,   // 非 nil 值
+        "Email": nil,  // nil 值
+    }
+
+    // 使用 OmitNil 选项进行转换
+    err := gconv.ScanWithOptions(sourceData, &person, gconv.ScanOption{
+        OmitNil: true,
+    })
+    if err != nil {
+        panic(err)
+    }
+
+    g.Dump(person)
+}
+```
+
+执行后，输出结果为：
+
+```js
+{
+    Name:  "李四",      // 保持原值，因为源值为 nil
+    Age:   30,          // 更新为源值
+    Email: "lisi@example.com", // 保持原值，因为源值为 nil
+}
+```
+
+### 同时使用 OmitEmpty 和 OmitNil
+
+你可以同时使用这两个选项来实现更灵活的转换控制：
+
+```go
+package main
+
+import (
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/util/gconv"
+)
+
+func main() {
+    type User struct {
+        Name  string
+        Age   int
+        Email string
+    }
+
+    // 目标结构体包含初始值
+    user := User{
+        Name:  "王五",
+        Age:   0,
+        Email: "wangwu@example.com",
+    }
+
+    // 源数据同时包含空值和 nil 值
+    sourceData := map[string]any{
+        "Name":  "",    // 空字符串
+        "Age":   25,    // 非空值
+        "Email": nil,   // nil 值
+    }
+
+    // 同时使用 OmitEmpty 和 OmitNil 选项
+    err := gconv.ScanWithOptions(sourceData, &user, gconv.ScanOption{
+        OmitEmpty: true,
+        OmitNil:   true,
+    })
+    if err != nil {
+        panic(err)
+    }
+
+    g.Dump(user)
+}
+```
+
+执行后，输出结果为：
+
+```js
+{
+    Name:  "王五",      // 保持原值，因为源值为空字符串
+    Age:   25,          // 更新为源值
+    Email: "wangwu@example.com", // 保持原值，因为源值为 nil
+}
+```

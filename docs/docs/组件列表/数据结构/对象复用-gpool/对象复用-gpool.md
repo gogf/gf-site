@@ -25,11 +25,73 @@ import "github.com/gogf/gf/v2/container/gpool"
 
 [https://pkg.go.dev/github.com/gogf/gf/v2/container/gpool](https://pkg.go.dev/github.com/gogf/gf/v2/container/gpool)
 
-需要注意两点：
+需要注意几点：
 
 1. `New` 方法的过期时间类型为 `time.Duration`。
 2. 对象 `创建方法`( `newFunc NewFunc`)返回值包含一个 `error` 返回，当对象创建失败时可由该返回值反馈原因。
 3. 对象 `销毁方法`( `expireFunc...ExpireFunc`)为可选参数，用以当对象超时/池关闭时，自动调用自定义的方法销毁对象。
+
+## 泛型支持
+
+:::tip
+版本要求：`v2.10.0`
+:::
+
+从 `v2.10.0` 版本开始，`gpool` 提供了泛型类型 `TPool[T]`，提供类型安全的对象池操作。
+
+### 基本使用
+
+使用 `NewTPool[T]` 创建泛型对象池：
+
+```go
+type MyObject struct {
+    ID   int
+    Name string
+}
+
+// 创建对象池，设置 3 秒过期时间
+pool := gpool.NewTPool[*MyObject](
+    3*time.Second,
+    func() (*MyObject, error) {
+        // 对象创建方法
+        return &MyObject{ID: 1, Name: "example"}, nil
+    },
+    func(obj *MyObject) {
+        // 对象销毁方法（可选）
+        fmt.Printf("Destroying object: %+v\n", obj)
+    },
+)
+defer pool.Close()
+
+// 从池中获取对象
+obj, err := pool.Get()
+if err != nil {
+    panic(err)
+}
+fmt.Printf("Got object: %+v\n", obj)
+
+// 使用完对象后放回池中
+pool.MustPut(obj)
+```
+
+### 类型安全的优势
+
+泛型版本提供编译时类型检查，避免了类型断言：
+
+```go
+// 传统方式（需要类型断言）
+pool := gpool.New(3*time.Second, func() (interface{}, error) {
+    return &MyObject{}, nil
+})
+obj, _ := pool.Get()
+myObj := obj.(*MyObject) // 需要类型断言
+
+// 泛型方式（类型安全）
+pool := gpool.NewTPool[*MyObject](3*time.Second, func() (*MyObject, error) {
+    return &MyObject{}, nil
+})
+obj, _ := pool.Get() // obj 直接是 *MyObject 类型，无需断言
+```
 
 ## `gpool` 与 `sync.Pool`
 
