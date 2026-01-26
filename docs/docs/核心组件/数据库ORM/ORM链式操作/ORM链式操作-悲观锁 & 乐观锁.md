@@ -18,6 +18,7 @@ description: '在GoFrame框架中如何通过链式操作实现悲观锁和乐�
 ```go
 func (m *Model) LockUpdate() *Model
 func (m *Model) LockShared() *Model
+func (m *Model) LockUpdateSkipLocked() *Model
 ```
 
 `gdb` 模块的链式操作提供了两个方法帮助您在 `SQL` 语句中实现“悲观锁”。可以在查询中使用 `LockShared` 方法从而在运行语句时带一把”共享锁“。共享锁可以避免被选择的行被修改直到事务提交：
@@ -43,6 +44,101 @@ g.Model("users").Ctx(ctx).Where("votes>?", 100).LockUpdate().All();
 ```sql
 SELECT * FROM `users` WHERE `votes` > 100 FOR UPDATE
 ```
+
+#### 跳过已锁定的行（Skip Locked）
+
+:::tip
+版本要求：`v2.10.0`
+:::
+
+从 `v2.10.0` 版本开始，新增了 `LockUpdateSkipLocked` 方法，支持在高并发场景下跳过已被锁定的行，避免等待，提升系统吞吐量。
+
+**使用方法：**
+
+```go
+g.Model("tasks").Ctx(ctx).Where("status", "pending").Limit(10).LockUpdateSkipLocked().All()
+```
+
+上面这个查询等价于下面这条`SQL`语句：
+
+```sql
+SELECT * FROM `tasks` WHERE `status` = 'pending' LIMIT 10 FOR UPDATE SKIP LOCKED
+```
+
+**应用场景：**
+
+`SKIP LOCKED` 特别适用于任务队列、工单分配等高并发场景。当多个工作进程同时争抢任务时：
+
+- 使用 `LockUpdate()`：所有进程会排队等待锁释放，导致性能下降
+- 使用 `LockUpdateSkipLocked()`：每个进程跳过已被其他进程锁定的行，立即获取可用的任务，提升并发处理能力
+
+**示例：任务队列处理**
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/gogf/gf/v2/database/gdb"
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/os/gctx"
+)
+
+func main() {
+    ctx := gctx.New()
+    
+    // 开启事务
+    err := g.DB().Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+        // 获取未被锁定的待处理任务
+        records, err := g.Model("tasks").Ctx(ctx).
+            Where("status", "pending").
+            Limit(10).
+            LockUpdateSkipLocked().  // 跳过已被其他进程锁定的任务
+            All()
+        if err != nil {
+            return err
+        }
+        
+        // 处理任务...
+        for _, record := range records {
+            // 更新任务状态为处理中
+            _, err = g.Model("tasks").Ctx(ctx).
+                Data(g.Map{"status": "processing"}).
+                Where("id", record["id"]).
+                Update()
+            if err != nil {
+                return err
+            }
+        }
+        
+        return nil
+    })
+    
+    if err != nil {
+        g.Log().Error(ctx, err)
+    }
+}
+```
+
+**数据库支持：**
+
+`SKIP LOCKED` 功能由以下数据库支持：
+- `PostgreSQL 9.5+`
+- `Oracle`
+- `MySQL 8.0+`
+- `MariaDB 10.6+`
+
+:::warning
+使用 `LockUpdateSkipLocked()` 前请确认您的数据库版本支持该特性，否则会导致`SQL`执行错误。
+:::
+
+**性能对比：**
+
+在高并发任务分配场景下：
+- 使用 `LockUpdate()`：`10`个工作进程处理`100`个任务可能需要`10`秒（排队等待）
+- 使用 `LockUpdateSkipLocked()`：`10`个工作进程可以同时各自获取`10`个任务并行处理，时间缩短为`1`秒
+
+#### 锁机制对比
 
 `FOR UPDATE` 与 `LOCK IN SHARE MODE` 都是用于确保被选中的记录值不能被其它事务更新（上锁），两者的区别在于 `LOCK IN SHARE MODE` 不会阻塞其它事务读取被锁定行记录的值，而 `FOR UPDATE` 会阻塞其他锁定性读对锁定行的读取（非锁定性读仍然可以读取这些记录， `LOCK IN SHARE MODE` 和 `FOR UPDATE` 都是锁定性读）。
 
