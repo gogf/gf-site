@@ -56,6 +56,7 @@ database:
 | `oracle` | ```oracle:root:12345678@tcp(127.0.0.1:5432)/test``` | [go-ora](https://github.com/sijms/go-ora) |
 | `clickhouse` | ```clickhouse:root:12345678@tcp(127.0.0.1:9000)/test``` | [clickhouse-go](https://github.com/ClickHouse/clickhouse-go) |
 | `dm` | ```dm:root:12345678@tcp(127.0.0.1:5236)/test``` | [dm](https://gitee.com/chunanyong/dm) |
+| `gaussdb` | ```gaussdb:root:12345678@tcp(127.0.0.1:5432)/test``` (v2.10.0+) | [openGauss-connector-go-pq](https://gitee.com/opengauss/openGauss-connector-go-pq) |
 
 :::tip
 更多框架支持的数据库类型请参考： [https://github.com/gogf/gf/tree/master/contrib/drivers](https://github.com/gogf/gf/tree/master/contrib/drivers)
