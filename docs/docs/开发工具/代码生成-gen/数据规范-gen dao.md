@@ -134,7 +134,7 @@ gfcli:
 | `prefix` |  | 生成数据库对象及文件的前缀，以便区分不同数据库或者不同数据库中的相同表名，防止数据表同名覆盖。 | `order_`<br />`user_` |
 | `removePrefix` |  | 删除数据表的指定前缀名称。多个前缀以 `,` 号分隔。 | `gf_` |
 | `removeFieldPrefix` |  | 删除字段名称的指定前缀名称。多个前缀以 `,` 号分隔。 | `f_` |
-| `tables` |  | 指定当前数据库中需要执行代码生成的数据表。如果为空，表示数据库的所有表都会生成。 | `user, user_detail` |
+| `tables` |  | 指定当前数据库中需要执行代码生成的数据表。如果为空，表示数据库的所有表都会生成。**从版本v2.10.0开始，支持通配符模式**，可以使用 `*` 和 `?` 通配符匹配多个表名，例如 `user_*` 匹配所有以 `user_` 开头的表，`user_*, order_*` 匹配多组表。 | `user, user_detail`<br />`user_*, order_*` |
 | `tablesEx` |  | `Tables Excluding`，指定当前数据库中需要排除代码生成的数据表。 | `product, order` |
 | `jsonCase` | `CamelLower` | 指定 `model` 中生成的数据实体对象中 `json` 标签名称规则，参数不区分大小写。参数可选为： `Camel`、 `CamelLower`、 `Snake`、 `SnakeScreaming`、 `SnakeFirstUpper`、 `Kebab`、 `KebabScreaming`。具体介绍请参考命名行帮助示例。 | `Snake` |
 | `stdTime` | `false` | 当数据表字段类型为时间类型时，代码生成的属性类型使用标准库的 `time.Time` 而不是框架的 `*gtime.Time` 类型。 | `true` |
@@ -159,6 +159,84 @@ gfcli:
 | `fieldMapping` |   | **从版本v2.8开始支持**。用于自定义数据表具体字段到生成的Go文件中对应属性类型映射。|    | 
 | `shardingPattern` |   | **从版本v2.9开始支持**。用于自定义数据表分表规则。|    | 
 | `genTable` | `false` | **从版本v2.9.5开始支持**。用于控制是否生成数据库表字段定义文件。 每个表会生成一个对应的 `Go` 文件，文件中包含了该表所有字段的详细定义，如字段名、类型、索引、是否为空等信息。这些生成的文件主要用于 `gdb` 内部理解表结构，每张表都有一个 `SetXxxTableFields` 函数，可以将表字段定义注册到数据库实例中| `true` |
+
+### 参数：`tables`
+
+参数`tables`用于指定需要生成代码的数据表。**从版本v2.10.0开始，支持通配符模式**，可以使用通配符来匹配多个表名，简化配置。
+
+#### 通配符支持
+
+支持的通配符：
+- `*`：匹配任意数量的字符（包括空字符）
+- `?`：匹配单个字符
+
+#### 使用场景
+
+当数据库中存在大量具有相同前缀或模式的表时，使用通配符可以避免逐一列举表名，简化配置并提高维护效率。例如：
+- 用户相关表：`user_info`、`user_profile`、`user_settings` 等
+- 订单相关表：`order_main`、`order_detail`、`order_log` 等
+- 产品相关表：`product_category`、`product_item`、`product_stock` 等
+
+#### 配置示例
+
+**单个通配符模式：**
+```yaml
+gfcli:
+  gen:
+    dao:
+    - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+      tables: "user_*"  # Match all tables starting with 'user_'
+```
+
+**多个通配符模式：**
+```yaml
+gfcli:
+  gen:
+    dao:
+    - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+      tables: "user_*, order_*, product_*"  # Match multiple table groups
+```
+
+**混合使用：**
+```yaml
+gfcli:
+  gen:
+    dao:
+    - link: "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+      tables: "user_*, order_main, product_?"  # Mix wildcards and exact names
+```
+
+#### 通配符示例
+
+假设数据库中有以下表：
+```text
+user_info
+user_profile
+user_settings
+order_main
+order_detail
+product_a
+product_b
+admin_log
+```
+
+不同通配符配置的匹配结果：
+
+| 配置 | 匹配的表 |
+| --- | --- |
+| `user_*` | `user_info`, `user_profile`, `user_settings` |
+| `order_*` | `order_main`, `order_detail` |
+| `product_?` | `product_a`, `product_b` |
+| `user_*, order_*` | `user_info`, `user_profile`, `user_settings`, `order_main`, `order_detail` |
+| `*_log` | `admin_log` |
+
+#### 注意事项
+
+1. **版本要求**：通配符模式支持需要`GoFrame CLI`版本 >= `v2.10.0`。
+2. **区别于分表**：通配符模式与 `shardingPattern` 参数不同。通配符用于选择需要生成代码的表，每个匹配的表都会生成独立的 `DAO` 文件；而 `shardingPattern` 用于将多个分片表识别为一个逻辑表，只生成一个 `DAO` 文件。
+3. **优先级**：如果同时配置了 `tables` 和 `tablesEx`，会先匹配 `tables` 的通配符，然后排除 `tablesEx` 指定的表。
+4. **性能考虑**：通配符模式会扫描数据库中的所有表进行匹配，如果数据库表数量非常多，建议使用更具体的模式以提高性能。
+
 ### 参数：`typeMapping`
 
 参数`typeMapping`支持配置数据库字段类型对应的`Go`数据类型，默认值为：
