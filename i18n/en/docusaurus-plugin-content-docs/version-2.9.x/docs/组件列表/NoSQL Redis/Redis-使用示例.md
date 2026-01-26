@@ -37,7 +37,8 @@ func main() {
 
 After execution, terminal output:
 
-```value
+```bash
+value
 ```
 
 ## `SetEx` Operation
@@ -81,7 +82,8 @@ func main() {
 
 After execution, terminal output:
 
-```false
+```bash
+false
 value
 true
 <nil>
@@ -138,7 +140,7 @@ func main() {
 
 After execution, terminal output:
 
-```
+```bash
 map[id:1 name:john score:100]
 {
     Id:    1,
@@ -184,7 +186,7 @@ func main() {
 
 After execution, terminal output:
 
-```
+```bash
 [
     "1",
     "john",

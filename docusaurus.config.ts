@@ -210,7 +210,7 @@ const config: Config = {
           label: '招聘/求职',
           href: 'https://github.com/gogf/jobs',
           position: 'left' as const,
-          className: 'navbar-jobs-link',
+          // className: 'navbar-jobs-link',
         }]),
 
         // 右边导航栏
