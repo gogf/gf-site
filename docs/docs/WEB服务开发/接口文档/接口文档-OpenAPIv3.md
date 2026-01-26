@@ -43,10 +43,159 @@ import TabItem from '@theme/TabItem';
 | `in` | 参数的提交方式 | `header/path/query/cookie` |
 | `default` | 参数的默认值 | 缩写 `d` |
 | `mime` | 接口的 `MIME` 类型，例如 `multipart/form-data` 一般是全局设置，默认为 `application/json`。 | 用于 `g.Meta` 标识接口元数据 |
-| `type` | 参数的类型，一般不需要设置，特殊参数需要手动设置，例如 `file` | 仅用于参数属性 |
+| `type` | 参数的类型，一般不需要设置。常用值：`file` 用于文件上传字段；`array` 用于请求体，表示请求体为 JSON 数组格式 `[{}]` 而非对象格式 `{}` | `file` 仅用于参数属性；`array` 仅用于 `g.Meta` |
 :::tip
 更多标签请参考标准的 `OpenAPIv3` 协议： [https://swagger.io/specification/](https://swagger.io/specification/)
 :::
+
+### 2、`type:"array"` 数组请求体支持
+
+当接口需要接收 JSON 数组格式的请求体时，可以在 `g.Meta` 中使用 `type:"array"` 标签。这在批量数据处理、批量操作等场景中非常有用。
+
+#### 2.1 使用示例
+
+```go
+package main
+
+import (
+    "context"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+)
+
+// 聊天消息请求结构
+type ChatMessage struct {
+    Role    string `json:"role" dc:"角色: system/user/assistant"`
+    Content string `json:"content" dc:"消息内容"`
+}
+
+// 批量聊天请求
+type BatchChatReq struct {
+    g.Meta        `mime:"application/json" method:"post" path:"/batch/chat" type:"array" summary:"批量聊天接口"`
+    Messages      []ChatMessage `json:"messages" dc:"消息列表"`
+}
+
+type BatchChatRes struct {
+    Results []string `json:"results" dc:"处理结果"`
+}
+
+type Controller struct{}
+
+func (c *Controller) BatchChat(ctx context.Context, req *BatchChatReq) (res *BatchChatRes, err error) {
+    // 处理批量消息
+    res = &BatchChatRes{
+        Results: make([]string, len(req.Messages)),
+    }
+    for i, msg := range req.Messages {
+        res.Results[i] = "Role: " + msg.Role + ", Content: " + msg.Content
+    }
+    return
+}
+
+func main() {
+    s := g.Server()
+    s.Group("/", func(group *ghttp.RouterGroup) {
+        group.Bind(new(Controller))
+    })
+    s.SetOpenApiPath("/api.json")
+    s.SetSwaggerPath("/swagger")
+    s.SetPort(8199)
+    s.Run()
+}
+```
+
+#### 2.2 请求体格式
+
+使用 `type:"array"` 后，请求体应为 JSON 数组格式：
+
+```json
+[
+    {"role": "user", "content": "hello"},
+    {"role": "assistant", "content": "world"}
+]
+```
+
+生成的 `OpenAPIv3` 文档中，请求体的 `schema.type` 将为 `"array"`，而不会生成对象类型的 Components Schema。
+
+#### 2.3 嵌套结构支持
+
+`type:"array"` 完全支持嵌套结构，包括对象嵌套和数组嵌套：
+
+```go
+package main
+
+import (
+    "context"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+)
+
+// 嵌套结构 - 额外信息
+type ExtraInfo struct {
+    Key1 string   `json:"key1" dc:"键1"`
+    Key2 int      `json:"key2" dc:"键2"`
+    Tags []string `json:"tags" dc:"标签列表"`
+}
+
+// 嵌套结构 - 聊天消息
+type ChatMessage struct {
+    Role    string     `json:"role" dc:"角色: system/user/assistant"`
+    Content string     `json:"content" dc:"消息内容"`
+    Extra   ExtraInfo  `json:"extra" dc:"额外信息"`
+}
+
+// 批量聊天请求
+type BatchChatReq struct {
+    g.Meta        `mime:"application/json" method:"post" path:"/batch/chat" type:"array" summary:"批量聊天接口"`
+    Messages      []ChatMessage `json:"messages" dc:"消息列表"`
+}
+
+type Controller struct{}
+
+func (c *Controller) BatchChat(ctx context.Context, req *BatchChatReq) (res *BatchChatRes, err error) {
+    // 处理嵌套结构
+    for _, msg := range req.Messages {
+        println("Role:", msg.Role)
+        println("Content:", msg.Content)
+        println("Extra.Key1:", msg.Extra.Key1)
+        println("Extra.Tags:", msg.Extra.Tags)
+    }
+    return
+}
+```
+
+**嵌套 JSON 请求体示例：**
+
+```json
+[
+    {
+        "role": "user",
+        "content": "hello",
+        "extra": {
+            "key1": "value1",
+            "key2": 123,
+            "tags": ["tag1", "tag2"]
+        }
+    },
+    {
+        "role": "assistant",
+        "content": "world",
+        "extra": {
+            "key1": "value2",
+            "key2": 456,
+            "tags": ["tag3"]
+        }
+    }
+]
+```
+
+#### 2.4 注意事项
+
+- `type:"array"` 需要与 `mime:"application/json"` 配合使用
+- 请求体会直接解析到结构体中的切片字段
+- 与 `type:"file"` 互斥，不应同时使用
 
 <!--
 
@@ -97,7 +246,7 @@ import TabItem from '@theme/TabItem';
 
 -->
 
-### 2、扩展标签
+### 3、扩展标签
 
 在 `OpenAPI` 规范里面，所有名称以 `x-` 开头的标签是开发者可自定义的扩展标签。扩展标签可以在任意的接口、属性中以 `Golang struct tag` 的形式定义，在接口文档生成时，将会作为独立的字段返回。例如：
 

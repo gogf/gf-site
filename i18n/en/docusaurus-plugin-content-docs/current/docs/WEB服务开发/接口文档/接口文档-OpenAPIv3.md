@@ -43,57 +43,161 @@ Commonly used basic tags include:
 | `in` | Parameter submission method | `header/path/query/cookie` |
 | `default` | Default value for the parameter | Abbreviation `d` |
 | `mime` | The `MIME` type of the API, such as `multipart/form-data`, generally set globally, defaults to `application/json`. | Used for `g.Meta` to mark API metadata |
-| `type` | The type of the parameter, generally not needed, special parameters may require manual setting, such as `file` | Only applicable to parameter attributes |
+| `type` | The type of the parameter. Common values: `file` for file upload fields; `array` for request body, indicating the request body is JSON array format `[{}]` instead of object format `{}` | `file` only for parameter attributes; `array` only for `g.Meta` |
 :::tip
 For more tags, please refer to the standard `OpenAPIv3` protocol: [https://swagger.io/specification/](https://swagger.io/specification/)
 :::
 
-In addition to the above tags, the `g.Meta` of the response structure also supports additional tags to set more detailed documentation information:
+### 2. `type:"array"` Array Request Body Support
 
-| Tag | Description | Remarks |
-| --- | --- | --- |
-| `status` | Set the default return status code of the response | Used for `g.Meta` to mark API metadata, default value is `200` |
-| `responseExample` | Set the `json` file path of the default return example of the response | Used for `g.Meta` to mark API metadata, abbreviation `resEg` |
+When an API needs to receive JSON array format request body, you can use `type:"array"` tag in `g.Meta`. This is very useful in batch data processing, batch operations, and other scenarios.
 
-The `json` file formats supported by `responseExample` are as follows:
+#### 2.1 Usage Example
 
-<Tabs>
-<TabItem value="array" label="Array">
+```go
+package main
+
+import (
+    "context"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+)
+
+// Chat message request structure
+type ChatMessage struct {
+    Role    string `json:"role" dc:"Role: system/user/assistant"`
+    Content string `json:"content" dc:"Message content"`
+}
+
+// Batch chat request
+type BatchChatReq struct {
+    g.Meta        `mime:"application/json" method:"post" path:"/batch/chat" type:"array" summary:"Batch chat API"`
+    Messages      []ChatMessage `json:"messages" dc:"Message list"`
+}
+
+type BatchChatRes struct {
+    Results []string `json:"results" dc:"Processing results"`
+}
+
+type Controller struct{}
+
+func (c *Controller) BatchChat(ctx context.Context, req *BatchChatReq) (res *BatchChatRes, err error) {
+    // Handle batch messages
+    res = &BatchChatRes{
+        Results: make([]string, len(req.Messages)),
+    }
+    for i, msg := range req.Messages {
+        res.Results[i] = "Role: " + msg.Role + ", Content: " + msg.Content
+    }
+    return
+}
+
+func main() {
+    s := g.Server()
+    s.Group("/", func(group *ghttp.RouterGroup) {
+        group.Bind(new(Controller))
+    })
+    s.SetOpenApiPath("/api.json")
+    s.SetSwaggerPath("/swagger")
+    s.SetPort(8199)
+    s.Run()
+}
+```
+
+#### 2.2 Request Body Format
+
+After using `type:"array"`, the request body should be in JSON array format:
+
+```json
+[
+    {"role": "user", "content": "hello"},
+    {"role": "assistant", "content": "world"}
+]
+```
+
+In the generated `OpenAPIv3` documentation, the request body's `schema.type` will be `"array"`, and will not generate object-type Components Schema.
+
+#### 2.3 Nested Structure Support
+
+`type:"array"` fully supports nested structures, including object nesting and array nesting:
+
+```go
+package main
+
+import (
+    "context"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/net/ghttp"
+)
+
+// Nested structure - extra information
+type ExtraInfo struct {
+    Key1 string   `json:"key1" dc:"Key 1"`
+    Key2 int      `json:"key2" dc:"Key 2"`
+    Tags []string `json:"tags" dc:"Tags list"`
+}
+
+// Nested structure - chat message
+type ChatMessage struct {
+    Role    string     `json:"role" dc:"Role: system/user/assistant"`
+    Content string     `json:"content" dc:"Message content"`
+    Extra   ExtraInfo  `json:"extra" dc:"Extra information"`
+}
+
+// Batch chat request
+type BatchChatReq struct {
+    g.Meta        `mime:"application/json" method:"post" path:"/batch/chat" type:"array" summary:"Batch chat API"`
+    Messages      []ChatMessage `json:"messages" dc:"Message list"`
+}
+
+type Controller struct{}
+
+func (c *Controller) BatchChat(ctx context.Context, req *BatchChatReq) (res *BatchChatRes, err error) {
+    // Handle nested structures
+    for _, msg := range req.Messages {
+        println("Role:", msg.Role)
+        println("Content:", msg.Content)
+        println("Extra.Key1:", msg.Extra.Key1)
+        println("Extra.Tags:", msg.Extra.Tags)
+    }
+    return
+}
+```
+
+**Nested JSON Request Body Example:**
+
 ```json
 [
     {
-        "code": 0,
-        "message": "Success",
-        "data": null
+        "role": "user",
+        "content": "hello",
+        "extra": {
+            "key1": "value1",
+            "key2": 123,
+            "tags": ["tag1", "tag2"]
+        }
     },
     {
-        "code": 1,
-        "message": "Internal Server Error",
-        "data": null
+        "role": "assistant",
+        "content": "world",
+        "extra": {
+            "key1": "value2",
+            "key2": 456,
+            "tags": ["tag3"]
+        }
     }
 ]
 ```
-</TabItem>
-<TabItem value="object" label="Object">
-```json
-{
-    "success": {
-        "code": 0,
-        "message": "Success",
-        "data": null
-    },
-    "error": {
-        "code": 1,
-        "message": "Internal Server Error",
-        "data": null
-    }
-}
-```
-</TabItem>
-</Tabs>
 
+#### 2.4 Notes
 
-### 2. Extension Tags
+- `type:"array"` needs to be used with `mime:"application/json"`
+- The request body will be directly parsed to the slice field in the structure
+- Mutually exclusive with `type:"file"`, should not be used together
+
+### 3. Extension Tags
 
 In the `OpenAPI` specification, all tags prefixed with `x-` are customizable extension tags by developers. Extension tags can be defined in any API or attribute using `Golang struct tag` format, and during the generation of API documentation, they will be returned as independent fields. For example:
 
