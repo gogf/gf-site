@@ -73,6 +73,9 @@ func SetDefaultGroup(groupName string)
 
 // 设置数据库配置为定义的配置信息，会将原有配置覆盖
 func SetConfig(c Config)
+
+// 获取所有数据库配置信息（从版本v2.10.0开始支持）
+func GetAllConfig() Config
 ```
 
 默认分组表示，如果获取数据库对象时不指定配置分组名称，那么 `gdb` 默认读取的配置分组。例如： `gdb.NewByGroup()` 可获取一个默认分组的数据库对象。简单的做法，我们可以通过 `gdb` 包的 `SetConfig` 配置管理方法进行自定义的数据库全局配置，例如：
@@ -117,3 +120,55 @@ gdb.SetConfig(gdb.Config {
 ```
 
 随后，我们可以使用 `gdb.NewByGroup("数据库分组名称")` 来获取一个数据库操作对象。该对象用于后续的数据库一系列方法/链式操作。
+
+## 获取所有配置
+
+从版本`v2.10.0`开始，`gdb`提供了`GetAllConfig`方法用于获取所有数据库配置信息，方便进行配置验证、配置导出等业务操作。
+
+### 方法定义
+
+```go
+func GetAllConfig() Config
+```
+
+该方法返回类型为`Config`，即`map[string]ConfigGroup`，包含了所有已注册的数据库分组配置。
+
+### 使用示例
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/gogf/gf/v2/database/gdb"
+)
+
+func main() {
+    // 获取所有数据库配置
+    allConfig := gdb.GetAllConfig()
+    
+    // 遍历所有配置分组
+    for groupName, configGroup := range allConfig {
+        fmt.Printf("数据库分组: %s\n", groupName)
+        
+        // 遍历分组中的所有节点
+        for i, node := range configGroup {
+            fmt.Printf("  节点 %d:\n", i+1)
+            fmt.Printf("    Host: %s\n", node.Host)
+            fmt.Printf("    Port: %s\n", node.Port)
+            fmt.Printf("    Name: %s\n", node.Name)
+            fmt.Printf("    Type: %s\n", node.Type)
+            fmt.Printf("    Role: %s\n", node.Role)
+        }
+    }
+}
+```
+
+### 应用场景
+
+`GetAllConfig`方法主要用于以下场景：
+
+1. **配置验证**：在应用启动时验证所有数据库配置是否正确。
+2. **配置导出**：将当前数据库配置导出到文件或其他存储介质。
+3. **监控和诊断**：在运行时检查数据库配置，用于故障排查。
+4. **配置管理界面**：为管理后台提供配置查看和编辑功能。

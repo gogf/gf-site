@@ -135,7 +135,7 @@ gfcli:
 | `removePrefix` |  | 删除数据表的指定前缀名称。多个前缀以 `,` 号分隔。 | `gf_` |
 | `removeFieldPrefix` |  | 删除字段名称的指定前缀名称。多个前缀以 `,` 号分隔。 | `f_` |
 | `tables` |  | 指定当前数据库中需要执行代码生成的数据表。如果为空，表示数据库的所有表都会生成。**从版本v2.10.0开始，支持通配符模式**，可以使用 `*` 和 `?` 通配符匹配多个表名，例如 `user_*` 匹配所有以 `user_` 开头的表，`user_*, order_*` 匹配多组表。 | `user, user_detail`<br />`user_*, order_*` |
-| `tablesEx` |  | `Tables Excluding`，指定当前数据库中需要排除代码生成的数据表。 | `product, order` |
+| `tablesEx` |  | `Tables Excluding`，指定当前数据库中需要排除代码生成的数据表。**从版本v2.10.0开始，支持通配符模式**，可以使用 `*` 匹配任意数量字符（包括空字符），使用 `?` 匹配单个字符，例如 `temp_*` 排除所有以 `temp_` 开头的临时表，`test_?` 排除如 `test_1`、`test_a` 等单字符后缀的表。 | `product, order`<br />`temp_*, test_?` |
 | `jsonCase` | `CamelLower` | 指定 `model` 中生成的数据实体对象中 `json` 标签名称规则，参数不区分大小写。参数可选为： `Camel`、 `CamelLower`、 `Snake`、 `SnakeScreaming`、 `SnakeFirstUpper`、 `Kebab`、 `KebabScreaming`。具体介绍请参考命名行帮助示例。 | `Snake` |
 | `stdTime` | `false` | 当数据表字段类型为时间类型时，代码生成的属性类型使用标准库的 `time.Time` 而不是框架的 `*gtime.Time` 类型。 | `true` |
 | `withTime` | `false` | 为每个自动生成的代码文件增加生成时间注释 |  |
