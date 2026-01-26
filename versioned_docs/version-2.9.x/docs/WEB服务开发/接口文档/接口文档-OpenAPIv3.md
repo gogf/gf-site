@@ -312,4 +312,4 @@ func openApiBasicAuth(r *ghttp.Request) {
 }
 ```
 
-详细介绍请参考代码示例文档：[swagger-auth](../../../examples/httpserver/swagger-auth/swagger-auth.md)
+详细介绍请参考代码示例文档：[swagger-auth](../../../../../docs/examples/httpserver/swagger-auth/swagger-auth.md)
