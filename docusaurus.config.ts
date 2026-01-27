@@ -107,6 +107,7 @@ const config: Config = {
         disableInDev: true,
       } satisfies IdealImageOptions,
     ],
+    require.resolve('./plugins/version-filter-plugin'),
   ],
   themeConfig: {
     metadata: [
