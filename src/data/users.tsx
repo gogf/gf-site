@@ -104,7 +104,7 @@ const Users: User[] = [
     preview: require('./showcase/easy-go-admin.png'),
     website: 'https://www.easygoadmin.vip/',
     source: 'https://gitee.com/easygoadmin/EasyGoAdmin_GoFrame_EleVue',
-    tags: ['opensource', 'favorite', 'adminui', 'product', 'v1'],
+    tags: ['opensource', 'adminui', 'product', 'v1'],
   },
   {
     title: 'SagooIOT',
@@ -240,7 +240,7 @@ const Users: User[] = [
     preview: require('./showcase/50CMSgo.jpg'),
     website: 'https://gitee.com/dexters/50CMSgo',
     source: 'https://gitee.com/dexters/50CMSgo',
-    tags: ['opensource', 'adminui', 'frontui', 'v2'],
+    tags: ['opensource', 'favorite', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'TEN-Agent',

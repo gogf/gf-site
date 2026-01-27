@@ -66,6 +66,12 @@
   background-color: var(--ifm-color-emphasis-300) !important;
 }
 
+.starsImage {
+  height: 20px;
+  margin-left: 8px;
+  display: inline-block;
+}
+
 .showcaseCardBody {
   font-size: smaller;
   line-height: 1.66;

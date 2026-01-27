@@ -60,8 +60,23 @@ function getCardImage(user: User): string {
   );
 }
 
+function getStarsUrl(source: string | null): string | null {
+  if (!source || !source.includes('github.com')) {
+    return null;
+  }
+  // Extract owner/repo from GitHub URL
+  const match = source.match(/github\.com\/([^/]+)\/([^/]+)\/?$/);
+  if (match) {
+    const owner = match[1];
+    const repo = match[2];
+    return `https://img.shields.io/github/stars/${owner}/${repo}?style=flat`;
+  }
+  return null;
+}
+
 function ShowcaseCard({user}: {user: User}) {
   const image = getCardImage(user);
+  const starsUrl = getStarsUrl(user.source);
   return (
     <li key={user.title} className="card shadow--md">
       <div className={clsx('card__image', styles.showcaseCardImage)}>
@@ -76,6 +91,13 @@ function ShowcaseCard({user}: {user: User}) {
           </Heading>
           {user.tags.includes('favorite') && (
             <FavoriteIcon size="medium"/>
+          )}
+          {starsUrl && (
+            <img 
+              src={starsUrl} 
+              alt="GitHub stars"
+              className={styles.starsImage}
+            />
           )}
           {user.source && (
             <Link
