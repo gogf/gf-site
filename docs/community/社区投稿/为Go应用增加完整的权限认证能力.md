@@ -574,14 +574,13 @@ func (s *userService) ExportUserData(ctx context.Context, userId int) (string, e
 
 
 
-## 6. 一些最佳实践建议
+## 4. 一些最佳实践建议
 
-### 6.1 权限粒度控制
+### 4.1 权限粒度控制
 
 根据实际业务需求设计合适的权限粒度，过细会增加管理难度，过粗则无法满足精细化控制需求。
 
-### 6.2 使用权限缓存
-
+### 4.2 使用权限缓存
 对于频繁访问的权限信息，可以使用缓存提高性能：
 
 ```go
@@ -605,7 +604,7 @@ func (s *AuthService) CheckUserPermission(ctx context.Context, userId int, authK
 }
 ```
 
-### 6.3 权限预加载
+### 4.3 权限预加载
 
 用户登录后，可以一次性加载该用户的所有权限到缓存，减少数据库查询。根据缓存过期的策略设计，缓存可以选择`GoFrame`提供的两种组件来实现：
 - `gmap`库实现：线程安全，适合在内存中长期存储缓存数据，不过期，或自行定期清理。
@@ -669,7 +668,7 @@ func (s *AuthService) CheckUserPermissionFast(ctx context.Context, userId int, a
 }
 ```
 
-### 6.4 权限更新策略
+### 4.4 权限更新策略
 
 当权限发生变更时，及时清除相关缓存，这种方式适合使用分布式的的缓存管理服务，例如`Redis`。
 
@@ -682,7 +681,7 @@ func (s *AuthService) ClearUserPermissionCache(userId int) {
 }
 ```
 
-### 6.5 路由权限自动更新
+### 4.5 路由权限自动更新
 
 在开发环境中，可以启用自动更新权限表功能；在生产环境中，可以考虑手动确认后再更新，避免误操作。
 
