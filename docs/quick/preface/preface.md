@@ -3,6 +3,7 @@ slug: '/preface'
 title: '写在最前'
 sidebar_position: 0
 hide_title: true
+notSkillReference: true
 ---
 
 朋友，你来晚了，不过没关系，我们的故事从现在开始，我们准备了一些使用指南，助你快速了解 `GoFrame`。

@@ -17,6 +17,7 @@ keywords:
     go get,
   ]
 description: 'Go Module这一包管理工具的使用方法，涵盖了如何通过Goland IDE和命令行进行依赖管理，并提供了设置go.mod文件及使用代理下载GoFrame框架的实用指导。通过开启Go Module特性和选择适当的Proxy地址，能够高效管理项目包依赖，从而提升开发效率。'
+notSkillReference: true
 ---
 
 `Go Module` 是从 Go 版本 `1.11.1` 开始官方提供的包管理工具，用于解决`Go`项目的包管理及依赖，类似于`PHP`的 `composer`、`Nodejs`的 `npm`。
