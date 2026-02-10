@@ -4,7 +4,7 @@ title: '项目创建-init'
 sidebar_position: 3
 hide_title: true
 keywords: [GoFrame,GoFrame框架,项目创建,gf init,MonoRepo,GoFrame空框架,代码分层设计,go module,资源管理,微服务大仓管理模式]
-description: '使用GoFrame框架提供的gf init命令创建项目。自v2版本起，项目创建更快速，不再依赖远端，模板已内置于二进制文件中。您可以按照需要选择初始化单仓或大仓项目模式，并灵活调整生成的目录结构以适应实际业务需求。'
+description: 'GoFrame框架提供的项目初始化命令工具，通过gf init命令快速创建标准化的GoFrame项目脚手架。从v2版本开始，项目模板已内置于工具二进制文件中，创建速度极快。支持创建SingleRepo单仓项目和MonoRepo大仓项目两种模式，生成的目录结构遵循框架推荐的代码分层设计规范，包含api、internal、manifest等标准目录，自动生成go.mod模块文件。项目结构采用通用化设计，开发者可根据实际需求灵活调整，适合各种规模和类型的Go项目开发。'
 ---
 :::tip
 从 `v2` 版本开始，项目的创建不再依赖远端获取，仓库模板已经通过 [资源管理](../核心组件/资源管理/资源管理.md) 的方式内置到了工具二进制文件中，因此项目创建速度非常迅速。

@@ -4,14 +4,14 @@ title: '日志组件-Context'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,GoFrame框架,glog,日志组件,Context,CtxKeys,日志输出,OpenTelemetry,链路跟踪,Handler]
-description: 'GoFrame框架中glog日志组件的使用，特别是如何通过Context上下文变量实现日志打印。文章详细讲解了自定义CtxKeys的配置和使用示例，并提供了链路跟踪支持的功能。此外，还涉及了日志Handler的实现，以帮助开发者更好地集成日志功能。'
+description: '详细讲解`GoFrame`框架`glog`日志组件如何通过`Context`上下文变量实现日志打印（`v2+`版本`ctx`为必选参数）。重点介绍自定义`CtxKeys`配置，通过配置文件指定需要从`context.Context`中读取并输出的键名（如`RequestId`、`UserId`）。说明不能使用自定义类型作为Key的注意事项，内置支持`OpenTelemetry`标准的链路跟踪特性，以及Context会传递给自定义`Handler`。'
 ---
 
-从 `v2` 版本开始， `glog` 组件将 `ctx` 上下文变量作为日志打印的必需参数。
+从`v2`版本开始，`glog`组件将`ctx`上下文变量作为日志打印的必需参数。
 
-## 自定义 `CtxKeys`
+## 自定义`CtxKeys`
 
-日志组件支持自定义的键值打印，通过 `ctx` 上下文变量中读取。
+日志组件支持自定义的键值打印，通过`ctx`上下文变量中读取。
 
 ### 使用配置
 
@@ -23,7 +23,7 @@ logger:
   CtxKeys: ["RequestId", "UserId"]
 ```
 
-其中 `CtxKeys` 用于配置需要从 `context.Context` 接口对象中读取并输出的键名。
+其中`CtxKeys`用于配置需要从`context.Context`接口对象中读取并输出的键名。
 
 ### 日志输出
 

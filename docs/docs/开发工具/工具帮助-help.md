@@ -4,7 +4,7 @@ title: '工具帮助-help'
 sidebar_position: 11
 hide_title: true
 keywords: [GoFrame,GoFrame框架,CLI工具,gf命令,帮助文档,命令行工具,软件帮助,工具使用,sidebar位置]
-description: '使用GoFrame框架的CLI工具的帮助命令，通过输入gf -h或gf [COMMAND] -h来获取帮助信息。如果您在使用过程中遇到问题，可随时使用help命令查询相关帮助。在这里，您还可以了解到具体的sidebar位置的相关信息。'
+description: 'GoFrame命令行工具的帮助命令使用指南，通过gf -h查看gf工具的所有命令列表和基本使用说明，通过gf [COMMAND] -h查看特定命令的详细帮助信息和参数说明。帮助命令是快速掌握工具使用方法的最佳途径，对于初学者或遇到使用问题时，优先使用help命令查阅内置的帮助信息，可以快速解决大部分常见问题，提供命令用法、选项参数、示例用例等详尽信息。'
 ---
 
 使用方式：

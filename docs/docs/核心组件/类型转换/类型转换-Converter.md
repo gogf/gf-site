@@ -4,7 +4,7 @@ title: '类型转换-Converter'
 sidebar_position: 6000
 hide_title: true
 keywords: [GoFrame,GoFrame框架,类型转换,Converter,转换对象,严谨转换,错误处理,自定义转换,类型转换接口]
-description: '使用GoFrame框架的gconv.Converter接口实现严谨的类型转换，支持错误处理、自定义转换规则和类型注册。相比传统的gconv包方法，Converter提供更严格的类型检查和错误处理机制，适合对数据准确性要求高的场景。'
+description: '详细介绍`GoFrame`框架`v2.9`版本新增的`gconv.Converter`类型转换接口，提供更严谨、更灵活的类型转换机制。支持创建转换对象实现严格的类型检查和错误处理，转换失败时返回错误而非零值。包含整数、浮点数、时间、结构体、Map、切片等多种类型的转换能力，支持注册自定义转换函数，可创建多个独立配置的转换器实例。相比传统`gconv`包方法，适合对数据准确性要求高的场景，提供一致的API设计和完整的错误处理机制。'
 ---
 
 
@@ -46,14 +46,14 @@ type Converter interface {
 - `ConverterForUint`：无符号整数类型转换
 - `ConverterForFloat`：浮点数类型转换
 - `ConverterForTime`：时间类型转换
-- `ConverterForMap`：Map类型转换
+- `ConverterForMap`：`Map`类型转换
 - `ConverterForSlice`：切片类型转换
 - `ConverterForStruct`：结构体类型转换
 - `ConverterForConvert`：自定义类型转换
 - `ConverterForRegister`：注册自定义转换函数
 
 
-## 创建Converter对象
+## 创建`Converter`对象
 
 使用`gconv.NewConverter()`函数可以创建一个新的`Converter`对象：
 

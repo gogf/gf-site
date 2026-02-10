@@ -4,10 +4,10 @@ title: '日志组件-Flags特性'
 sidebar_position: 12
 hide_title: true
 keywords: [GoFrame,GoFrame框架,glog,日志组件,Flags特性,日志异步输出,调用行号信息,时间格式,日期时间,毫秒]
-description: 'GoFrame框架中日志组件的Flags特性，说明如何通过不同的常量组合来控制日志输出的额外特性，包括异步输出、调用行号信息打印以及多种时间格式的选择。这些特性能够帮助开发者实现更灵活的日志记录和调试。'
+description: '详细介绍`GoFrame`框架`glog`日志组件的`Flags`特性，通过常量组合控制日志输出的额外特性。包括`F_ASYNC`异步输出、`F_FILE_LONG`和`F_FILE_SHORT`调用行号信息打印（完整路径或仅文件名）、`F_TIME_DATE`日期、`F_TIME_TIME`时间、`F_TIME_MILLI`毫秒时间、`F_TIME_STD`默认格式（日期+时间+毫秒）。提供完整示例展示如何使用`SetFlags`方法组合配置日志输出格式，帮助开发者实现灵活的日志记录和调试。'
 ---
 
-`flags` 用于控制日志组件的额外特性开关，这些属性使用常量进行组合控制，包括：
+`flags`用于控制日志组件的额外特性开关，这些属性使用常量进行组合控制，包括：
 
 ```go
 F_ASYNC      = 1 << iota // 开启日志异步输出

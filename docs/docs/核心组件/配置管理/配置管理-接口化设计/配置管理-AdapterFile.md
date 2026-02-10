@@ -4,7 +4,7 @@ title: '配置管理-AdapterFile'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,配置管理,AdapterFile,g.Cfg对象,基于文件的配置,gcfg.NewWithAdapter,配置组件,配置加载,Go语言]
-description: 'GoFrame框架中配置管理的实现，主要通过AdapterFile进行基于文件的配置加载和读取。用户可以通过g.Cfg单例对象便捷地使用配置管理，亦可通过gcfg.NewWithAdapter方法创建配置管理对象。示例代码展示了如何在Go语言中实现和运行这些配置操作。'
+description: '全面讲解`GoFrame`框架`gcfg`组件中`AdapterFile`的使用，作为框架默认的配置管理实现方式，基于文件进行配置加载和读取。介绍两种使用方式：通过`g.Cfg()`单例对象便捷使用，或通过`gcfg.NewWithAdapter`方法创建自定义配置管理对象。提供完整代码示例展示YAML配置文件的加载和读取，包括服务器和数据库配置。'
 ---
 
 ## `AdapterFile`

@@ -4,7 +4,7 @@ title: '配置管理-AdapterContent'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,配置管理,AdapterContent,配置内容,配置格式,g.Cfg单例,gcfg,配置示例,Golang框架]
-description: '使用GoFrame框架中的AdapterContent接口来管理配置。用户可以通过给定具体的配置内容生成相应的Adapter接口对象，支持多种格式。通过示例代码展示了如何使用g.Cfg单例对象进行基于文件的配置管理。'
+description: '详细介绍`GoFrame`框架`gcfg`组件中`AdapterContent`接口的使用，基于配置内容实现，用户可直接提供具体的配置内容生成`Adapter`接口对象。支持多种配置格式（YAML、JSON、TOML等）。通过代码示例展示如何使用`gcfg.NewAdapterContent`方法创建基于内容的配置管理对象，无需依赖外部配置文件，适用于嵌入式配置场景。'
 ---
 
 ## `AdapterContent`

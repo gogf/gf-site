@@ -4,7 +4,7 @@ title: '协议编译-gen pb'
 sidebar_position: 4
 hide_title: true
 keywords: [GoFrame,GoFrame框架,协议编译,protobuf,GoFrame gen pb,协议文件,控制器文件,命令行工具,生成Go文件,CLI工具]
-description: '使用GoFrame框架中的命令行工具来编译proto文件，生成相应的protobuf Go文件和控制器文件。通过gf gen pb命令，用户可以设置不同的路径以存储生成的接口和控制器文件，满足项目工程的需求。同时，本文还列出了该命令的使用指南和注意事项，以便于开发者更好地使用这个功能。'
+description: 'GoFrame框架的协议编译命令工具，用于编译protobuf协议文件并自动生成相应的Go语言接口代码和控制器文件。该命令支持自定义接口文件和控制器文件的输出路径配置，能够智能识别已存在的接口实现方法并避免重复生成，有效防止代码覆盖。通过gf gen pb命令可以快速完成从proto协议定义到Go代码实现的转换，显著提升gRPC服务开发效率，简化微服务架构中的接口定义和实现流程。'
 ---
 :::tip
 该功能特性从 `v2.4` 版本开始提供。

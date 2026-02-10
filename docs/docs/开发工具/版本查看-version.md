@@ -4,7 +4,7 @@ title: '版本查看-version'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,gf命令行,版本查看,gf version,CLI工具,Golang版本,技术文档,代码编译,环境配置]
-description: '使用GoFrame命令行工具查看版本信息，包括gf -v和gf version的使用方式。内容涵盖不同版本的使用示例，展示GoFrame在项目中的具体版本信息，并说明CLI编译细节和注意事项，帮助用户准确理解GoFrame版本与Golang及相关技术的关系。'
+description: 'GoFrame命令行工具的版本信息查看命令，通过gf -v或gf version查看gf工具的详细版本信息。命令会显示多项关键信息：CLI工具本身的编译版本、当前项目go.mod中使用的GoFrame框架版本、Go编译器版本、Git提交版本和构建时间等。特别需要注意区分项目中引用的GoFrame版本与CLI工具编译时的GF版本，这两者可能不同。该命令对于排查版本兼容性问题和确认工具安装状态非常有用。'
 ---
 
 ## 使用方式
