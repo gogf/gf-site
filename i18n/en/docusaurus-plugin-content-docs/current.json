@@ -2,5 +2,481 @@
   "version.label": {
     "message": "2.10.x(Latest)",
     "description": "The label for version current"
+  },
+  "sidebar.mainSidebar.category.CLI Tool": {
+    "message": "CLI Tool",
+    "description": "The label for category CLI Tool in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Code Generating": {
+    "message": "Code Generating",
+    "description": "The label for category Code Generating in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Core Components 🔥": {
+    "message": "Core Components 🔥",
+    "description": "The label for category Core Components 🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Command": {
+    "message": "Command",
+    "description": "The label for category Command in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Configuration - Interface": {
+    "message": "Configuration - Interface",
+    "description": "The label for category Configuration - Interface in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Logging": {
+    "message": "Logging",
+    "description": "The label for category Logging in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Error Handling": {
+    "message": "Error Handling",
+    "description": "The label for category Error Handling in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Error Handling - Error Code": {
+    "message": "Error Handling - Error Code",
+    "description": "The label for category Error Handling - Error Code in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Data Validation": {
+    "message": "Data Validation",
+    "description": "The label for category Data Validation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Data Validation - Data Type": {
+    "message": "Data Validation - Data Type",
+    "description": "The label for category Data Validation - Data Type in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Data Type - Map": {
+    "message": "Data Type - Map",
+    "description": "The label for category Data Type - Map in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Data Type - Struct": {
+    "message": "Data Type - Struct",
+    "description": "The label for category Data Type - Struct in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Data Validation - Custom": {
+    "message": "Data Validation - Custom",
+    "description": "The label for category Data Validation - Custom in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Type Conversion": {
+    "message": "Type Conversion",
+    "description": "The label for category Type Conversion in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Database ORM🔥": {
+    "message": "Database ORM🔥",
+    "description": "The label for category Database ORM🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Configuration": {
+    "message": "ORM - Configuration",
+    "description": "The label for category ORM - Configuration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Model 🔥": {
+    "message": "ORM - Model 🔥",
+    "description": "The label for category ORM - Model 🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM Model - Query": {
+    "message": "ORM Model - Query",
+    "description": "The label for category ORM Model - Query in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM Model - Association": {
+    "message": "ORM Model - Association",
+    "description": "The label for category ORM Model - Association in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM Model - Time Fields": {
+    "message": "ORM Model - Time Fields",
+    "description": "The label for category ORM Model - Time Fields in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Transaction": {
+    "message": "ORM - Transaction",
+    "description": "The label for category ORM - Transaction in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Result Handling": {
+    "message": "ORM - Result Handling",
+    "description": "The label for category ORM - Result Handling in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Sharding": {
+    "message": "ORM - Sharding",
+    "description": "The label for category ORM - Sharding in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Senior Features": {
+    "message": "ORM - Senior Features",
+    "description": "The label for category ORM - Senior Features in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Interface": {
+    "message": "ORM - Interface",
+    "description": "The label for category ORM - Interface in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.ORM - Best Practices": {
+    "message": "ORM - Best Practices",
+    "description": "The label for category ORM - Best Practices in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Caching": {
+    "message": "Caching",
+    "description": "The label for category Caching in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Template Engine": {
+    "message": "Template Engine",
+    "description": "The label for category Template Engine in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Template Engine - Funcs": {
+    "message": "Template Engine - Funcs",
+    "description": "The label for category Template Engine - Funcs in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.I18N": {
+    "message": "I18N",
+    "description": "The label for category I18N in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Resource": {
+    "message": "Resource",
+    "description": "The label for category Resource in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Components Category": {
+    "message": "Components Category",
+    "description": "The label for category Components Category in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Container": {
+    "message": "Container",
+    "description": "The label for category Container in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Map": {
+    "message": "Map",
+    "description": "The label for category Map in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Array": {
+    "message": "Array",
+    "description": "The label for category Array in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Set": {
+    "message": "Set",
+    "description": "The label for category Set in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.List": {
+    "message": "List",
+    "description": "The label for category List in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Generic": {
+    "message": "Generic",
+    "description": "The label for category Generic in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Safe Type": {
+    "message": "Safe Type",
+    "description": "The label for category Safe Type in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Queue": {
+    "message": "Queue",
+    "description": "The label for category Queue in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tree": {
+    "message": "Tree",
+    "description": "The label for category Tree in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Pool": {
+    "message": "Pool",
+    "description": "The label for category Pool in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Concurrency-Safe Ring-gring": {
+    "message": "Concurrency-Safe Ring-gring",
+    "description": "The label for category Concurrency-Safe Ring-gring in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.System": {
+    "message": "System",
+    "description": "The label for category System in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Time": {
+    "message": "Time",
+    "description": "The label for category Time in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Timer": {
+    "message": "Timer",
+    "description": "The label for category Timer in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Cron Job": {
+    "message": "Cron Job",
+    "description": "The label for category Cron Job in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.File Watching": {
+    "message": "File Watching",
+    "description": "The label for category File Watching in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Process": {
+    "message": "Process",
+    "description": "The label for category Process in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Text": {
+    "message": "Text",
+    "description": "The label for category Text in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Regular Expression": {
+    "message": "Regular Expression",
+    "description": "The label for category Regular Expression in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Codec": {
+    "message": "Codec",
+    "description": "The label for category Codec in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.General Codec": {
+    "message": "General Codec",
+    "description": "The label for category General Codec in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Database": {
+    "message": "Database",
+    "description": "The label for category Database in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Network": {
+    "message": "Network",
+    "description": "The label for category Network in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.TCP": {
+    "message": "TCP",
+    "description": "The label for category TCP in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.TCP - Object": {
+    "message": "TCP - Object",
+    "description": "The label for category TCP - Object in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.UDP": {
+    "message": "UDP",
+    "description": "The label for category UDP in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Crypto": {
+    "message": "Crypto",
+    "description": "The label for category Crypto in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Utilities": {
+    "message": "Utilities",
+    "description": "The label for category Utilities in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Testing": {
+    "message": "Testing",
+    "description": "The label for category Testing in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Errors": {
+    "message": "Errors",
+    "description": "The label for category Errors in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Debugging": {
+    "message": "Debugging",
+    "description": "The label for category Debugging in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.NoSQL Redis": {
+    "message": "NoSQL Redis",
+    "description": "The label for category NoSQL Redis in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.WEB Service Development": {
+    "message": "WEB Service Development",
+    "description": "The label for category WEB Service Development in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Router 🔥": {
+    "message": "Router 🔥",
+    "description": "The label for category Router 🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Router - Registration": {
+    "message": "Router - Registration",
+    "description": "The label for category Router - Registration in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Standard Router": {
+    "message": "Standard Router",
+    "description": "The label for category Standard Router in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Router - Middleware": {
+    "message": "Router - Middleware",
+    "description": "The label for category Router - Middleware in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.API Document": {
+    "message": "API Document",
+    "description": "The label for category API Document in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Request 🔥": {
+    "message": "Request 🔥",
+    "description": "The label for category Request 🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Response": {
+    "message": "Response",
+    "description": "The label for category Response in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Session": {
+    "message": "Session",
+    "description": "The label for category Session in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.HTTPClient": {
+    "message": "HTTPClient",
+    "description": "The label for category HTTPClient in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Pagination": {
+    "message": "Pagination",
+    "description": "The label for category Pagination in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Advanced Features": {
+    "message": "Advanced Features",
+    "description": "The label for category Advanced Features in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Microservice Development": {
+    "message": "Microservice Development",
+    "description": "The label for category Microservice Development in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Service Observability": {
+    "message": "Service Observability",
+    "description": "The label for category Service Observability in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Service Tracing": {
+    "message": "Service Tracing",
+    "description": "The label for category Service Tracing in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Tracing - HTTP Example": {
+    "message": "Tracing - HTTP Example",
+    "description": "The label for category Tracing - HTTP Example in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.链路跟踪-最佳实践": {
+    "message": "链路跟踪-最佳实践",
+    "description": "The label for category 链路跟踪-最佳实践 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Service Metrics": {
+    "message": "Service Metrics",
+    "description": "The label for category Service Metrics in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Project Deployment": {
+    "message": "Project Deployment",
+    "description": "The label for category Project Deployment in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Framework Design": {
+    "message": "Framework Design",
+    "description": "The label for category Framework Design in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Engineering Design 🔥": {
+    "message": "Engineering Design 🔥",
+    "description": "The label for category Engineering Design 🔥 in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.DAO Encapsulation": {
+    "message": "DAO Encapsulation",
+    "description": "The label for category DAO Encapsulation in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Other Documents": {
+    "message": "Other Documents",
+    "description": "The label for category Other Documents in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.Environment Preparation": {
+    "message": "Environment Preparation",
+    "description": "The label for category Environment Preparation in sidebar mainSidebar"
+  },
+  "sidebar.quickSidebar.category.Quick Start": {
+    "message": "Quick Start",
+    "description": "The label for category Quick Start in sidebar quickSidebar"
+  },
+  "sidebar.quickSidebar.category.Project Scaffold🌟": {
+    "message": "Project Scaffold🌟",
+    "description": "The label for category Project Scaffold🌟 in sidebar quickSidebar"
+  },
+  "sidebar.quickSidebar.category.API Development Tutorial🌟": {
+    "message": "API Development Tutorial🌟",
+    "description": "The label for category API Development Tutorial🌟 in sidebar quickSidebar"
+  },
+  "sidebar.releaseSidebar.category.Historical Version v1.x": {
+    "message": "Historical Version v1.x",
+    "description": "The label for category Historical Version v1.x in sidebar releaseSidebar"
+  },
+  "sidebar.releaseSidebar.category.Historical Version v0.x": {
+    "message": "Historical Version v0.x",
+    "description": "The label for category Historical Version v0.x in sidebar releaseSidebar"
+  },
+  "sidebar.releaseSidebar.category.Go Release Notes": {
+    "message": "Go Release Notes",
+    "description": "The label for category Go Release Notes in sidebar releaseSidebar"
+  },
+  "sidebar.examplesSidebar.category.gRPC": {
+    "message": "gRPC",
+    "description": "The label for category gRPC in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.NoSQL": {
+    "message": "NoSQL",
+    "description": "The label for category NoSQL in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Database": {
+    "message": "Database",
+    "description": "The label for category Database in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.HTTP Server": {
+    "message": "HTTP Server",
+    "description": "The label for category HTTP Server in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Observability": {
+    "message": "Observability",
+    "description": "The label for category Observability in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Metric": {
+    "message": "Metric",
+    "description": "The label for category Metric in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Tracing": {
+    "message": "Tracing",
+    "description": "The label for category Tracing in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Load Balancer": {
+    "message": "Load Balancer",
+    "description": "The label for category Load Balancer in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Service Config": {
+    "message": "Service Config",
+    "description": "The label for category Service Config in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Service Registry": {
+    "message": "Service Registry",
+    "description": "The label for category Service Registry in sidebar examplesSidebar"
+  },
+  "sidebar.examplesSidebar.category.Practices": {
+    "message": "Practices",
+    "description": "The label for category Practices in sidebar examplesSidebar"
+  },
+  "sidebar.communitySidebar.category.Community Exchange": {
+    "message": "Community Exchange",
+    "description": "The label for category Community Exchange in sidebar communitySidebar"
+  },
+  "sidebar.communitySidebar.category.技术分享交流": {
+    "message": "Community Exchange",
+    "description": "The label for category 技术分享交流 in sidebar communitySidebar"
+  },
+  "sidebar.communitySidebar.category.Support Us": {
+    "message": "Support Us",
+    "description": "The label for category Support Us in sidebar communitySidebar"
+  },
+  "sidebar.communitySidebar.category.Community Articles": {
+    "message": "Community Articles",
+    "description": "The label for category Community Articles in sidebar communitySidebar"
+  },
+  "sidebar.courseStarBookSidebar.category.Chapter 1 - Basic Information": {
+    "message": "Chapter 1 - Basic Information",
+    "description": "The label for category Chapter 1 - Basic Information in sidebar courseStarBookSidebar"
+  },
+  "sidebar.courseStarBookSidebar.category.Chapter 2 - User Registration": {
+    "message": "Chapter 2 - User Registration",
+    "description": "The label for category Chapter 2 - User Registration in sidebar courseStarBookSidebar"
+  },
+  "sidebar.courseStarBookSidebar.category.Chapter 3 - Session Management": {
+    "message": "Chapter 3 - Session Management",
+    "description": "The label for category Chapter 3 - Session Management in sidebar courseStarBookSidebar"
+  },
+  "sidebar.courseStarBookSidebar.category.Chapter 4 - Word Management": {
+    "message": "Chapter 4 - Word Management",
+    "description": "The label for category Chapter 4 - Word Management in sidebar courseStarBookSidebar"
+  },
+  "sidebar.courseStarBookSidebar.category.Chapter 5 - Learning Words": {
+    "message": "Chapter 5 - Learning Words",
+    "description": "The label for category Chapter 5 - Learning Words in sidebar courseStarBookSidebar"
+  },
+  "sidebar.courseProximaBookSidebar.category.Chapter 1 - Basic Information": {
+    "message": "Chapter 1 - Basic Information",
+    "description": "The label for category Chapter 1 - Basic Information in sidebar courseProximaBookSidebar"
+  },
+  "sidebar.courseProximaBookSidebar.category.Chapter 2 - User Service": {
+    "message": "Chapter 2 - User Service",
+    "description": "The label for category Chapter 2 - User Service in sidebar courseProximaBookSidebar"
+  },
+  "sidebar.courseProximaBookSidebar.category.Chapter 3 - Word Service": {
+    "message": "Chapter 3 - Word Service",
+    "description": "The label for category Chapter 3 - Word Service in sidebar courseProximaBookSidebar"
+  },
+  "sidebar.courseProximaBookSidebar.category.Chapter 4 - API Gateway": {
+    "message": "Chapter 4 - API Gateway",
+    "description": "The label for category Chapter 4 - API Gateway in sidebar courseProximaBookSidebar"
   }
 }
