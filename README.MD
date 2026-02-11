@@ -25,6 +25,9 @@ yarn start --locale en
 # 构建
 yarn build
 
+# 查看文件大小
+du -ahm --max-depth=1 ./ | sort -n
+
 ```
 
 ```shell

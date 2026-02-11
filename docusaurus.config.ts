@@ -5,6 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 
+const { skipStaticMarkdownImages } = require('./plugins/static-image-exclude-plugin');
+
 function geti18nTitle() {
   switch (process.env.DOCUSAURUS_CURRENT_LOCALE) {
     case 'en':
@@ -82,6 +84,9 @@ const config: Config = {
           // 显示更新时间和作者
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
+          // 在默认 remark 插件之前运行，跳过 /markdown/ 路径图片的 webpack 处理
+          // 避免 static/markdown 的图片被重复打包到 build/assets/images/
+          beforeDefaultRemarkPlugins: [skipStaticMarkdownImages],
         },
         // Will be passed to @docusaurus/plugin-content-blog (false to disable)
         blog: {},
