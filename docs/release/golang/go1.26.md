@@ -1,5 +1,5 @@
 ---
-title: Go 1.26 (2026-02-11)
+title: Go 1.26 (2026-02-10)
 sidebar_position: 174
 ---
 
