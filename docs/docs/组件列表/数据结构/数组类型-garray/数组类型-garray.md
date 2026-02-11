@@ -4,7 +4,7 @@ title: '数组类型-garray'
 sidebar_position: 1
 hide_title: true
 keywords: [GoFrame,GoFrame框架,garray,数组容器,并发安全,排序数组,接口文档,数据类型,工具包,数据项唯一性,泛型数组,TArray,SortedTArray]
-description: 'GoFrame框架中的数组类型garray及其基本功能。通过garray模块，用户能够使用并发安全的数组容器，支持普通数组与排序数组，提供对数据项唯一性矫正、int/string/interface{}数据类型的支持及详细的接口文档等功能。v2.10版本新增泛型数组TArray和SortedTArray，提供类型安全的数组操作。'
+description: '全面介绍`GoFrame`框架`garray`数组类型模块的功能和用法。`garray`提供并发安全的数组容器，支持普通数组和排序数组，提供数据项唯一性矫正功能。支持`int`/`string`/`interface{}`三种数据类型，普通数组命名格式为`*Array`（如`Array`、`IntArray`、`StrArray`），排序数组为`Sorted*Array`（如`SortedArray`、`SortedIntArray`）。`v2.10+`新增泛型数组`TArray[T]`和`SortedTArray[T]`，推荐新项目使用泛型数组以享受编译时类型检查和IDE智能支持。`gutil`包提供Comparator比较方法。'
 ---
 
 ## 基本介绍
@@ -27,13 +27,13 @@ import "github.com/gogf/gf/v2/container/garray"
 
 简要说明：
 
-1. `garray` 模块下的对象及方法较多，建议仔细看看接口文档。
-2. `garray` 支持 `int`/ `string`/ `interface{}` 三种常用的数据类型。
-3. `garray` 支持普通数组和排序数组，普通数组的结构体名称定义为 `*Array` 格式，排序数组的结构体名称定义为 `Sorted*Array` 格式，如下：
+1. `garray`模块下的对象及方法较多，建议仔细看看接口文档。
+2. `garray`支持`int`/`string`/`interface{}`三种常用的数据类型。
+3. `garray`支持普通数组和排序数组，普通数组的结构体名称定义为`*Array`格式，排序数组的结构体名称定义为`Sorted*Array`格式，如下：
    - `Array`, `intArray`, `StrArray`
    - `SortedArray`, `SortedIntArray`, `SortedStrArray`
-   - 其中排序数组 `SortedArray`，需要给定排序比较方法，在工具包 `gutil` 中也定义了很多 `Comparator*` 比较方法
-4. 从 `v2.10` 版本开始，`garray` 提供了泛型数组类型：
+   - 其中排序数组`SortedArray`，需要给定排序比较方法，在工具包`gutil`中也定义了很多`Comparator*`比较方法
+4. 从`v2.10`版本开始，`garray`提供了泛型数组类型：
    - `TArray[T]`：泛型普通数组，提供类型安全的数组操作
    - `SortedTArray[T]`：泛型排序数组，支持自定义比较函数
    - 推荐在新项目中使用泛型数组，享受编译时类型检查带来的安全性和更好的IDE支持

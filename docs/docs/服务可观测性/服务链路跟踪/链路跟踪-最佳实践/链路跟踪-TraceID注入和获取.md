@@ -4,12 +4,12 @@ title: '链路跟踪-TraceID注入和获取'
 sidebar_position: 0
 hide_title: true
 keywords: [链路跟踪,TraceID,GoFrame,OpenTelemetry,Context,客户端,服务端,日志,请求,Response Header]
-description: '在链路跟踪中如何使用GoFrame框架进行TraceID的注入和获取。TraceID是服务间请求关联的重要标识，通过Context参数传递，可在客户端和服务端中自动生成、承接或自定义TraceID。使用glog日志组件可以自动记录TraceID，GoFrame的Client和Server拥有便捷的TraceID管理方法。并提供了一些实践示例，包括自定义TraceID和处理第三方RequestID的集成方式。'
+description: '全面介绍`GoFrame`框架中`TraceID`的注入和获取机制，`TraceID`作为服务间请求关联的唯一标识通过`Context`传递。详细讲解客户端和服务端的`TraceID`注入机制：客户端自动注入`OpenTelemetry`规范的32字节`TraceID`，服务端自动承接或创建。介绍三种获取`TraceID`的方式：使用`gctx.New/WithCtx`自动生成、`gtrace.WithTraceID`自定义、以及从`Response Header`读取。提供完整代码示例展示HTTP响应头中的`Trace-Id`和客户端`TraceID`注入。'
 ---
 
 ## 一、基本介绍
 
-在链路跟踪中， `TraceID` 作为在各个服务间传递的唯一标识，用于串联服务间请求关联关系，是非常重要的一项数据。 `TraceID` 是通过 `Context` 参数传递的，如果使用框架的 `glog` 日志组件，那么在日志打印中将会自动读取 `TraceID` 记录到日志内容中。因此也建议大家使用框架的 `glog` 日志组件来打印日志，便于完美地支持链路跟踪特性。
+在链路跟踪中，`TraceID`作为在各个服务间传递的唯一标识，用于串联服务间请求关联关系，是非常重要的一项数据。`TraceID`是通过`Context`参数传递的，如果使用框架的`glog`日志组件，那么在日志打印中将会自动读取`TraceID`记录到日志内容中。因此也建议大家使用框架的`glog`日志组件来打印日志，便于完美地支持链路跟踪特性。
 
 ## 二、TraceID的注入
 

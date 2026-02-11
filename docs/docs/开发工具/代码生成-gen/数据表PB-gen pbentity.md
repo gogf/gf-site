@@ -4,7 +4,7 @@ title: '数据表PB-gen pbentity'
 sidebar_position: 5
 hide_title: true
 keywords: [GoFrame,Golang实体对象,proto数据结构,GRPC服务,数据库配置,GF命令行工具,数据表生成,entity文件生成,pbentity,命名格式]
-description: '使用GoFrame框架的命令行工具gf来根据数据库表生成proto数据结构文件pbentity。包括命令使用方法、选项配置及其说明，以及与gen dao模块中生成的entity文件的区别。适用于HTTP和GRPC服务的数据实体结构生成，支持多种数据库的生成规则配置。'
+description: 'GoFrame框架提供的数据表结构至protobuf文件的自动转换工具，通过gf gen pbentity命令读取数据库表结构生成对应的proto数据结构定义文件。该工具与gen dao模块生成的entity不同，pbentity主要用于gRPC服务中的数据传输实体，支持多种数据库类型，可自定义字段命名格式和JSON标签格式，提供灵活的类型映射配置，适用于需要同时提供HTTP和gRPC服务的微服务架构，实现数据库表结构与protobuf协议定义的自动同步维护。'
 ---
 :::tip
 该功能特性从 `v2.4` 版本开始提供。

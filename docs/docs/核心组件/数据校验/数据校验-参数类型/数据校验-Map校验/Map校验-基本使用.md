@@ -4,7 +4,7 @@ title: 'Map校验-基本使用'
 sidebar_position: 0
 hide_title: true
 keywords: [GoFrame,GoFrame框架,参数校验,Map校验,自定义错误提示,默认错误提示,框架使用,验证规则,代码示例,数据验证]
-description: '在GoFrame框架中进行Map校验，演示了如何使用默认及自定义错误提示。通过示例代码展示了如何对参数进行验证，以及在验证失败时输出相应的错误信息，帮助开发者更好地实现数据验证和错误处理机制。'
+description: '详细讲解`GoFrame`框架`gvalid`组件中对Map类型数据进行校验的基本使用方法。包括两个实用示例：使用默认错误提示进行校验，以及使用自定义错误提示进行校验。展示如何定义`rules`和`messages`参数，对`passport`、`password`等字段应用`required`、`length`、`same`等校验规则，演示错误信息的返回格式和处理方式。'
 ---
 
 ## 默认错误提示
@@ -91,7 +91,7 @@ func main() {
 }
 ```
 
-该示例同时也展示了 `messsages` 自定义错误信息传递的两种数据类型， `string` 或者 `map[string]string`。其中 `map[string]string` 类型参数需要指定对应字段、对应规则的错误提示信息，是一个二维的“关联数组”。该示例执行后，终端输出：
+该示例同时也展示了`messages`自定义错误信息传递的两种数据类型，`string`或者`map[string]string`。其中`map[string]string`类型参数需要指定对应字段、对应规则的错误提示信息，是一个二维的“关联数组”。该示例执行后，终端输出：
 
 ```javascript
 {
