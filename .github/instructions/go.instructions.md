@@ -12,6 +12,7 @@ applyTo: '**/golang/**.md'
 - Go 1.24：https://go.dev/doc/go1.24
 - Go 1: https://go.dev/doc/go1
 - 以此类推，替换版本号即可获得对应版本的官方文档，没有的话通过 [Go 官方发布历史](https://go.dev/doc/devel/release) 查找。
+- 发布日子必须以[Go 官方发布历史](https://go.dev/doc/devel/release)中的日期为准。
 
 ## 文档结构规范
 

@@ -10,6 +10,7 @@ Go maintains a release cadence of a major version every six months, typically in
 
 ## Version List
 
+- [Go 1.26 (2026-02-10)](go1.26.md)
 - [Go 1.25 (2025-08-12)](go1.25.md)
 - [Go 1.24 (2025-02-11)](go1.24.md)
 - [Go 1.23 (2024-08-13)](go1.23.md)
