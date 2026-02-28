@@ -143,7 +143,7 @@ const config: Config = {
       },
     },
     navbar: {
-      title: '',
+      title: 'GoFrame',
       logo: {
         alt: 'GoFrame Logo',
         src: '/img/logo2.png',
@@ -212,12 +212,14 @@ const config: Config = {
           to: '/share/group',
           activeBaseRegex: `share|articles|supportus`,
         },
-        // ...(process.env.DOCUSAURUS_CURRENT_LOCALE === 'en' ? [] : [{
-        //   label: '招聘/求职',
-        //   href: 'https://github.com/gogf/jobs',
-        //   position: 'left' as const,
-        //   // className: 'navbar-jobs-link',
-        // }]),
+        {
+          label: 'AI Vibe Coding',
+          href: '/ai/goframe-skills',
+          position: 'left',
+          className: 'navbar-new-link',
+          type: 'docSidebar',
+          sidebarId: 'aiSidebar',
+        },
 
         // 右边导航栏
         {
@@ -233,6 +235,7 @@ const config: Config = {
           href: 'https://github.com/gogf/gf',
           position: 'right' as const,
           className: 'header-github-link',
+          activeBaseRegex: `ai`,
         },
       ],
     },

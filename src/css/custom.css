@@ -245,12 +245,12 @@ pre {
   -o-tab-size: 4;
 }
 
-/* 招聘/求职导航栏标签样式 - 添加显眼的 NEW 标签 */
-.navbar-jobs-link {
+/* 添加显眼的 NEW 标签 */
+.navbar-new-link {
   position: relative;
 }
 
-.navbar-jobs-link::after {
+.navbar-new-link::after {
   content: 'NEW';
   position: absolute;
   top: 0px;
@@ -263,7 +263,7 @@ pre {
   white-space: nowrap;
 }
 
-/* 隐藏招聘/求职链接的外链箭头图标 */
-.navbar-jobs-link svg {
+/* 外链箭头图标 */
+.navbar-new-link svg {
   display: none;
 }
