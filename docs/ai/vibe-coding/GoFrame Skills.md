@@ -11,8 +11,8 @@ keywords: ['GoFrame', 'Skills', 'AI编程', 'AI编辑器', '代码生成', '代�
 
 `GoFrame Skills` 是专为`GoFrame`框架量身定制的`AI`技能集，旨在让`AI`编辑器深度理解`GoFrame`的开发规范与最佳实践，从而生成高质量、生产就绪的代码。它提供：
 
-- **完整的文档覆盖**：涵盖`CLI`管理、配置、日志、错误处理、数据库`ORM`等核心组件，包含设计概览、使用指南、最佳实践及注意事项。
-- **丰富的实战示例**：包含`HTTP`服务、`gRPC`微服务等多种项目类型的代码示例，帮助开发者快速上手。
+- **完整的文档覆盖**：涵盖命令行管理、配置管理、日志组件、错误处理、数据校验、类型转换、缓存管理、模板引擎、数据库`ORM`、`I18N`国际化等核心组件的设计介绍、使用说明、最佳实践和注意事项。
+- **丰富的实战示例**：包含`HTTP`服务、`gRPC`微服务、服务注册发现、配置中心集成、可观测性、`JWT`认证、文件上传、限流、反向代理等多种项目类型的完整代码示例。
 - **`AI`驱动开发**：赋能`AI`深度理解`GoFrame`约定与最佳实践，生成符合框架规范的高质量代码。
 
 :::info 提示
@@ -141,12 +141,24 @@ npx skills update
 **示例 Prompt：**
 
 ```text
-请为 internal/logic/user 目录下的用户注册逻辑生成单元测试，
+请为 internal/service/user 目录下的用户注册逻辑生成单元测试，
 使用 GoFrame 推荐的测试方式，并覆盖正常流程和异常流程。
 ```
+
+## 常见问题
+
+### GoFrame Skills没有被AI编辑器触发？
+
+- 在`AI`编辑器的`Chat`窗口询问"当前已安装的技能有哪些？"以确认技能是否正确安装。如果未被识别出，那么请查询自己的编辑器识别的技能目录是什么（可参考[Supported Agents](https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents)），并重新使用安装命令交互式安装到正确的目录下。
+- 由于`Skills`的触发机制依赖给定提示词中的关键字，可尝试在提示词中增加更详细和明确的信息，例如"帮助我开发一个用户服务"的提示词也许无法触发`GoFrame Skills`，但"使用`GoFrame`开发一个用户服务"、"使用`GoFrame Skills`开发一个用户服务"或者"使用`Go`开发一个用户服务"则更有可能被正确识别和触发。
+
+
+### GoFrame Skills生成的代码质量不符合预期？
+
+- 通常来讲，你不太需要怀疑`GoFrame Skills`的质量，因为它是基于框架最佳实践和官方文档构建的。如果生成的代码不符合预期，可能是提示词不够明确或具体，建议优化提示词以获得更符合需求的代码。
+- 使用不同的模型可能会产生不同的代码质量和风格，可以根据实际需求选择合适的模型。例如使用`Claude Haiku 4.5`模式生成的代码质量或者技能效果远不及`Claude Opus 4.6`模型。
 
 ## 相关链接
 
 - `GoFrame Skills`仓库：[https://github.com/gogf/skills](https://github.com/gogf/skills)
 - 通用`skills`安装工具：[https://github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
-- 支持的编辑器列表：[Supported Agents](https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents)
