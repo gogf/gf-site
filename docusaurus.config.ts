@@ -250,7 +250,7 @@ const config: Config = {
           title: getFooterFollowUs(),
           items: [
             {
-              html: '<img src="/img/wechat.jpg" width="110" />',
+              html: '<img src="/img/community/wechat-official.jpg" width="110" />',
             },
           ],
         },
