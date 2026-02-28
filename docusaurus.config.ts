@@ -143,7 +143,7 @@ const config: Config = {
       },
     },
     navbar: {
-      title: 'GoFrame',
+      title: '',
       logo: {
         alt: 'GoFrame Logo',
         src: '/img/logo2.png',
