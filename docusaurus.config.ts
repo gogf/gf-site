@@ -214,7 +214,7 @@ const config: Config = {
         },
         {
           label: 'AI Vibe Coding',
-          href: '/ai/goframe-skills',
+          to: '/ai/goframe-skills',
           position: 'left',
           className: 'navbar-new-link',
           type: 'docSidebar',
