@@ -240,7 +240,7 @@ const Users: User[] = [
     preview: require('./showcase/50CMSgo.jpg'),
     website: 'https://gitee.com/dexters/50CMSgo',
     source: 'https://gitee.com/dexters/50CMSgo',
-    tags: ['opensource', 'favorite', 'adminui', 'frontui', 'v2'],
+    tags: ['opensource', 'adminui', 'frontui', 'v2'],
   },
   {
     title: 'TEN-Agent',
@@ -465,6 +465,14 @@ const Users: User[] = [
     website: 'https://github.com/goflyfox/gtoken',
     source: 'https://github.com/goflyfox/gtoken',
     tags: ['opensource', 'library', 'v2'],
+  },
+  {
+    title: 'XYGo Admin',
+    description: '基于 GoFrame v2 + Vue3 的开源后台管理框架，内置前后端 CRUD 代码生成、RBAC 权限、插件扩展，支持 MySQL、PostgreSQL 与单文件部署。',
+    preview: require('./showcase/xygoadmin.png'),
+    website: 'https://demo.xygoadmin.com',
+    source: 'https://github.com/z312193608/xygo-admin',
+    tags: ['opensource', 'product', 'favorite', 'adminui', 'v2'],
   },
 ];
 
