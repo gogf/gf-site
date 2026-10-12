@@ -104,7 +104,7 @@ const Users: User[] = [
     preview: require('./showcase/easy-go-admin.webp'),
     website: 'https://www.easygoadmin.vip/',
     source: 'https://gitee.com/easygoadmin/EasyGoAdmin_GoFrame_EleVue',
-    tags: ['opensource', 'adminui', 'product', 'v1'],
+    tags: ['opensource', 'favorite', 'adminui', 'product', 'v2'],
   },
   {
     title: 'SagooIOT',
@@ -472,7 +472,7 @@ const Users: User[] = [
     preview: require('./showcase/xygoadmin.webp'),
     website: 'https://demo.xygoadmin.com',
     source: 'https://github.com/z312193608/xygo-admin',
-    tags: ['opensource', 'product', 'favorite', 'adminui', 'v2'],
+    tags: ['opensource', 'product', 'adminui', 'v2'],
   },
   {
     title: 'PasteLayer',
