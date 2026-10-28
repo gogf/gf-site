@@ -236,12 +236,15 @@ defaultConfig := &AppConfig{
 }
 
 // 使用默认配置创建 Loader
-loader := gcfg.NewLoader(g.Cfg(), "", defaultConfig)
+// SetReuseTargetStruct(true)：在默认值基础上覆盖，而不是从零值重建
+// 注意：yaml 中请勿写空节点（如无内容的 "appConfig:\n  server:"），空节点会使默认值被清零
+loader := gcfg.NewLoader(g.Cfg(), "appConfig", defaultConfig).SetReuseTargetStruct(true)
 loader.MustLoad(ctx)
 
 // 如果配置文件中没有某些字段，将使用默认值
 config := loader.Get()
 ```
+> 注意：`SetReuseTargetStruct` 在 v2.10.3 中默认为`false` （源码注释为避免数据竞争），必须显式设置为`true` 默认值才会生效。
 
 ## API 参考
 
@@ -348,7 +351,7 @@ func (l *Loader[T]) SetWatchErrorHandler(errorFunc func(ctx context.Context, err
 
 ### SetReuseTargetStruct
 
-设置是否重用目标结构体（默认为 true）。
+设置是否重用目标结构体（默认为 false）。
 
 ```go
 func (l *Loader[T]) SetReuseTargetStruct(reuse bool)
