@@ -1,0 +1,867 @@
+# GoFrame
+
+> GoFrame 是 Go 语言的模块化应用开发框架。本文件是当前最新版本文档的入口索引。AI Agent 先按章节定位，再请求对应的 Markdown 链接，不必一次读完全部文档。
+
+GoFrame 既可以作为完整项目框架使用，也可以按需引入 `github.com/gogf/gf/v2` 中的独立组件。每条链接指向该页面的 Markdown 原文。
+
+## 从这里开始
+
+- [写在最前](https://goframe.org/preface.md)
+- [下载与使用](https://goframe.org/quick/install.md)
+- [Hello World](https://goframe.org/quick/hello-world.md)
+- [对象管理](https://goframe.org/docs/core/g.md)
+- [数据库ORM](https://goframe.org/docs/core/gdb.md)
+- [路由注册-规范路由](https://goframe.org/docs/web/router-registering-strict-router.md)
+- [代码生成-gen](https://goframe.org/docs/cli/gen.md)
+- [GoFrame Skills](https://goframe.org/ai/goframe-skills.md)
+
+推荐阅读顺序：快速开始，核心组件，WEB 服务开发，数据库 ORM，组件列表。需要生成代码时先读 GoFrame Skills。
+
+## 快速开始
+
+通过本快速开始指南，掌握使用GoFrame框架进行Web开发的基本步骤和技巧。本文提供了详细的项目搭建流程和重要的API参考，帮助开发者迅速上手GoFrame框架并提升编程效率。
+
+- [写在最前](https://goframe.org/preface.md)
+- [下载与使用](https://goframe.org/quick/install.md)
+- [Hello World](https://goframe.org/quick/hello-world.md)
+- [获取请求参数](https://goframe.org/quick/request-input.md)
+- [请求数据结构](https://goframe.org/quick/request-struct.md)
+- [使用规范路由](https://goframe.org/quick/strict-router.md)
+- [中间件初试用](https://goframe.org/quick/middleware.md)
+- [统一返回结构](https://goframe.org/quick/common-response.md)
+- [生成接口文档](https://goframe.org/quick/api-doc.md)
+- [What's Next](https://goframe.org/quick-next.md)
+
+## 项目脚手架
+
+利用GoFrame框架搭建项目脚手架，尤其适合希望通过Go语言与GoFrame框架高效结合，实现前端与后端技术的无缝集成的开发者，助力快速启动与灵活高效的项目开发。
+
+- [基本介绍](https://goframe.org/quick/scaffold-index.md)
+- [项目启动](https://goframe.org/quick/scaffold-boost.md)
+- [What's Next](https://goframe.org/quick/scaffold-next.md)
+
+### 接口开发
+
+- [接口开发](https://goframe.org/quick/scaffold-api.md)
+- [Step1 - 设计数据表](https://goframe.org/quick/scaffold-api-sql.md)
+- [Step2 - 生成/dao/do/entity](https://goframe.org/quick/scaffold-api-gen-dao.md)
+- [Step3 - 编写api接口定义](https://goframe.org/quick/scaffold-api-definition.md)
+- [Step4 - 生成controller代码](https://goframe.org/quick/scaffold-api-controller.md)
+- [Step5 - 完成接口逻辑实现](https://goframe.org/quick/scaffold-api-implements.md)
+- [Step6 - 配置与路由](https://goframe.org/quick/scaffold-api-config-and-route.md)
+- [Step7 - 启动与测试](https://goframe.org/quick/scaffold-api-run-and-test.md)
+
+## 核心组件
+
+介绍GoFrame框架的核心组件模块，包括对象管理、调试模式、命令管理、数据校验、日志组件、模板引擎、类型转换、缓存管理、资源管理、配置管理、错误处理等基础功能模块。这些组件是GoFrame框架的核心组成部分，为应用开发提供了完善的基础设施和工具支持。
+
+- [对象管理](https://goframe.org/docs/core/g.md)
+- [调试模式](https://goframe.org/docs/core/debugging.md)
+
+### 命令管理
+
+- [命令管理](https://goframe.org/docs/core/gcmd.md)
+- [命令管理-基本概念](https://goframe.org/docs/core/gcmd-intro.md)
+- [命令管理-基础方法](https://goframe.org/docs/core/gcmd-funcs.md)
+- [命令管理-Parser解析](https://goframe.org/docs/core/gcmd-parser.md)
+- [命令管理-命令行对象](https://goframe.org/docs/core/gcmd-command.md)
+- [命令管理-结构化参数](https://goframe.org/docs/core/gcmd-struct.md)
+- [命令管理-终端交互](https://goframe.org/docs/core/gcmd-scan.md)
+- [命令管理-链路跟踪](https://goframe.org/docs/core/gcmd-tracing.md)
+
+### 配置管理
+
+- [配置管理](https://goframe.org/docs/core/gcfg.md)
+- [配置管理-配置对象](https://goframe.org/docs/core/gcfg-cfg.md)
+- [配置管理-文件配置](https://goframe.org/docs/core/gcfg-file.md)
+- [配置管理-常用方法](https://goframe.org/docs/core/gcfg-funcs.md)
+- [配置管理-YAML格式](https://goframe.org/docs/core/gcfg-yaml.md)
+- [配置管理-TOML格式](https://goframe.org/docs/core/gcfg-toml.md)
+- [配置管理-配置监听回调](https://goframe.org/docs/core/gcfg-watcher.md)
+- [配置管理-Loader加载器](https://goframe.org/docs/core/gcfg-loader.md)
+
+#### 配置管理-接口化设计
+
+- [配置管理-接口化设计](https://goframe.org/docs/core/gcfg-interface.md)
+- [配置管理-AdapterFile](https://goframe.org/docs/core/gcfg-interface-adapter-file.md)
+- [配置管理-AdapterContent](https://goframe.org/docs/core/gcfg-interface-adapter-content.md)
+
+### 日志组件
+
+- [日志组件](https://goframe.org/docs/core/glog.md)
+- [日志组件-配置管理](https://goframe.org/docs/core/glog-config.md)
+- [日志组件-日志级别](https://goframe.org/docs/core/glog-level.md)
+- [日志组件-文件目录](https://goframe.org/docs/core/glog-file-folder.md)
+- [日志组件-链式操作](https://goframe.org/docs/core/glog-chaining.md)
+- [日志组件-颜色打印](https://goframe.org/docs/core/glog-color.md)
+- [日志组件-Context](https://goframe.org/docs/core/glog-context.md)
+- [日志组件-Handler](https://goframe.org/docs/core/glog-handler.md)
+- [日志组件-JSON格式](https://goframe.org/docs/core/glog-json.md)
+- [日志组件-异步输出](https://goframe.org/docs/core/glog-async.md)
+- [日志组件-堆栈打印](https://goframe.org/docs/core/glog-stack.md)
+- [日志组件-调试信息](https://goframe.org/docs/core/glog-debug.md)
+- [日志组件-Writer接口](https://goframe.org/docs/core/glog-writer.md)
+- [日志组件-Flags特性](https://goframe.org/docs/core/glog-flags.md)
+- [日志组件-Rotate特性](https://goframe.org/docs/core/glog-rotate.md)
+- [日志组件-常见问题](https://goframe.org/docs/core/glog-faq.md)
+
+### 错误处理
+
+- [错误处理](https://goframe.org/docs/core/gerror.md)
+- [错误处理-常用方法](https://goframe.org/docs/core/gerror-funcs.md)
+- [错误处理-堆栈特性](https://goframe.org/docs/core/gerror-stack.md)
+- [错误处理-错误比较](https://goframe.org/docs/core/gerror-comparison.md)
+- [错误处理-国际化支持](https://goframe.org/docs/core/gerror-i18n.md)
+- [错误处理-其他特性](https://goframe.org/docs/core/gerror-other.md)
+- [错误处理-最佳实践](https://goframe.org/docs/core/gerror-practice.md)
+- [错误处理-性能测试](https://goframe.org/docs/core/gerror-benchmark.md)
+
+#### 错误处理-错误码特性
+
+- [错误处理-错误码特性](https://goframe.org/docs/core/gerror-code.md)
+- [错误处理-错误码接口](https://goframe.org/docs/core/gerror-code-interface.md)
+- [错误处理-错误码使用](https://goframe.org/docs/core/gerror-code-example.md)
+- [错误处理-错误码扩展](https://goframe.org/docs/core/gerror-code-extension.md)
+- [错误处理-错误码实现](https://goframe.org/docs/core/gerror-code-custom.md)
+- [错误处理-内置错误码](https://goframe.org/docs/core/gerror-code-builtin.md)
+
+### 数据校验
+
+- [数据校验](https://goframe.org/docs/core/gvalid.md)
+- [数据校验-校验规则](https://goframe.org/docs/core/gvalid-rules.md)
+- [数据校验-校验对象](https://goframe.org/docs/core/gvalid-validator.md)
+- [数据校验-校验结果](https://goframe.org/docs/core/gvalid-result-handling.md)
+- [数据校验-可选校验](https://goframe.org/docs/core/gvalid-optional-rule.md)
+- [数据校验-递归校验](https://goframe.org/docs/core/gvalid-recursive-validating.md)
+- [数据校验-自定义错误](https://goframe.org/docs/core/gvalid-custom-validating-message.md)
+- [数据校验-方法介绍](https://goframe.org/docs/core/gvalid-funcs.md)
+- [数据校验-常见问题](https://goframe.org/docs/core/gvalid-faq.md)
+
+#### 数据校验-参数类型
+
+- [数据校验-单数据校验](https://goframe.org/docs/core/gvalid-parameter-type-basic.md)
+- [Map校验-基本使用](https://goframe.org/docs/core/gvalid-parameter-type-map-example.md)
+- [Map校验-校验顺序性](https://goframe.org/docs/core/gvalid-parameter-type-map-sequence.md)
+- [Struct校验-基本使用](https://goframe.org/docs/core/gvalid-parameter-type-struct-example.md)
+- [Struct校验-Assoc关联](https://goframe.org/docs/core/gvalid-parameter-type-struct-assoc.md)
+
+#### 数据校验-自定义规则
+
+- [数据校验-自定义规则](https://goframe.org/docs/core/gvalid-custom-rules.md)
+- [自定义规则-规则注册](https://goframe.org/docs/core/gvalid-custom-rules-register.md)
+- [自定义规则-完整数据校验](https://goframe.org/docs/core/gvalid-custom-rules-handle-input-parameters.md)
+
+### 类型转换
+
+- [类型转换](https://goframe.org/docs/core/gconv.md)
+- [类型转换-基本类型](https://goframe.org/docs/core/gconv-basic.md)
+- [类型转换-Map转换](https://goframe.org/docs/core/gconv-map.md)
+- [类型转换-Struct转换](https://goframe.org/docs/core/gconv-struct.md)
+- [类型转换-Structs转换](https://goframe.org/docs/core/gconv-structs.md)
+- [类型转换-Scan转换](https://goframe.org/docs/core/gconv-scan.md)
+- [类型转换-Converter](https://goframe.org/docs/core/gconv-converter.md)
+- [类型转换-自定义类型转换](https://goframe.org/docs/core/gconv-register-converter-func.md)
+- [类型转换-UnmarshalValue](https://goframe.org/docs/core/gconv-unmarshal-value.md)
+- [类型转换-性能测试](https://goframe.org/docs/core/gconv-benchmark.md)
+
+### 缓存管理
+
+- [缓存管理](https://goframe.org/docs/core/gcache.md)
+- [缓存管理-接口设计](https://goframe.org/docs/core/gcache-interface.md)
+- [缓存管理-内存缓存](https://goframe.org/docs/core/gcache-memory.md)
+- [缓存管理-Redis缓存](https://goframe.org/docs/core/gcache-redis.md)
+- [缓存管理-方法介绍](https://goframe.org/docs/core/gcache-funcs.md)
+
+### 模板引擎
+
+- [模板引擎](https://goframe.org/docs/core/gview.md)
+- [模板引擎-模板配置](https://goframe.org/docs/core/gview-config.md)
+- [模板引擎-模板标签](https://goframe.org/docs/core/gview-tags.md)
+- [模板引擎-模板变量](https://goframe.org/docs/core/gview-variable.md)
+- [模板引擎-模板布局](https://goframe.org/docs/core/gview-layout.md)
+- [模板引擎-XSS处理](https://goframe.org/docs/core/gview-xss.md)
+- [模板引擎-其他使用](https://goframe.org/docs/core/gview-more.md)
+
+#### 模板引擎-模板函数
+
+- [模板函数-基础函数](https://goframe.org/docs/core/gview-funcs-index.md)
+- [模板函数-内置函数](https://goframe.org/docs/core/gview-funcs-builtin.md)
+- [模板函数-自定义函数](https://goframe.org/docs/core/gview-funcs-custom.md)
+
+### 数据库ORM
+
+- [数据库ORM](https://goframe.org/docs/core/gdb.md)
+- [ORM方法操作(原生)](https://goframe.org/docs/core/gdb-funcs.md)
+- [ORM时区处理](https://goframe.org/docs/core/gdb-timezone.md)
+- [ORM模型生成](https://goframe.org/docs/core/gdb-model-generating.md)
+- [ORM上下文变量](https://goframe.org/docs/core/gdb-context.md)
+- [ORM常见问题](https://goframe.org/docs/core/gdb-faq.md)
+
+#### ORM使用配置
+
+- [ORM使用配置-配置文件](https://goframe.org/docs/core/gdb-config-file.md)
+- [ORM使用配置-配置方法](https://goframe.org/docs/core/gdb-config-funcs.md)
+- [ORM使用配置-常见问题](https://goframe.org/docs/core/gdb-config-faq.md)
+
+#### ORM链式操作
+
+- [ORM链式操作](https://goframe.org/docs/core/gdb-chaining.md)
+- [ORM链式操作-模型创建](https://goframe.org/docs/core/gdb-chaining-model.md)
+- [ORM链式操作-写入保存](https://goframe.org/docs/core/gdb-chaining-insert-save.md)
+- [ORM链式操作-更新删除](https://goframe.org/docs/core/gdb-chaining-update-delete.md)
+- [ORM链式操作-对象输入](https://goframe.org/docs/core/gdb-chaining-object-parameter.md)
+- [ORM链式操作-字段过滤](https://goframe.org/docs/core/gdb-chaining-fields-filtering.md)
+- [ORM链式操作-字段获取](https://goframe.org/docs/core/gdb-chaining-fields-retrieving.md)
+- [ORM链式操作-事务处理](https://goframe.org/docs/core/gdb-chaining-transaction.md)
+- [ORM链式操作-主从切换](https://goframe.org/docs/core/gdb-chaining-master-slave.md)
+- [ORM链式操作-查询缓存](https://goframe.org/docs/core/gdb-chaining-query-cache.md)
+- [ORM链式操作-数据库切换](https://goframe.org/docs/core/gdb-chaining-schema.md)
+- [ORM链式操作-Hook特性](https://goframe.org/docs/core/gdb-chaining-hook.md)
+- [ORM链式操作-Handler特性](https://goframe.org/docs/core/gdb-chaining-handler.md)
+- [ORM链式操作-悲观锁 & 乐观锁](https://goframe.org/docs/core/gdb-chaining-locks.md)
+- [ORM查询-Where条件](https://goframe.org/docs/core/gdb-chaining-query-where.md)
+- [ORM查询-常用查询方法](https://goframe.org/docs/core/gdb-chaining-query-all-one-array-value-count.md)
+- [ORM查询-AllAndCount](https://goframe.org/docs/core/gdb-chaining-query-all-and-count.md)
+- [ORM查询-Exist](https://goframe.org/docs/core/gdb-chaining-query-exist.md)
+- [ORM查询-Scan](https://goframe.org/docs/core/gdb-chaining-query-scan.md)
+- [ORM查询-ScanAndCount](https://goframe.org/docs/core/gdb-chaining-query-scan-and-count.md)
+- [ORM查询-Join查询](https://goframe.org/docs/core/gdb-chaining-query-join.md)
+- [ORM查询-分组排序过滤](https://goframe.org/docs/core/gdb-chaining-query-group-order-having.md)
+- [ORM查询-Union/UnionAll](https://goframe.org/docs/core/gdb-chaining-query-union.md)
+- [ORM查询-子查询特性](https://goframe.org/docs/core/gdb-chaining-query-sub-query.md)
+- [ORM查询-常用操作示例](https://goframe.org/docs/core/gdb-chaining-query-example.md)
+- [模型关联-动态关联-ScanList](https://goframe.org/docs/core/gdb-chaining-relation-scan-list.md)
+- [模型关联-静态关联-With特性](https://goframe.org/docs/core/gdb-chaining-relation-with.md)
+- [ORM链式操作-时间维护](https://goframe.org/docs/core/gdb-chaining-soft-time.md)
+- [时间维护-基本使用](https://goframe.org/docs/core/gdb-chaining-soft-time-example.md)
+- [时间维护-整型字段](https://goframe.org/docs/core/gdb-chaining-soft-time-numeric-fields.md)
+- [时间维护-布尔字段](https://goframe.org/docs/core/gdb-chaining-soft-time-bool-fields.md)
+- [时间维护-SoftTimeOption](https://goframe.org/docs/core/gdb-chaining-soft-time-option.md)
+
+#### ORM事务处理
+
+- [ORM事务处理](https://goframe.org/docs/core/gdb-transaction.md)
+- [ORM事务处理-常规操作](https://goframe.org/docs/core/gdb-transaction-basic.md)
+- [ORM事务处理-闭包操作](https://goframe.org/docs/core/gdb-transaction-closure.md)
+- [ORM事务处理-嵌套事务](https://goframe.org/docs/core/gdb-transaction-nested.md)
+- [ORM事务处理-事务传播](https://goframe.org/docs/core/gdb-transaction-propagation.md)
+- [ORM事务处理-隔离级别](https://goframe.org/docs/core/gdb-transaction-isolation-level.md)
+- [ORM事务处理-只读模式](https://goframe.org/docs/core/gdb-transaction-readonly.md)
+
+#### ORM结果处理
+
+- [ORM结果处理-结果类型](https://goframe.org/docs/core/gdb-result-types.md)
+- [ORM结果处理-为空判断](https://goframe.org/docs/core/gdb-result-empty-check.md)
+- [ORM结果处理-空数组结构返回](https://goframe.org/docs/core/gdb-result-empty-array.md)
+
+#### ORM分库分表
+
+- [ORM分库分表](https://goframe.org/docs/core/gdb-sharding.md)
+- [ORM分库分表-分表特性](https://goframe.org/docs/core/gdb-sharding-table.md)
+- [ORM分库分表-分库特性](https://goframe.org/docs/core/gdb-sharding-schema.md)
+
+#### ORM高级特性
+
+- [ORM高级特性-RawSQL](https://goframe.org/docs/core/gdb-senior-raw-sql.md)
+- [ORM高级特性-SQL捕获](https://goframe.org/docs/core/gdb-senior-catch-sql.md)
+- [ORM高级特性-调试模式](https://goframe.org/docs/core/gdb-senior-debugging.md)
+- [ORM高级特性-日志输出](https://goframe.org/docs/core/gdb-senior-logging.md)
+- [ORM高级特性-字段映射](https://goframe.org/docs/core/gdb-senior-fields-mapping.md)
+- [ORM高级特性-空跑特性](https://goframe.org/docs/core/gdb-senior-dry-run.md)
+- [ORM高级特性-类型识别](https://goframe.org/docs/core/gdb-senior-type-recognization.md)
+- [ORM高级特性-类型转换](https://goframe.org/docs/core/gdb-senior-type-converting.md)
+- [ORM高级特性-连接池状态](https://goframe.org/docs/core/gdb-senior-connection-pool.md)
+- [ORM高级特性-内嵌结构支持](https://goframe.org/docs/core/gdb-senior-nested-struct-support.md)
+- [ORM高级特性-自定义类型转换](https://goframe.org/docs/core/gdb-senior-custom-type-converting.md)
+
+#### ORM接口开发
+
+- [ORM接口开发](https://goframe.org/docs/core/gdb-interface.md)
+- [ORM接口开发-回调处理](https://goframe.org/docs/core/gdb-interface-callback.md)
+- [ORM接口开发-驱动开发](https://goframe.org/docs/core/gdb-interface-driver.md)
+
+#### ORM最佳实践
+
+- [ORM最佳实践](https://goframe.org/docs/core/gdb-practice.md)
+- [利用指针属性和do对象实现灵活的修改接口](https://goframe.org/docs/core/gdb-practice-using-pointer-and-do-for-update-api.md)
+- [复杂类型尽量使用json存储，便于Scan到对象时自动化转换，避免自定义解析](https://goframe.org/docs/core/gdb-practice-using-json-for-complicated-field.md)
+- [查询时避免返回对象初始化及sql.ErrNoRows判断](https://goframe.org/docs/core/gdb-practice-avoid-object-initialization-and-sql-errnorows-error.md)
+
+### I18N国际化
+
+- [I18N国际化](https://goframe.org/docs/core/gi18n.md)
+- [I18N国际化-配置管理](https://goframe.org/docs/core/gi18n-config.md)
+- [I18N国际化-使用介绍](https://goframe.org/docs/core/gi18n-example.md)
+
+### 资源管理
+
+- [资源管理](https://goframe.org/docs/core/gres.md)
+- [资源管理-工具打包](https://goframe.org/docs/core/gres-pack-using-cli.md)
+- [资源管理-方法打包](https://goframe.org/docs/core/gres-pack-using-funcs.md)
+- [资源管理-方法介绍](https://goframe.org/docs/core/gres-funcs.md)
+- [资源管理-使用示例](https://goframe.org/docs/core/gres-example.md)
+- [资源管理-最佳实践](https://goframe.org/docs/core/gres-practice.md)
+
+## WEB 服务开发
+
+了解如何使用GoFrame框架进行WEB服务开发，涵盖从基本概念到高级应用的各个方面。通过本指南，您将掌握使用Go语言构建高效、可靠的WEB应用程序的技巧和方法。
+
+- [开始使用](https://goframe.org/docs/web/start.md)
+- [Cookie](https://goframe.org/docs/web/cookie.md)
+- [异常处理](https://goframe.org/docs/web/panic-handling.md)
+- [性能测试](https://goframe.org/docs/web/performance.md)
+- [常见问题](https://goframe.org/docs/web/faq.md)
+
+### 路由管理
+
+- [路由管理-路由规则](https://goframe.org/docs/web/router-pattern.md)
+
+#### 路由管理-路由注册
+
+- [路由管理-路由注册](https://goframe.org/docs/web/router-registering.md)
+- [路由注册-函数注册](https://goframe.org/docs/web/router-registering-callback.md)
+- [路由注册-对象注册](https://goframe.org/docs/web/router-registering-struct.md)
+- [路由注册-分组路由](https://goframe.org/docs/web/router-registering-group.md)
+- [路由注册-规范路由](https://goframe.org/docs/web/router-registering-strict-router.md)
+- [规范路由-基本示例](https://goframe.org/docs/web/router-registering-strict-router-example.md)
+- [规范路由-如何使用](https://goframe.org/docs/web/router-registering-strict-router-usage.md)
+- [规范路由-常见问题](https://goframe.org/docs/web/router-registering-strict-router-faq.md)
+
+#### 路由管理-中间件/拦截器
+
+- [路由管理-中间件/拦截器](https://goframe.org/docs/web/router-middleware.md)
+- [中间件/拦截器-基本介绍](https://goframe.org/docs/web/router-middleware-intro.md)
+- [中间件/拦截器-使用示例](https://goframe.org/docs/web/router-middleware-example.md)
+- [中间件/拦截器-常见问题](https://goframe.org/docs/web/router-middleware-faq.md)
+
+### 接口文档
+
+- [接口文档](https://goframe.org/docs/web/api-document.md)
+- [接口文档-OpenAPIv3](https://goframe.org/docs/web/api-document-openapiv3.md)
+- [接口文档-扩展Response](https://goframe.org/docs/web/api-document-extendable-response.md)
+- [接口文档-自定义UI](https://goframe.org/docs/web/api-document-swagger-ui.md)
+
+### 请求输入
+
+- [请求输入](https://goframe.org/docs/web/request.md)
+- [请求输入-参数处理](https://goframe.org/docs/web/request-parameters.md)
+- [请求输入-对象处理](https://goframe.org/docs/web/request-struct-converting.md)
+- [请求输入-请求校验](https://goframe.org/docs/web/request-validation.md)
+- [请求输入-JSON/XML](https://goframe.org/docs/web/request-json-xml-parameter.md)
+- [请求输入-默认值绑定](https://goframe.org/docs/web/request-default-value.md)
+- [请求输入-自定义参数](https://goframe.org/docs/web/request-custom-parameters.md)
+- [请求输入-Context](https://goframe.org/docs/web/request-context.md)
+- [请求输入-文件上传](https://goframe.org/docs/web/request-file-uploading.md)
+
+### 数据返回
+
+- [数据返回](https://goframe.org/docs/web/response.md)
+- [数据返回-缓冲控制](https://goframe.org/docs/web/response-buffering.md)
+- [数据返回-JSON/XML](https://goframe.org/docs/web/response-json-xml.md)
+- [数据返回-Redirect](https://goframe.org/docs/web/response-redirect.md)
+- [数据返回-Exit控制](https://goframe.org/docs/web/response-exit-exitall-exithook.md)
+- [数据返回-文件下载](https://goframe.org/docs/web/response-file-downloading.md)
+- [数据返回-模板解析](https://goframe.org/docs/web/response-template.md)
+- [数据返回-Stream返回](https://goframe.org/docs/web/response-stream.md)
+
+### 服务配置
+
+- [服务配置-配置文件](https://goframe.org/docs/web/server-config-file.md)
+- [服务配置-配置文件模板](https://goframe.org/docs/web/server-config-file-template.md)
+- [服务配置-配置方法](https://goframe.org/docs/web/server-config-funcs.md)
+
+### Session
+
+- [Session](https://goframe.org/docs/web/session.md)
+- [Session-File](https://goframe.org/docs/web/session-file.md)
+- [Session-Memory](https://goframe.org/docs/web/session-memory.md)
+- [Session-Redis-KeyValue](https://goframe.org/docs/web/session-redis-key-value.md)
+- [Session-Redis-HashTable](https://goframe.org/docs/web/session-redis-hash-table.md)
+- [Session-Storage接口开发](https://goframe.org/docs/web/session-storage.md)
+- [Session-RegenerateId](https://goframe.org/docs/web/session-regenerate-id.md)
+
+### HTTPClient
+
+- [HTTPClient](https://goframe.org/docs/web/http-client.md)
+- [HTTPClient-基本使用](https://goframe.org/docs/web/http-client-example.md)
+- [HTTPClient-文件上传](https://goframe.org/docs/web/http-client-file-uploading.md)
+- [HTTPClient-自定义Cookie](https://goframe.org/docs/web/http-client-cookie.md)
+- [HTTPClient-自定义Header](https://goframe.org/docs/web/http-client-header.md)
+- [HTTPClient-自定义ContentType](https://goframe.org/docs/web/http-client-content-type.md)
+- [HTTPClient-自定义Transport](https://goframe.org/docs/web/http-client-transport.md)
+- [HTTPClient-请求信息打印](https://goframe.org/docs/web/http-client-raw-request-response.md)
+- [HTTPClient-代理Proxy设置](https://goframe.org/docs/web/http-client-proxy.md)
+- [HTTPClient-拦截器/中间件](https://goframe.org/docs/web/http-client-middleware.md)
+- [HTTPClient-常见问题](https://goframe.org/docs/web/http-client-faq.md)
+- [HTTPClient-监控指标](https://goframe.org/docs/web/http-client-metrics.md)
+
+### 分页管理
+
+- [分页管理](https://goframe.org/docs/web/paging.md)
+- [分页管理-动态分页](https://goframe.org/docs/web/paging-dynamic.md)
+- [分页管理-静态分页](https://goframe.org/docs/web/paging-static.md)
+- [分页管理-Ajax分页](https://goframe.org/docs/web/paging-ajax.md)
+- [分页管理-URL模板](https://goframe.org/docs/web/paging-template.md)
+- [分页管理-自定义分页](https://goframe.org/docs/web/paging-customization.md)
+
+### 高级特性
+
+- [静态文件服务](https://goframe.org/docs/web/senior-static-server.md)
+- [服务日志管理](https://goframe.org/docs/web/senior-logging.md)
+- [HTTPS & TLS](https://goframe.org/docs/web/senior-https.md)
+- [平滑重启特性](https://goframe.org/docs/web/senior-hot-reload.md)
+- [CORS跨域处理](https://goframe.org/docs/web/senior-cors.md)
+- [CSRF防御设置](https://goframe.org/docs/web/senior-csrf.md)
+- [HOOK事件回调](https://goframe.org/docs/web/senior-hook.md)
+- [WebSocket服务](https://goframe.org/docs/web/senior-websocket.md)
+- [自定义状态码处理](https://goframe.org/docs/web/senior-status-handler.md)
+- [PProf服务性能分析](https://goframe.org/docs/web/senior-pprof.md)
+- [SameSite设置](https://goframe.org/docs/web/senior-same-site.md)
+- [HTTPServer-监控指标](https://goframe.org/docs/web/senior-server-metrics.md)
+
+## 微服务开发
+
+- [微服务开发](https://goframe.org/docs/micro-service.md)
+- [环境准备](https://goframe.org/docs/micro-service/prepare-environment.md)
+- [工程管理](https://goframe.org/docs/micro-service/structure.md)
+- [脚手架模块](https://goframe.org/docs/micro-service/scaffold.md)
+- [服务端配置](https://goframe.org/docs/micro-service/config.md)
+- [拦截器组件](https://goframe.org/docs/micro-service/interceptor.md)
+- [服务注册发现](https://goframe.org/docs/micro-service/registry-discovery.md)
+- [服务负载均衡](https://goframe.org/docs/micro-service/load-balance.md)
+- [服务配置管理](https://goframe.org/docs/micro-service/config-service.md)
+
+## 服务可观测性
+
+介绍GoFrame框架的服务可观测性能力，包括链路跟踪（OpenTelemetry/Jaeger）、监控告警（Prometheus/Grafana）、日志采集等特性的实现方法。通过框架提供的统一接口和工具，开发者可以轻松集成现代可观测性组件，实现服务的全方位监控和管理，确保系统…
+
+### 服务链路跟踪
+
+- [链路跟踪-背景知识](https://goframe.org/docs/obs/tracing-intro.md)
+- [链路跟踪-准备工作](https://goframe.org/docs/obs/tracing-prepare.md)
+- [链路跟踪-基本示例](https://goframe.org/docs/obs/tracing-example.md)
+- [链路跟踪-GRPC示例](https://goframe.org/docs/obs/tracing-grpc-example.md)
+- [链路跟踪-TraceID注入和获取](https://goframe.org/docs/obs/tracing-practice-inject-traceid.md)
+
+#### 链路跟踪-HTTP示例
+
+- [链路跟踪-HTTP示例](https://goframe.org/docs/obs/tracing-http-example.md)
+- [链路跟踪-HTTP示例-Baggage](https://goframe.org/docs/obs/tracing-http-example-baggage.md)
+- [链路跟踪-HTTP示例-数据操作](https://goframe.org/docs/obs/tracing-http-example-with-database.md)
+
+### 服务监控告警
+
+- [监控告警-基本介绍](https://goframe.org/docs/obs/metrics-intro.md)
+- [监控告警-基本使用](https://goframe.org/docs/obs/metrics-example.md)
+- [监控告警-同步指标](https://goframe.org/docs/obs/metrics-sync.md)
+- [监控告警-异步指标](https://goframe.org/docs/obs/metrics-async.md)
+- [监控告警-指标属性](https://goframe.org/docs/obs/metrics-attributes.md)
+- [监控告警-内置指标](https://goframe.org/docs/obs/metrics-builtin.md)
+- [监控告警-组件指标](https://goframe.org/docs/obs/metrics-components.md)
+
+## 组件列表
+
+- [组件列表](https://goframe.org/docs/components.md)
+
+### 数据结构
+
+#### 字典类型-gmap
+
+- [字典类型-gmap](https://goframe.org/docs/components/container-gmap.md)
+- [字典类型-基本使用](https://goframe.org/docs/components/container-gmap-example.md)
+- [字典类型-性能测试](https://goframe.org/docs/components/container-gmap-benchmark.md)
+- [字典类型-方法介绍](https://goframe.org/docs/components/container-gmap-funcs.md)
+
+#### 数组类型-garray
+
+- [数组类型-garray](https://goframe.org/docs/components/container-garray.md)
+- [数组类型-基本使用](https://goframe.org/docs/components/container-garray-example.md)
+- [数组类型-方法介绍](https://goframe.org/docs/components/container-garray-funcs.md)
+
+#### 集合类型-gset
+
+- [集合类型-gset](https://goframe.org/docs/components/container-gset.md)
+- [集合类型-基本使用](https://goframe.org/docs/components/container-gset-example.md)
+- [集合类型-性能测试](https://goframe.org/docs/components/container-gset-benchmark.md)
+- [集合类型-方法介绍](https://goframe.org/docs/components/container-gset-funcs.md)
+
+#### 链表类型-glist
+
+- [链表类型-glist](https://goframe.org/docs/components/container-glist.md)
+- [链表类型-基本使用](https://goframe.org/docs/components/container-glist-example.md)
+- [链表类型-性能测试](https://goframe.org/docs/components/container-glist-benchmark.md)
+
+#### 泛型类型-gvar
+
+- [泛型类型-gvar](https://goframe.org/docs/components/container-gvar.md)
+- [泛型类型-基本使用](https://goframe.org/docs/components/container-gvar-example.md)
+- [泛型类型-方法介绍](https://goframe.org/docs/components/container-gvar-funcs.md)
+- [泛型类型-注意事项](https://goframe.org/docs/components/container-gvar-notice.md)
+
+#### 安全类型-gtype
+
+- [安全类型-gtype](https://goframe.org/docs/components/container-gtype.md)
+- [安全类型-基本使用](https://goframe.org/docs/components/container-gtype-example.md)
+- [安全类型-性能测试](https://goframe.org/docs/components/container-gtype-benchmark.md)
+
+#### 队列类型-gqueue
+
+- [队列类型-gqueue](https://goframe.org/docs/components/container-gqueue.md)
+- [队列类型-基本使用](https://goframe.org/docs/components/container-gqueue-example.md)
+- [队列类型-性能测试](https://goframe.org/docs/components/container-gqueue-benchmark.md)
+
+#### 树形类型-gtree
+
+- [树形类型-gtree](https://goframe.org/docs/components/container-gtree.md)
+- [树形类型-基本使用](https://goframe.org/docs/components/container-gtree-example.md)
+- [树形类型-方法介绍](https://goframe.org/docs/components/container-gtree-funcs.md)
+
+#### 对象复用-gpool
+
+- [对象复用-gpool](https://goframe.org/docs/components/container-gpool.md)
+- [对象复用-基本使用](https://goframe.org/docs/components/container-gpool-example.md)
+
+#### 并发安全环-gring
+
+- [并发安全环-gring](https://goframe.org/docs/components/container-gring.md)
+- [并发安全环-基本使用](https://goframe.org/docs/components/container-gring-example.md)
+- [并发安全环-方法介绍](https://goframe.org/docs/components/container-gring-funcs.md)
+
+### 系统相关
+
+- [内存锁-gmlock](https://goframe.org/docs/components/os-gmlock.md)
+- [互斥锁-gmutex](https://goframe.org/docs/components/os-gmutex.md)
+- [上下文-gctx](https://goframe.org/docs/components/os-gctx.md)
+- [命令管理-gcmd](https://goframe.org/docs/components/os-gcmd.md)
+- [日志管理-glog](https://goframe.org/docs/components/os-glog.md)
+- [缓存管理-gcache](https://goframe.org/docs/components/os-gcache.md)
+- [文件管理-gfile](https://goframe.org/docs/components/os-gfile.md)
+- [资源管理-gres](https://goframe.org/docs/components/os-gres.md)
+- [配置管理-gcfg](https://goframe.org/docs/components/os-gcfg.md)
+- [环境变量-genv](https://goframe.org/docs/components/os-genv.md)
+- [模板引擎-gview](https://goframe.org/docs/components/os-gview.md)
+- [协程管理-grpool](https://goframe.org/docs/components/os-grpool.md)
+- [构建信息-gbuild](https://goframe.org/docs/components/os-gbuild.md)
+- [对象信息-gstructs](https://goframe.org/docs/components/os-gstructs.md)
+
+#### 定时器-gtimer
+
+- [定时器-gtimer](https://goframe.org/docs/components/os-gtimer.md)
+- [定时器-基本使用](https://goframe.org/docs/components/os-gtimer-example.md)
+- [定时器-性能测试](https://goframe.org/docs/components/os-gtimer-benchmark.md)
+
+#### 时间管理-gtime
+
+- [时间管理-gtime](https://goframe.org/docs/components/os-gtime.md)
+- [时间管理-时间格式](https://goframe.org/docs/components/os-gtime-format.md)
+- [时间管理-时间对象](https://goframe.org/docs/components/os-gtime-time.md)
+- [时间管理-工具方法](https://goframe.org/docs/components/os-gtime-common-funcs.md)
+- [时间管理-时区设置](https://goframe.org/docs/components/os-gtime-timezone.md)
+- [时间管理-方法介绍](https://goframe.org/docs/components/os-gtime-funcs.md)
+
+#### 定时任务-gcron
+
+- [定时任务-gcron](https://goframe.org/docs/components/os-gcron.md)
+- [定时任务-表达式](https://goframe.org/docs/components/os-gcron-pattern.md)
+- [定时任务-基本使用](https://goframe.org/docs/components/os-gcron-example.md)
+- [定时任务-日志管理](https://goframe.org/docs/components/os-gcron-logging.md)
+- [定时任务-gcron与gtimer](https://goframe.org/docs/components/os-gcron-differ-with-gtimer.md)
+
+#### 文件监控-gfsnotify
+
+- [文件监控-gfsnotify](https://goframe.org/docs/components/os-gfsnotify.md)
+- [文件监控-添加监控](https://goframe.org/docs/components/os-gfsnotify-add.md)
+- [文件监控-移除监控](https://goframe.org/docs/components/os-gfsnotify-remove.md)
+- [文件监控-系统参数](https://goframe.org/docs/components/os-gfsnotify-system-variables.md)
+
+#### 进程管理-gproc
+
+- [进程管理-gproc](https://goframe.org/docs/components/os-gproc.md)
+- [进程管理-基本使用](https://goframe.org/docs/components/os-gproc-example.md)
+- [进程管理-进程通信](https://goframe.org/docs/components/os-gproc-communication-between-processes.md)
+- [进程管理-信号监听](https://goframe.org/docs/components/os-gproc-signal.md)
+- [进程管理-链路跟踪](https://goframe.org/docs/components/os-gproc-tracing.md)
+
+### 文本处理
+
+- [字符串处理-gstr](https://goframe.org/docs/components/text-gstr.md)
+
+#### 正则表达式-gregex
+
+- [正则表达式-gregex](https://goframe.org/docs/components/text-gregex.md)
+- [正则表达式-基本使用](https://goframe.org/docs/components/text-gregex-example.md)
+- [正则表达式-方法介绍](https://goframe.org/docs/components/text-gregex-funcs.md)
+
+### 编码解码
+
+- [二进制编解码-gbinary](https://goframe.org/docs/components/encoding-gbinary.md)
+- [BASE64编解码-gbase64](https://goframe.org/docs/components/encoding-gbase64.md)
+- [经典哈希函数-ghash](https://goframe.org/docs/components/encoding-ghash.md)
+- [HTML编解码-ghtml](https://goframe.org/docs/components/encoding-ghtml.md)
+- [URL编解码-gurl](https://goframe.org/docs/components/encoding-gurl.md)
+- [XML编解码-gxml](https://goframe.org/docs/components/encoding-gxml.md)
+- [INI编解码-gini](https://goframe.org/docs/components/encoding-gini.md)
+- [YAML编解码-gyaml](https://goframe.org/docs/components/encoding-gyaml.md)
+- [TOML编解码-gtoml](https://goframe.org/docs/components/encoding-gtoml.md)
+- [字符集转换-gcharset](https://goframe.org/docs/components/encoding-gcharset.md)
+- [压缩/解压-gcompress](https://goframe.org/docs/components/encoding-gcompress.md)
+
+#### 通用编解码-gjson
+
+- [通用编解码-gjson](https://goframe.org/docs/components/encoding-gjson.md)
+- [通用编解码-对象创建](https://goframe.org/docs/components/encoding-gjson-creation.md)
+- [通用编解码-层级访问](https://goframe.org/docs/components/encoding-gjson-nested-visiting.md)
+- [通用编解码-Struct转换](https://goframe.org/docs/components/encoding-gjson-struct-converting.md)
+- [通用编解码-动态创建修改](https://goframe.org/docs/components/encoding-gjson-dynamic-creating-and-editing.md)
+- [通用编解码-数据格式转换](https://goframe.org/docs/components/encoding-gjson-format-converting.md)
+- [通用编解码-方法介绍](https://goframe.org/docs/components/encoding-gjson-funcs.md)
+- [通用编解码-FAQ](https://goframe.org/docs/components/encoding-gjson-faq.md)
+
+### 数据管理
+
+- [数据库ORM-gdb](https://goframe.org/docs/components/database-gdb.md)
+- [Redis客户端-gredis](https://goframe.org/docs/components/database-gredis.md)
+
+### 网络组件
+
+#### TCP组件
+
+- [TCP组件](https://goframe.org/docs/components/network-gtcp.md)
+- [TCP组件-工具方法](https://goframe.org/docs/components/network-gtcp-funcs.md)
+- [TCP组件-TLS加密](https://goframe.org/docs/components/network-gtcp-tls.md)
+- [TCP组件-连接池特性](https://goframe.org/docs/components/network-gtcp-connection-pool.md)
+- [TCP组件-连接对象](https://goframe.org/docs/components/network-gtcp-conn.md)
+- [连接对象-消息包处理](https://goframe.org/docs/components/network-gtcp-conn-package.md)
+- [连接对象-通信开发进阶](https://goframe.org/docs/components/network-gtcp-conn-senior.md)
+
+#### UDP组件
+
+- [UDP组件](https://goframe.org/docs/components/network-gudp.md)
+- [UDP组件-连接对象](https://goframe.org/docs/components/network-gudp-conn.md)
+- [UDP组件-工具方法](https://goframe.org/docs/components/network-gudp-funcs.md)
+
+### 加密解密
+
+- [AES算法-gaes](https://goframe.org/docs/components/crypto-gaes.md)
+- [CRC32算法-gcrc32](https://goframe.org/docs/components/crypto-gcrc32.md)
+- [DES算法-gdes](https://goframe.org/docs/components/crypto-gdes.md)
+- [MD5算法-gmd5](https://goframe.org/docs/components/crypto-gmd5.md)
+- [RSA算法-grsa](https://goframe.org/docs/components/crypto-grsa.md)
+- [SHA1算法-gsha1](https://goframe.org/docs/components/crypto-gsha1.md)
+- [SHA256算法-gsha256](https://goframe.org/docs/components/crypto-gsha256.md)
+
+### 实用工具
+
+- [随机数-grand](https://goframe.org/docs/components/util-grand.md)
+- [唯一数-guid](https://goframe.org/docs/components/util-guid.md)
+- [元数据-gmeta](https://goframe.org/docs/components/util-gmeta.md)
+- [类型转换-gconv](https://goframe.org/docs/components/util-gconv.md)
+- [数据校验-gvalid](https://goframe.org/docs/components/util-gvalid.md)
+- [分页管理-gpage](https://goframe.org/docs/components/util-gpage.md)
+- [工具方法-gutil](https://goframe.org/docs/components/util-gutil.md)
+- [单元测试-gtest](https://goframe.org/docs/components/test-gtest.md)
+
+### 错误管理
+
+- [错误处理-gerror](https://goframe.org/docs/components/error-gerror.md)
+- [错误码接口-gcode](https://goframe.org/docs/components/error-gcode.md)
+- [调试功能-gdebug](https://goframe.org/docs/components/debug-gdebug.md)
+- [国际化-gi18n](https://goframe.org/docs/components/i18n-gi18n.md)
+
+### NoSQL Redis
+
+- [NoSQL Redis](https://goframe.org/docs/components/contrib-nosql-redis.md)
+- [Redis-配置管理](https://goframe.org/docs/components/contrib-nosql-redis-config.md)
+- [Redis-使用示例](https://goframe.org/docs/components/contrib-nosql-redis-example.md)
+- [Redis-命令交互](https://goframe.org/docs/components/contrib-nosql-redis-do-and-serialization.md)
+- [Redis-高级特性](https://goframe.org/docs/components/contrib-nosql-redis-conn.md)
+- [Redis-接口化设计](https://goframe.org/docs/components/contrib-nosql-redis-interface.md)
+
+## 框架设计
+
+- [框架设计](https://goframe.org/docs/design.md)
+- [模块化设计](https://goframe.org/docs/design/modular.md)
+- [统一框架设计](https://goframe.org/docs/design/unified.md)
+- [全链路跟踪设计](https://goframe.org/docs/design/tracing.md)
+- [全错误堆栈设计](https://goframe.org/docs/design/error-stack.md)
+- [接口化与泛型设计](https://goframe.org/docs/design/interface-generic.md)
+- [隐式与显式初始化](https://goframe.org/docs/design/initialization.md)
+- [Golang枚举值管理](https://goframe.org/docs/design/enums.md)
+- [Context共享变量](https://goframe.org/docs/design/context-variable.md)
+
+### 工程开发设计
+
+- [工程开发设计](https://goframe.org/docs/design/project.md)
+- [代码分层设计](https://goframe.org/docs/design/project-layer.md)
+- [工程目录设计](https://goframe.org/docs/design/project-structure.md)
+- [结构化编程设计](https://goframe.org/docs/design/project-struct-parameter.md)
+- [数据模型与业务模型](https://goframe.org/docs/design/project-models.md)
+- [微服务大仓管理模式](https://goframe.org/docs/design/project-mono-repo.md)
+
+#### DAO封装设计
+
+- [DAO-组件痛点及改进](https://goframe.org/docs/design/project-dao-pain.md)
+- [DAO-工程痛点及改进](https://goframe.org/docs/design/project-dao-improvement.md)
+
+## 开发工具
+
+- [开发工具](https://goframe.org/docs/cli.md)
+- [工具安装-install](https://goframe.org/docs/cli/install.md)
+- [版本查看-version](https://goframe.org/docs/cli/version.md)
+- [框架升级-up](https://goframe.org/docs/cli/up.md)
+- [项目创建-init](https://goframe.org/docs/cli/init.md)
+- [交叉编译-build](https://goframe.org/docs/cli/build.md)
+- [自动编译-run](https://goframe.org/docs/cli/run.md)
+- [资源打包-pack](https://goframe.org/docs/cli/pack.md)
+- [镜像编译-docker](https://goframe.org/docs/cli/docker.md)
+- [兼容修复-fix](https://goframe.org/docs/cli/fix.md)
+- [工具帮助-help](https://goframe.org/docs/cli/help.md)
+
+### 代码生成-gen
+
+- [代码生成-gen](https://goframe.org/docs/cli/gen.md)
+- [接口规范-gen ctrl](https://goframe.org/docs/cli/gen-ctrl.md)
+- [数据规范-gen dao](https://goframe.org/docs/cli/gen-dao.md)
+- [模块规范-gen service](https://goframe.org/docs/cli/gen-service.md)
+- [枚举维护-gen enums](https://goframe.org/docs/cli/gen-enums.md)
+- [协议编译-gen pb](https://goframe.org/docs/cli/gen-pb.md)
+- [数据表PB-gen pbentity](https://goframe.org/docs/cli/gen-pbentity.md)
+
+## 项目部署
+
+介绍GoFrame框架应用的项目部署方式，包括代理部署（使用Nginx等WebServer作为反向代理）、容器部署（Docker化部署方式）、独立部署（直接运行可执行文件）等多种部署方案。从准备服务器环境到应用上线的完整步骤，帮助开发者选择合适的部署方式并顺利完成部署过程。
+
+- [独立部署](https://goframe.org/docs/deploy/standalone.md)
+- [代理部署](https://goframe.org/docs/deploy/proxy.md)
+- [容器部署](https://goframe.org/docs/deploy/container.md)
+
+## AI 辅助开发
+
+### AI Vibe Coding
+
+- [AI Vibe Coding](https://goframe.org/ai/vibe-coding.md)
+- [GoFrame Skills](https://goframe.org/ai/goframe-skills.md)
+
+## 示例项目
+
+### gRPC
+
+- [gRPC](https://goframe.org/examples/grpc.md)
+- [基础示例](https://goframe.org/examples/grpc/basic.md)
+- [服务发现](https://goframe.org/examples/grpc/resolver.md)
+- [负载均衡](https://goframe.org/examples/grpc/balancer.md)
+- [上下文示例](https://goframe.org/examples/grpc/ctx.md)
+- [原生 gRPC 示例](https://goframe.org/examples/grpc/rawgrpc.md)
+
+### NoSQL
+
+- [NoSQL](https://goframe.org/examples/nosql.md)
+- [Redis](https://goframe.org/examples/nosql/redis.md)
+- [MongoDB](https://goframe.org/examples/nosql/mongodb.md)
+
+### 数据库
+
+- [加密密码数据库连接](https://goframe.org/examples/database/encoded-pass.md)
+
+### HTTP Server
+
+- [HTTP Server](https://goframe.org/examples/httpserver.md)
+- [JWT认证](https://goframe.org/examples/httpserver/jwt.md)
+- [反向代理](https://goframe.org/examples/httpserver/proxy.md)
+- [访问限流](https://goframe.org/examples/httpserver/rate-limit.md)
+- [文件上传](https://goframe.org/examples/httpserver/upload-file.md)
+- [WebSocket](https://goframe.org/examples/httpserver/websocket.md)
+- [JSON数组响应](https://goframe.org/examples/httpserver/response-json-array.md)
+- [基本认证](https://goframe.org/examples/httpserver/basic-auth.md)
+- [GoFrame MCP HTTP 示例](https://goframe.org/examples/httpserver/mcp-http.md)
+- [GoFrame MCP SSE 示例](https://goframe.org/examples/httpserver/mcp-sse.md)
+- [Server-Sent Events(SSE)](https://goframe.org/examples/httpserver/sse.md)
+- [Swagger认证](https://goframe.org/examples/httpserver/swagger-auth.md)
+
+### 配置管理
+
+- [配置管理](https://goframe.org/examples/config.md)
+- [Apollo](https://goframe.org/examples/config/apollo.md)
+- [Consul](https://goframe.org/examples/config/consul.md)
+- [Nacos](https://goframe.org/examples/config/nacos.md)
+- [Polaris](https://goframe.org/examples/config/polaris.md)
+- [Kubernetes ConfigMap](https://goframe.org/examples/config/kubecm.md)
+
+### 注册发现
+
+- [注册发现](https://goframe.org/examples/registry.md)
+- [Consul](https://goframe.org/examples/registry/consul.md)
+- [Etcd](https://goframe.org/examples/registry/etcd.md)
+- [File](https://goframe.org/examples/registry/file.md)
+- [Nacos](https://goframe.org/examples/registry/nacos.md)
+- [Polaris](https://goframe.org/examples/registry/polaris.md)
+
+### 负载均衡
+
+- [负载均衡](https://goframe.org/examples/balancer.md)
+- [HTTP负载均衡](https://goframe.org/examples/balancer/http.md)
+- [使用Polaris实现负载均衡](https://goframe.org/examples/balancer/polaris.md)
+
+### 可观测性
+
+- [可观测性](https://goframe.org/examples/observability.md)
+
+#### 指标收集
+
+- [指标收集](https://goframe.org/examples/observability/metric.md)
+- [基础用法](https://goframe.org/examples/observability/metric/basic.md)
+- [回调处理](https://goframe.org/examples/observability/metric/callback.md)
+- [动态属性](https://goframe.org/examples/observability/metric/dynamic_attributes.md)
+- [全局属性](https://goframe.org/examples/observability/metric/global_attributes.md)
+- [HTTP客户端](https://goframe.org/examples/observability/metric/http_client.md)
+- [HTTP服务器](https://goframe.org/examples/observability/metric/http_server.md)
+- [指标计量器属性](https://goframe.org/examples/observability/metric/meter_attributes.md)
+- [Prometheus集成](https://goframe.org/examples/observability/metric/prometheus.md)
+
+#### 链路跟踪
+
+- [链路跟踪](https://goframe.org/examples/observability/trace.md)
+- [gRPC带数据库](https://goframe.org/examples/observability/trace/grpc-with-db.md)
+- [HTTP服务](https://goframe.org/examples/observability/trace/http.md)
+- [HTTP带数据库](https://goframe.org/examples/observability/trace/http-with-db.md)
+- [进程内服务 (HTTP导出器)](https://goframe.org/examples/observability/trace/inprocess.md)
+- [进程内服务 (gRPC导出器)](https://goframe.org/examples/observability/trace/inprocess-grpc.md)
+- [多进程示例](https://goframe.org/examples/observability/trace/processes.md)
+- [OpenTelemetry示例](https://goframe.org/examples/observability/trace/otlp.md)
+- [OpenTelemetry Provider](https://goframe.org/examples/observability/trace/provider.md)
+
+### 工程实践
+
+- [依赖注入](https://goframe.org/examples/practices/injection.md)
+- [MVC开发实例](https://goframe.org/docs/practices/mvc-demo-chat.md)
+- [快速开发示例](https://goframe.org/docs/practices/quick-demo.md)
+- [gRPC项目示例](https://goframe.org/examples/practices/user-grpc-service.md)
+- [HTTP项目示例](https://goframe.org/examples/practices/user-http-service.md)
+
+## 其他资料
+
+与GoFrame框架相关的各种其他资料，为开发人员提供了全面的使用指南和技术参考，帮助开发者深入理解并高效运用GoFrame框架进行编程开发。
+
+- [如何从v1愉快升级到v2](https://goframe.org/docs/other/happy-upgrading-from-v1-to-v2.md)
+- [格式化打印占位符](https://goframe.org/docs/other/printing-format.md)
+- [附录：系统信号列表](https://goframe.org/docs/other/system-signals.md)
+
+### 准备开发环境
+
+- [环境安装](https://goframe.org/docs/install-go/index.md)
+- [Go Module](https://goframe.org/docs/install-go/go-module.md)
+- [开发环境配置](https://goframe.org/docs/install-go/config-env.md)
+- [私有依赖管理](https://goframe.org/docs/install-go/private-go-module.md)
+
+## 常见问题
+
+- [常见问题(FAQ)](https://goframe.org/docs/faq.md)
+
+## 外部资源
+
+- [官方网站](https://goframe.org)
+- [英文站点](https://goframe.org/en)
+- [源码仓库](https://github.com/gogf/gf)
+- [Go 包文档](https://pkg.go.dev/github.com/gogf/gf/v2)
+- [GoFrame Skills 仓库](https://github.com/gogf/skills)
+- [文档源码仓库](https://github.com/gogf/gf-site)

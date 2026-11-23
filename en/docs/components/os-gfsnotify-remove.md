@@ -1,0 +1,92 @@
+# File Watching - Remove
+
+To remove watching, we can use the `Remove` method, which will remove watching for the entire file/directory.
+
+When there are multiple watching callbacks for the same file/directory, we can remove a specified callback using the `RemoveCallback` method. The `callbackId` parameter is the unique ID returned by the `Callback` object when adding watching.
+
+## Example 1
+
+```go
+package main
+
+import (
+    "context"
+    "time"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/os/gfsnotify"
+    "github.com/gogf/gf/v2/os/gtimer"
+)
+
+func main() {
+    var (
+        ctx    = context.Background()
+        logger = g.Log()
+    )
+    c1, err := gfsnotify.Add("/home/john/temp/log", func(event *gfsnotify.Event) {
+        logger.Debug(ctx, "callback1")
+    })
+    if err != nil {
+        panic(err)
+    }
+    c2, err := gfsnotify.Add("/home/john/temp/log", func(event *gfsnotify.Event) {
+        logger.Debug(ctx, "callback2")
+    })
+    if err != nil {
+        panic(err)
+    }
+    // Remove the registration of callback function c1 after 5 seconds, leaving only c2
+    gtimer.SetTimeout(ctx, 5*time.Second, func(ctx context.Context) {
+        err = gfsnotify.RemoveCallback(c1.Id)
+        logger.Debug(ctx, "remove callback c1", err)
+    })
+    // Remove the registration of callback function c2 after 10 seconds, all callbacks are removed, and no more log messages are output
+    gtimer.SetTimeout(ctx, 10*time.Second, func(ctx context.Context) {
+        err = gfsnotify.RemoveCallback(c2.Id)
+        logger.Debug(ctx, "remove callback c2", err)
+    })
+
+    select {}
+}
+```
+
+## Example 2
+
+```go
+package main
+
+import (
+    "context"
+    "time"
+
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/os/gfsnotify"
+    "github.com/gogf/gf/v2/os/gtimer"
+)
+
+func main() {
+    var (
+        ctx      = context.Background()
+        logger   = g.Log()
+        callback = func(event *gfsnotify.Event) {
+            logger.Debug(ctx, "callback")
+        }
+    )
+    cb, err := gfsnotify.Add("/home/john/temp", callback)
+    if err != nil {
+        panic(err)
+    }
+
+    // During this period create files, directories, modify files, delete files
+
+    // Remove the callback registration after 20 seconds, all callbacks are removed and no more log messages are output
+    gtimer.SetTimeout(ctx, 20*time.Second, func(ctx context.Context) {
+        err = gfsnotify.RemoveCallback(cb.Id)
+        logger.Debug(ctx, "remove callback", err)
+    })
+
+    select {}
+}
+```
+
+> Page: https://goframe.org/en/docs/components/os-gfsnotify-remove

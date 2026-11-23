@@ -1,0 +1,24 @@
+# 路由管理-路由注册
+
+## 基本介绍
+
+`WebServer` 提供服务需要方法/对象的支持， `ghttp` 包支持多种路由注册模式，为开发者提供非常强大和灵活的接口功能。
+
+路由注册是整个 `WebServer` 最核心的部分，也是 `goframe` 框架中最精心设计的一个模块。
+
+接口文档： [https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp](https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp)
+
+## 注意事项
+
+从框架 `v2` 版本开始，增加了 **规范路由** 的特性，更符合业务项目工程化的场景，推荐在复杂的业务项目中使用规范路由： [路由注册-规范路由](https://goframe.org/docs/web/router-registering-strict-router.md)
+
+## 相关文档
+
+子页面：
+
+- [路由注册-函数注册](https://goframe.org/docs/web/router-registering-callback.md)
+- [路由注册-对象注册](https://goframe.org/docs/web/router-registering-struct.md)
+- [路由注册-分组路由](https://goframe.org/docs/web/router-registering-group.md)
+- [路由注册-规范路由](https://goframe.org/docs/web/router-registering-strict-router.md)
+
+> 页面: https://goframe.org/docs/web/router-registering

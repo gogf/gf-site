@@ -1,0 +1,54 @@
+# Configuration - Methods
+
+## Configuration Object
+
+Configuration object definition: [https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp#ServerConfig](https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp#ServerConfig)
+
+## Configuration Methods
+
+Method list: [https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp#Server](https://pkg.go.dev/github.com/gogf/gf/v2/net/ghttp#Server)
+
+Brief description:
+
+1. You can set it using `SetConfig` and `SetConfigWithMap`.
+2. Specific configurations can also be set using the `Set*/Enable*` methods of the `Server` object.
+3. The main thing to note is that the configuration items cannot be modified after the `Server` executes `Start` to prevent concurrency safety issues.
+
+### `SetConfigWithMap` Method
+
+We can use the `SetConfigWithMap` method to set/modify specific configurations of the `Server` through `Key-Value` pairs, while the remaining configurations can use the default settings. The name of the `Key` is the attribute name in the `ServerConfig` `struct`, and it is case insensitive. Words can also be connected using `-`/`_`/`space` symbols. For details, refer to the [Type Conversion - Struct](https://goframe.org/en/docs/core/gconv-struct.md) chapter.
+
+Simple example:
+
+```go
+s := g.Server()
+s.SetConfigWithMap(g.Map{
+    "Address":    ":80",
+    "ServerRoot": "/var/www/MyServerRoot",
+})
+s.Run()
+```
+
+The key name `ServerRoot` can also be used as `serverRoot`, `server-root`, `server_root`, or `server root`, and other configuration properties follow this rule.
+
+A more complete example:
+
+```go
+s := g.Server()
+s.SetConfigWithMap(g.Map{
+    "address":          ":80",
+    "serverRoot":       "/var/www/Server",
+    "indexFiles":       g.Slice{"index.html", "main.html"},
+    "accessLogEnabled": true,
+    "errorLogEnabled":  true,
+    "pprofEnabled":     true,
+    "logPath":          "/var/log/ServerLog",
+    "sessionIdName":    "MySessionId",
+    "sessionPath":      "/tmp/MySessionStoragePath",
+    "sessionMaxAge":    24 * time.Hour,
+    "dumpRouterMap":    false,
+})
+s.Run()
+```
+
+> Page: https://goframe.org/en/docs/web/server-config-funcs

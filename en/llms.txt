@@ -1,0 +1,857 @@
+# GoFrame
+
+> GoFrame is a modular application framework for Go. This file indexes the latest documentation. An AI agent should locate a topic here, then fetch that page's Markdown instead of reading the whole site.
+
+GoFrame can be used as a full project framework, or as individual components from `github.com/gogf/gf/v2`. Each link points at the Markdown source of that page.
+
+## Start here
+
+- [Preface](https://goframe.org/en/preface.md)
+- [Installation](https://goframe.org/en/quick/install.md)
+- [Hello World](https://goframe.org/en/quick/hello-world.md)
+- [Objects](https://goframe.org/en/docs/core/g.md)
+- [Database ORM](https://goframe.org/en/docs/core/gdb.md)
+- [Standard Router](https://goframe.org/en/docs/web/router-registering-strict-router.md)
+- [Code Generating](https://goframe.org/en/docs/cli/gen.md)
+- [GoFrame Skills](https://goframe.org/en/ai/goframe-skills.md)
+
+Suggested order: Quick Start, Core Components, Web Server, Database ORM, Components. Read GoFrame Skills before generating code.
+
+## Quick Start
+
+Through this quick start guide, master the basic steps and techniques for web development using the GoFrame framework. This article…
+
+- [Preface](https://goframe.org/en/preface.md)
+- [Installation](https://goframe.org/en/quick/install.md)
+- [Hello World](https://goframe.org/en/quick/hello-world.md)
+- [Parameters Retrieving](https://goframe.org/en/quick/request-input.md)
+- [Parameters Structure](https://goframe.org/en/quick/request-struct.md)
+- [Standard Routing](https://goframe.org/en/quick/strict-router.md)
+- [Using Middleware](https://goframe.org/en/quick/middleware.md)
+- [Response Structure](https://goframe.org/en/quick/common-response.md)
+- [API Documentation](https://goframe.org/en/quick/api-doc.md)
+- [What's Next](https://goframe.org/en/quick-next.md)
+
+## Project Scaffold
+
+Learn how to leverage GoFrame's powerful project scaffolding to jumpstart your development. Perfect for developers looking to build modern…
+
+- [Introduction](https://goframe.org/en/quick/scaffold-index.md)
+- [Project Initialization](https://goframe.org/en/quick/scaffold-boost.md)
+- [What's Next](https://goframe.org/en/quick/scaffold-next.md)
+
+### API Development Tutorial
+
+- [API Development Tutorial](https://goframe.org/en/quick/scaffold-api.md)
+- [Step1 - Design Data Structure](https://goframe.org/en/quick/scaffold-api-sql.md)
+- [Step2 - Generate dao/do/entity](https://goframe.org/en/quick/scaffold-api-gen-dao.md)
+- [Step3 - Write API Definition](https://goframe.org/en/quick/scaffold-api-definition.md)
+- [Step4 - Generate Controller](https://goframe.org/en/quick/scaffold-api-controller.md)
+- [Step5 - Implement API Logic](https://goframe.org/en/quick/scaffold-api-implements.md)
+- [Step6 - Configuration](https://goframe.org/en/quick/scaffold-api-config-and-route.md)
+- [Step7 - Run and Test](https://goframe.org/en/quick/scaffold-api-run-and-test.md)
+
+## Core Components
+
+Core components are an essential part of the GoFrame framework, providing fundamental development tools and system architecture support,…
+
+- [Objects](https://goframe.org/en/docs/core/g.md)
+- [Debug Mode](https://goframe.org/en/docs/core/debugging.md)
+
+### Command
+
+- [Command](https://goframe.org/en/docs/core/gcmd.md)
+- [Command - Concepts](https://goframe.org/en/docs/core/gcmd-intro.md)
+- [Command - Methods](https://goframe.org/en/docs/core/gcmd-funcs.md)
+- [Command - Args Parsing](https://goframe.org/en/docs/core/gcmd-parser.md)
+- [Command - Object](https://goframe.org/en/docs/core/gcmd-command.md)
+- [Command - Structure](https://goframe.org/en/docs/core/gcmd-struct.md)
+- [Command - Interaction](https://goframe.org/en/docs/core/gcmd-scan.md)
+- [Command - Tracing](https://goframe.org/en/docs/core/gcmd-tracing.md)
+
+### Configuration
+
+- [Configuration](https://goframe.org/en/docs/core/gcfg.md)
+- [Configuration - Object](https://goframe.org/en/docs/core/gcfg-cfg.md)
+- [Configuration - File](https://goframe.org/en/docs/core/gcfg-file.md)
+- [Configuration - Methods](https://goframe.org/en/docs/core/gcfg-funcs.md)
+- [Configuration - YAML](https://goframe.org/en/docs/core/gcfg-yaml.md)
+- [Configuration - TOML](https://goframe.org/en/docs/core/gcfg-toml.md)
+- [Configuration - Watcher Callback](https://goframe.org/en/docs/core/gcfg-watcher.md)
+- [Configuration - Loader](https://goframe.org/en/docs/core/gcfg-loader.md)
+
+#### Configuration - Interface
+
+- [Configuration - Interface](https://goframe.org/en/docs/core/gcfg-interface.md)
+- [Configuration - AdapterFile](https://goframe.org/en/docs/core/gcfg-interface-adapter-file.md)
+- [Configuration - AdapterContent](https://goframe.org/en/docs/core/gcfg-interface-adapter-content.md)
+
+### Logging
+
+- [Logging](https://goframe.org/en/docs/core/glog.md)
+- [Logging - Configuration](https://goframe.org/en/docs/core/glog-config.md)
+- [Logging - Log Level](https://goframe.org/en/docs/core/glog-level.md)
+- [Logging - File Directory](https://goframe.org/en/docs/core/glog-file-folder.md)
+- [Logging - Chaining Operations](https://goframe.org/en/docs/core/glog-chaining.md)
+- [Logging - Color Printing](https://goframe.org/en/docs/core/glog-color.md)
+- [Logging - Context](https://goframe.org/en/docs/core/glog-context.md)
+- [Logging - Handler](https://goframe.org/en/docs/core/glog-handler.md)
+- [Logging - JSON Format](https://goframe.org/en/docs/core/glog-json.md)
+- [Logging - Asynchronous Output](https://goframe.org/en/docs/core/glog-async.md)
+- [Logging - Stack Printing](https://goframe.org/en/docs/core/glog-stack.md)
+- [Logging - Debug Info](https://goframe.org/en/docs/core/glog-debug.md)
+- [Logging - Writer Interface](https://goframe.org/en/docs/core/glog-writer.md)
+- [Logging - Flags](https://goframe.org/en/docs/core/glog-flags.md)
+- [Logging - Rotatation](https://goframe.org/en/docs/core/glog-rotate.md)
+- [Logging - FAQ](https://goframe.org/en/docs/core/glog-faq.md)
+
+### Error Handling
+
+- [Error Handling](https://goframe.org/en/docs/core/gerror.md)
+- [Error Handling - Methods](https://goframe.org/en/docs/core/gerror-funcs.md)
+- [Error Handling - Stack](https://goframe.org/en/docs/core/gerror-stack.md)
+- [Error Handling - Comparison](https://goframe.org/en/docs/core/gerror-comparison.md)
+- [Error Handling - i18n Support](https://goframe.org/en/docs/core/gerror-i18n.md)
+- [Error Handling - Other Features](https://goframe.org/en/docs/core/gerror-other.md)
+- [Error Handling - Best Practices](https://goframe.org/en/docs/core/gerror-practice.md)
+- [Error Handling - Performance](https://goframe.org/en/docs/core/gerror-benchmark.md)
+
+#### Error Handling - Error Code
+
+- [Error Code - Interface](https://goframe.org/en/docs/core/gerror-code-interface.md)
+- [Error Code - Example](https://goframe.org/en/docs/core/gerror-code-example.md)
+- [Error Code - Extension](https://goframe.org/en/docs/core/gerror-code-extension.md)
+- [Error Code - Implementation](https://goframe.org/en/docs/core/gerror-code-custom.md)
+- [Error Code - Built-in Codes](https://goframe.org/en/docs/core/gerror-code-builtin.md)
+
+### Data Validation
+
+- [Data Validation](https://goframe.org/en/docs/core/gvalid.md)
+- [Data Validation - Rules](https://goframe.org/en/docs/core/gvalid-rules.md)
+- [Data Validation - Object](https://goframe.org/en/docs/core/gvalid-validator.md)
+- [Data Validation - Result](https://goframe.org/en/docs/core/gvalid-result-handling.md)
+- [Data Validation - Optional Rule](https://goframe.org/en/docs/core/gvalid-optional-rule.md)
+- [Data Validation - Recursive](https://goframe.org/en/docs/core/gvalid-recursive-validating.md)
+- [Data Validation - Error Msg](https://goframe.org/en/docs/core/gvalid-custom-validating-message.md)
+- [Data Validation - Methods](https://goframe.org/en/docs/core/gvalid-funcs.md)
+- [Data Validation - FAQ](https://goframe.org/en/docs/core/gvalid-faq.md)
+
+#### Data Validation - Data Type
+
+- [Data Type - Value](https://goframe.org/en/docs/core/gvalid-parameter-type-basic.md)
+- [Map Validation - Example](https://goframe.org/en/docs/core/gvalid-parameter-type-map-example.md)
+- [Map Validation - Sequence](https://goframe.org/en/docs/core/gvalid-parameter-type-map-sequence.md)
+- [Struct Validation - Example](https://goframe.org/en/docs/core/gvalid-parameter-type-struct-example.md)
+- [Struct Validation - Assoc](https://goframe.org/en/docs/core/gvalid-parameter-type-struct-assoc.md)
+
+#### Data Validation - Custom
+
+- [Data Validation - Custom](https://goframe.org/en/docs/core/gvalid-custom-rules.md)
+- [Custom Rule - Registration](https://goframe.org/en/docs/core/gvalid-custom-rules-register.md)
+- [Custom Rule - Input Object](https://goframe.org/en/docs/core/gvalid-custom-rules-handle-input-parameters.md)
+
+### Type Conversion
+
+- [Type Conversion](https://goframe.org/en/docs/core/gconv.md)
+- [Type Conversion - Types](https://goframe.org/en/docs/core/gconv-basic.md)
+- [Type Conversion - Map](https://goframe.org/en/docs/core/gconv-map.md)
+- [Type Conversion - Struct](https://goframe.org/en/docs/core/gconv-struct.md)
+- [Type Conversion - Structs](https://goframe.org/en/docs/core/gconv-structs.md)
+- [Type Conversion - Scan](https://goframe.org/en/docs/core/gconv-scan.md)
+- [Type Conversion - Interface](https://goframe.org/en/docs/core/gconv-unmarshal-value.md)
+- [Type Conversion - Performance](https://goframe.org/en/docs/core/gconv-benchmark.md)
+- [Type Conversion - Converter](https://goframe.org/en/docs/core/gconv-converter.md)
+- [Type Conversion - Custom Type Conversion](https://goframe.org/en/docs/core/gconv-register-converter-func.md)
+
+### Caching
+
+- [Caching](https://goframe.org/en/docs/core/gcache.md)
+- [Caching - Interface](https://goframe.org/en/docs/core/gcache-interface.md)
+- [Caching - In-Memory](https://goframe.org/en/docs/core/gcache-memory.md)
+- [Caching - Redis](https://goframe.org/en/docs/core/gcache-redis.md)
+- [Caching - Methods](https://goframe.org/en/docs/core/gcache-funcs.md)
+
+### Database ORM
+
+- [Database ORM](https://goframe.org/en/docs/core/gdb.md)
+- [ORM - Method Ops (Native)](https://goframe.org/en/docs/core/gdb-funcs.md)
+- [ORM - Timezone](https://goframe.org/en/docs/core/gdb-timezone.md)
+- [ORM - Model Generation](https://goframe.org/en/docs/core/gdb-model-generating.md)
+- [ORM - Context](https://goframe.org/en/docs/core/gdb-context.md)
+- [ORM - FAQ](https://goframe.org/en/docs/core/gdb-faq.md)
+
+#### ORM - Configuration
+
+- [ORM Configuration - File](https://goframe.org/en/docs/core/gdb-config-file.md)
+- [ORM Configuration - Methods](https://goframe.org/en/docs/core/gdb-config-funcs.md)
+- [ORM Configuration - FAQ](https://goframe.org/en/docs/core/gdb-config-faq.md)
+
+#### ORM - Model
+
+- [ORM - Model](https://goframe.org/en/docs/core/gdb-chaining.md)
+- [ORM Model - Model](https://goframe.org/en/docs/core/gdb-chaining-model.md)
+- [ORM Model - Insert/Save](https://goframe.org/en/docs/core/gdb-chaining-insert-save.md)
+- [ORM Model - Update/Delete](https://goframe.org/en/docs/core/gdb-chaining-update-delete.md)
+- [ORM Model - Object Input](https://goframe.org/en/docs/core/gdb-chaining-object-parameter.md)
+- [ORM Model - Fields Filtering](https://goframe.org/en/docs/core/gdb-chaining-fields-filtering.md)
+- [ORM Model - Fields Retrieval](https://goframe.org/en/docs/core/gdb-chaining-fields-retrieving.md)
+- [ORM Model - Transaction](https://goframe.org/en/docs/core/gdb-chaining-transaction.md)
+- [ORM Model - Master/Slave](https://goframe.org/en/docs/core/gdb-chaining-master-slave.md)
+- [ORM Model - Query Cache](https://goframe.org/en/docs/core/gdb-chaining-query-cache.md)
+- [ORM Model - Schema](https://goframe.org/en/docs/core/gdb-chaining-schema.md)
+- [ORM Model - Hook](https://goframe.org/en/docs/core/gdb-chaining-hook.md)
+- [ORM Model - Handler](https://goframe.org/en/docs/core/gdb-chaining-handler.md)
+- [ORM Model - Lock](https://goframe.org/en/docs/core/gdb-chaining-locks.md)
+- [Model Query - Where](https://goframe.org/en/docs/core/gdb-chaining-query-where.md)
+- [Model Query - Methods](https://goframe.org/en/docs/core/gdb-chaining-query-all-one-array-value-count.md)
+- [Model Query - AllAndCount](https://goframe.org/en/docs/core/gdb-chaining-query-all-and-count.md)
+- [Model Query - Exist](https://goframe.org/en/docs/core/gdb-chaining-query-exist.md)
+- [Model Query - Scan](https://goframe.org/en/docs/core/gdb-chaining-query-scan.md)
+- [Model Query - ScanAndCount](https://goframe.org/en/docs/core/gdb-chaining-query-scan-and-count.md)
+- [Model Query - Join](https://goframe.org/en/docs/core/gdb-chaining-query-join.md)
+- [Model Query - Group/Order](https://goframe.org/en/docs/core/gdb-chaining-query-group-order-having.md)
+- [Model Query - Union/UnionAll](https://goframe.org/en/docs/core/gdb-chaining-query-union.md)
+- [Model Query - Subquery](https://goframe.org/en/docs/core/gdb-chaining-query-sub-query.md)
+- [Model Query - Operators](https://goframe.org/en/docs/core/gdb-chaining-query-example.md)
+- [Model Association - ScanList](https://goframe.org/en/docs/core/gdb-chaining-relation-scan-list.md)
+- [Model Association - With](https://goframe.org/en/docs/core/gdb-chaining-relation-with.md)
+- [ORM Model - Time Fields](https://goframe.org/en/docs/core/gdb-chaining-soft-time.md)
+- [Time Fields - Intro](https://goframe.org/en/docs/core/gdb-chaining-soft-time-example.md)
+- [Time Fields - Integer Fields](https://goframe.org/en/docs/core/gdb-chaining-soft-time-numeric-fields.md)
+- [Time Fields - Boolean Fields](https://goframe.org/en/docs/core/gdb-chaining-soft-time-bool-fields.md)
+- [Time Fields - SoftTimeOption](https://goframe.org/en/docs/core/gdb-chaining-soft-time-option.md)
+
+#### ORM - Transaction
+
+- [ORM - Transaction](https://goframe.org/en/docs/core/gdb-transaction.md)
+- [ORM Transaction - Methods](https://goframe.org/en/docs/core/gdb-transaction-basic.md)
+- [ORM Transaction - Closure](https://goframe.org/en/docs/core/gdb-transaction-closure.md)
+- [ORM Transaction - Nested](https://goframe.org/en/docs/core/gdb-transaction-nested.md)
+- [ORM Transactions - Propagation](https://goframe.org/en/docs/core/gdb-transaction-propagation.md)
+- [ORM Transactions - Isolation Levels](https://goframe.org/en/docs/core/gdb-transaction-isolation-level.md)
+- [ORM Transactions - Read-Only Mode](https://goframe.org/en/docs/core/gdb-transaction-readonly.md)
+
+#### ORM - Result Handling
+
+- [ORM Result - Types](https://goframe.org/en/docs/core/gdb-result-types.md)
+- [ORM Result - Empty Check](https://goframe.org/en/docs/core/gdb-result-empty-check.md)
+- [ORM Result - Empty Array](https://goframe.org/en/docs/core/gdb-result-empty-array.md)
+
+#### ORM - Sharding
+
+- [ORM Sharding - Table Sharding](https://goframe.org/en/docs/core/gdb-sharding-table.md)
+- [ORM Sharding - Database Sharding](https://goframe.org/en/docs/core/gdb-sharding-schema.md)
+
+#### ORM - Senior Features
+
+- [ORM Senior - RawSQL](https://goframe.org/en/docs/core/gdb-senior-raw-sql.md)
+- [ORM Senior - SQL Capture](https://goframe.org/en/docs/core/gdb-senior-catch-sql.md)
+- [ORM Senior - Debug Mode](https://goframe.org/en/docs/core/gdb-senior-debugging.md)
+- [ORM Senior - Logging](https://goframe.org/en/docs/core/gdb-senior-logging.md)
+- [ORM Senior - Field Mapping](https://goframe.org/en/docs/core/gdb-senior-fields-mapping.md)
+- [ORM Senior - Dry Run](https://goframe.org/en/docs/core/gdb-senior-dry-run.md)
+- [ORM Senior - Type Recognition](https://goframe.org/en/docs/core/gdb-senior-type-recognization.md)
+- [ORM Senior - Type Conversion](https://goframe.org/en/docs/core/gdb-senior-type-converting.md)
+- [ORM Senior - Connection Pool](https://goframe.org/en/docs/core/gdb-senior-connection-pool.md)
+- [ORM Senior - Embedded Struct](https://goframe.org/en/docs/core/gdb-senior-nested-struct-support.md)
+- [ORM Senior - UnmarshalValue](https://goframe.org/en/docs/core/gdb-senior-custom-type-converting.md)
+
+#### ORM - Interface
+
+- [ORM - Interface](https://goframe.org/en/docs/core/gdb-interface.md)
+- [ORM Interface - Callback](https://goframe.org/en/docs/core/gdb-interface-callback.md)
+- [ORM Interface - Driver](https://goframe.org/en/docs/core/gdb-interface-driver.md)
+
+#### ORM - Best Practices
+
+- [ORM - Best Practices](https://goframe.org/en/docs/core/gdb-practice.md)
+- [Utilizing Pointer Properties and Do Objects for Flexible Modification Interfaces](https://goframe.org/en/docs/core/gdb-practice-using-pointer-and-do-for-update-api.md)
+- [Try to use JSON for complex types for storage, facilitating automatic conversion to objects upon scanning, avoiding custom parsing](https://goframe.org/en/docs/core/gdb-practice-using-json-for-complicated-field.md)
+- [Avoid Object Initialization and sql.ErrNoRows Judgment in Queries](https://goframe.org/en/docs/core/gdb-practice-avoid-object-initialization-and-sql-errnorows-error.md)
+
+### Template Engine
+
+- [Template Engine](https://goframe.org/en/docs/core/gview.md)
+- [Template Engine - Configuration](https://goframe.org/en/docs/core/gview-config.md)
+- [Template Engine - Tags](https://goframe.org/en/docs/core/gview-tags.md)
+- [Template Engine - Variables](https://goframe.org/en/docs/core/gview-variable.md)
+- [Template Engine - Layout](https://goframe.org/en/docs/core/gview-layout.md)
+- [Template Engine - XSS](https://goframe.org/en/docs/core/gview-xss.md)
+- [Template Engine - Others](https://goframe.org/en/docs/core/gview-more.md)
+
+#### Template Engine - Funcs
+
+- [Template Funcs - Intro](https://goframe.org/en/docs/core/gview-funcs-index.md)
+- [Template Funcs - Built-In](https://goframe.org/en/docs/core/gview-funcs-builtin.md)
+- [Template Funcs - Custom](https://goframe.org/en/docs/core/gview-funcs-custom.md)
+
+### I18N
+
+- [I18N](https://goframe.org/en/docs/core/gi18n.md)
+- [I18N - Configuration](https://goframe.org/en/docs/core/gi18n-config.md)
+- [I18N - Example](https://goframe.org/en/docs/core/gi18n-example.md)
+
+### Resource
+
+- [Resource](https://goframe.org/en/docs/core/gres.md)
+- [Resource - Packing With Tool](https://goframe.org/en/docs/core/gres-pack-using-cli.md)
+- [Resource - Packing With Method](https://goframe.org/en/docs/core/gres-pack-using-funcs.md)
+- [Resource - Methods](https://goframe.org/en/docs/core/gres-funcs.md)
+- [Resource - Examples](https://goframe.org/en/docs/core/gres-example.md)
+- [Resource - Best Practices](https://goframe.org/en/docs/core/gres-practice.md)
+
+## Web Server
+
+Learn how to develop WEB services using the GoFrame framework, covering all aspects from basic concepts to advanced applications. Through…
+
+- [Getting Started](https://goframe.org/en/docs/web/start.md)
+- [Cookie](https://goframe.org/en/docs/web/cookie.md)
+- [Exception Handling](https://goframe.org/en/docs/web/panic-handling.md)
+- [Performance](https://goframe.org/en/docs/web/performance.md)
+- [FAQ](https://goframe.org/en/docs/web/faq.md)
+
+### Router
+
+- [Router](https://goframe.org/en/docs/web/router.md)
+- [Router - Route Patterns](https://goframe.org/en/docs/web/router-pattern.md)
+
+#### Router - Registration
+
+- [Router - Registration](https://goframe.org/en/docs/web/router-registering.md)
+- [Registration - Function](https://goframe.org/en/docs/web/router-registering-callback.md)
+- [Registration - Object](https://goframe.org/en/docs/web/router-registering-struct.md)
+- [Registration - Group Routing](https://goframe.org/en/docs/web/router-registering-group.md)
+- [Standard Router](https://goframe.org/en/docs/web/router-registering-strict-router.md)
+- [Standard Router - Example](https://goframe.org/en/docs/web/router-registering-strict-router-example.md)
+- [Standard Router - Usage](https://goframe.org/en/docs/web/router-registering-strict-router-usage.md)
+- [Standard Router - FAQ](https://goframe.org/en/docs/web/router-registering-strict-router-faq.md)
+
+#### Router - Middleware
+
+- [Middleware - Intro](https://goframe.org/en/docs/web/router-middleware-intro.md)
+- [Middleware - Examples](https://goframe.org/en/docs/web/router-middleware-example.md)
+- [Middleware - FAQ](https://goframe.org/en/docs/web/router-middleware-faq.md)
+
+### API Document
+
+- [API Document](https://goframe.org/en/docs/web/api-document.md)
+- [API Document - OpenAPIv3](https://goframe.org/en/docs/web/api-document-openapiv3.md)
+- [API Document - Custom UI](https://goframe.org/en/docs/web/api-document-swagger-ui.md)
+- [API Document - Extending Response](https://goframe.org/en/docs/web/api-document-extendable-response.md)
+
+### Request
+
+- [Request](https://goframe.org/en/docs/web/request.md)
+- [Request - Parameters](https://goframe.org/en/docs/web/request-parameters.md)
+- [Request - Parameter Binding](https://goframe.org/en/docs/web/request-struct-converting.md)
+- [Request - Validation](https://goframe.org/en/docs/web/request-validation.md)
+- [Request - JSON/XML](https://goframe.org/en/docs/web/request-json-xml-parameter.md)
+- [Request - Default Value](https://goframe.org/en/docs/web/request-default-value.md)
+- [Request - Custom Parameters](https://goframe.org/en/docs/web/request-custom-parameters.md)
+- [Request - Context](https://goframe.org/en/docs/web/request-context.md)
+- [Request - File Uploading](https://goframe.org/en/docs/web/request-file-uploading.md)
+
+### Response
+
+- [Response](https://goframe.org/en/docs/web/response.md)
+- [Response - Buffering](https://goframe.org/en/docs/web/response-buffering.md)
+- [Response - JSON/XML](https://goframe.org/en/docs/web/response-json-xml.md)
+- [Response - Redirect](https://goframe.org/en/docs/web/response-redirect.md)
+- [Response - Exit](https://goframe.org/en/docs/web/response-exit-exitall-exithook.md)
+- [Response - File Downloading](https://goframe.org/en/docs/web/response-file-downloading.md)
+- [Response - Template Parsing](https://goframe.org/en/docs/web/response-template.md)
+- [Response - Streaming](https://goframe.org/en/docs/web/response-stream.md)
+
+### Configuration
+
+- [Configuration](https://goframe.org/en/docs/web/server-config.md)
+- [Configuration - File](https://goframe.org/en/docs/web/server-config-file.md)
+- [Configuration - File Template](https://goframe.org/en/docs/web/server-config-file-template.md)
+- [Configuration - Methods](https://goframe.org/en/docs/web/server-config-funcs.md)
+
+### Session
+
+- [Session](https://goframe.org/en/docs/web/session.md)
+- [Session - File](https://goframe.org/en/docs/web/session-file.md)
+- [Session - Memory](https://goframe.org/en/docs/web/session-memory.md)
+- [Session - Redis-KeyValue](https://goframe.org/en/docs/web/session-redis-key-value.md)
+- [Session - Redis-HashTable](https://goframe.org/en/docs/web/session-redis-hash-table.md)
+- [Session - Storage Interface](https://goframe.org/en/docs/web/session-storage.md)
+- [Session - RegenerateId](https://goframe.org/en/docs/web/session-regenerate-id.md)
+
+### HTTPClient
+
+- [HTTPClient](https://goframe.org/en/docs/web/http-client.md)
+- [HTTPClient - Examples](https://goframe.org/en/docs/web/http-client-example.md)
+- [HTTPClient - File Uploading](https://goframe.org/en/docs/web/http-client-file-uploading.md)
+- [HTTPClient - Cookie](https://goframe.org/en/docs/web/http-client-cookie.md)
+- [HTTPClient - Header](https://goframe.org/en/docs/web/http-client-header.md)
+- [HTTPClient - ContentType](https://goframe.org/en/docs/web/http-client-content-type.md)
+- [HTTPClient - Transport](https://goframe.org/en/docs/web/http-client-transport.md)
+- [HTTPClient - Raw](https://goframe.org/en/docs/web/http-client-raw-request-response.md)
+- [HTTPClient - Proxy](https://goframe.org/en/docs/web/http-client-proxy.md)
+- [HTTPClient - Middleware](https://goframe.org/en/docs/web/http-client-middleware.md)
+- [HTTPClient - FAQ](https://goframe.org/en/docs/web/http-client-faq.md)
+- [HTTPClient - Metrics](https://goframe.org/en/docs/web/http-client-metrics.md)
+
+### Pagination
+
+- [Pagination](https://goframe.org/en/docs/web/paging.md)
+- [Pagination - Dynamic Paging](https://goframe.org/en/docs/web/paging-dynamic.md)
+- [Pagination - Static Paging](https://goframe.org/en/docs/web/paging-static.md)
+- [Pagination - Ajax Paging](https://goframe.org/en/docs/web/paging-ajax.md)
+- [Pagination - URL Template](https://goframe.org/en/docs/web/paging-template.md)
+- [Pagination - Custom Paging](https://goframe.org/en/docs/web/paging-customization.md)
+
+### Advanced Features
+
+- [Static File Service](https://goframe.org/en/docs/web/senior-static-server.md)
+- [Logging](https://goframe.org/en/docs/web/senior-logging.md)
+- [HTTPS & TLS](https://goframe.org/en/docs/web/senior-https.md)
+- [Graceful Restart](https://goframe.org/en/docs/web/senior-hot-reload.md)
+- [CORS](https://goframe.org/en/docs/web/senior-cors.md)
+- [CSRF](https://goframe.org/en/docs/web/senior-csrf.md)
+- [HOOK Callbacks](https://goframe.org/en/docs/web/senior-hook.md)
+- [WebSocket](https://goframe.org/en/docs/web/senior-websocket.md)
+- [Status Code Handling](https://goframe.org/en/docs/web/senior-status-handler.md)
+- [PProf Performance Analysis](https://goframe.org/en/docs/web/senior-pprof.md)
+- [SameSite](https://goframe.org/en/docs/web/senior-same-site.md)
+- [HTTPServer - Metrics](https://goframe.org/en/docs/web/senior-server-metrics.md)
+
+## Microservice
+
+- [Microservice Development](https://goframe.org/en/docs/micro-service.md)
+- [Preparation](https://goframe.org/en/docs/micro-service/prepare-environment.md)
+- [Project Structure](https://goframe.org/en/docs/micro-service/structure.md)
+- [Scaffold Components](https://goframe.org/en/docs/micro-service/scaffold.md)
+- [GRPC Server Configuration](https://goframe.org/en/docs/micro-service/config.md)
+- [GRPC Interceptor Component](https://goframe.org/en/docs/micro-service/interceptor.md)
+- [Service Registry and Discovery](https://goframe.org/en/docs/micro-service/registry-discovery.md)
+- [Service Load Balancing](https://goframe.org/en/docs/micro-service/load-balance.md)
+- [Service Configuration](https://goframe.org/en/docs/micro-service/config-service.md)
+
+## Observability
+
+- [Service Observability](https://goframe.org/en/docs/obs.md)
+
+### Service Tracing
+
+- [Tracing - Intro](https://goframe.org/en/docs/obs/tracing-intro.md)
+- [Tracing - Preparation](https://goframe.org/en/docs/obs/tracing-prepare.md)
+- [Tracing - Basic Example](https://goframe.org/en/docs/obs/tracing-example.md)
+- [Tracing - GRPC Example](https://goframe.org/en/docs/obs/tracing-grpc-example.md)
+- [TraceID Injection and Retrieval](https://goframe.org/en/docs/obs/tracing-practice-inject-traceid.md)
+
+#### Tracing - HTTP Example
+
+- [Tracing - HTTP Example](https://goframe.org/en/docs/obs/tracing-http-example.md)
+- [Tracing HTTP - Baggage](https://goframe.org/en/docs/obs/tracing-http-example-baggage.md)
+- [Tracing HTTP - Data Ops](https://goframe.org/en/docs/obs/tracing-http-example-with-database.md)
+
+### Service Metrics
+
+- [Service Metrics](https://goframe.org/en/docs/obs/metrics.md)
+- [Metrics - Intro](https://goframe.org/en/docs/obs/metrics-intro.md)
+- [Metrics - Usage](https://goframe.org/en/docs/obs/metrics-example.md)
+- [Metrics - Synchronous Metrics](https://goframe.org/en/docs/obs/metrics-sync.md)
+- [Metrics - Asynchronous Metrics](https://goframe.org/en/docs/obs/metrics-async.md)
+- [Metrics - Attributes](https://goframe.org/en/docs/obs/metrics-attributes.md)
+- [Metrics - Built-in Metrics](https://goframe.org/en/docs/obs/metrics-builtin.md)
+- [Metrics - Component Metrics](https://goframe.org/en/docs/obs/metrics-components.md)
+
+## Components
+
+- [Components Category](https://goframe.org/en/docs/components.md)
+
+### Container
+
+#### Map
+
+- [Map](https://goframe.org/en/docs/components/container-gmap.md)
+- [Map - Usage](https://goframe.org/en/docs/components/container-gmap-example.md)
+- [Map - Performance](https://goframe.org/en/docs/components/container-gmap-benchmark.md)
+- [Map - Methods](https://goframe.org/en/docs/components/container-gmap-funcs.md)
+
+#### Array
+
+- [Array](https://goframe.org/en/docs/components/container-garray.md)
+- [Array - Usage](https://goframe.org/en/docs/components/container-garray-example.md)
+- [Array - Methods](https://goframe.org/en/docs/components/container-garray-funcs.md)
+
+#### Set
+
+- [Set](https://goframe.org/en/docs/components/container-gset.md)
+- [Set - Usage](https://goframe.org/en/docs/components/container-gset-example.md)
+- [Set - Performance](https://goframe.org/en/docs/components/container-gset-benchmark.md)
+- [Set - Methods](https://goframe.org/en/docs/components/container-gset-funcs.md)
+
+#### List
+
+- [List](https://goframe.org/en/docs/components/container-glist.md)
+- [List - Usage](https://goframe.org/en/docs/components/container-glist-example.md)
+- [List - Performance](https://goframe.org/en/docs/components/container-glist-benchmark.md)
+
+#### Generic
+
+- [Generic](https://goframe.org/en/docs/components/container-gvar.md)
+- [Generic - Usage](https://goframe.org/en/docs/components/container-gvar-example.md)
+- [Generic - Methods](https://goframe.org/en/docs/components/container-gvar-funcs.md)
+- [Generic - Precautions](https://goframe.org/en/docs/components/container-gvar-notice.md)
+
+#### Safe Type
+
+- [Safe Type](https://goframe.org/en/docs/components/container-gtype.md)
+- [Safe Type - Usage](https://goframe.org/en/docs/components/container-gtype-example.md)
+- [Safe Type - Performance](https://goframe.org/en/docs/components/container-gtype-benchmark.md)
+
+#### Queue
+
+- [Queue](https://goframe.org/en/docs/components/container-gqueue.md)
+- [Queue - Usage](https://goframe.org/en/docs/components/container-gqueue-example.md)
+- [Queue - Performance](https://goframe.org/en/docs/components/container-gqueue-benchmark.md)
+
+#### Tree
+
+- [Tree](https://goframe.org/en/docs/components/container-gtree.md)
+- [Tree - Usage](https://goframe.org/en/docs/components/container-gtree-example.md)
+- [Tree - Methods](https://goframe.org/en/docs/components/container-gtree-funcs.md)
+
+#### Pool
+
+- [Pool](https://goframe.org/en/docs/components/container-gpool.md)
+- [Pool - Usage](https://goframe.org/en/docs/components/container-gpool-example.md)
+
+#### Concurrency-Safe Ring-gring
+
+- [Concurrency-Safe Ring-gring](https://goframe.org/en/docs/components/container-gring.md)
+- [Concurrency-Safe Ring-Basic Usage](https://goframe.org/en/docs/components/container-gring-example.md)
+- [Concurrency-Safe Ring-Methods](https://goframe.org/en/docs/components/container-gring-funcs.md)
+
+### System
+
+- [Memory Lock](https://goframe.org/en/docs/components/os-gmlock.md)
+- [Mutex](https://goframe.org/en/docs/components/os-gmutex.md)
+- [Context](https://goframe.org/en/docs/components/os-gctx.md)
+- [Command](https://goframe.org/en/docs/components/os-gcmd.md)
+- [Logging](https://goframe.org/en/docs/components/os-glog.md)
+- [Caching](https://goframe.org/en/docs/components/os-gcache.md)
+- [File](https://goframe.org/en/docs/components/os-gfile.md)
+- [Resource](https://goframe.org/en/docs/components/os-gres.md)
+- [Configuration](https://goframe.org/en/docs/components/os-gcfg.md)
+- [Environment](https://goframe.org/en/docs/components/os-genv.md)
+- [Template Engine](https://goframe.org/en/docs/components/os-gview.md)
+- [Goroutine](https://goframe.org/en/docs/components/os-grpool.md)
+- [Build Information](https://goframe.org/en/docs/components/os-gbuild.md)
+- [Object Information](https://goframe.org/en/docs/components/os-gstructs.md)
+
+#### Time
+
+- [Time](https://goframe.org/en/docs/components/os-gtime.md)
+- [Time - Format](https://goframe.org/en/docs/components/os-gtime-format.md)
+- [Time - Object](https://goframe.org/en/docs/components/os-gtime-time.md)
+- [Time - Examples](https://goframe.org/en/docs/components/os-gtime-common-funcs.md)
+- [Time - Time Zone](https://goframe.org/en/docs/components/os-gtime-timezone.md)
+- [Time - Methods](https://goframe.org/en/docs/components/os-gtime-funcs.md)
+
+#### Timer
+
+- [Timer](https://goframe.org/en/docs/components/os-gtimer.md)
+- [Timer - Usage](https://goframe.org/en/docs/components/os-gtimer-example.md)
+- [Timer - Performance](https://goframe.org/en/docs/components/os-gtimer-benchmark.md)
+
+#### Cron Job
+
+- [Cron Job](https://goframe.org/en/docs/components/os-gcron.md)
+- [Cron Job - Expressions](https://goframe.org/en/docs/components/os-gcron-pattern.md)
+- [Cron Job - Usage](https://goframe.org/en/docs/components/os-gcron-example.md)
+- [Cron Job - Logging](https://goframe.org/en/docs/components/os-gcron-logging.md)
+- [Cron Job](https://goframe.org/en/docs/components/os-gcron-differ-with-gtimer.md)
+
+#### File Watching
+
+- [File Watching](https://goframe.org/en/docs/components/os-gfsnotify.md)
+- [File Watching - Add](https://goframe.org/en/docs/components/os-gfsnotify-add.md)
+- [File Watching - Remove](https://goframe.org/en/docs/components/os-gfsnotify-remove.md)
+- [File Watching - System Vars](https://goframe.org/en/docs/components/os-gfsnotify-system-variables.md)
+
+#### Process
+
+- [Process](https://goframe.org/en/docs/components/os-gproc.md)
+- [Process - Usage](https://goframe.org/en/docs/components/os-gproc-example.md)
+- [Process - Communication](https://goframe.org/en/docs/components/os-gproc-communication-between-processes.md)
+- [Process - Signal](https://goframe.org/en/docs/components/os-gproc-signal.md)
+- [Process - Tracing](https://goframe.org/en/docs/components/os-gproc-tracing.md)
+
+### Text
+
+- [String Processing](https://goframe.org/en/docs/components/text-gstr.md)
+
+#### Regular Expression
+
+- [Regular Expression](https://goframe.org/en/docs/components/text-gregex.md)
+- [Regular Expressions - Usage](https://goframe.org/en/docs/components/text-gregex-example.md)
+- [Regular Expressions - Methods](https://goframe.org/en/docs/components/text-gregex-funcs.md)
+
+### Codec
+
+- [Binary](https://goframe.org/en/docs/components/encoding-gbinary.md)
+- [BASE64](https://goframe.org/en/docs/components/encoding-gbase64.md)
+- [Classic Hash Functions](https://goframe.org/en/docs/components/encoding-ghash.md)
+- [HTML](https://goframe.org/en/docs/components/encoding-ghtml.md)
+- [URL](https://goframe.org/en/docs/components/encoding-gurl.md)
+- [XML](https://goframe.org/en/docs/components/encoding-gxml.md)
+- [INI](https://goframe.org/en/docs/components/encoding-gini.md)
+- [YAML](https://goframe.org/en/docs/components/encoding-gyaml.md)
+- [TOML](https://goframe.org/en/docs/components/encoding-gtoml.md)
+- [Charset Conversion](https://goframe.org/en/docs/components/encoding-gcharset.md)
+- [Compression](https://goframe.org/en/docs/components/encoding-gcompress.md)
+
+#### General Codec
+
+- [General Codec](https://goframe.org/en/docs/components/encoding-gjson.md)
+- [General Codec - Creation](https://goframe.org/en/docs/components/encoding-gjson-creation.md)
+- [General Codec - Nested Visiting](https://goframe.org/en/docs/components/encoding-gjson-nested-visiting.md)
+- [General Codec - Struct](https://goframe.org/en/docs/components/encoding-gjson-struct-converting.md)
+- [General Codec - Dynamic Creation and Modification](https://goframe.org/en/docs/components/encoding-gjson-dynamic-creating-and-editing.md)
+- [General Codec - Data Format](https://goframe.org/en/docs/components/encoding-gjson-format-converting.md)
+- [General Codec - Methods](https://goframe.org/en/docs/components/encoding-gjson-funcs.md)
+- [General Codec - FAQ](https://goframe.org/en/docs/components/encoding-gjson-faq.md)
+
+### Database
+
+- [Database ORM](https://goframe.org/en/docs/components/database-gdb.md)
+- [Redis Client](https://goframe.org/en/docs/components/database-gredis.md)
+
+### Network
+
+#### TCP
+
+- [TCP](https://goframe.org/en/docs/components/network-gtcp.md)
+- [TCP - Methods](https://goframe.org/en/docs/components/network-gtcp-funcs.md)
+- [TCP - TLS](https://goframe.org/en/docs/components/network-gtcp-tls.md)
+- [TCP - Connection Pool](https://goframe.org/en/docs/components/network-gtcp-connection-pool.md)
+- [TCP - Object](https://goframe.org/en/docs/components/network-gtcp-conn.md)
+- [TCP Object - Package](https://goframe.org/en/docs/components/network-gtcp-conn-package.md)
+- [TCP Object - Senior](https://goframe.org/en/docs/components/network-gtcp-conn-senior.md)
+
+#### UDP
+
+- [UDP](https://goframe.org/en/docs/components/network-gudp.md)
+- [UDP - Object](https://goframe.org/en/docs/components/network-gudp-conn.md)
+- [UDP - Methods](https://goframe.org/en/docs/components/network-gudp-funcs.md)
+
+### Crypto
+
+- [MD5](https://goframe.org/en/docs/components/crypto-gmd5.md)
+- [AES](https://goframe.org/en/docs/components/crypto-gaes.md)
+- [DES](https://goframe.org/en/docs/components/crypto-gdes.md)
+- [SHA1](https://goframe.org/en/docs/components/crypto-gsha1.md)
+- [CRC32](https://goframe.org/en/docs/components/crypto-gcrc32.md)
+- [RSA Algorithm-grsa](https://goframe.org/en/docs/components/crypto-grsa.md)
+- [SHA256 Algorithm-gsha256](https://goframe.org/en/docs/components/crypto-gsha256.md)
+
+### Utilities
+
+- [Random](https://goframe.org/en/docs/components/util-grand.md)
+- [Unique Number](https://goframe.org/en/docs/components/util-guid.md)
+- [Metadata](https://goframe.org/en/docs/components/util-gmeta.md)
+- [Type Conversion](https://goframe.org/en/docs/components/util-gconv.md)
+- [Data Validation](https://goframe.org/en/docs/components/util-gvalid.md)
+- [Pagination](https://goframe.org/en/docs/components/util-gpage.md)
+- [Utility Functions](https://goframe.org/en/docs/components/util-gutil.md)
+- [Unit Testing](https://goframe.org/en/docs/components/test-gtest.md)
+
+### Errors
+
+- [Error Handling](https://goframe.org/en/docs/components/error-gerror.md)
+- [Error Code](https://goframe.org/en/docs/components/error-gcode.md)
+- [Debugging](https://goframe.org/en/docs/components/debug-gdebug.md)
+- [I18N](https://goframe.org/en/docs/components/i18n-gi18n.md)
+
+### NoSQL Redis
+
+- [NoSQL Redis](https://goframe.org/en/docs/components/contrib-nosql-redis.md)
+- [Redis - Configuration](https://goframe.org/en/docs/components/contrib-nosql-redis-config.md)
+- [Redis - Examples](https://goframe.org/en/docs/components/contrib-nosql-redis-example.md)
+- [Redis - Do](https://goframe.org/en/docs/components/contrib-nosql-redis-do-and-serialization.md)
+- [Redis - Conn](https://goframe.org/en/docs/components/contrib-nosql-redis-conn.md)
+- [Redis - Interface](https://goframe.org/en/docs/components/contrib-nosql-redis-interface.md)
+
+## Framework Design
+
+- [Framework Design](https://goframe.org/en/docs/design.md)
+- [Modular Design](https://goframe.org/en/docs/design/modular.md)
+- [Unified Framework Design](https://goframe.org/en/docs/design/unified.md)
+- [OpenTelemetry Tracing](https://goframe.org/en/docs/design/tracing.md)
+- [Error Stack](https://goframe.org/en/docs/design/error-stack.md)
+- [Interface and Generic](https://goframe.org/en/docs/design/interface-generic.md)
+- [Implicit and Explicit Init](https://goframe.org/en/docs/design/initialization.md)
+- [Golang Enums](https://goframe.org/en/docs/design/enums.md)
+- [Context Shared Variables](https://goframe.org/en/docs/design/context-variable.md)
+
+### Engineering Design
+
+- [Engineering Design](https://goframe.org/en/docs/design/project.md)
+- [Code Layering](https://goframe.org/en/docs/design/project-layer.md)
+- [Project Structure](https://goframe.org/en/docs/design/project-structure.md)
+- [Structured Programming](https://goframe.org/en/docs/design/project-struct-parameter.md)
+- [Data and Business Models](https://goframe.org/en/docs/design/project-models.md)
+- [Mono-Repo Management](https://goframe.org/en/docs/design/project-mono-repo.md)
+
+#### DAO Encapsulation
+
+- [Pain Points and Improvements In ORM Component](https://goframe.org/en/docs/design/project-dao-pain.md)
+- [Pain Points and Improvements In Business Project](https://goframe.org/en/docs/design/project-dao-improvement.md)
+
+## Development Tools
+
+- [CLI Tool](https://goframe.org/en/docs/cli.md)
+- [Installation](https://goframe.org/en/docs/cli/install.md)
+- [Version Check](https://goframe.org/en/docs/cli/version.md)
+- [Version Upgrade](https://goframe.org/en/docs/cli/up.md)
+- [Project Scaffold](https://goframe.org/en/docs/cli/init.md)
+- [Cross-Compiling](https://goframe.org/en/docs/cli/build.md)
+- [Auto Compiling](https://goframe.org/en/docs/cli/run.md)
+- [Resource Packing](https://goframe.org/en/docs/cli/pack.md)
+- [Image Building](https://goframe.org/en/docs/cli/docker.md)
+- [Compatibility Fix](https://goframe.org/en/docs/cli/fix.md)
+- [Help Info](https://goframe.org/en/docs/cli/help.md)
+
+### Code Generating
+
+- [Code Generating](https://goframe.org/en/docs/cli/gen.md)
+- [Controller Generating](https://goframe.org/en/docs/cli/gen-ctrl.md)
+- [Dao/Do/Entity Generating](https://goframe.org/en/docs/cli/gen-dao.md)
+- [Service Generating](https://goframe.org/en/docs/cli/gen-service.md)
+- [Enums Maintenance](https://goframe.org/en/docs/cli/gen-enums.md)
+- [Protobuf Compilation](https://goframe.org/en/docs/cli/gen-pb.md)
+- [DB Table To Protobuf](https://goframe.org/en/docs/cli/gen-pbentity.md)
+
+## Deployment
+
+A detailed guide to project deployment using the GoFrame framework, including complete steps from preparing the server environment to…
+
+- [Deployment - Standalone](https://goframe.org/en/docs/deploy/standalone.md)
+- [Deployment - Proxy](https://goframe.org/en/docs/deploy/proxy.md)
+- [Deployment - Container](https://goframe.org/en/docs/deploy/container.md)
+
+## AI Assisted Development
+
+### AI Vibe Coding
+
+- [AI Vibe Coding](https://goframe.org/en/ai/vibe-coding.md)
+- [GoFrame Skills](https://goframe.org/en/ai/goframe-skills.md)
+
+## Examples
+
+### gRPC
+
+- [Basic Usage](https://goframe.org/en/examples/grpc/basic.md)
+- [Context Usage](https://goframe.org/en/examples/grpc/ctx.md)
+- [Raw gRPC Example](https://goframe.org/en/examples/grpc/rawgrpc.md)
+- [Load Balancing](https://goframe.org/en/examples/grpc/balancer.md)
+- [Service Resolver](https://goframe.org/en/examples/grpc/resolver.md)
+
+### NoSQL
+
+- [Redis](https://goframe.org/en/examples/nosql/redis.md)
+- [MongoDB](https://goframe.org/en/examples/nosql/mongodb.md)
+
+### Database
+
+- [Encoded Password Database Connection](https://goframe.org/en/examples/database/encoded-pass.md)
+
+### HTTP Server
+
+- [JWT Authentication](https://goframe.org/en/examples/httpserver/jwt.md)
+- [Basic Authentication](https://goframe.org/en/examples/httpserver/basic-auth.md)
+- [GoFrame MCP HTTP Example](https://goframe.org/en/examples/httpserver/mcp-http.md)
+- [GoFrame MCP SSE Example](https://goframe.org/en/examples/httpserver/mcp-sse.md)
+- [Proxy](https://goframe.org/en/examples/httpserver/proxy.md)
+- [Rate Limit](https://goframe.org/en/examples/httpserver/rate-limit.md)
+- [Response with JSON Array](https://goframe.org/en/examples/httpserver/response-json-array.md)
+- [Server-Sent Events(SSE)](https://goframe.org/en/examples/httpserver/sse.md)
+- [Swagger Auth](https://goframe.org/en/examples/httpserver/swagger-auth.md)
+- [File Upload Example](https://goframe.org/en/examples/httpserver/upload-file.md)
+- [WebSocket](https://goframe.org/en/examples/httpserver/websocket.md)
+
+### Observability
+
+#### Metric
+
+- [Basic](https://goframe.org/en/examples/observability/metric/basic.md)
+- [Callback](https://goframe.org/en/examples/observability/metric/callback.md)
+- [Dynamic Attributes](https://goframe.org/en/examples/observability/metric/dynamic_attributes.md)
+- [Global Attributes](https://goframe.org/en/examples/observability/metric/global_attributes.md)
+- [HTTP Client](https://goframe.org/en/examples/observability/metric/http_client.md)
+- [HTTP Server](https://goframe.org/en/examples/observability/metric/http_server.md)
+- [Meter Attributes](https://goframe.org/en/examples/observability/metric/meter_attributes.md)
+- [Prometheus Integration](https://goframe.org/en/examples/observability/metric/prometheus.md)
+
+#### Tracing
+
+- [gRPC with Database](https://goframe.org/en/examples/observability/trace/grpc-with-db.md)
+- [HTTP Service](https://goframe.org/en/examples/observability/trace/http.md)
+- [HTTP with Database](https://goframe.org/en/examples/observability/trace/http-with-db.md)
+- [In-Process Service (HTTP Exporter)](https://goframe.org/en/examples/observability/trace/inprocess.md)
+- [In-Process Service (gRPC Exporter)](https://goframe.org/en/examples/observability/trace/inprocess-grpc.md)
+- [OpenTelemetry Example](https://goframe.org/en/examples/observability/trace/otlp.md)
+- [Multi-Process Example](https://goframe.org/en/examples/observability/trace/processes.md)
+- [OpenTelemetry Provider Examples](https://goframe.org/en/examples/observability/trace/provider.md)
+
+### Load Balancer
+
+- [HTTP Service](https://goframe.org/en/examples/balancer/http.md)
+- [Polaris Integration](https://goframe.org/en/examples/balancer/polaris.md)
+
+### Service Config
+
+- [Apollo](https://goframe.org/en/examples/config/apollo.md)
+- [Consul](https://goframe.org/en/examples/config/consul.md)
+- [Kubernetes ConfigMap](https://goframe.org/en/examples/config/kubecm.md)
+- [Nacos](https://goframe.org/en/examples/config/nacos.md)
+- [Polaris](https://goframe.org/en/examples/config/polaris.md)
+
+### Service Registry
+
+- [Consul](https://goframe.org/en/examples/registry/consul.md)
+- [Etcd](https://goframe.org/en/examples/registry/etcd.md)
+- [File](https://goframe.org/en/examples/registry/file.md)
+- [Nacos](https://goframe.org/en/examples/registry/nacos.md)
+- [Polaris](https://goframe.org/en/examples/registry/polaris.md)
+
+### Practices
+
+- [Dependency Injection](https://goframe.org/en/examples/practices/injection.md)
+- [MVC Demo Chat](https://goframe.org/en/docs/practices/mvc-demo-chat.md)
+- [Quick Demo](https://goframe.org/en/docs/practices/quick-demo.md)
+- [gRPC Service](https://goframe.org/en/examples/practices/user-grpc-service.md)
+- [User HTTP Service](https://goframe.org/en/examples/practices/user-http-service.md)
+
+## References
+
+Various other materials related to the GoFrame framework, providing developers with comprehensive usage guides and technical references to…
+
+- [Happily Upgrade from v1 to v2](https://goframe.org/en/docs/other/happy-upgrading-from-v1-to-v2.md)
+- [Printing Placeholder Format](https://goframe.org/en/docs/other/printing-format.md)
+- [Appendix: System Signals List](https://goframe.org/en/docs/other/system-signals.md)
+
+### Environment Preparation
+
+- [Installation](https://goframe.org/en/docs/install-go/index.md)
+- [Go Module](https://goframe.org/en/docs/install-go/go-module.md)
+- [Configuration](https://goframe.org/en/docs/install-go/config-env.md)
+- [Private Modules](https://goframe.org/en/docs/install-go/private-go-module.md)
+
+## FAQ
+
+- [Frequently Asked Questions (FAQ)](https://goframe.org/en/docs/faq.md)
+
+## External resources
+
+- [Website](https://goframe.org)
+- [English site](https://goframe.org/en)
+- [Source code](https://github.com/gogf/gf)
+- [Go package docs](https://pkg.go.dev/github.com/gogf/gf/v2)
+- [GoFrame Skills](https://github.com/gogf/skills)
+- [Documentation source](https://github.com/gogf/gf-site)

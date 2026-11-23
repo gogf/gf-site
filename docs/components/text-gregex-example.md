@@ -1,0 +1,25 @@
+# 正则表达式-基本使用
+
+一个简单示例：
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/gogf/gf/v2/text/gregex"
+)
+
+func main() {
+    match, _ := gregex.MatchString(`(\w+).+\-\-\s*(.+)`, `GoFrame is best! -- John`)
+    fmt.Printf(`%s says "%s" is the one he loves!`, match[2], match[1])
+}
+```
+
+执行后，输出结果为：
+
+```
+John says "GoFrame" is the one he loves!
+```
+
+> 页面: https://goframe.org/docs/components/text-gregex-example

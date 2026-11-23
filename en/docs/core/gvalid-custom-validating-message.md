@@ -1,0 +1,102 @@
+# Data Validation - Error Msg
+
+The data validation component supports the `i18n` feature, implemented internally using the unified `i18n` component of the `goframe` framework. By default, it uses the default `i18n` singleton object, i.e., the `g.I18n()` object.
+
+Before further use, please refer to the chapter on configuring and using the `i18n` internationalization feature: [I18N](https://goframe.org/en/docs/core/gi18n.md)
+
+## Configuration Example
+
+### Default `i18n` Error Message
+
+The reference for the default English internationalization language configuration file: [https://github.com/gogf/gf/tree/master/util/gvalid/i18n/en](https://github.com/gogf/gf/tree/master/util/gvalid/i18n/en)
+
+### Chinese Error Message
+
+We provide a recommended Chinese `i18n` internationalization language configuration file: [https://github.com/gogf/gf/tree/master/util/gvalid/i18n/cn](https://github.com/gogf/gf/tree/master/util/gvalid/i18n/cn)
+
+### Default Error Message
+
+When the corresponding rule's error message cannot be found in `i18n`, it will use the error message configured in `__default__`. This is often used in custom rules.
+
+## Development Example
+
+We set the error message `i18n` language for requests uniformly through middleware.
+
+### Directory Structure
+
+**Warning**
+
+Pay attention to the project directory structure so that the default `g.i18n()` object can automatically read the configuration. A significant number of users stumble here.
+
+```
+├── main.go
+└── i18n
+    ├── en.toml
+    └── zh-CN.toml
+```
+
+### `i18n` Files
+
+`en.toml`
+
+```
+"ReuiredUserName" = "Please input user name"
+"ReuiredUserType" = "Please select user type"
+```
+
+`zh-CN.toml`
+
+```
+"ReuiredUserName" = "请输入用户名称"
+"ReuiredUserType" = "请选择用户类型"
+```
+
+### Example Code
+
+```go
+package main
+
+import (
+    "github.com/gogf/gf/v2/frame/g"
+    "github.com/gogf/gf/v2/i18n/gi18n"
+    "github.com/gogf/gf/v2/os/gctx"
+    "github.com/gogf/gf/v2/util/gconv"
+)
+
+func main() {
+    type User struct {
+        Name string `v:"required#ReuiredUserName"`
+        Type int    `v:"required#ReuiredUserType"`
+    }
+    var (
+        ctx  = gctx.New()
+        data = g.Map{
+            "name": "john",
+        }
+        user  = User{}
+        ctxEn = gi18n.WithLanguage(ctx, "en")
+        ctxCh = gi18n.WithLanguage(ctx, "zh-CN")
+    )
+
+    if err := gconv.Scan(data, &user); err != nil {
+        panic(err)
+    }
+    // English
+    if err := g.Validator().Assoc(data).Data(user).Run(ctxEn); err != nil {
+        g.Dump(err.String())
+    }
+    // Chinese
+    if err := g.Validator().Assoc(data).Data(user).Run(ctxCh); err != nil {
+        g.Dump(err.String())
+    }
+}
+```
+
+After execution, the terminal output:
+
+```
+Please select user type
+请选择用户类型
+```
+
+> Page: https://goframe.org/en/docs/core/gvalid-custom-validating-message

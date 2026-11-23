@@ -1,0 +1,105 @@
+# 开发环境配置
+
+## Go环境变量
+
+为方便开发，在开发环境往往需要设置三个环境变量:
+
+1. `$GOROOT`： `go` 的安装目录，配置后不会再更改;
+2. `$GOPATH`： `go` 项目在本地的开发环境的的项目根路径(以便项目编译， `go build`, `go install`)，不同的项目在编译的时候该环境变量可以不同;
+3. `$PATH`（重要）：需要将 `go` 的 `bin` 目录添加到系统 `$PATH` 中以便方便使用go的相关命令，配置后也不会再更改;
+
+`Go`的环境变量在官方文档中也有详情的说明，请参考链接： [https://golang.google.cn/doc/install/source](https://golang.google.cn/doc/install/source)
+
+**提示**
+
+环境变量中的 `$GOOS` 和 `$GOARCH` 是比较实用的两个变量，可以用在不同平台的交叉编译中，只需要在 `go build` 之前设置这两个变量即可，这也是`Go`语言的优势之一：可以编译生成跨平台运行的可执行文件。例如，在 `Linux amd64` 架构下编译 `Windows x86` 的可执行文件，可以使用如下命令:
+
+```
+CGO_ENABLED=0 GOOS=windows GOARCH=386 go build hello.go
+```
+
+遗憾的是交叉编译暂不支持 `cgo` 方式，因此需要将环境变量 `$CGO_ENABLED` 设置为`0`，这样执行之后会在当前目录生成一个 `hello.exe` 的 `windows x86` 架构的可执行文件。
+
+### 环境变量设置
+
+除了 `$PATH` 环境外，其他环境变量都是可选的。
+
+为什么说这个步骤可选呢？因为未来的 `Go` 版本慢慢开始移除对 `$GOPATH`/ `$GOROOT` 的支持。此外，在 `Goland` 这个`IDE`中集成有 `Terminal` 功能，直接使用这个功能中已经设置好了环境变量。
+
+### `*nix` 下设置环境变量
+
+在 `*nix` 系统下(`Linux/Unix/MacOS/*BSD` 等等)，需要在 `/etc/profile` 中增加以下环境变量设置后，执行命令 `#source /etc/profile` 重新加载profile配置文件（或重新登录），将以下变量添加到用户的环境变量中:
+
+```bash
+export GOROOT=/usr/local/go
+export GOPATH=/Users/john/Workspace/Go/GOPATH
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
+
+### `Windows` 下设置环境变量
+
+`Windows`如何修改系统环境变量，以及修改环境变量 `PATH`，请参考网上教程（ [百度](https://www.baidu.com/s?wd=Windows%20%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%20PATH) 或 [Google](https://www.google.com/search?q=Windows+修改系统环境变量+PATH)）。
+
+## IDE工具配置
+
+本文以 `Goland` 开发工具为基础，介绍在该IDE下的常用工具配置。
+
+常用的工具包括：
+
+1. `go fmt` : 统一的代码格式化工具（必须）。
+2. `golangci-lint` : 静态代码质量检测工具，用于包的质量分析（推荐）。
+3. `goimports` : 自动 `import` 依赖包工具（可选）。
+4. `golint` : 代码规范检测，并且也检测单文件的代码质量，比较出名的Go质量评估站点 [Go Report](https://goreportcard.com) 在使用（可选）。
+
+### `go fmt`, `goimports`, `golangci-lint`
+
+由于这三个工具是 `Goland` 自带的，因此配置比较简单，参考以下图文操作示例：
+
+1. 在 `Goland` 的设置中，选择 `Tools` - `File Watchers`，随后选择添加
+
+2. 依次点击添加这3个工具，使用默认的配置即可
+
+3. 随后在撸代码的过程中保存代码文件时将会自动触发这3个工具的自动检测。
+
+### `golint` 工具的安装及配置(可选)
+
+#### `golint` 的安装
+
+由于 `Goland` 没有自带 `golint` 工具，因此首先要自己去下载安装该工具。
+
+**如果有goproxy配置了**，可以直接 `go install golang.org/x/lint/golint@latest` 安装，就不需要使用下方命令了。
+
+使用以下命令安装：
+
+```bash
+mkdir -p $GOPATH/src/golang.org/x/
+cd $GOPATH/src/golang.org/x/
+git clone https://github.com/golang/lint.git
+git clone https://github.com/golang/tools.git
+cd $GOPATH/src/golang.org/x/lint/golint
+go install
+```
+
+安装成功之后将会在 `$GOPATH/bin` 目录下看到自动生成了 `golint` 二进制工具文件。
+
+#### `golint` 的配置
+
+1. 随后在 `Goland` 的 `Tools` - `File Watchers` 配置下，通过复制 `go fmt` 的配置
+
+2. 修改 `Name`, `Program`, `Arguments` 三项配置，其中 `Arguments` 需要加上 `-set_exit_status` 参数，如图所示:
+
+3. 保存即可，随后在代码编写中执行保存操作时将会自动触发 `golint` 工具检测。
+
+### `golangci-lint` 的配置(可选)
+
+1.  随后在 `Goland` 的 `Tools` \- `File Watchers` 配置下，通过复制 `go fmt` 的配置
+
+2. 修改 `Name`, `Program`, `Arguments` 三项配置，其中 `Arguments` 需要加上 `run $FileDir$` 参数， `注意：` 如 `Advanced Options`的选项可以在机器比较慢的时取消选择，如图所示：
+
+3. 保存即可，随后在代码编写中执行保存操作时将会自动触发 `golangci-lint` 工具检测。
+
+4. 通过 `go Linter` 插件管理 `golangci-lint` 工具的配置，如下是 `go Linter` 的安装以及配置。
+
+## IDE代码风格配置
+
+> 页面: https://goframe.org/docs/install-go/config-env
