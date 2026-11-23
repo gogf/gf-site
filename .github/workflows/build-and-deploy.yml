@@ -39,7 +39,7 @@ jobs:
         run: |
           bash .github/workflows/generate-changelog.sh
 
-      - name: Build website
+      - name: Build website and llms.txt
         run: |
           make build
 
