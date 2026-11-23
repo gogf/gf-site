@@ -482,6 +482,30 @@ const Users: User[] = [
     source: '',
     tags: ['frontui', 'tool', 'v2'],
   },
+  {
+    title: 'Hinay Admin',
+    description: '通用后台管理系统脚手架，前后端分离。后端 GoFrame v2 + MySQL/Redis/JWT/Casbin，前端 Nuxt 4 + Vue 3 + Element Plus。',
+    preview: require('./showcase/hinay-admin.webp'),
+    website: 'https://gitee.com/hinay/hinayadmin',
+    source: 'https://gitee.com/hinay/hinayadmin',
+    tags: ['opensource', 'adminui', 'v2'],
+  },
+  {
+    title: 'FssAdmin',
+    description: '基于 GoFrame 的企业级中后台，一套 REST API 对应两套 Vue 3 前台，集成 JWT、多租户、RBAC、定时任务与监控运维。',
+    preview: require('./showcase/fss-admin.webp'),
+    website: 'https://gf.phpframe.org',
+    source: 'https://github.com/xuey490/FssAdmin_goframe',
+    tags: ['opensource', 'adminui', 'v2'],
+  },
+  {
+    title: 'AppKernia',
+    description: '面向生产的跨平台应用基座：基于 GoFrame v2 的 Go API/Worker、React 管理后台，以及 uni-app x 移动端。',
+    preview: require('./showcase/appkernia.webp'),
+    website: 'https://www.appkernia.com/',
+    source: 'https://github.com/Payhon/AppKernia',
+    tags: ['opensource', 'adminui', 'product', 'v2'],
+  },
 ];
 
 export type User = {
