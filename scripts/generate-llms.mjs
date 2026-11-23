@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generate llms.txt, llms-full.txt, and one Markdown file per doc page.
+ * Generate llms.txt and one Markdown file per doc page.
  *
  * The index follows https://llmstxt.org/ : agents read /llms.txt first, then
  * fetch only the linked Markdown. Output is the current docs (not historical
@@ -105,7 +105,7 @@ const LOCALES = [
       summary:
         'GoFrame 是 Go 语言的模块化应用开发框架。本文件是当前最新版本文档的入口索引。AI Agent 先按章节定位，再请求对应的 Markdown 链接，不必一次读完全部文档。',
       detail:
-        'GoFrame 既可以作为完整项目框架使用，也可以按需引入 `github.com/gogf/gf/v2` 中的独立组件。每条链接指向该页面的 Markdown 原文。需要单文件版本时读取 [llms-full.txt](https://goframe.org/llms-full.txt)。',
+        'GoFrame 既可以作为完整项目框架使用，也可以按需引入 `github.com/gogf/gf/v2` 中的独立组件。每条链接指向该页面的 Markdown 原文。',
       order:
         '推荐阅读顺序：快速开始，核心组件，WEB 服务开发，数据库 ORM，组件列表。需要生成代码时先读 GoFrame Skills。',
       start: '从这里开始',
@@ -133,7 +133,7 @@ const LOCALES = [
       summary:
         'GoFrame is a modular application framework for Go. This file indexes the latest documentation. An AI agent should locate a topic here, then fetch that page\'s Markdown instead of reading the whole site.',
       detail:
-        'GoFrame can be used as a full project framework, or as individual components from `github.com/gogf/gf/v2`. Each link points at the Markdown source of that page. The single-file copy is [llms-full.txt](https://goframe.org/en/llms-full.txt).',
+        'GoFrame can be used as a full project framework, or as individual components from `github.com/gogf/gf/v2`. Each link points at the Markdown source of that page.',
       order:
         'Suggested order: Quick Start, Core Components, Web Server, Database ORM, Components. Read GoFrame Skills before generating code.',
       start: 'Start here',
@@ -596,9 +596,6 @@ function buildLocale(locale, outRoot) {
   lines.push('');
 
   const index = lines.join('\n').replace(/\n{3,}/g, '\n\n');
-  const full = order
-    .map((page) => `# ${page.title}\n\n${page.clean}\n\n> ${locale.copy.source}: ${locale.origin}${page.slug}`.trim())
-    .join('\n\n---\n\n');
 
   const localeOut = path.join(outRoot, locale.out);
   fs.mkdirSync(localeOut, { recursive: true });
@@ -614,7 +611,6 @@ function buildLocale(locale, outRoot) {
     fs.writeFileSync(dest, content.endsWith('\n') ? content : content + '\n');
   }
   fs.writeFileSync(path.join(localeOut, 'llms.txt'), index.endsWith('\n') ? index : index + '\n');
-  fs.writeFileSync(path.join(localeOut, 'llms-full.txt'), full + '\n');
 
   const missing = [];
   for (const page of order) {
@@ -632,7 +628,6 @@ function buildLocale(locale, outRoot) {
     indexed: order.length,
     hubs: published.filter((page) => page.hubOnly).length,
     llmsBytes: fs.statSync(path.join(localeOut, 'llms.txt')).size,
-    fullBytes: fs.statSync(path.join(localeOut, 'llms-full.txt')).size,
   };
 }
 
