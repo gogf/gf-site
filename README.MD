@@ -19,6 +19,10 @@ yarn remove @docusaurus/theme-classic
 # 运行
 yarn start
 
+# 后台启动 / 停止（http://localhost:3000）
+make dev
+make stop
+
 # 指定i18n语言运行
 yarn start --locale en
 

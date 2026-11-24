@@ -19,3 +19,12 @@ examples:
 .PHONY: check
 check:
 	bash .github/workflows/consistency-check.sh
+
+# Local docs server. `make dev` runs `yarn start` (zh-Hans) in the background.
+# Pid and log are written under temp/, which is gitignored.
+.PHONY: dev stop
+dev:
+	@bash scripts/dev-server.sh start
+
+stop:
+	@bash scripts/dev-server.sh stop
